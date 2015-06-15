@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>TalentManagementTool(old)</display-name>
+  <display-name>TalentManagementTool</display-name>
   <welcome-file-list>
     <welcome-file>login.html</welcome-file>
     <welcome-file>login.htm</welcome-file>
@@ -13,7 +13,7 @@
     <description></description>
     <display-name>AdminLogin</display-name>
     <servlet-name>AdminLogin</servlet-name>
-    <servlet-class>com.accenture.tmt.servlets.AdminLogin</servlet-class>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AdminLogin</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AdminLogin</servlet-name>
