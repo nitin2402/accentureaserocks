@@ -1,4 +1,4 @@
-package com.accenture.tmt.dao.dto;
+package com.accenture.tmt.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.common.ValidateObjects;
-import com.accenture.tmt.presentation.dto.LoginFlatDTO;
+import com.accenture.tmt.dao.dto.LoginFlatDTO;
 
 
 public class LoginDAO {
@@ -17,7 +17,7 @@ public class LoginDAO {
 		LoginFlatDTO flatDTO = new LoginFlatDTO();
 		ResultSet rs = null;
 		try {
-			Connection con = DBConnection.connect();
+			Connection con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st = con
 						.prepareStatement(CONSTANTS.LOGIN_CHECK_QUERY);
@@ -37,6 +37,9 @@ public class LoginDAO {
 				}
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

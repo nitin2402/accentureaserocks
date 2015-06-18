@@ -1,4 +1,4 @@
-package com.accenture.tmt.presentation.dto;
+package com.accenture.tmt.dao.dto;
 
 public class LoginFlatDTO {
 	private String userName;

@@ -1,8 +1,8 @@
 package com.accenture.tmt.manager;
 
-import com.accenture.tmt.dao.dto.LoginDAO;
+import com.accenture.tmt.dao.LoginDAO;
+import com.accenture.tmt.dao.dto.LoginFlatDTO;
 import com.accenture.tmt.presentation.dto.LoginDTO;
-import com.accenture.tmt.presentation.dto.LoginFlatDTO;
 
 public class LoginController {
 	
