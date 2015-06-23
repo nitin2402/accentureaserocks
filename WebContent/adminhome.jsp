@@ -232,19 +232,20 @@
  -->
 </head>
 <body>
-	<%-- <%
+ <%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
-				|| (Boolean) session1.getAttribute("admin") != true) {
-	%><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
+				|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 	<%
 		}
-	%> --%>
+	%> 
+	
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
+			<div id="site_title">Talent Management Tool</div>
 			<div id="slogan">The place to look back</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
@@ -255,6 +256,7 @@
 
 	<div id="templatemo_menu">
 		<ul>
+		  
 			<li><a href="adminhome.jsp" class="current">Home</a></li>
 			<li><a href="addempvia.jsp">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>

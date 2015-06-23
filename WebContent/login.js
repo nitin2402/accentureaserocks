@@ -28,4 +28,14 @@
 			alert("Please provide Password");
 			return false;
 		}
+		
+	 function checkUserType(){
+		 /*if (session1.getAttribute("admin") == "ADMIN")
+			 return 1;
+		 else if (session1.getAttribute("admin") == "USER")
+			 return 2;
+		 else 
+			 return 3;*/
+		 alert("Hi");
+	 }	
 	}
