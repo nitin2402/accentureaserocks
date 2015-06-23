@@ -1,28 +1,28 @@
 package com.accenture.tmt.presentation.servlet;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.accenture.tmt.dao.dto.TeamDetailsDTO;
-import com.accenture.tmt.manager.TeamController;
+import com.accenture.tmt.manager.ModuleController;
 
 
 /**
- * Servlet implementation class DeleteTeam
+ * Servlet implementation class FetchModule
  */
-public class DeleteTeam extends HttpServlet {
+public class FetchModule extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteTeam() {
+    public FetchModule() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,6 +32,7 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request,response);
 	}
 
 	/**
@@ -39,17 +40,14 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String teamID=null;
-		TeamDetailsDTO team =new TeamDetailsDTO();
-		team.setTeamId(request.getParameter(null));
-		
-		TeamController delete =new TeamController();
-		try {
-			delete.deleteTeam(teamID);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	List<String> li = new ArrayList<String>();
+	ModuleController fetch = new ModuleController();
+	li = fetch.fetchModule();
+	//System.out.println(li);
+	//System.out.println(li.getItem(0));
+	
+	request.setAttribute("modu", li);
+	//request.getRequestDispatcher("addemployee.jsp").forward(request, response);
 	}
 
 }

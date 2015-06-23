@@ -2,27 +2,26 @@ package com.accenture.tmt.presentation.servlet;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.accenture.tmt.dao.dto.TeamDetailsDTO;
-import com.accenture.tmt.manager.TeamController;
+import com.accenture.tmt.manager.ModuleController;
+
 
 
 /**
- * Servlet implementation class DeleteTeam
+ * Servlet implementation class EditModuleFinal
  */
-public class DeleteTeam extends HttpServlet {
+public class EditModuleFinal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteTeam() {
+    public EditModuleFinal() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,6 +31,7 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -39,17 +39,21 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String teamID=null;
-		TeamDetailsDTO team =new TeamDetailsDTO();
-		team.setTeamId(request.getParameter(null));
+		String modulename = request.getParameter("modulename");
+		String project = request.getParameter("project");
+		String moduledesc = request.getParameter("moduledesc");
+		String moduleid = request.getParameter("moduleid");
 		
-		TeamController delete =new TeamController();
-		try {
-			delete.deleteTeam(teamID);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ModuleController edit = new ModuleController();
+		int a = edit.editModule(modulename, project, moduledesc, moduleid);
+if(a!=0)
+{request.setAttribute("message","Module Updated");
+request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
 	}
-
+if (a==0)
+{
+	request.setAttribute("message","Module not Updated");
+	request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
+	}
+}
 }

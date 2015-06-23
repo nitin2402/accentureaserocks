@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.manager.LoginController;
@@ -44,9 +45,10 @@ public class AdminLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		int check = 0;
+
 		String username = request.getParameter(CONSTANTS.USER_NAME);
 		String password = request.getParameter(CONSTANTS.PASS_WORD);
+	
 		LoginDTO loginCred = new LoginDTO();
 		
 		loginCred.setUsername(username);
@@ -54,13 +56,37 @@ public class AdminLogin extends HttpServlet {
 		LoginController ctrl = new LoginController();
 		LoginDTO loggedInDto = ctrl.checkLogin(loginCred);
 		
-		if(check == 1){
-			response.sendRedirect("adminhome.jsp");
+		String userType = loggedInDto.getUserType();
+
+		if( CONSTANTS.ADMIN .equals(userType)){
+			HttpSession session1 = request.getSession();
+			
+			session1.setAttribute("user",username);
+			session1.setAttribute("userType",userType);
+			session1.setAttribute("admin", "admin");
+			response.sendRedirect("adminhome.jsp?name="+username);
+			
 		}
-		if(check == 2){
-			response.sendRedirect("userhome.jsp");
+		if(CONSTANTS.USER .equals(userType)){
+			
+			HttpSession session1 = request.getSession();
+			
+			session1.setAttribute("user", username);
+			session1.setAttribute("userType", userType);
+			session1.setAttribute("admin", "user");
+			response.sendRedirect("userhome.jsp?name="+username);
+			
+			
 		}
-		if(check == 0){
+		if(CONSTANTS.VIEWER .equals(userType)){
+			HttpSession session1 = request.getSession();
+			
+			session1.setAttribute("user", username);
+			session1.setAttribute("userType", userType);
+			session1.setAttribute("admin", "viewer");
+			 response.sendRedirect("viewerhome.jsp?name="+username);
+					}
+		if(CONSTANTS.NOT_A_USER .equals(userType) ){
 			response.sendRedirect("login.jsp?msg=Please Register First to access this Application");
 		}
 		

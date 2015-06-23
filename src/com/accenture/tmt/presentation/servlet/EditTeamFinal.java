@@ -2,27 +2,26 @@ package com.accenture.tmt.presentation.servlet;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.accenture.tmt.dao.dto.TeamDetailsDTO;
+import com.accenture.tmt.manager.ModuleController;
 import com.accenture.tmt.manager.TeamController;
 
 
 /**
- * Servlet implementation class DeleteTeam
+ * Servlet implementation class EditTeamFinal
  */
-public class DeleteTeam extends HttpServlet {
+public class EditTeamFinal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteTeam() {
+    public EditTeamFinal() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,6 +31,7 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -39,17 +39,26 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String teamID=null;
-		TeamDetailsDTO team =new TeamDetailsDTO();
-		team.setTeamId(request.getParameter(null));
+		String teamname = request.getParameter("teamname");
+		String module = request.getParameter("module");
+		String teamdesc = request.getParameter("teamdesc");
+		String teamid = request.getParameter("teamid");
 		
-		TeamController delete =new TeamController();
-		try {
-			delete.deleteTeam(teamID);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		ModuleController id  =new ModuleController();
+		String moduleid = id.fetchModuleid(module); 
+		
+		TeamController edit = new TeamController();
+		int a = edit.EditTeam(teamname, moduleid, teamdesc, teamid);
+		if(a!=0)
+		{request.setAttribute("message","Team Updated");
+		request.getRequestDispatcher("viewteam.jsp").forward(request, response);
+			}
+		if (a==0)
+		{
+			request.setAttribute("message","Team not Updated");
+			request.getRequestDispatcher("viewteam.jsp").forward(request, response);
+			}
 		}
 	}
 
-}
+

@@ -2,27 +2,30 @@ package com.accenture.tmt.presentation.servlet;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.accenture.tmt.dao.dto.TeamDetailsDTO;
+import com.accenture.tmt.manager.ModuleController;
 import com.accenture.tmt.manager.TeamController;
 
 
+
 /**
- * Servlet implementation class DeleteTeam
+ * Servlet implementation class FetchTeamChart
  */
-public class DeleteTeam extends HttpServlet {
+public class FetchTeamChart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteTeam() {
+    public FetchTeamChart() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,6 +35,7 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -39,17 +43,21 @@ public class DeleteTeam extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String teamID=null;
-		TeamDetailsDTO team =new TeamDetailsDTO();
-		team.setTeamId(request.getParameter(null));
+		String htmlTree = "<ul>";
+		List<String> tempLi = new ArrayList<String>();
+		String module = request.getParameter("moduleName");
+		ModuleController temp = new ModuleController();
+		String moduleId = temp.fetchModuleid(module);
+		TeamController fetchTeam = new TeamController();
+		tempLi = fetchTeam.fetchTeams(moduleId);
 		
-		TeamController delete =new TeamController();
-		try {
-			delete.deleteTeam(teamID);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for (int j = 0; j < tempLi.size(); j++) {
+			htmlTree += "<li class=\"teamclick\" id = \""+module+1+"\"><a  href=\"#\">" + tempLi.get(j)
+					+ "</a></li>";
 		}
+		htmlTree += "</ul>";
+		PrintWriter print = response.getWriter();
+		print.print(htmlTree);
 	}
 
 }
