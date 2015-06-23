@@ -1,28 +1,82 @@
 package com.accenture.tmt.manager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
-import com.accenture.tmt.common.DBConnection;
+import com.accenture.tmt.dao.TeamDAO;
+import com.accenture.tmt.dao.dto.TeamDetailsDTO;
+import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 public class TeamController {
-	public int DeleteTeam(String teamID) throws SQLException, ClassNotFoundException{
-		Connection con = DBConnection.getConnection();
-		int a=0;
-		try{
-			
-			String sqlInsert = "UPDATE Team SET Status = 'N' WHERE TeamId = ?";
-			PreparedStatement st = con.prepareStatement(sqlInsert);
-			a=st.executeUpdate(teamID, 1);
-		}
-		finally{
-			con.commit();
-			con.close();
-			
-		}
-		return a;
-		
+	TeamDAO teamDAO= new TeamDAO();
+	
+	public  int deleteTeam(String teamID) throws ClassNotFoundException, SQLException{
+		int status=teamDAO.deleteTeam(teamID);
+		return status;
 	}
 
+
+	public int addTeam(String tName, String moduleId) {
+		int status=teamDAO.addTeam(tName,moduleId);
+		return status;
+	}
+	
+/*	public List<TeamDetailsDO> fetchTeamDetails(
+			TeamDetailsDO tDetailsDO) {
+		List<TeamDetailsDO> listOfTeams = new ArrayList<TeamDetailsDO>();
+		try {
+			Connection con = DBConnect.getConnection();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery("select * from Team");
+			TeamDetailsDO teamDetailsDO = null;
+			while (rs.next()) {
+
+				teamDetailsDO = new TeamDetailsDO();
+				teamDetailsDO.settName(rs.getString(1));
+				teamDetailsDO.settCode(rs.getString(2));
+				
+				listOfTeams.add(teamDetailsDO);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listOfTeams;
+	}
+	*/
+	public String fetchTeamid(String team , String mid){
+		String status=teamDAO.fetchTeam(team, mid);
+		return status;
+		}
+	
+	public  List<String> fetchModule() {
+		List<String> ModuleList=teamDAO.fetchModule();
+		return ModuleList;
+		}
+	
+	public  List<String> fetchTeams(String moduleId) {
+		List<String> TeamList=teamDAO.fetchTeams(moduleId);
+		return TeamList;
+		}
+	
+	public int EditTeam(String teamname , String module ,String teamdescription,String teamId) {
+		int status=teamDAO.editTeam(teamname, module, teamdescription, teamId);
+		return status;
+	}
+	
+	public List<TeamDetailsDTO> FetchTeamDetails(String teamId)
+	{
+		List<TeamDetailsDTO> TeamDetailsList=teamDAO.fetchTeamDetails(teamId);
+		return TeamDetailsList;
+	}
+	
+	public  List<String> fetchTeam(String module) {
+		List<String> teamList=teamDAO.fetchTeam(module);
+		return teamList;
+    }
+	
+	public  List<TeamFormDTO> fetchTeamDetails() {
+		List<TeamFormDTO> teamList=teamDAO.fetchTeamDetails();
+		return teamList;
+	}
 }
