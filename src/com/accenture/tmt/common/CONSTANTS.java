@@ -13,6 +13,9 @@ public interface CONSTANTS {
 	public String EMPLOYEE_EMAIL = "EmployeeEmail";
 	public String EMPLOYEE_EXPERTISE = "EmployeeExpertise";
 	public String TEAM_ID = "TeamId";
+	public String Team_Decs= "TeamDescription";
+	public String TEAM_NAME= "TeamName";
+	public String Module_Id= "ModuleId";
 	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeAttId,EmployeeEmail) values(?,?,?,?,?,?,?)";
 	public String SHEET_NO = "sheetno";
 	public String FILE_NAME = "file1";
@@ -65,7 +68,9 @@ public interface CONSTANTS {
 	public String NEW_USER_PASS_WORD = "password";
 	public String PASSWORD = "password";
 	public String USERNAME = "userName";
+	public String TEAM_INSERT = "insert into Team (TeamName,TeamId,ModuleId,TeamDescription) values(?,?,?,?)";
 
+	public String TEAM_UPDATE_QUERY = "UPDATE Team SET TeamName=?,TeamId=?,ModuleId=?,TeamDescription=?";
 	
 	
 }
