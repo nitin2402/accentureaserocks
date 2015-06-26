@@ -12,7 +12,31 @@ import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.TeamDetailsDTO;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
+
 public class TeamDAO {
+	public int addEmployee(TeamDetailsFlatDTO TeamDetailsFlatDTO) {
+		int a = 0;
+		try {
+			Connection con = DBConnection.connect();
+			PreparedStatement st = con.prepareStatement(CONSTANTS.TEAM_INSERT );
+			st.setString(1, TeamDetailsFlatDTO.getTeamName());
+			st.setString(2, TeamDetailsFlatDTO.getTeamid());
+			st.setString(3, TeamDetailsFlatDTO.getModuleId());
+			st.setString(4, TeamDetailsFlatDTO.getTeamDesc());
+			a = st.executeUpdate();
+			con.commit();
+			con.close();
+		} catch (SQLException | ClassNotFoundException exception) {
+			// TODO Auto-generated catch block
+			exception.printStackTrace();
+		} finally {
+		
+			// TODO: release connection
+		}
+		return a;
+	}
 	public int addTeam(String tName,String moduleId){
 		int status=0;
 		try {
