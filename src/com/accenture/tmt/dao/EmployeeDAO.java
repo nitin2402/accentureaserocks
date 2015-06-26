@@ -63,11 +63,11 @@ public class EmployeeDAO {
 				searchDetailsDTO.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
 				searchDetailsDTO.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 				searchDetailsDTO.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				searchDetailsDTO.setAtt(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
+				searchDetailsDTO.setClientId(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
 				searchDetailsDTO.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
-				searchDetailsDTO.setTeam(rs.getString(CONSTANTS.TEAM_NAME));
-				searchDetailsDTO.setModule(rs.getString(CONSTANTS.MODULE_NAME));
-				searchDetailsDTO.setProject(rs.getString(CONSTANTS.PROJECT));
+//				searchDetailsDTO.setTeamId(teamId);rs.getString(CONSTANTS.TEAM_NAME));
+//				searchDetailsDTO.setModule(rs.getString(CONSTANTS.MODULE_NAME));
+//				searchDetailsDTO.setProject(rs.getString(CONSTANTS.PROJECT));
 				employeeList.add(searchDetailsDTO);
 
 			}
@@ -105,6 +105,47 @@ public class EmployeeDAO {
 		}
 		return empCount;
 		
+	}
+	public List<EmployeeDetailsFlatDTO> viewEmployee(){
+		List<EmployeeDetailsFlatDTO> empList = new ArrayList<EmployeeDetailsFlatDTO>();
+		try {
+			EmployeeDetailsFlatDTO details = null;
+			
+			Connection con = DBConnection.getConnection();
+			Statement st = con.createStatement();
+			
+			String querry = "select * from Employee";
+			ResultSet rs = st.executeQuery(querry);
+			
+			while(rs.next())
+			{
+				details = new EmployeeDetailsFlatDTO();
+				details.setEmpId(rs.getString("EmployeeId"));
+				details.setEmpName(rs.getString("EmployeeName"));
+				details.setDesignation(rs.getString("EmployeeDesignation"));
+				details.setExpertise(rs.getString("EmployeeExpertise"));
+				//details.setLevel(rs.getString("EmployeeLevel"));
+				//details.setExpertise(rs.getString("Expertise"));
+				//details.setProficiency(rs.getString("Proficiency"));
+				//details.setProject(rs.getString("Project"));
+				//details.setClientId(rs.getString("ClientId"));
+				//details.setBillability(rs.getString("Billability"));
+				//details.setEmail(rs.getString("Email"));
+				details.setTeamId(rs.getString("TeamId"));
+				
+				empList.add(details);
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return empList;
 	}
 	public List<EmployeeDetailsFlatDTO> fetchEmployeeList(String teamID){
 		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
