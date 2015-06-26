@@ -269,11 +269,10 @@
 			<div class="right_col_section_w650">
 
 				<div class="header_01">Hi Im Admin</div>
-				<div class="header_09"></div>
 
 				<div class="container">
 					<iframe align="middle"
-						src="http://localhost:8080/TMT/Docs/testing.pdf#view=Fit&toolbar=0"
+						src="/TMT/Docs/testing.pdf#view=Fit&toolbar=0"
 						style="width: 600px; height: 400px;" frameborder="0"></iframe>
 					<%-- <div id="piechart"
 						style="background-colour: red; height: 300px; width: 600px"
@@ -283,6 +282,7 @@
 
 
 					<div class="cleaner">&nbsp;</div> --%>
+					<div class="header_09"></div>
 				</div>
 
 				<div class="margin_bottom_20">&nbsp;</div>
