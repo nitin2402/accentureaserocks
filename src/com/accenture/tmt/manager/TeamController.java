@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.accenture.tmt.dao.TeamDAO;
 import com.accenture.tmt.dao.dto.TeamDetailsDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 public class TeamController {
@@ -78,5 +79,26 @@ public class TeamController {
 	public  List<TeamFormDTO> fetchTeamDetails() {
 		List<TeamFormDTO> teamList=teamDAO.fetchTeamDetails();
 		return teamList;
+	}
+	public int addTeam(TeamDetailsFlatDTO detailsDO)
+	{	
+	
+	TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
+	detailsFD.setTeamName(detailsDO.getTeamName());
+	detailsFD.setTeamid(detailsDO.getTeamid());
+	detailsFD.setModuleId(detailsDO.getModuleId());
+	detailsFD.setTeamDesc(detailsDO.getTeamDesc());
+	TeamDAO dao1 =new TeamDAO();
+	int b=dao1.addTeam(detailsFD);
+	
+	if(b!=0){
+		System.out.println("Record Inserted");
+	}
+	if(b ==0){
+		System.out.println("Record insertion failed");
+	
+	}
+	return b;
+	
 	}
 }
