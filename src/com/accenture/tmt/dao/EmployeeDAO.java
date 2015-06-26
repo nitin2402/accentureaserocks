@@ -190,11 +190,15 @@ public class EmployeeDAO {
 				search.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
 				search.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 				search.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				search.setAtt(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
+				search.setClientId(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
 				search.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
-				search.setTeam(rs.getString(CONSTANTS.TEAM_NAME));
-				search.setModule(rs.getString(CONSTANTS.MODULE_NAME));
-				search.setProject(rs.getString(CONSTANTS.PROJECT));
+				search.setTeamId(rs.getString(CONSTANTS.TEAM_ID));
+				search.setProfCamps(rs.getString(CONSTANTS.PROFICIENCY_CAMPS));
+				search.setProfProject(rs.getString(CONSTANTS.PROFICIENCY_PROJECT));
+				search.setDateOfJoining(rs.getDate(CONSTANTS.DATE_OF_JOINING));
+				search.setLastWorkingDay(rs.getDate(CONSTANTS.LAST_WORKING_DAY));
+				search.setBillable(rs.getString(CONSTANTS.BILLABLE));
+				search.setActiveUser(rs.getString(CONSTANTS.ACTIVE_USER));
 				searchList.add(search);
 				
 			}
