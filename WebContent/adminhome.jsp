@@ -8,13 +8,14 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-<link href="pdfreadonly_style.css" rel="stylesheet" type="text/css" />
 
 <!-- <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
+
 	});
 </script>
 <script type="text/javascript">
@@ -29,6 +30,7 @@
 				});
 	});
 </script>
+
 <script src="https://www.google.com/jsapi"></script>
 <script>
 	$("#ajaxResponse").hide();
@@ -38,46 +40,58 @@
 		packages : [ "corechart" ]
 	});
 	function myfunction() {
+
 		var myFunctionObj = new Object();
+
 		var count = 0;
 		var data = [];
 		var options = [];
+
 		var nASE = 10;
 		var nSE = 7;
 		var nSSE = 5;
+
 		/* var nASE =parseInt(ASE);
 		 var nSE = parseInt(SE);
 		 var nSSE = parseInt(SSE); */
 		var nTL = 3;
 		var nAM = 2;
 		var nM = 1;
+
 		var rASE = 310;
 		var rSE = 30;
 		var rSSE = 30;
+
 		/* var nASE =parseInt(ASE);
 		 var nSE = parseInt(SE);
 		 var nSSE = parseInt(SSE); */
 		var rTL = 13;
 		var rAM = 02;
 		var rM = 1;
+
 		var pASE = 110;
 		var pSE = 17;
 		var pSSE = 15;
+
 		/* var nASE =parseInt(ASE);
 		 var nSE = parseInt(SE);
 		 var nSSE = parseInt(SSE); */
 		var pTL = 13;
 		var pAM = 12;
 		var pM = 11;
+
 		data[0] = google.visualization.arrayToDataTable([
 				[ 'Designation', 'number' ], [ 'ASE', nASE ], [ 'SE', nSE ],
 				[ 'SSE', nSSE ], [ 'TL', nTL ], [ 'AM', nAM ], [ 'M', nM ] ]);
+
 		data[1] = google.visualization.arrayToDataTable([
 				[ 'Designation', 'number' ], [ 'ASE', rASE ], [ 'SE', rSE ],
 				[ 'SSE', rSSE ], [ 'TL', rTL ], [ 'AM', rAM ], [ 'M', rM ] ]);
+
 		data[2] = google.visualization.arrayToDataTable([
 				[ 'Designation', 'number' ], [ 'ASE', pASE ], [ 'SE', pSE ],
 				[ 'SSE', pSSE ], [ 'TL', pTL ], [ 'AM', pAM ], [ 'M', pM ] ]);
+
 		options[0] = {
 			is3D : true,
 			backgroundColor : '#647a2f',
@@ -107,6 +121,7 @@
 		};
 		var chart = new google.visualization.PieChart(document
 				.getElementById('piechart'));
+
 		var change = setInterval(next, 3000);
 		function stop() {
 			clearInterval(change);
@@ -114,23 +129,32 @@
 		function next() {
 			if (count == 3)
 				count = 0;
+
 			var chart = new google.visualization.PieChart(document
 					.getElementById('piechart'));
 			chart.draw(data[count], options[count]);
 			count++;
 		}
+
 		myFunctionObj.next = next;
 		myFunctionObj.stop = stop;
+
 	}
+
 	function initialize() {
+
 		myfunction();
 		/*  	
 		setInterval(next, 3000); */
+
 	}
+
 	Multi = new myfunction();
+
 	function clickToStop() {
 		Multi.stop();
 	}
+
 	/*  function next()
 	 {
 		 alert(data[0]);
@@ -142,20 +166,29 @@
 		 chart.draw(data[count],options);
 	 } */
 </script>
+
 <script>
 	function validate(form) {
 		var regExp = /^[a-zA-Z]{1,100}$/;
+
 		var msg1 = document.getElementById("msg1");
+
 		msg1.innerHTML = "";
+
 		if (!regExp.test(form.search_field.value)) {
 			msg1.innerHTML = "Name should be in alpha !";
 			return false;
 		}
+
 	}
 </script>
+
+
+
 <script>
 	$(document).ready(
 			function() {
+
 				$('#search_field').keyup(
 						function(event) {
 							var searchvalue = $("#search_field").val();
@@ -164,7 +197,9 @@
 								url : "/EmployeeMSAccessDB/SearchEmployee",
 								type : "POST",
 								data : 'searchName=' + searchvalue,
+
 								success : function(data) {
+
 									$(".header_01").hide();
 									$(".header_09").show();
 									$(".header_09").text(
@@ -175,31 +210,38 @@
 										$("#ajaxResponse").show();
 										$("#ajaxResponse").html(data);
 									} else {
+
 										$("#ajaxResponse").hide();
+
 										$("#piechart").show().delay(1000);
 										$(".header_09").hide();
 										$(".header_01").show();
+
 									}
+
 								},
 								error : function() {
+
 								}
 							});
+
 						});
 			});
 </script>
+
  -->
 </head>
 <body>
-	<%
+ <%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
-				|| (String) session1.getAttribute("admin") != "admin") {
+				/* || (String) session1.getAttribute("admin") != "admin" */) {
 	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 	<%
 		}
-	%>
-
+	%> 
+	
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
@@ -214,7 +256,7 @@
 
 	<div id="templatemo_menu">
 		<ul>
-
+		  
 			<li><a href="adminhome.jsp" class="current">Home</a></li>
 			<li><a href="addempvia.jsp">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
@@ -269,20 +311,18 @@
 			<div class="right_col_section_w650">
 
 				<div class="header_01">Hi Im Admin</div>
+				<div class="header_09"></div>
 
-				<div class="container">
-					<iframe align="middle"
-						src="/TMT/Docs/testing.pdf#view=Fit&toolbar=0"
-						style="width: 600px; height: 400px;" frameborder="0"></iframe>
-					<%-- <div id="piechart"
+				<div>
+
+					<div id="piechart"
 						style="background-colour: red; height: 300px; width: 600px"
 						onclick="clickToStop()"></div>
 					<div id="ajaxResponse"></div>
 					<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
 
-					<div class="cleaner">&nbsp;</div> --%>
-					<div class="header_09"></div>
+					<div class="cleaner">&nbsp;</div>
 				</div>
 
 				<div class="margin_bottom_20">&nbsp;</div>
@@ -292,7 +332,7 @@
 		</div>
 		<div id="templatemo_content_bottom">&nbsp;</div>
 		<div id="templatemo_footer">
-			Copyright Â© 2015 <a href="www.accenture.com">Accenture</a>
+			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
 	</div>
 </body>
