@@ -1,47 +1,35 @@
 package com.accenture.tmt.presentation.dto;
 
+import java.sql.Date;
+
 public class SearchFormDTO {
 	
-	private String empId;
-	private String empName;
-	private String designation;
-	private String att;
-	private String expertise;
+	private String EmpName;
+	private String EmpId;
 	private String level;
+	private String clientId;
 	private String email;
-	private String team;
-	private String module;
-	private String project;
+	private String teamId;
+	private String Designation;
+	private String Expertise;
+	private String ProfCamps;
+	private String ProfProject;
+	private Date DateOfJoining;
+	private Date LastWorkingDay;
+	private String Billable;
+	private String ActiveUser;
 	
-	public String getEmpId() {
-		return empId;
-	}
-	public void setEmpId(String empId) {
-		this.empId = empId;
-	}
 	public String getEmpName() {
-		return empName;
+		return EmpName;
 	}
 	public void setEmpName(String empName) {
-		this.empName = empName;
+		EmpName = empName;
 	}
-	public String getDesignation() {
-		return designation;
+	public String getEmpId() {
+		return EmpId;
 	}
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-	public String getAtt() {
-		return att;
-	}
-	public void setAtt(String att) {
-		this.att = att;
-	}
-	public String getExpertise() {
-		return expertise;
-	}
-	public void setExpertise(String expertise) {
-		this.expertise = expertise;
+	public void setEmpId(String empId) {
+		EmpId = empId;
 	}
 	public String getLevel() {
 		return level;
@@ -49,30 +37,71 @@ public class SearchFormDTO {
 	public void setLevel(String level) {
 		this.level = level;
 	}
+	public String getClientId() {
+		return clientId;
+	}
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
+	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTeam() {
-		return team;
+	public String getTeamId() {
+		return teamId;
 	}
-	public void setTeam(String team) {
-		this.team = team;
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
 	}
-	public String getModule() {
-		return module;
+	public String getDesignation() {
+		return Designation;
 	}
-	public void setModule(String module) {
-		this.module = module;
+	public void setDesignation(String designation) {
+		Designation = designation;
 	}
-	public String getProject() {
-		return project;
+	public String getExpertise() {
+		return Expertise;
 	}
-	public void setProject(String project) {
-		this.project = project;
+	public void setExpertise(String expertise) {
+		Expertise = expertise;
 	}
-
-	
+	public String getProfCamps() {
+		return ProfCamps;
+	}
+	public void setProfCamps(String profCamps) {
+		ProfCamps = profCamps;
+	}
+	public String getProfProject() {
+		return ProfProject;
+	}
+	public void setProfProject(String profProject) {
+		ProfProject = profProject;
+	}
+	public Date getDateOfJoining() {
+		return DateOfJoining;
+	}
+	public void setDateOfJoining(Date dateOfJoining) {
+		DateOfJoining = dateOfJoining;
+	}
+	public Date getLastWorkingDay() {
+		return LastWorkingDay;
+	}
+	public void setLastWorkingDay(Date lastWorkingDay) {
+		LastWorkingDay = lastWorkingDay;
+	}
+	public String getBillable() {
+		return Billable;
+	}
+	public void setBillable(String billable) {
+		Billable = billable;
+	}
+	public String getActiveUser() {
+		return ActiveUser;
+	}
+	public void setActiveUser(String activeUser) {
+		ActiveUser = activeUser;
+	}
 }
+	
