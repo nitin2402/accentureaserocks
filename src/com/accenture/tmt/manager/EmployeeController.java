@@ -1,5 +1,6 @@
 package com.accenture.tmt.manager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.EmployeeDAO;
@@ -49,9 +50,13 @@ public class EmployeeController {
 	
 	public List<SearchFormDTO> searchEmployee(String name) {
 
-		List<SearchFormDTO> searchList=employeeDAO.searchEmployee(name);
-		return searchList;
-		}
+		
+		List<SearchFormDTO> searchlist = new ArrayList<SearchFormDTO>();
+		
+		searchlist=employeeDAO.searchEmployee(name);
+		return searchlist;
+		
+	}
 	
 	public List<EmployeeDetailsDTO> getToAssign(String employee) {
 
