@@ -63,7 +63,7 @@ public class EmployeeDAO {
 				searchDetailsDTO.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
 				searchDetailsDTO.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 				searchDetailsDTO.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				searchDetailsDTO.setAtt(rs.getString(CONSTANTS.EMPLOYEE_ATTID));
+				searchDetailsDTO.setAtt(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
 				searchDetailsDTO.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
 				searchDetailsDTO.setTeam(rs.getString(CONSTANTS.TEAM_NAME));
 				searchDetailsDTO.setModule(rs.getString(CONSTANTS.MODULE_NAME));
@@ -190,7 +190,7 @@ public class EmployeeDAO {
 				search.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
 				search.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 				search.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				search.setAtt(rs.getString(CONSTANTS.EMPLOYEE_ATTID));
+				search.setAtt(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
 				search.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
 				search.setTeam(rs.getString(CONSTANTS.TEAM_NAME));
 				search.setModule(rs.getString(CONSTANTS.MODULE_NAME));
@@ -236,7 +236,7 @@ public class EmployeeDAO {
 				search.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
 				search.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 				search.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				search.setClientId(rs.getString(CONSTANTS.EMPLOYEE_ATTID));
+				search.setClientId(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
 				search.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
 				search.setTeamId(rs.getString(CONSTANTS.TEAM_ID));
 				
