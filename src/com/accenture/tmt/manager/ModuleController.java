@@ -53,3 +53,4 @@ public class ModuleController {
 		int status=moduleDAO.deleteModule(moduleId);
 		return status;
 	}
+}
