@@ -267,8 +267,7 @@ con.close();
 			ModuleFormDTO detail = null;
 			try {
 				Connection con = DBConnection.getConnection();
-				String sqlFetch = "SELECT ModuleDetail.ModuleName, ProjectDetail.ProjectName,ModuleDetail.ModuleId,ModuleDetail.ModuleDescription FROM ModuleDetail INNER JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId ORDER BY ModuleDetail.ModuleId;";
-				
+				String sqlFetch = "SELECT ModuleDetail.ModuleName, ProjectDetail.ProjectName,ModuleDetail.ModuleId,ModuleDetail.ModuleDescription FROM ModuleDetail INNER JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId where ModuleDetail.Status='Y' ORDER BY ModuleDetail.ModuleId";
 				PreparedStatement st = con.prepareStatement(sqlFetch);
 				ResultSet rs = st.executeQuery();
 			//	ResultSetMetaData metaData = rs.getMetaData();
@@ -297,8 +296,47 @@ con.close();
 				}
 				return list;
 				}
+
+	    public int deleteModule(String moduleId) throws SQLException, ClassNotFoundException {
+		List<String> teamlist= new ArrayList<String>();
+		Connection con = DBConnection.getConnection();
+		int status=0;
+		try{
+			String sqlemp = "UPDATE Employee SET TeamId = 'FREE' WHERE TeamId =?";
+			String sqlteam = "UPDATE Team SET Status = 'N' WHERE TeamId =?";
+			String sqlmodule = "UPDATE ModuleDetail SET Status = 'N' WHERE ModuleName =?";
+			PreparedStatement steam=con.prepareStatement("Select Team.TeamId from Team Inner Join ModuleDetail on Team.ModuleID=ModuleDetail.ModuleId where ModuleDetail.ModuleId=?");
+			steam.setString(1, moduleId);
+			ResultSet rsteam=steam.executeQuery();
+		    while(rsteam.next()){
+		    	teamlist.add(rsteam.getString("TeamId"));
+		    }
+		    for(int i=0;i<teamlist.size();i++){
+		    	PreparedStatement stemp=con.prepareStatement(sqlemp);
+		    	PreparedStatement steam1=con.prepareStatement(sqlteam);
+		    	stemp.setString(1, teamlist.get(i));
+		    	steam1.setString(1, teamlist.get(i));
+		    	stemp.executeUpdate();
+		    	steam1.executeUpdate();
+		    	}
+		    PreparedStatement st = con.prepareStatement(sqlmodule);
+			st.setString(1, moduleId);
+			st.executeUpdate();
+			status=st.executeUpdate();
+		}
+		finally{
+			con.commit();
+			con.close();
+			
+		}
+		return status;
+		
+	
+	}
+	
 	
 	
 	}
+
 
 
