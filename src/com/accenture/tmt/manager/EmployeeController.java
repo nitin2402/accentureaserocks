@@ -43,7 +43,12 @@ public class EmployeeController {
 	
 	}
 	
-
+	public List<EmployeeDetailsFlatDTO> viewEmployee(){
+		List<EmployeeDetailsFlatDTO> empList= new ArrayList<EmployeeDetailsFlatDTO>();
+		empList = employeeDAO.viewEmployee();
+		return empList;
+		
+	}
 
 	
 	/** zfdfsdfsd
