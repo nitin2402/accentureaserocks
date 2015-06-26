@@ -1,24 +1,13 @@
 package com.accenture.tmt.common;
 
 public interface CONSTANTS {
-      public String LOGIN_CHECK_QUERY = "select * from Admin where userName=? AND password=? ";
+    public String LOGIN_CHECK_QUERY = "select * from Admin where userName=? AND password=? ";
 	public String DATA_FIELD_ADMIN = "Admin";
 	public String USER_NAME="USERNAME";
 	public String PASS_WORD="PASSWORD";
-	public String EMPLOYEE_NAME = "EmployeeName";
-	public String EMPLOYEE_ID = "EmployeeId";
-	public String EMPLOYEE_LEVEL = "EmployeeLevel";
-	public String EMPLOYEE_DESIGNATION = "EmployeeDesignation";
-	public String EMPLOYEE_ATTID = "EmployeeAttId";
-	public String EMPLOYEE_EMAIL = "EmployeeEmail";
-	public String EMPLOYEE_EXPERTISE = "EmployeeExpertise";
-	public String TEAM_ID = "TeamId";
+	
 	public String Team_Decs= "TeamDescription";
 	public String Module_Id= "ModuleId";
-	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeAttId,EmployeeEmail) values(?,?,?,?,?,?,?)";
-	public String SHEET_NO = "sheetno";
-	public String FILE_NAME = "file1";
-	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeAttId=?,EmployeeEmail=? WHERE EmployeeId=?";
 	public String SEARCH_EMPLOYEE = 
 		"	SELECT Employee.EmployeeId, Employee.EmployeeName, Team.TeamName,"
 		+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
@@ -71,5 +60,24 @@ public interface CONSTANTS {
 
 	public String TEAM_UPDATE_QUERY = "UPDATE Team SET TeamName=?,TeamId=?,ModuleId=?,TeamDescription=?";
 	
+	public String EMPLOYEE_NAME = "EmployeeName";
+    public String EMPLOYEE_ID = "EmployeeId";
+    public String EMPLOYEE_LEVEL = "EmployeeLevel";
+    public String EMPLOYEE_DESIGNATION = "EmployeeDesignation";
+    public String EMPLOYEE_CLIENTID = "EmployeeClientId";
+    public String EMPLOYEE_EMAIL = "EmployeeEmail";
+    public String EMPLOYEE_EXPERTISE = "EmployeeExpertise";
+    public String TEAM_ID = "TeamId";
+    public String PROFICIENCY_CAMPS = "ProficiencyCamps";
+    public String PROFICIENCY_PROJECT = "ProficiencyProject";
+    public String DATE_OF_JOINING = "DateofJoining";
+    public String LAST_WORKING_DAY = "LastWorkingDay";
+    public String BILLABLE = "Billable";
+    public String ACTIVE_USER = "ActiveUser";
+
+	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeClientId,EmployeeEmail,TeamId,ProficiencyCamps,ProficiencyProject,DateofJoining,LastWorkingDay,Billable,ActiveUser) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	public String SHEET_NO = "sheetno";
+	public String FILE_NAME = "file1";
+	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCamps=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
 	
 }
