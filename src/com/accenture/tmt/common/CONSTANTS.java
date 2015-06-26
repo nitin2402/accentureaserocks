@@ -14,7 +14,6 @@ public interface CONSTANTS {
 	public String EMPLOYEE_EXPERTISE = "EmployeeExpertise";
 	public String TEAM_ID = "TeamId";
 	public String Team_Decs= "TeamDescription";
-	public String TEAM_NAME= "TeamName";
 	public String Module_Id= "ModuleId";
 	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeAttId,EmployeeEmail) values(?,?,?,?,?,?,?)";
 	public String SHEET_NO = "sheetno";
