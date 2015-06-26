@@ -68,40 +68,56 @@ public class SearchEmployee extends HttpServlet {
 			exp += "<tr><td><input type=\"radio\" name=\"employee\" value= \""
 					+ li.get(i).getEmpId() + "\"></td><td>" + li.get(i).getEmpName()
 					+ "</td>";
-			exp += "<td>" + li.get(i).getEmpId() + "</td>" + "<td>"
-					+ li.get(i).getLevel() + "</td>" + "<td>"
-					+ li.get(i).getDesignation() + "</td>";
-			exp += "<td>" + li.get(i).getAtt() + "</td>" + "<td>"
-					+ li.get(i).getExpertise() + "</td>";
-			exp += "<td>" + li.get(i).getEmail() + "</td>" + "<td>"
-					+ li.get(i).getTeam()+ "</td>"+ "<td>"
-							+ li.get(i).getModule()+ "</td>"+ "<td>"
-									+ li.get(i).getProject()+ "</td>";
-			exp += "</tr>";
-		}
-		if((Boolean)session.getAttribute("admin")==true){
-		exp += "</table></div><br><input type=\"submit\" value = \"Assign Team\" name = \"assign\"><input type=\"submit\" value = \"Edit Details\" name = \"edit\">";
-		exp += "</form>";}
-		if((Boolean)session.getAttribute("admin")==false){
-			exp += "</table></div><br><input type=\"submit\" value = \"Assign Team\" name = \"assign\">";
-			exp += "</form>";}
+			exp += "<td>" + li.get(i).getDesignation()
+					+ "</td>";
+			exp += "<td>" + li.get(i).getLevel() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getExpertise() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getClientId() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getEmail() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getTeamId() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getProfCamps() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getProfProject() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getDateOfJoining() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getLastWorkingDay() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getBillable() 
+					+ "</td>";
+			exp += "<td>" + li.get(i).getActiveUser() 
+					+ "</td>";
+			
 
+			exp += "</tr>";
+	}
+	
+	exp += "</table></div><br><input type=\"submit\" value = \"Assign Team\" name = \"assign\"><input type=\"submit\" value = \"Edit Details\" name = \"edit\">";
+	exp += "</form>";
+
+		/*exp += "</table></div><br><input type=\"submit\" value = \"Assign Team\" name = \"assign\">";
+		exp += "</form>";*/
+
+	PrintWriter out = response.getWriter();
+
+	out.print(exp);
+	}
+	else
+	{
 		PrintWriter out = response.getWriter();
 
-		out.print(exp);
-		}
-		else
-		{
-			PrintWriter out = response.getWriter();
-
-			out.print("");
-		}
-		// request.setAttribute("searchList", li);
-
-		/*
-		 * request.getRequestDispatcher("viewsearched.jsp").forward(request,
-		 * response);
-		 */
+		out.print("");
 	}
+	// request.setAttribute("searchList", li);
 
+	/*
+	 * request.getRequestDispatcher("viewsearched.jsp").forward(request,
+	 * response);
+	 */
+}
 }
