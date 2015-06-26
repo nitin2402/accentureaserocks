@@ -48,7 +48,7 @@
 	var level=document.forms["add"]["level"].value;
 	var designation=document.forms["add"]["desig"].value;
 	var expertise=document.forms["add"]["area"].value;
-	var att=document.forms["add"]["att"].value;
+	/* var att=document.forms["add"]["att"].value; */
 	var email=document.forms["add"]["email"].value;
 
 	/* validate(name);
@@ -167,15 +167,15 @@ function isNumeric(value) {
 
 </head>
 <body>
-	<%
+	<%-- <%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
 				|| (Boolean) session1.getAttribute("admin") != true) {
-	%><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 	<%
 		}
-	%>
+	%> --%>
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
@@ -191,7 +191,7 @@ function isNumeric(value) {
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="addempvia.jsp" class="current">Admin Tools</a></li>
+			<li><a href="admintool.jsp" style="font-weight: bold; text-decoration: underline" >Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
@@ -204,29 +204,12 @@ function isNumeric(value) {
 
 		<div id="content_left">
 
-			<%-- 	<div class="content_left_section">
-				<div class="content_left_section_title">Search</div>
-				<div class="content_left_section_content">
-					<form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form>
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div> --%>
+			
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="addempvia.jsp">Add Employee -></a></li>
+						<li><a href="addempmanually.jsp">Add Employee </a></li>
 
 
 						<li><a href="addmodule.jsp">Add Module</a></li>
@@ -238,14 +221,7 @@ function isNumeric(value) {
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
-					<%-- <form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form> --%>
+					
 					<ul>
 						<li><a href="viewemployee.jsp">View Employees</a></li>
 
@@ -269,9 +245,9 @@ function isNumeric(value) {
 
 				<div>
 
-
-					<div style="font-size: 14px;">
-						<form name="add" action="AddEmployee" method="post"
+<div id="scrollable"   style="font-size: 14px;">
+					
+						<form name="add" action="AddEmployeeManual" method="post"
 							onsubmit="return validateform()">
 							<table>
 								<tr>
@@ -297,18 +273,51 @@ function isNumeric(value) {
 									<td><input type="text" name="area"></input></td>
 								</tr>
 								<tr>
-									<td>ATT ID:</td>
-									<td><input type="text" name="att"></input></td>
+									<td>CLIENT ID:</td>
+									<td><input type="text" name="client"></input></td>
 								</tr>
 								<tr>
 									<td>EMAIL:</td>
 									<td><input type="text" name="email"></input></td>
 								</tr>
-							</table>
+								
+								<tr>
+									<td>TEAM ID:</td>
+									<td><input type="text" name="Team"></input></td>
+								</tr>
+								
+								<tr>
+									<td>Proficiency Camps:</td>
+									<td><input type="text" name="camps"></input></td>
+								</tr>
+								<tr>
+									<td>Proficiency Project:</td>
+									<td><input type="text" name="Project"></input></td>
+								</tr>
+								<tr>
+									<td>Date of Joining:</td>
+									<td><input type="text" name="doj"></input></td>
+								</tr>
+								<tr>
+									<td>Last Working Date:</td>
+									<td><input type="text" name="last"></input></td>
+								</tr>
+								<tr>
+									<td>Billable:</td>
+									<td><input type="text" name="bill"></input></td>
+								</tr>
+								<tr>
+									<td>Active User:</td>
+									<td><input type="text" name="active"></input></td>
+								</tr>
+								
+								
+								
+								</table>
 							<input class="submit" type="submit" value="Submit"></input> <input
 								type="reset" value="Reset" id="clear" name="clear"></input><br />
-							<br /> <span style="color: green"> <%=request.getParameter("msg") != null ? request
-					.getParameter("msg") : ""%></span><br />
+							<br /> <span style="color: green"> <%-- <%=request.getParameter("msg") != null ? request
+					.getParameter("msg") : ""%> --%></span><br />
 
 						</form>
 					</div>
@@ -324,8 +333,7 @@ function isNumeric(value) {
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
+		<div id="templatemo_footer">Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
 	</div>
 </body>
