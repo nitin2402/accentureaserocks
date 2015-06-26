@@ -10,32 +10,33 @@ import java.util.List;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
-import com.accenture.tmt.dao.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.SearchFormDTO;
 
 
 public class EmployeeDAO {
 	
-	public int addEmployee(EmployeeDetailsDTO employeeDetailsDTO){
-			int status=0;
+	public int addEmployee(EmployeeDetailsFlatDTO empDetailFlatDTO) {
+		int a = 0;
 		try {
 			Connection con = DBConnection.getConnection();
-			if (con == null) {
-				System.out.println("Connection Not Established");
-			} else {
-				System.out.println("Connected");
-			}
+			
 			PreparedStatement st = con.prepareStatement(CONSTANTS.EMPLOYEE_INSERT);
-			st.setString(1, employeeDetailsDTO.getEmpId());
-			st.setString(2, employeeDetailsDTO.getEmpName());
-			// System.out.println(empDetailDo.getEmpId());
-			st.setString(3, employeeDetailsDTO.getDesignation());
-			// System.out.println(empDetailDo.getLevel());
-			st.setString(4, employeeDetailsDTO.getLevel());
-			st.setString(5, employeeDetailsDTO.getExpertise());
-			st.setString(6, employeeDetailsDTO.getAtt());
-			st.setString(7, employeeDetailsDTO.getEmail());
-			status = st.executeUpdate();
+			st.setString(1, empDetailFlatDTO.getEmpId());
+			st.setString(2, empDetailFlatDTO.getEmpName());
+			st.setString(3, empDetailFlatDTO.getDesignation());
+			st.setString(4, empDetailFlatDTO.getLevel());
+			st.setString(5, empDetailFlatDTO.getExpertise());
+			st.setString(6, empDetailFlatDTO.getClientId());
+			st.setString(7, empDetailFlatDTO.getEmail());
+			st.setString(8, empDetailFlatDTO.getTeamId());
+			st.setString(9, empDetailFlatDTO.getProfCamps());
+			st.setString(10, empDetailFlatDTO.getProfProject());
+			st.setString(11, empDetailFlatDTO.getDoj());
+			st.setString(12, empDetailFlatDTO.getLastWD());
+			st.setString(13, empDetailFlatDTO.getIsBillable());
+			st.setString(14, empDetailFlatDTO.getIsActive());
+			a = st.executeUpdate();
 			con.commit();
 			con.close();
 		} catch (SQLException | ClassNotFoundException exception) {
@@ -45,11 +46,10 @@ public class EmployeeDAO {
 		
 			// TODO: release connection
 		}
-		return status;
-		
+		return a;
 	}
 	
-	public List<SearchFormDTO> fetchEmployeeDetails(EmployeeDetailsDTO employeeDetailsDTO){
+	public List<SearchFormDTO> fetchEmployeeDetails(EmployeeDetailsFlatDTO employeeDetailsDTO){
 		List<SearchFormDTO> employeeList = new ArrayList<SearchFormDTO>();
 		try {
 			Connection con = DBConnection.getConnection();
@@ -106,8 +106,8 @@ public class EmployeeDAO {
 		return empCount;
 		
 	}
-	public List<EmployeeDetailsDTO> fetchEmployeeList(String teamID){
-		List<EmployeeDetailsDTO> employeeList = new ArrayList<EmployeeDetailsDTO>();
+	public List<EmployeeDetailsFlatDTO> fetchEmployeeList(String teamID){
+		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
 		
 		try {
 			Connection con = DBConnection.getConnection();
@@ -117,7 +117,7 @@ public class EmployeeDAO {
 			
 			while(rs.next())
 			{
-				EmployeeDetailsDTO emp = new EmployeeDetailsDTO();
+				EmployeeDetailsFlatDTO emp = new EmployeeDetailsFlatDTO();
 				emp.setEmpName(rs.getString(CONSTANTS.EMPLOYEE_NAME));
 				emp.setEmpId(rs.getString(CONSTANTS.EMPLOYEE_ID));
 				emp.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
@@ -139,7 +139,7 @@ public class EmployeeDAO {
 		
 	}
 	
-	public int editEmployee(EmployeeDetailsDTO employeeDetailsDTO){
+	public int editEmployee(EmployeeDetailsFlatDTO employeeDetailsDTO){
 		int status = 0;
 		try {
 			Connection con = DBConnection.getConnection();
@@ -151,7 +151,7 @@ public class EmployeeDAO {
 			// System.out.println(empDetailDo.getLevel());
 			st.setString(3, employeeDetailsDTO.getDesignation());
 			st.setString(4, employeeDetailsDTO.getExpertise());
-			st.setString(5, employeeDetailsDTO.getAtt());
+			st.setString(5, employeeDetailsDTO.getClientId());
 			st.setString(6, employeeDetailsDTO.getEmail());
 			st.setString(7, employeeDetailsDTO.getEmpId());
 			status = st.executeUpdate();
@@ -211,14 +211,14 @@ public class EmployeeDAO {
 
 	}
 	
-	public List<EmployeeDetailsDTO> getToAssign(String employee) {
+	public List<EmployeeDetailsFlatDTO> getToAssign(String employee) {
 
-		List<EmployeeDetailsDTO> employeeList = new ArrayList<EmployeeDetailsDTO>();
+		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
 
 		try {
 			Connection con = DBConnection.getConnection();
 
-			EmployeeDetailsDTO search = null;
+			EmployeeDetailsFlatDTO search = null;
 
 			PreparedStatement st = con
 					.prepareStatement("SELECT * FROM Employee WHERE EmployeeId = ?");
@@ -230,13 +230,13 @@ public class EmployeeDAO {
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
-				search = new EmployeeDetailsDTO();
+				search = new EmployeeDetailsFlatDTO();
 				search.setEmpName(rs.getString(CONSTANTS.EMPLOYEE_NAME));
 				search.setEmpId(rs.getString(CONSTANTS.EMPLOYEE_ID));
 				search.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
 				search.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 				search.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				search.setAtt(rs.getString(CONSTANTS.EMPLOYEE_ATTID));
+				search.setClientId(rs.getString(CONSTANTS.EMPLOYEE_ATTID));
 				search.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
 				search.setTeamId(rs.getString(CONSTANTS.TEAM_ID));
 				
