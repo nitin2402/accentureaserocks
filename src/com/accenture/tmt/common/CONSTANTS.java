@@ -1,23 +1,36 @@
 package com.accenture.tmt.common;
 
 public interface CONSTANTS {
-    public String LOGIN_CHECK_QUERY = "select * from Admin where userName=? AND password=? ";
+      
 	public String DATA_FIELD_ADMIN = "Admin";
 	public String USER_NAME="USERNAME";
 	public String PASS_WORD="PASSWORD";
+	public String EMPLOYEE_NAME = "EmployeeName";
+	public String EMPLOYEE_ID = "EmployeeId";
 	
-	public String Team_Decs= "TeamDescription";
-	public String Module_Id= "ModuleId";
-	public String SEARCH_EMPLOYEE = "	SELECT Employee.EmployeeId, Employee.EmployeeName, "
-			+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
-			+ "Employee.EmployeeClientId, Employee.EmployeeEmail,Employee.TeamId,"
-			+ "Employee.ProficiencyCamps, Employee.ProficiencyProject, Employee.ProficiencyProject,"
-			+ "Employee.DateofJoining, Employee.LastWorkingDay, Employee.Billable, "
-			+ "Employee.ActiveUser" + " FROM Employee"
 
+	public String EMPLOYEE_ATTID = "EmployeeAttId";
+
+	
+
+	public String Team_Decs= "TeamDescription";
+	public String TEAM_NAME= "TeamName";
+	public String Module_Id= "ModuleId";
+	
+	
+	
+	public String SEARCH_EMPLOYEE = 
+		"	SELECT Employee.EmployeeId, Employee.EmployeeName, Team.TeamName,"
+		+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
+		+ "Employee.EmployeeAttId, Employee.EmployeeEmail, ModuleDetail.ModuleName, ProjectDetail.ProjectName"+
+			" FROM Employee"+
+			" LEFT JOIN Team"+
+			" ON Employee.TeamId=Team.TeamId"+
+			" LEFT JOIN ModuleDetail ON Team.ModuleId=ModuleDetail.ModuleId"+
+			" LEFT JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId"
 			+ " WHERE Employee.EmployeeName LIKE ? ";
 	
-	public String TEAM_NAME = "TeamName";
+	
 	public String PROJECT = "ProjectName";
 	public String MODULE_NAME = "ModuleName";
 	public String VIEW_EMPLOYEE_QUERY = "	SELECT Employee.*, Team.TeamName,"
@@ -50,6 +63,7 @@ public interface CONSTANTS {
 	public String VIEWER = "VIEWER";
 	public String NOT_A_USER = "NOT_A_USER";
 	public String NAME = "name";
+	public String NEW_EMPLOYEE_ID = "employeeid";
 	public String NEW_USER = "newuser";
 	public String NEW_USER_PASS_WORD = "password";
 	public String PASSWORD = "password";
@@ -58,8 +72,16 @@ public interface CONSTANTS {
 
 	public String TEAM_UPDATE_QUERY = "UPDATE Team SET TeamName=?,TeamId=?,ModuleId=?,TeamDescription=?";
 	
-	public String EMPLOYEE_NAME = "EmployeeName";
-    public String EMPLOYEE_ID = "EmployeeId";
+	public String GET_UNAPPROVED_REQUESTS_QUERY = "SELECT ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, StatusName FROM RequestTable as R, StatusTable as S WHERE S.Status_ID = 3 AND S.Status_ID = R.Status_ID";
+	public String LOGIN_CHECK_QUERY = "select * from Login where userName=? AND password=? AND ActiveUser='y'";
+    public String SIGN_UP_CHECK_QUERY = "INSERT INTO Login (username,password,EmployeeId,typeofUser,ActiveUser) VALUES (?,?,?,'UNAUTHORISED','n')";
+    public String SELECT_EMPLOYEE_ID_QUERY = "select * from Employee where EmployeeId=?";
+    public String CHECK_ALREADY_EXIST_USER_QUERY = "select * from Login where EmployeeId=?";
+    public String CHECK_ALREADY_EXIST_USERNAME_QUERY = "select * from Login where userName=?";
+    public String GET_APPROVED_REQUESTS_QUERY = "SELECT ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, StatusName FROM RequestTable as R, StatusTable as S WHERE S.Status_ID = 3 AND S.Status_ID = R.Status_ID";
+	  
+    
+   
     public String EMPLOYEE_LEVEL = "EmployeeLevel";
     public String EMPLOYEE_DESIGNATION = "EmployeeDesignation";
     public String EMPLOYEE_CLIENTID = "EmployeeClientId";
@@ -79,3 +101,5 @@ public interface CONSTANTS {
 	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCamps=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
 	
 }
+
+
