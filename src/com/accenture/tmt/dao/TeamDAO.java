@@ -108,9 +108,14 @@ public class TeamDAO {
 		Connection con = DBConnection.getConnection();
 		int status=0;
 		try{
-			String sqlInsert = "UPDATE Team SET Status = 'N' WHERE TeamId = ?";
-			PreparedStatement st = con.prepareStatement(sqlInsert);
-			status=st.executeUpdate(teamID, 1);
+			String sqlemp = "UPDATE Employee SET TeamId = 'FREE' WHERE TeamId = ?";
+			String sqlUpdate = "UPDATE Team SET Status = 'N' WHERE TeamId = ?";
+			PreparedStatement stemp=con.prepareStatement(sqlemp);
+			stemp.setString(1, teamID);
+			PreparedStatement st = con.prepareStatement(sqlUpdate);
+			st.setString(1, teamID);
+			stemp.executeUpdate();
+			status=st.executeUpdate();
 		}
 		finally{
 			con.commit();
