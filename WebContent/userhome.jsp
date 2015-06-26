@@ -257,7 +257,7 @@
 		<ul>
 			<li><a href="userhome.jsp" class="current">Home</a></li>
 			<!--  <li><a href="addempvia.jsp">Admin Tools</a></li> -->
-			<li><a href="#">Workplan</a></li>
+			<li><a href="workplanvia.jsp">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
 			<li><a href="logout.jsp">Logout</a></li>
@@ -317,8 +317,8 @@
 						style="background-colour: red; height: 300px; width: 600px"
 						onclick="clickToStop()"></div>
 					<div id="ajaxResponse"></div>
-					<p class="error" style="font-size: 14px; color: red;">${message}</p>
-
+					<p class="error" style="font-size: 14px; color: black;">${message}</p>
+	<p class="error" style="font-size: 14px; color: red;">${reqId}</p>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
