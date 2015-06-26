@@ -8,15 +8,13 @@ public interface CONSTANTS {
 	
 	public String Team_Decs= "TeamDescription";
 	public String Module_Id= "ModuleId";
-	public String SEARCH_EMPLOYEE = 
-		"	SELECT Employee.EmployeeId, Employee.EmployeeName, Team.TeamName,"
-		+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
-		+ "Employee.EmployeeAttId, Employee.EmployeeEmail, ModuleDetail.ModuleName, ProjectDetail.ProjectName"+
-			" FROM Employee"+
-			" LEFT JOIN Team"+
-			" ON Employee.TeamId=Team.TeamId"+
-			" LEFT JOIN ModuleDetail ON Team.ModuleId=ModuleDetail.ModuleId"+
-			" LEFT JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId"
+	public String SEARCH_EMPLOYEE = "	SELECT Employee.EmployeeId, Employee.EmployeeName, "
+			+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
+			+ "Employee.EmployeeClientId, Employee.EmployeeEmail,Employee.TeamId,"
+			+ "Employee.ProficiencyCamps, Employee.ProficiencyProject, Employee.ProficiencyProject,"
+			+ "Employee.DateofJoining, Employee.LastWorkingDay, Employee.Billable, "
+			+ "Employee.ActiveUser" + " FROM Employee"
+
 			+ " WHERE Employee.EmployeeName LIKE ? ";
 	
 	public String TEAM_NAME = "TeamName";
