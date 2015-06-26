@@ -1,5 +1,6 @@
 package com.accenture.tmt.manager;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.accenture.tmt.dao.ModuleDAO;
@@ -48,4 +49,7 @@ public class ModuleController {
 		List<String> moduleList=moduleDAO.fetchModule();
 		return moduleList;
 	}
+	public int deleteModule(String moduleId) throws ClassNotFoundException, SQLException {
+		int status=moduleDAO.deleteModule(moduleId);
+		return status;
 	}
