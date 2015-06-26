@@ -4,16 +4,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.EmployeeDAO;
-import com.accenture.tmt.dao.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
 import com.accenture.tmt.presentation.dto.SearchFormDTO;
-
+import static java.lang.System.out;
 public class EmployeeController {
 	EmployeeDAO employeeDAO= new EmployeeDAO();
 	
-	public int addEmployee(EmployeeDetailsDTO employeeDetailsDTO) {
-		int status=employeeDAO.addEmployee(employeeDetailsDTO);
-		return status;
-			}
+	public int addEmployee(EmployeeDetailsDTO emp)
+	{	
+	
+	EmployeeDetailsFlatDTO detailsFDO = new EmployeeDetailsFlatDTO();
+	detailsFDO.setEmpId(emp.getEmpId());
+	detailsFDO.setEmpName(emp.getEmpName());
+	detailsFDO.setLevel(emp.getLevel());
+	detailsFDO.setDesignation(emp.getDesignation());
+	detailsFDO.setExpertise(emp.getExpertise());
+	detailsFDO.setClientId(emp.getClientId());
+	detailsFDO.setEmail(emp.getEmail());
+	detailsFDO.setTeamId(emp.getTeamId());
+	detailsFDO.setProfCamps(emp.getProfCamps());
+	detailsFDO.setProfProject(emp.getProfProject());
+	detailsFDO.setDoj(emp.getDoj());
+	detailsFDO.setLastWD(emp.getLastWD());
+	detailsFDO.setIsBillable(emp.getIsBillable());
+	detailsFDO.setIsActive(emp.getIsActive());
+	EmployeeDAO dao=new EmployeeDAO();
+	int staus=dao.addEmployee(detailsFDO);
+
+	if(staus!=0){
+		out.println("Record Inserted");
+	}
+	if(staus ==0){
+		out.println("Record insertion failed");
+	
+}
+	return staus;
+	
+	}
+	
+
+
 	
 	/** zfdfsdfsd
 	 * @param employeeDetailsDTO
@@ -21,7 +52,7 @@ public class EmployeeController {
 	 * @author n.a.saini
 	 */
 	public List<SearchFormDTO> fetchEmployeeDetails(
-			EmployeeDetailsDTO employeeDetailsDTO) {
+			EmployeeDetailsFlatDTO employeeDetailsDTO) {
 			List<SearchFormDTO> employeeList = employeeDAO.fetchEmployeeDetails(employeeDetailsDTO);
 			return employeeList;
 			}
@@ -31,13 +62,13 @@ public class EmployeeController {
 		return empCount;
 			}
 	
-	public List<EmployeeDetailsDTO> FetchEmployeeList(String teamID){
-		List<EmployeeDetailsDTO> employeeList=employeeDAO.fetchEmployeeList(teamID);
+	public List<EmployeeDetailsFlatDTO> FetchEmployeeList(String teamID){
+		List<EmployeeDetailsFlatDTO> employeeList=employeeDAO.fetchEmployeeList(teamID);
 		return employeeList;
 		
 	}
 
-	public int EditEmployee(EmployeeDetailsDTO employeeDetailsDTO) {
+	public int EditEmployee(EmployeeDetailsFlatDTO employeeDetailsDTO) {
 			int status=employeeDAO.editEmployee(employeeDetailsDTO);
 			return status;
 		}
@@ -56,11 +87,11 @@ public class EmployeeController {
 		searchlist=employeeDAO.searchEmployee(name);
 		return searchlist;
 		
-	}
+		}
 	
-	public List<EmployeeDetailsDTO> getToAssign(String employee) {
+	public List<EmployeeDetailsFlatDTO> getToAssign(String employee) {
 
-		List<EmployeeDetailsDTO> employeeList=employeeDAO.getToAssign(employee);
+		List<EmployeeDetailsFlatDTO> employeeList=employeeDAO.getToAssign(employee);
 				return employeeList;
        }
 }
