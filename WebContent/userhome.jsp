@@ -9,7 +9,7 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 
-<!-- <script
+<script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script>
@@ -18,7 +18,7 @@
 
 	});
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(function() {
 		$('.last').click(
 				function(event) {
@@ -182,7 +182,7 @@
 
 	}
 </script>
-
+ -->
 
 
 <script>
@@ -194,7 +194,7 @@
 							var searchvalue = $("#search_field").val();
 							$(".error").hide();
 							$.ajax({
-								url : "/EmployeeMSAccessDB/SearchEmployee",
+								url : "/TMT/SearchEmployee",
 								type : "POST",
 								data : 'searchName=' + searchvalue,
 
@@ -229,7 +229,7 @@
 			});
 </script>
 
- -->
+
 </head>
 <body>
 	<%
