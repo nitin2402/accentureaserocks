@@ -258,7 +258,7 @@
 		<ul>
 		  
 			<li><a href="adminhome.jsp" class="current">Home</a></li>
-			<li><a href="addempvia.jsp">Admin Tools</a></li>
+			<li><a href="admintool.jsp">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
