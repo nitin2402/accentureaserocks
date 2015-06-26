@@ -10,14 +10,15 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 
 
-<script
+<script>
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-<script>
+<!--  <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
 	});
-</script>
+	
+</script>-->
 <script type="text/javascript">
 	$(function() {
 		$('.last').click(
@@ -62,17 +63,18 @@
 <body>
 
 
-	<jsp:include page="/ViewEmployee" />
+	<jsp:include page="/ViewEmployee"/>
 	<%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
-						/*||  (Boolean) session1.getAttribute("admin") != true */) {
+				/* || (Boolean) session1.getAttribute("admin") != true */) {
 	%><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
 	<%
 		}
 	%>
-	<div id="templatemo_container" />
+	
+	<div id="templatemo_container" />-
 	<div id="templatemo_header">
 		<div id="site_title_section">
 			<div id="site_title">Pyramid Optimization</div>
@@ -172,34 +174,40 @@
 					<div id="scrollable"   style="font-size: 14px;">
 						<table class="table1" >
 							
-							<thead style="font-weight: bold;position: ">
-							<tr style="font-weight: bold;">
-								<td >Name</td>
+							<thead style="font-weight:bold;position: ">
+							<tr style="font-weight:bold;">
+								<td></td>
+								<td>Name</td>
 								<td>ID</td>
 								<td>Level</td>
 								<td>Designation</td>
+								<td>Experience</td>
 								<td>Expertise</td>
-								<td>AttID</td>
+								<td>Proficieny</td>
+								<td>clientID</td>
 								<td>Email</td>
 								<td>Team</td>
-								<td>Module</td>
+								<td>billability</td>
 								<td>Project</td>
 							</tr>
 							</thead>
 						
 							<tbody  >
-							<jstlcore:forEach items="${empList}" var="item">
+							<jstlcore:forEach items="${employeeList}" var="item">
 								<tr>
+									<td><input type="radio" name="employeeDetails" value=""></input></td>
 									<td><jstlcore:out value="${item.empName}" /></td>
 									<td><jstlcore:out value="${item.empId}" /></td>
-									<td><jstlcore:out value="${item.level}" /></td>
+									<%-- <td><jstlcore:out value="${item.level}" /></td>--%>
 									<td><jstlcore:out value="${item.designation}" /></td>
+									<%--<td><jstlcore:out value="${item.teamId}" /></td> --%>
 									<td><jstlcore:out value="${item.expertise}" /></td>
-									<td><jstlcore:out value="${item.att}" /></td>
+									<%--<td><jstlcore:out value="${item.experience}" /></td>
+									<td><jstlcore:out value="${item.proficiency}" /></td>
+								    <td><jstlcore:out value="${item.clientId}" /></td>
 									<td><jstlcore:out value="${item.email}" /></td>
-									<td><jstlcore:out value="${item.team}" /></td>
-									<td><jstlcore:out value="${item.module}" /></td>
-									<td><jstlcore:out value="${item.project}" /></td>
+									<td><jstlcore:out value="${item.billabilty}" /></td>
+									<td><jstlcore:out value="${item.project}" /></td> --%>
 								</tr>
 							</jstlcore:forEach></tbody></table>
 							
@@ -218,6 +226,13 @@
 		</table> --%>
 
 					</div>
+					
+<br></br>
+				<div>
+				
+				<input type="button" id="" onclick="" value="Edit"></input>
+				<input type="button" id="" onclick="" value="Delete"></input>
+				</div>
 
 					<div>${msg1}</div>
 
