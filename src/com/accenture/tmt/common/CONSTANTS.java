@@ -9,7 +9,18 @@ public interface CONSTANTS {
 	public String EMPLOYEE_ID = "EmployeeId";
 	
 
-
+	public String EMPLOYEE_LEVEL = "EmployeeLevel";
+    public String EMPLOYEE_DESIGNATION = "EmployeeDesignation";
+    public String EMPLOYEE_CLIENTID = "EmployeeClientId";
+    public String EMPLOYEE_EMAIL = "EmployeeEmail";
+    public String EMPLOYEE_EXPERTISE = "EmployeeExpertise";
+    public String TEAM_ID = "TeamId";
+    public String PROFICIENCY_CAMPS = "ProficiencyCamps";
+    public String PROFICIENCY_PROJECT = "ProficiencyProject";
+    public String DATE_OF_JOINING = "DateofJoining";
+    public String LAST_WORKING_DAY = "LastWorkingDay";
+    public String BILLABLE = "Billable";
+    public String ACTIVE_USER = "ActiveUser";
 
 	
 
@@ -26,7 +37,7 @@ public interface CONSTANTS {
 					+ "Employee.ProficiencyCamps, Employee.ProficiencyProject, Employee.ProficiencyProject,"
 					+ "Employee.DateofJoining, Employee.LastWorkingDay, Employee.Billable, "
 					+ "Employee.ActiveUser"
-					+ " FROM Employee"
+					+ " FROM Employee"  + " WHERE Employee.EmployeeName LIKE ? ";
 	
 	public String PROJECT = "ProjectName";
 	public String MODULE_NAME = "ModuleName";
@@ -79,18 +90,7 @@ public interface CONSTANTS {
 	  
     
    
-    public String EMPLOYEE_LEVEL = "EmployeeLevel";
-    public String EMPLOYEE_DESIGNATION = "EmployeeDesignation";
-    public String EMPLOYEE_CLIENTID = "EmployeeClientId";
-    public String EMPLOYEE_EMAIL = "EmployeeEmail";
-    public String EMPLOYEE_EXPERTISE = "EmployeeExpertise";
-    public String TEAM_ID = "TeamId";
-    public String PROFICIENCY_CAMPS = "ProficiencyCamps";
-    public String PROFICIENCY_PROJECT = "ProficiencyProject";
-    public String DATE_OF_JOINING = "DateofJoining";
-    public String LAST_WORKING_DAY = "LastWorkingDay";
-    public String BILLABLE = "Billable";
-    public String ACTIVE_USER = "ActiveUser";
+    
 
 	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeClientId,EmployeeEmail,TeamId,ProficiencyCamps,ProficiencyProject,DateofJoining,LastWorkingDay,Billable,ActiveUser) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	public String SHEET_NO = "sheetno";
