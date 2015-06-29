@@ -47,48 +47,29 @@
 	var id=document.forms["add"]["idno"].value;
 	var level=document.forms["add"]["level"].value;
 	var designation=document.forms["add"]["desig"].value;
-	var expertise=document.forms["add"]["area"].value;
-	/* var att=document.forms["add"]["att"].value; */
-	var email=document.forms["add"]["email"].value;
 
-	/* validate(name);
-	validate(id);
-	validate(level);
-	validate(designation);
-	validate(expertise);
-	validate(experience);
-	 */
-	
+
 	if (name==null || name=="")
 	  {
-	  alert("Please provide Name");
+	  alert("Please provide Team Name");
 	  return false;
 	  }
 	if (id==null || id=="")
 	  {
-	  alert("Please provide ID");
+	  alert("Please provide Team ID");
 	  return false;
 	  }
 	if (level==null || level=="")
 	  {
-	  alert("Please provide level");s
+	  alert("Please provide Module Name");s
 	  return false;
 	  }
 	if (designation==null || designation=="")
 	  {
-	  alert("Please provide designation");
+	  alert("Please provide Team Description");
 	  return false;
 	  }
-	if (expertise==null || expertise=="")
-	  {
-	  alert("Please provide Expertise");
-	  return false;	
-	  }
-	if (email==null || email=="")
-	  {
-	  alert("Please provide Email");
-	  return false;
-	  }
+	
 	
 	    var filter = /^[a-zA-Z0-9._-]+@accenture.com$/;
 	    var filter2 = /^[0-9]{8}$/;
@@ -122,31 +103,6 @@
 	        return false;
 	    }​
 
-	/* 
-	if (isNumeric(level)==false)
-	  {
-	  alert("Invalid Level");
-	  return false;
-	  }
-	if (isNumeric(experience)==false)
-	  {
-	  alert("Invalid Experience");
-	  return false;
-	  } */
-/*	if(validate(fname)==false){
-		alert("Enter valid Characters(@, . , -, (, ), #, _)");
-		return false;
-	}
-	*/
-}
-	/* function cancelRegistration()
-	{
-		history.go(-1);
-	} */
-	
-	
-</script>
-<script>
 function isNumeric(value) {
 	  if (value=="" || value == null || !value.toString().match(/^[-]?\d*\.?\d*$/))
 	  { return false;
@@ -167,15 +123,7 @@ function isNumeric(value) {
 
 </head>
 <body>
-	<%-- <%
-		HttpSession session1 = request.getSession(false);
-		if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				|| (Boolean) session1.getAttribute("admin") != true) {
-	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
-	<%
-		}
-	%> --%>
+
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
@@ -191,7 +139,7 @@ function isNumeric(value) {
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp" style="font-weight: bold; text-decoration: underline" >Admin Tools</a></li>
+			<li><a href="admintool.jsp" >Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
@@ -213,7 +161,7 @@ function isNumeric(value) {
 
 
 						<li><a href="addmodule.jsp">Add Module</a></li>
-						<li><a href="addteam.jsp">Add Team</a></li>
+						<li><a href="AddTeamManually.jsp">Add Team</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
@@ -240,79 +188,33 @@ function isNumeric(value) {
 
 			<div class="right_col_section_w650" style="height: 300px">
 
-				<div class="header_01">Employee Addition</div>
+				<div class="header_01">Team Addition</div>
 
 
 				<div>
 
 <div id="scrollable"   style="font-size: 14px;">
 					
-						<form name="add" action="AddEmployeeManual" method="post"
+						<form name="add" action="AddTeamManually2" method="post"
 							onsubmit="return validateform()">
 							<table>
 								<tr>
-									<td>EMPLOYEE NAME:</td>
-									<td><input type="text" name="name"></input></td>
+									<td>TEAM NAME:</td>
+									<td><input type="text" name="Tname"></input></td>
 
 								</tr>
-								<tr>
-									<td>EMPLOYEE ID:</td>
-									<td><input type="text" name="idno"></input></td>
-								</tr>
-								<tr>
-									<td>EMPLOYEE LEVEL:</td>
-									<td><input type="text" name="level"></input></td>
-								</tr>
-								<tr>
-									<td>EMPLOYEE DESIGNATION:</td>
-									<td><input type="text" name="desig"></input></td>
-								</tr>
-								<tr>
-									<td>EMPLOYEE EXPERTISE:</td>
-
-									<td><input type="text" name="area"></input></td>
-								</tr>
-								<tr>
-									<td>CLIENT ID:</td>
-									<td><input type="text" name="client"></input></td>
-								</tr>
-								<tr>
-									<td>EMAIL:</td>
-									<td><input type="text" name="email"></input></td>
-								</tr>
-								
 								<tr>
 									<td>TEAM ID:</td>
-									<td><input type="text" name="Team"></input></td>
-								</tr>
-								
-								<tr>
-									<td>Proficiency Camps:</td>
-									<td><input type="text" name="camps"></input></td>
+									<td><input type="text" name="Tno"></input></td>
 								</tr>
 								<tr>
-									<td>Proficiency Project:</td>
-									<td><input type="text" name="Project"></input></td>
+									<td>MODULE NAME:</td>
+									<td><input type="text" name="Mname"></input></td>
 								</tr>
 								<tr>
-									<td>Date of Joining:</td>
-									<td><input type="text" name="doj"></input></td>
+									<td>TEAM DESCRIPTION:</td>
+									<td><input type="text" name="desc"></input></td>
 								</tr>
-								<tr>
-									<td>Last Working Date:</td>
-									<td><input type="text" name="last"></input></td>
-								</tr>
-								<tr>
-									<td>Billable:</td>
-									<td><input type="text" name="bill"></input></td>
-								</tr>
-								<tr>
-									<td>Active User:</td>
-									<td><input type="text" name="active"></input></td>
-								</tr>
-								
-								
-								
 								</table>
 							<input class="submit" type="submit" value="Submit"></input> <input
 								type="reset" value="Reset" id="clear" name="clear"></input><br />
