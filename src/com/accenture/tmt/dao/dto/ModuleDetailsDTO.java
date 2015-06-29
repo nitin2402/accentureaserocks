@@ -5,12 +5,19 @@ public class ModuleDetailsDTO {
 	private String projectId;
 	private String moduleDescription;
 	private String moduleId;
+	private String project;
 	
 	public String getModuleName() {
 		return moduleName;
 	}
 	public void setModuleName(String moduleName) {
 		this.moduleName = moduleName;
+	}
+	public String getProject() {
+		return project;
+	}
+	public void setProject(String project) {
+		this.project = project;
 	}
 	public String getProjectId() {
 		return projectId;
