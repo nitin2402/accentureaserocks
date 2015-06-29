@@ -102,7 +102,10 @@ public interface CONSTANTS {
     public String GET_TEAMID_QUERY = "select TeamId from Team as T, Employee as E, Login as L where L.EmployeeId = E.EmployeeId AND E.TeamId = T.TeamId AND Username = ?";
          public String GET_LASTREQID_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM RequestTable";
 
-	
+	public String Get_Project_QUERY = "select ProjectName from ProjectDetail ";
+	public String Get_ProjectId_QUERY = "select ProjectId from ProjectDetail where ProjectName = ?";
+	public String INSERTMODULE_QUERY = "insert into ModuleDetail(ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
+
 }
 
 
