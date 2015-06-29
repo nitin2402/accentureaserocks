@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.accenture.tmt.dao.dto.ModuleDetailsDTO;
 import com.accenture.tmt.manager.ModuleController;
 import com.accenture.tmt.presentation.dto.ModuleFormDTO;
 
@@ -41,7 +42,7 @@ public class FetchModuleDetails extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<ModuleFormDTO> li = new ArrayList<ModuleFormDTO>();
+	/*	List<ModuleFormDTO> li = new ArrayList<ModuleFormDTO>();
 		ModuleController fetch = new ModuleController();
 		li = fetch.fetchModuleDetails();
 		//System.out.println(li);
@@ -57,8 +58,15 @@ public class FetchModuleDetails extends HttpServlet {
 			
 			exp += "</tr>";
 		}
-		exp += "</table></div><input type=\"submit\" name=\"submit1\" value=\"Edit\"><input type=\"submit\" name=\"submit2\" value=\"Delete\">";
-		request.setAttribute("module", exp);
+		exp += "</table></div><input type=\"submit\" value=\"Edit\">";
+		request.setAttribute("module", exp); */
+		
+			ModuleController fetch = new ModuleController();
+			List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
+			moduleList = fetch.viewModule();
+			request.setAttribute("ModuleList", moduleList);
+			
+			
 	}
 
 }
