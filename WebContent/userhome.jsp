@@ -18,7 +18,7 @@
 
 	});
 </script>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(function() {
 		$('.last').click(
 				function(event) {
@@ -31,6 +31,7 @@
 	});
 </script>
 
+<!--
 <script src="https://www.google.com/jsapi"></script>
 <script>
 	$("#ajaxResponse").hide();
@@ -301,7 +302,27 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
 			</div>
+	
+			<div class="content_left_section" style="font-size:14px">
+				<div class="content_left_section_title">View</div>
+				<div class="content_left_section_content">
+					<%-- <form action="#">
+						<input type="text" id="search_field" name="search_field" /> <input
+							type="submit" value="Search" id="search_button" />
+						<div>
+							<span id="msg1">${msg1}</span>
+						</div>
 
+					</form> --%>
+					
+					<ul>
+						<li><a href="viewemployee_user.jsp" >View Employee</a></li>
+						<li><a href="viewteam_user.jsp">View Team</a></li>
+						<li><a href="viewmodule_user.jsp" >View Module</a></li>
+					</ul>
+				</div>
+				<div class="content_left_section_bottom">&nbsp;</div>
+			</div>
 			<div class="margin_bottom_20">&nbsp;</div>
 
 		</div>
