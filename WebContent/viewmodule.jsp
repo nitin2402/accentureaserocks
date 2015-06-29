@@ -9,7 +9,7 @@
 <head>
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 
-<jsp:include page="/FetchModuleDetails" />
+<jsp:include page="/FetchModuleDetails"/>
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -35,13 +35,16 @@
 </head>
 <body>
 
+	  <%
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null
+				|| (String) session1.getAttribute("admin") != "admin") {
+	%>
+	  <jsp:forward page="login.jsp?msg=Please Login as an Admin" /> 
 	<%
-
-HttpSession session1 = request.getSession(false);
-if (session1 == null  || (String)session1.getAttribute("user") == null /*||  (Boolean)session1.getAttribute("admin") != true  */){
-    %><jsp:forward page="home.jsp?msg=Please Login as an Admin" /><%
-}
-%>
+		}
+	%> 
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
@@ -118,9 +121,54 @@ if (session1 == null  || (String)session1.getAttribute("user") == null /*||  (Bo
 
 			<div class="right_col_section_w650" style="height: auto">
 
-				<div class="header_01">View Module</div>
-<div >${module}</div>
+			
+				<div class="header_01" >Module Details</div>
+					<div id="scrollable"   style="font-size: 14px;">
+						<table class="table1" >
+							
+							<thead style="font-weight:bold;position: ">
+							<tr style="font-weight:bold;">
+								<td></td>
+								<td>ModuleId</td>
+								<td>ModuleName</td>
+								<td>ModuleDescription</td>
+								<td>ProjectId</td>
+							</tr>
+							</thead>
+						
+							<tbody  >
+							<jstlcore:forEach items="${ModuleList}" var="item">
+								<tr>
+									<td><input type="radio" name="moduleDetails" value=""></input></td>
+									<td><jstlcore:out value="${item.moduleId}" /></td>
+									<td><jstlcore:out value="${item.moduleName}" /></td>
+									<td><jstlcore:out value="${item.moduleDescription}" /></td>
+									<td><jstlcore:out value="${item.projectId}" /></td>
+								</tr>
+							</jstlcore:forEach></tbody></table>
+							
+						
 
+						<%-- 	<table>
+			<tr>
+				<td>MODULE:</td>
+				<td>[<select name="s_module" id="s_module"><jstlcore:forEach
+							var="aff" items="${modu}">
+
+							<option value="${aff}">${aff}</option>
+						</jstlcore:forEach></select>]</td>
+			</tr><tr>
+		<!-- <td>TEAM:</td>	<td id="ajaxResponse"></td> --></tr>
+		</table> --%>
+
+					</div>
+<br></br>
+				<div>
+				
+				<input type="button" id="" onclick="" value="Edit"></input>
+				<input type="button" id="" onclick="" value="Delete"></input>
+				</div>
+				
 				<div>
 
 
