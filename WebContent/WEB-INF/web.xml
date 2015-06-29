@@ -457,4 +457,14 @@
     <servlet-name>AddEmployeeExcel</servlet-name>
     <url-pattern>/AddEmployeeExcel</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>workplanServlet</display-name>
+    <servlet-name>workplanServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.workplanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>workplanServlet</servlet-name>
+    <url-pattern>/workplanServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
