@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ModuleDAO {
 	//		String sqlFetchProjectName = "select ProjectId from ProjectDetail where ProjectName=?";
 			PreparedStatement st = con.prepareStatement(sqlInsert);
 	//		System.out.println(newModule.getProject());
-	 projectId = fetchProjectId(newModule.getProject()); 
+	// projectId = fetchProjectId(newModule.getProject()); 
 	 st.setString(1, newModule.getModuleName());
 	 st.setString(2, projectId);
 		st.executeUpdate();
@@ -163,7 +164,7 @@ public class ModuleDAO {
 			while(rs.next()){
 	
 				moduleList= new ModuleDetailsDTO();
-				moduleList.setProject(rs.getString(CONSTANTS.PROJECT));
+				//moduleList.setProject(rs.getString(CONSTANTS.PROJECT));
 				moduleList.setModuleName(module);
 				moduleList.setModuleDescription(rs.getString(CONSTANTS.MODULE_DESCRIPTION));
 				moduleList.setModuleId(rs.getString(CONSTANTS.MODULE_ID));
@@ -262,40 +263,42 @@ con.close();
 		return list;
 
 	}
-	public  List<ModuleFormDTO> fetchModuleDetails() {
-			List<ModuleFormDTO> list = new ArrayList<ModuleFormDTO>();
-			ModuleFormDTO detail = null;
-			try {
-				Connection con = DBConnection.getConnection();
-				String sqlFetch = "SELECT ModuleDetail.ModuleName, ProjectDetail.ProjectName,ModuleDetail.ModuleId,ModuleDetail.ModuleDescription FROM ModuleDetail INNER JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId where ModuleDetail.Status='Y' ORDER BY ModuleDetail.ModuleId";
-				PreparedStatement st = con.prepareStatement(sqlFetch);
-				ResultSet rs = st.executeQuery();
-			//	ResultSetMetaData metaData = rs.getMetaData();
-			//	int count = metaData.getColumnCount();
+	public List<ModuleDetailsDTO> viewModule(){
+		
+		List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
+		
+		try {
+			ModuleDetailsDTO details = null;
 			
-			//	System.out.println();
-			//	System.out.println(rs.getString("ModuleName"));
-			while(rs.next())
-			{
-				detail = new ModuleFormDTO();
-				detail.setModuleName(rs.getString("ModuleName"));
-				detail.setModuleId(rs.getString("ModuleId"));
-				detail.setProjectId(rs.getString("ProjectName"));
-				detail.setModuleDescription(rs.getString("ModuleDescription"));
-				list.add(detail);
-//	System.out.println(rs.getString("ModuleName"));
-				}
-				con.close();
-				
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return list;
-				}
+			Connection con = DBConnection.getConnection();
+			Statement st = con.createStatement();
+			
+			String querry = "select * from ModuleDetail";
+			ResultSet rs = st.executeQuery(querry);
+
+		while(rs.next())
+		{
+			details =  new ModuleDetailsDTO();
+			details.setModuleId(rs.getString("ModuleId"));
+			details.setModuleName(rs.getString("ModuleName"));
+			details.setProjectId(rs.getString("ProjectId"));
+			details.setModuleDescription(rs.getString("ModuleDescription"));
+			
+			moduleList.add(details);
+		}
+		
+		
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	return moduleList;
+		
+	}
 
 	    public int deleteModule(String moduleId) throws SQLException, ClassNotFoundException {
 		List<String> teamlist= new ArrayList<String>();
