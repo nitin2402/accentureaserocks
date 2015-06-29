@@ -467,4 +467,14 @@
     <servlet-name>workplanServlet</servlet-name>
     <url-pattern>/workplanServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>RequestStatus</display-name>
+    <servlet-name>RequestStatus</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.RequestStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestStatus</servlet-name>
+    <url-pattern>/RequestStatus</url-pattern>
+  </servlet-mapping>
 </web-app>
