@@ -237,8 +237,7 @@
     <servlet-name>DisplayEmpList</servlet-name>
     <url-pattern>/DisplayEmpList</url-pattern>
   </servlet-mapping>
- 
-  <servlet>
+    <servlet>
     <description></description>
     <display-name>StoreServlet</display-name>
     <servlet-name>StoreServlet</servlet-name>
@@ -417,7 +416,8 @@
   <servlet-mapping>
     <servlet-name>AddTeamManually2</servlet-name>
     <url-pattern>/AddTeamManually2</url-pattern>
-    <servlet>
+    </servlet-mapping>
+     <servlet>
     <description></description>
     <display-name>AddEmpManual</display-name>
     <servlet-name>AddEmpManual</servlet-name>
@@ -457,5 +457,4 @@
     <servlet-name>AddEmployeeExcel</servlet-name>
     <url-pattern>/AddEmployeeExcel</url-pattern>
   </servlet-mapping>
-
 </web-app>
