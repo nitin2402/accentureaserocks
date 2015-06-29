@@ -241,11 +241,11 @@
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
-				|| (Boolean) session1.getAttribute("admin") != false) {
+				|| (String) session1.getAttribute("admin") != "user") {
 	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 	<%
 		}
-	%>
+	%> 
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
