@@ -336,6 +336,39 @@ con.close();
 		
 	
 	}
+
+	public int insertModule(ModuleDetailsDTO moduledetailsdto) {
+
+		ResultSet rs = null;
+		String projectId = null;
+		int status = 0;
+		try {
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con
+					.prepareStatement(CONSTANTS.Get_ProjectId_QUERY);
+			st.setString(1, moduledetailsdto.getProject());
+			rs = st.executeQuery();
+			while (rs.next()) {
+				projectId = rs.getString("ProjectId");
+			}
+			PreparedStatement st1 = con
+					.prepareStatement(CONSTANTS.INSERTMODULE_QUERY);
+
+			st1.setString(1, moduledetailsdto.getModuleName());
+			st1.setString(2, projectId);
+			st1.setString(3, moduledetailsdto.getModuleId());
+			st1.setString(4, moduledetailsdto.getModuleDescription());
+			st1.setString(5, "Y");
+
+			status = st1.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return status;
+		}			
+	
+	
 	
 	
 	
