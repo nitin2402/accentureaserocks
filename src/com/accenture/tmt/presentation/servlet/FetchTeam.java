@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.manager.TeamController;
 
 
@@ -51,18 +53,12 @@ public class FetchTeam extends HttpServlet {
 	//	System.out.println("Hi Im FetchTeam Servlet");
 	
 		
-	String module =	request.getParameter("moduleName");
+	//String module =	request.getParameter("moduleName");
 	
-	List<String> li = new ArrayList<String>();
-	
-	TeamController fetch = new TeamController();
-	li = fetch.fetchTeam(module);
-	//System.out.println(li);
-	//System.out.println(li.get(1));
-	PrintWriter out = response.getWriter();     
-
-	out.print(li);
-
+		TeamController fetch = new TeamController();
+		List<TeamDetailsFlatDTO> teamList = new ArrayList<TeamDetailsFlatDTO>();
+		teamList =  fetch.viewTeam();
+		request.setAttribute("TeamList",teamList);
 	}
 
 }
