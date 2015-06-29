@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
-import com.accenture.tmt.dao.dto.TeamDetailsDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
@@ -213,9 +214,9 @@ public class TeamDAO {
 		return status;
 	}
 	
-	public List<TeamDetailsDTO> fetchTeamDetails(String teamId){
-		List<TeamDetailsDTO> TeamDetailsList = new ArrayList<TeamDetailsDTO>();
-		TeamDetailsDTO team = null;
+	public List<TeamDetailsFlatDTO> fetchTeamDetails(String teamId){
+		List<TeamDetailsFlatDTO> TeamDetailsList = new ArrayList<TeamDetailsFlatDTO>();
+		TeamDetailsFlatDTO team = null;
 		try {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con.prepareStatement(CONSTANTS.TEAM_DETAIL_FETCH);
@@ -228,10 +229,10 @@ public class TeamDAO {
 		//	System.out.println();
 		//	System.out.println(rs.getString("ModuleName"));
 			while(rs.next()){
-			team = new TeamDetailsDTO();
+			team = new TeamDetailsFlatDTO();
 			team.setTeamName(rs.getString(CONSTANTS.TEAM_NAME));
 			team.setTeamDescription(rs.getString(CONSTANTS.TEAM_DESCRIPTION));
-			team.setModuleName(rs.getString(CONSTANTS.MODULE_NAME));
+			team.setModuleId(rs.getString(CONSTANTS.MODULE_ID));
 			team.setTeamId(rs.getString(CONSTANTS.TEAM_ID));
 			
 			TeamDetailsList.add(team);
@@ -291,55 +292,44 @@ public class TeamDAO {
 		
 			}
 	
-	public  List<TeamFormDTO> fetchTeamDetails() {
-		List<TeamFormDTO> teamList = new ArrayList<TeamFormDTO>();
-		TeamFormDTO detail = null;
-			try {
-				Connection con = DBConnection.getConnection();
-				
-
-				String sqlFetch = "SELECT t.TeamName,t.TeamId,m.ModuleName,"
-						+ "p.ProjectName,t.TeamDescription "
-						+ "FROM Team t,ModuleDetail m,ProjectDetail p "
-						+ "WHERE t.ModuleId=m.ModuleId"
-						+ " AND t.Status='Y'"
-						+ " AND m.ProjectId=p.ProjectId ORDER BY t.TeamId"
-						;  
-
-				
-				PreparedStatement st = con.prepareStatement(sqlFetch);
-				ResultSet rs = st.executeQuery();
-			//	ResultSetMetaData metaData = rs.getMetaData();
-			//	int count = metaData.getColumnCount();
+public List<TeamDetailsFlatDTO> viewTeam() {
+		
+		List<TeamDetailsFlatDTO> teamList = new ArrayList<TeamDetailsFlatDTO>();
+		try {
+			TeamDetailsFlatDTO details = null;
 			
-			//	System.out.println();
-			//	System.out.println(rs.getString("ModuleName"));
-				while(rs.next())
-				{
-					detail = new TeamFormDTO();
-					detail.setTeamName(rs.getString("TeamName"));
-					detail.setModuleName(rs.getString("ModuleName"));
-					detail.setProjectName(rs.getString("ProjectName"));
-					detail.setTeamId(rs.getString("TeamId"));
-					detail.setTeamDescription(rs.getString("TeamDescription"));
-					
-					
-					teamList.add(detail);
-					con.close();
-				//	System.out.println(rs.getString("ModuleName"));
-				}
-
+			Connection con = DBConnection.getConnection();
+			Statement st = con.createStatement();
+			
+			String querry = "select * from Team";
+			ResultSet rs = st.executeQuery(querry);
+			
+			while(rs.next())
+			{
+				details = new TeamDetailsFlatDTO();
+				details.setTeamId(rs.getString("TeamId"));
+				details.setTeamName(rs.getString("TeamName"));
+				details.setModuleId(rs.getString("ModuleId"));
+				details.setTeamDescription(rs.getString("TeamDescription"));
 				
-			} catch (ClassNotFoundException e) {
+				teamList.add(details);
+			}
+			
+			} 
+			
+			catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (SQLException e) {
+			} 
+			catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return teamList;
+		
+		return teamList;
 
-		}
+	}
+	
 
 
 		}
