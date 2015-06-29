@@ -28,7 +28,7 @@ public class ExcelDAO {
 	int a = 0;
 	
 	try {
-		con = DBConnection.connect();
+		con = DBConnection.getConnection();
 		for(int i=0;i<excel.size();i++){
 		PreparedStatement st = con.prepareStatement(CONSTANTS.EMPLOYEE_INSERT);
 				if (excel.get(i).getEmpId() != null) {
