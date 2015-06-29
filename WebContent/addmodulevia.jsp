@@ -31,6 +31,7 @@
 				});
 	});
 </script>
+<script type="text/javascript" src="addmodulevia.js"></script> 
 
 </head>
 <body>
@@ -135,18 +136,19 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 				<div>
 
 
+					
 					<div style="font-size: 14px;">
-						<form action="AddModuleSelect">
-							<input type="radio" name="select" value="addfromexcel">Add
+						<form name="radio1" action="AddModuleSelect" onsubmit="return validateform2()">
+							<input type="radio" name="select"  id= "excel" value="addfromexcel"/>Add
 								From Excel<br />
 							<br />
-							<br /><input type="radio" name="select" value="addmanually">Add
+							<br /><input type="radio" name="select"  id="manually" value="addmanually"/>Add
 								Manually<br />
+							
 								
 							<br/><input type="submit" value="Select">
 						</form>
 					</div>
-
 
 
 					<div class="cleaner">&nbsp;</div>
