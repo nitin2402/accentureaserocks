@@ -20,16 +20,13 @@ public interface CONSTANTS {
 	
 	
 	public String SEARCH_EMPLOYEE = 
-		"	SELECT Employee.EmployeeId, Employee.EmployeeName, Team.TeamName,"
-		+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
-		+ "Employee.EmployeeAttId, Employee.EmployeeEmail, ModuleDetail.ModuleName, ProjectDetail.ProjectName"+
-			" FROM Employee"+
-			" LEFT JOIN Team"+
-			" ON Employee.TeamId=Team.TeamId"+
-			" LEFT JOIN ModuleDetail ON Team.ModuleId=ModuleDetail.ModuleId"+
-			" LEFT JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId"
-			+ " WHERE Employee.EmployeeName LIKE ? ";
-	
+			"	SELECT Employee.EmployeeId, Employee.EmployeeName, "
+					+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
+					+ "Employee.EmployeeClientId, Employee.EmployeeEmail,Employee.TeamId,"
+					+ "Employee.ProficiencyCamps, Employee.ProficiencyProject, Employee.ProficiencyProject,"
+					+ "Employee.DateofJoining, Employee.LastWorkingDay, Employee.Billable, "
+					+ "Employee.ActiveUser"
+					+ " FROM Employee"
 	
 	public String PROJECT = "ProjectName";
 	public String MODULE_NAME = "ModuleName";
@@ -99,6 +96,12 @@ public interface CONSTANTS {
 	public String SHEET_NO = "sheetno";
 	public String FILE_NAME = "file1";
 	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCamps=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
+
+	public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID) values(?,?,?,?,?,?,?)";
+    public String GET_REQUESTID_QUERY = "select ReqId from RequestTable where TeamId = ?";
+    public String GET_TEAMID_QUERY = "select TeamId from Team as T, Employee as E, Login as L where L.EmployeeId = E.EmployeeId AND E.TeamId = T.TeamId AND Username = ?";
+         public String GET_LASTREQID_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM RequestTable";
+
 	
 }
 
