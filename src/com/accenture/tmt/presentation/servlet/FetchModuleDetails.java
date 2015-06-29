@@ -57,7 +57,7 @@ public class FetchModuleDetails extends HttpServlet {
 			
 			exp += "</tr>";
 		}
-		exp += "</table></div><input type=\"submit\" value=\"Edit\">";
+		exp += "</table></div><input type=\"submit\" name=\"submit1\" value=\"Edit\"><input type=\"submit\" name=\"submit2\" value=\"Delete\">";
 		request.setAttribute("module", exp);
 	}
 
