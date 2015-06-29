@@ -100,7 +100,7 @@
 						<li><a href="workplan.jsp">Raise a new request</a></li>
 
 
-						<li><a href="RequestStatus.jsp">Request Status</a></li>
+						<li><a href="requeststatus.jsp">Request Status</a></li>
 					
 					</ul>
 				<div>
