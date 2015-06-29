@@ -15,7 +15,7 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+<script type="text/javascript" src="addmodule.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -139,25 +139,44 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (Boolea
 
 					<div style="font-size: 14px;">
 						<jsp:include page="/fetchproject.jsp" />
-						<form action="AddModule">
+					<form name="add" action="AddModule" onsubmit="return validateform1()" >						 
 							<table>
+						<tr>
+									<td>MODULE ID:</td>
+									<td><input type="text" name="moduleid" id="module_id"></input></td>
+								</tr>
 								<tr>
 									<td>MODULE NAME:</td>
-									<td><input type="text" name="modulename"/></td>
+									<td><input type="text" name="modulename" id="module_name"></input></td>
+								</tr>
+								<tr>
+									<td>MODULE Description:</td>
+									<td><input type="text" name="moduledesc" id="module_desc"></input></td>
 								</tr>
 								<tr>
 									<td>PROJECT:</td>
-									<td><select name="project1"><jstlcore:forEach
-												var="proj" items="${project}">
+									<td> <select name="project1">
+															<jstlcore:forEach var="proj" items="${project}">
 
-												<option value="${proj}">${proj}</option>
+												<option value="${proj}"> ${proj} </option>
 
-											</jstlcore:forEach></select></td>
-								</tr>
+									</jstlcore:forEach>
+									</select>
+									</td>
+			</tr> 
 								<tr>
-									<td/><td><input type="submit" value="SUBMIT" ></input></td></tr>
+									<td><input type="submit" value="SUBMIT" ></input></td>
+								
+									<td><input type="reset" value="RESET" name="clear" ></input></td>
+								</tr>
+									
+
+									
 							</table>
+							
+					
 						</form>
+
 
 						<br /> <br /> <!-- <a href="editmodule.jsp" style="font-weight: normal;margin-left:500px">Edit module</a> -->
 					</div>
