@@ -9,7 +9,7 @@ public interface CONSTANTS {
 	public String EMPLOYEE_ID = "EmployeeId";
 	
 
-	public String EMPLOYEE_ATTID = "EmployeeAttId";
+
 
 	
 
