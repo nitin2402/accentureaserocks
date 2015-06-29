@@ -237,16 +237,7 @@
     <servlet-name>DisplayEmpList</servlet-name>
     <url-pattern>/DisplayEmpList</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AddSelect</display-name>
-    <servlet-name>AddSelect</servlet-name>
-    <servlet-class>com.accenture.tmt.presentation.servlet.AddSelect</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddSelect</servlet-name>
-    <url-pattern>/AddSelect</url-pattern>
-  </servlet-mapping>
+ 
   <servlet>
     <description></description>
     <display-name>StoreServlet</display-name>
@@ -426,4 +417,45 @@
   <servlet-mapping>
     <servlet-name>AddTeamManually2</servlet-name>
     <url-pattern>/AddTeamManually2</url-pattern>
+    <servlet>
+    <description></description>
+    <display-name>AddEmpManual</display-name>
+    <servlet-name>AddEmpManual</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AddEmpManual</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmpManual</servlet-name>
+    <url-pattern>/AddEmpManual</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEmployeeManual</display-name>
+    <servlet-name>AddEmployeeManual</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AddEmployeeManual</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmployeeManual</servlet-name>
+    <url-pattern>/AddEmployeeManual</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEmpChoice</display-name>
+    <servlet-name>AddEmpChoice</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AddEmpChoice</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmpChoice</servlet-name>
+    <url-pattern>/AddEmpChoice</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEmployeeExcel</display-name>
+    <servlet-name>AddEmployeeExcel</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AddEmployeeExcel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmployeeExcel</servlet-name>
+    <url-pattern>/AddEmployeeExcel</url-pattern>
+  </servlet-mapping>
+
 </web-app>
