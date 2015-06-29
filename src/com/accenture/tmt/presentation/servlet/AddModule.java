@@ -1,6 +1,5 @@
 package com.accenture.tmt.presentation.servlet;
 
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -10,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.accenture.tmt.dao.dto.ModuleDetailsDTO;
 import com.accenture.tmt.manager.ModuleController;
+import com.accenture.tmt.presentation.dto.ModuleFormDTO;
+
 
 /**
  * Servlet implementation class AddModule
@@ -30,7 +31,7 @@ public class AddModule extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
+		doPost(request, response);
 	}
 
 	/**
@@ -39,18 +40,29 @@ public class AddModule extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		ModuleFormDTO moduleformdto = new ModuleFormDTO();
+		ModuleController modulecontroller = new ModuleController();
+		int status = 0;
+		
 		String moduleName = request.getParameter("modulename");
-		String project = request.getParameter("project1");
-	
-		ModuleDetailsDTO newModule = new ModuleDetailsDTO();
-		newModule.setModuleName(moduleName);
-		newModule.setProject(project);
+		String projectName = request.getParameter("project1");
+		String moduleDescription = request.getParameter("moduledesc");
+		String moduleId = request.getParameter("moduleid");
 		
-		ModuleController manage = new ModuleController();
-		manage.addModule(newModule);
+		moduleformdto.setModuleName(moduleName);
+		moduleformdto.setModuleId(moduleId);
+		moduleformdto.setModuleDescription(moduleDescription);
+		moduleformdto.setProject(projectName);
 		
-		request.setAttribute("message","Module Inserted");
-		request.getRequestDispatcher("addmodulevia.jsp").forward(request, response); 
+		status = modulecontroller.addModule1(moduleformdto);
+		
+		if(status == 1){
+			request.setAttribute("message", "Module Inserted Successfully");
+		} else if(status == 0){
+			request.setAttribute("message", "No Module Inserted	");
+		}
+		
+		request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		
 	}
 
