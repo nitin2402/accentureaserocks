@@ -17,7 +17,7 @@ import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 
 public class TeamDAO {
-	public int addEmployee(TeamDetailsFlatDTO TeamDetailsFlatDTO) {
+	public int addTeam(TeamDetailsFlatDTO TeamDetailsFlatDTO) {
 		int a = 0;
 		try {
 			Connection con = DBConnection.connect();
