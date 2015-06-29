@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 
 
@@ -41,4 +42,29 @@ public class ProjectDAO {
 			return projectList;
 
 }
+
+private List<String> projectNames = new ArrayList<String>();
+	
+	public  List<String> getProjectNames(){
+		
+		ResultSet rs = null;
+		try {
+			Connection con = DBConnection.getConnection();
+			
+				PreparedStatement st = con
+						.prepareStatement(CONSTANTS.Get_Project_QUERY);
+				rs = st.executeQuery();
+				while(rs.next()){
+					projectNames.add(rs.getString("ProjectName"));
+				}
+
+		} catch(Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return projectNames;
+
+		
+	}
 }
