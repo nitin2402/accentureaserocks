@@ -2,6 +2,7 @@ package com.accenture.tmt.presentation.servlet;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,14 +43,18 @@ public class EditModule extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String submit1=request.getParameter("submit1");
+		String submit2=request.getParameter("submit2");
+		ModuleController editModule = new ModuleController();
 		String module = request.getParameter("moduleedit");
+		if(submit1 != null){
 		List<ModuleDetailsDTO> li = new ArrayList<ModuleDetailsDTO>();
 	
 		
 	/*	String newModule = request.getParameter("newmodule");
 		String project = request.getParameter("project1");
 */
-		ModuleController editModule = new ModuleController();
+		
 		li=editModule.fetchModuleDetails(module);
 		
 		
@@ -69,6 +74,18 @@ public class EditModule extends HttpServlet {
 		{*/
 		request.setAttribute("module", li);
 		request.getRequestDispatcher("editmodule.jsp").forward(request, response);
+		}
+		
+		if(submit2 != null){
+			try {
+				editModule.deleteModule(module);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.setAttribute("message","Module Deleted");
+			request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
+		}
 	/*	}
 		else
 		{
