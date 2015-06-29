@@ -1,10 +1,10 @@
 package com.accenture.tmt.manager;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.TeamDAO;
-import com.accenture.tmt.dao.dto.TeamDetailsDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
@@ -65,9 +65,9 @@ public class TeamController {
 		return status;
 	}
 	
-	public List<TeamDetailsDTO> FetchTeamDetails(String teamId)
+	public List<TeamDetailsFlatDTO> FetchTeamDetails(String teamId)
 	{
-		List<TeamDetailsDTO> TeamDetailsList=teamDAO.fetchTeamDetails(teamId);
+		List<TeamDetailsFlatDTO> TeamDetailsList=teamDAO.fetchTeamDetails(teamId);
 		return TeamDetailsList;
 	}
 	
@@ -76,29 +76,9 @@ public class TeamController {
 		return teamList;
     }
 	
-	public  List<TeamFormDTO> fetchTeamDetails() {
-		List<TeamFormDTO> teamList=teamDAO.fetchTeamDetails();
-		return teamList;
-	}
-	public int addTeam(TeamDetailsFlatDTO detailsDO)
-	{	
-	
-	TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
-	detailsFD.setTeamName(detailsDO.getTeamName());
-	detailsFD.setTeamid(detailsDO.getTeamid());
-	detailsFD.setModuleId(detailsDO.getModuleId());
-	detailsFD.setTeamDesc(detailsDO.getTeamDesc());
-	TeamDAO dao1 =new TeamDAO();
-	int b=dao1.addTeam(detailsFD);
-	
-	if(b!=0){
-		System.out.println("Record Inserted");
-	}
-	if(b ==0){
-		System.out.println("Record insertion failed");
-	
-	}
-	return b;
-	
+	public List<TeamDetailsFlatDTO> viewTeam(){
+		List<TeamDetailsFlatDTO> list = new ArrayList<TeamDetailsFlatDTO>();
+		list=teamDAO.viewTeam();
+		return list;
 	}
 }
