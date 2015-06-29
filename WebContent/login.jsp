@@ -49,7 +49,9 @@
 							User Name<input type="text" id="USERNAME" name="USERNAME" /> <br />
 							<br /> Password<input type="password" id="PASSWORD"
 								name="PASSWORD" /> <input type="submit" value="Login"
-								id="search_button" /> <br /> <br />
+								id="search_button" /> <br /> <br /><a href="signup.jsp"
+								style="font-size: 14px; text-decoration: underline; font-weight: normal;">Sign
+								up</a>
 						</form>
 						<div class="cleaner">&nbsp;</div>
 					</div>
