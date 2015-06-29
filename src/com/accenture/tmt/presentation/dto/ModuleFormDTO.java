@@ -5,6 +5,7 @@ public class ModuleFormDTO {
 	private String projectId;
 	private String moduleId;
 	private String moduleDescription;
+	private String project;
 	public String getModuleName() {
 		return moduleName;
 	}
@@ -28,6 +29,12 @@ public class ModuleFormDTO {
 	}
 	public void setModuleDescription(String moduleDescription) {
 		this.moduleDescription = moduleDescription;
+	}
+	public String getProject() {
+		return project;
+	}
+	public void setProject(String project) {
+		this.project = project;
 	}
 	
 	
