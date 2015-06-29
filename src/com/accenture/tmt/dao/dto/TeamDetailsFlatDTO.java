@@ -1,34 +1,48 @@
 package com.accenture.tmt.dao.dto;
 
 public class TeamDetailsFlatDTO {
-	private String Teamid;
-	private String TeamName;
-	private String TeamDesc;
-	private String ModuleId;
-	public String getTeamid() {
-		return Teamid;
+	private String teamName;
+	private String teamId;
+	private String moduleId;
+	private String teamDescription;
+	/*private String moduleName;
+	private String Status;
+	public String getModuleName() {
+		return moduleName;
 	}
-	public void setTeamid(String Teamid) {
-		this.Teamid = Teamid;
-	}
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
+	}*/
 	public String getTeamName() {
-		return TeamName;
+		return teamName;
 	}
-	public void setTeamName(String TeamName) {
-		this.TeamName = TeamName;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
-	public String getTeamDesc() {
-		return TeamDesc;
+	public String getTeamId() {
+		return teamId;
 	}
-	public void setTeamDesc(String TeamDesc) {
-		this.TeamDesc = TeamDesc;
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
 	}
 	public String getModuleId() {
-		return ModuleId;
+		return moduleId;
 	}
-	public void setModuleId(String ModuleId) {
-		this.ModuleId = ModuleId;
+	public void setModuleId(String moduleId) {
+		this.moduleId = moduleId;
 	}
-	
-	
+	public String getTeamDescription() {
+		return teamDescription;
+	}
+	public void setTeamDescription(String teamDescription) {
+		this.teamDescription = teamDescription;
+	}
+	/*public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}*/
+
+
 }
