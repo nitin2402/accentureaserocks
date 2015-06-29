@@ -2,6 +2,7 @@ package com.accenture.tmt.presentation.servlet;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,18 +43,14 @@ public class EditTeam extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		String submit1=request.getParameter("submit1");
+		String submit2=request.getParameter("submit2");
 		String team = request.getParameter("teamedit");
-	/*	String module = request.getParameter("s_module");
-		String n_team = request.getParameter("newteam");
-		String n_module = request.getParameter("newmodule");*/
+		TeamController teamoperation = new TeamController();
+		if(submit1!=null){
 		List<TeamDetailsDTO> li = new ArrayList<TeamDetailsDTO>();
-	
 		
-
-		TeamController editteam = new TeamController();
-		
-		li = editteam.FetchTeamDetails(team);
+		li = teamoperation.FetchTeamDetails(team);
 		
 	/*if(n_module==module )
 		{
@@ -86,6 +83,25 @@ response.sendRedirect("editteam.jsp?msg1=Module Edited");
 		}*/
 		request.setAttribute("team", li);
 		request.getRequestDispatcher("editteam.jsp").forward(request, response);
+	}
+	
+	if(submit2!=null){
+		
+	
+		try {
+			 teamoperation.deleteTeam(team);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("message","Record Deleted");
+		request.getRequestDispatcher("viewteam.jsp").forward(request, response);
+		
+		
+	}
 	}
 
 }
