@@ -1,6 +1,7 @@
 package com.accenture.tmt.manager;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.ModuleDAO;
@@ -36,9 +37,10 @@ public class ModuleController {
 		return ModuleDetailsList;
 	}
 	
-	public  List<ModuleFormDTO> fetchModuleDetails() {
-		List<ModuleFormDTO> list=moduleDAO.fetchModuleDetails();
-		return list;
+	public List<ModuleDetailsDTO> viewModule(){
+		List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
+		moduleList = moduleDAO.viewModule();;
+		return moduleList;	
 	}
 	
 	public List<String> FetchModuleByProject(String project) {
