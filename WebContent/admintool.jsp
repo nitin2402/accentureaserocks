@@ -29,7 +29,8 @@
 				<div id="slogan">The place to look back</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
-
+<div id="welcome_msg" style="color: yellow;float: right;
+font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 	<div id="header_section_code">"Overall approach is to maintain
 			pyramid form for all designation levels as per Accenture compliance."</div>
 	</div>
@@ -41,7 +42,7 @@
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
-			<li><a href="logout.jsp">Logout</a></li>
+			<!-- <li><a href="logout.jsp">Logout</a></li> -->
 			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
 	</div>
@@ -106,7 +107,7 @@
 								From Excel<br /> <br /> <br />
 							<input type="radio" name="select" value="addmanually">Add
 									Manually<br /> <br />
-								<input type="submit" value="Select">
+								<input type="submit" value="select">
 						</form>
 					</div>
 					<br />
