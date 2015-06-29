@@ -59,7 +59,8 @@ public class FetchTeamDetails extends HttpServlet {
 
 			exp += "</tr>";
 		}
-		exp += "</table></div><input type=\"submit\" name=\"submit1\" value=\"Edit\"> <input type=\"submit\" name=\"submit2\" action=\"DeleteTeam\" value=\"Delete\">";
+		exp += "</table></div><input type=\"submit\" name=\"submit1\" value=\"Edit\"> <input type=\"submit\" name=\"submit2\" value=\"Delete\">";
+		
 		request.setAttribute("team", exp);
 	}
 }
