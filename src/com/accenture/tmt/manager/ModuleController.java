@@ -39,7 +39,7 @@ public class ModuleController {
 	}
 	
 	public List<ModuleDetailsDTO> viewModule(){
-		List<ModuleDetailsFlatDTO> moduleList = new ArrayList<ModuleDetailsFlatDTO>();
+		List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
 		moduleList = moduleDAO.viewModule();;
 		return moduleList;	
 	}
@@ -83,6 +83,10 @@ public  List<String> fetchProjects() {
 		flag = moduledao.insertModule(moduledetailsdto);
 		return flag;
 		
+	}
+	public  List<ModuleFormDTO> fetchModuleDetails() {
+		List<ModuleFormDTO> list=moduleDAO.fetchModuleDetails();
+		return list;
 	}
 	
 }
