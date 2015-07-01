@@ -78,13 +78,19 @@ public class EditModule extends HttpServlet {
 		
 		if(submit2 != null){
 			try {
-				editModule.deleteModule(module);
+				int status=editModule.deleteModule(module);
+				if(status==1){
+					request.setAttribute("message","Module Deleted and Employees Are Set To Free !!!");
+					}
+				else{
+					request.setAttribute("message","Technical Error!!! Try Again Later...");
+				}
+					request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.setAttribute("message","Module Deleted");
-			request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
+			
 		}
 	/*	}
 		else
