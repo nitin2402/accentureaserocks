@@ -165,9 +165,9 @@ public class ModuleDAO {
 	
 				moduleList= new ModuleDetailsDTO();
 				//moduleList.setProject(rs.getString(CONSTANTS.PROJECT));
-				moduleList.setModuleName(module);
+				moduleList.setModuleName(rs.getString(CONSTANTS.MODULE_NAME));
 				moduleList.setModuleDescription(rs.getString(CONSTANTS.MODULE_DESCRIPTION));
-				moduleList.setModuleId(rs.getString(CONSTANTS.MODULE_ID));
+				moduleList.setModuleId(module);
 	
 		ModuleDetailsList.add(moduleList);	
 	}
@@ -263,12 +263,12 @@ con.close();
 		return list;
 
 	}
-	public List<ModuleDetailsFlatDTO> viewModule(){
+	public List<ModuleDetailsDTO> viewModule(){
 		
-		List<ModuleDetailsFlatDTO> moduleList = new ArrayList<ModuleDetailsFlatDTO>();
+		List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
 		
 		try {
-			ModuleDetailsFlatDTO details = null;
+			ModuleDetailsDTO details = null;
 			
 			Connection con = DBConnection.getConnection();
 			Statement st = con.createStatement();
@@ -278,7 +278,7 @@ con.close();
 
 		while(rs.next())
 		{
-			details =  new ModuleDetailsFlatDTO();
+			details =  new ModuleDetailsDTO();
 			details.setModuleId(rs.getString("ModuleId"));
 			details.setModuleName(rs.getString("ModuleName"));
 			details.setProjectId(rs.getString("ProjectId"));
@@ -301,14 +301,14 @@ con.close();
 	}
 
 	    public int deleteModule(String moduleId) throws SQLException, ClassNotFoundException {
-		List<String> teamlist= new ArrayList<String>();
+		
 		Connection con = DBConnection.getConnection();
 		int status=0;
 		try{
-			String sqlemp = "UPDATE Employee SET TeamId = 'FREE' WHERE TeamId =?";
-			String sqlteam = "UPDATE Team SET Status = 'N' WHERE TeamId =?";
-			String sqlmodule = "UPDATE ModuleDetail SET Status = 'N' WHERE ModuleName =?";
-			PreparedStatement steam=con.prepareStatement("Select Team.TeamId from Team Inner Join ModuleDetail on Team.ModuleID=ModuleDetail.ModuleId where ModuleDetail.ModuleId=?");
+			String sqlemp = "update employee set employee.teamid='FREE' where teamid in ( select teamid from employee e,team t where e.teamid=t.teamid and t.moduleid=?)";
+			String sqlteam = "UPDATE Team SET Status = 'N' WHERE ModuleId =?";
+			String sqlmodule = "UPDATE ModuleDetail SET Status = 'N' WHERE ModuleId =?";
+		/*	PreparedStatement steam=con.prepareStatement("Select Team.TeamId from Team Inner Join ModuleDetail on Team.ModuleID=ModuleDetail.ModuleId where ModuleDetail.ModuleId=?");
 			steam.setString(1, moduleId);
 			ResultSet rsteam=steam.executeQuery();
 		    while(rsteam.next()){
@@ -321,12 +321,19 @@ con.close();
 		    	steam1.setString(1, teamlist.get(i));
 		    	stemp.executeUpdate();
 		    	steam1.executeUpdate();
-		    	}
-		    PreparedStatement st = con.prepareStatement(sqlmodule);
-			st.setString(1, moduleId);
-			st.executeUpdate();
-			status=st.executeUpdate();
-		}
+		    	}*/
+		    PreparedStatement st1 = con.prepareStatement(sqlemp);
+		    PreparedStatement st2 = con.prepareStatement(sqlteam);
+		    PreparedStatement st3 = con.prepareStatement(sqlmodule);
+
+		    st1.setString(1, moduleId);
+		    st2.setString(1, moduleId);
+		    st3.setString(1, moduleId);
+			st1.executeUpdate();
+			st2.executeUpdate();
+			st3.executeUpdate();
+			status=st3.executeUpdate();
+	}
 		finally{
 			con.commit();
 			con.close();
@@ -366,7 +373,42 @@ con.close();
 		}
 
 		return status;
-		}			
+		}		
+	public  List<ModuleFormDTO> fetchModuleDetails() {
+		List<ModuleFormDTO> list = new ArrayList<ModuleFormDTO>();
+		ModuleFormDTO detail = null;
+		try {
+			Connection con = DBConnection.getConnection();
+			String sqlFetch = "SELECT ModuleDetail.ModuleName, ProjectDetail.ProjectName,ModuleDetail.ModuleId,ModuleDetail.ModuleDescription FROM ModuleDetail INNER JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId where ModuleDetail.Status='Y' ORDER BY ModuleDetail.ModuleId";
+			PreparedStatement st = con.prepareStatement(sqlFetch);
+			ResultSet rs = st.executeQuery();
+		//	ResultSetMetaData metaData = rs.getMetaData();
+		//	int count = metaData.getColumnCount();
+		
+		//	System.out.println();
+		//	System.out.println(rs.getString("ModuleName"));
+		while(rs.next())
+		{
+			detail = new ModuleFormDTO();
+			detail.setModuleName(rs.getString("ModuleName"));
+			detail.setModuleId(rs.getString("ModuleId"));
+			detail.setProjectId(rs.getString("ProjectName"));
+			detail.setModuleDescription(rs.getString("ModuleDescription"));
+			list.add(detail);
+//System.out.println(rs.getString("ModuleName"));
+			}
+			con.close();
+			
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return list;
+			}
+
 	
 	
 	
