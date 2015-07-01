@@ -38,8 +38,8 @@
 	<%
 
 HttpSession session1 = request.getSession(false);
-if (session1 == null   || (String)session1.getAttribute("user") == null /* || (Boolean)session1.getAttribute("admin") != true  */){
-    %><jsp:forward page="home.jsp?msg=Please Login as an Admin" /><%
+if (session1 == null   || (String)session1.getAttribute("user") == null || (String)session1.getAttribute("admin") != "admin"){
+    %><jsp:forward page="login.jsp?msg=Please Login as an Admin" /><%
 }
 %>
 	<div id="templatemo_container" />
@@ -95,7 +95,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 						<li><a href="addempvia.jsp" >Add Employee </a></li>
 							
 						
-						<li><a href="addmodulevia.jsp" >Add Module -></a></li>
+						<li><a href="addmodulevia.jsp" style="font-weight: bold; text-decoration: underline" >Add Module </a></li>
 						<li><a href="addteamvia.jsp" >Add Team </a></li>
 					</ul>
 				</div>
@@ -136,7 +136,6 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 				<div>
 
 
-					
 					<div style="font-size: 14px;">
 						<form name="radio1" action="AddModuleSelect" onsubmit="return validateform2()">
 							<input type="radio" name="select"  id= "excel" value="addfromexcel"/>Add
@@ -149,6 +148,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 							<br/><input type="submit" value="Select">
 						</form>
 					</div>
+
 
 
 					<div class="cleaner">&nbsp;</div>
