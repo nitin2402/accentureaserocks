@@ -34,19 +34,17 @@
 
 </head>
 <body>
-	<jsp:include page="/FetchTeam" />
+	<jsp:include page="/FetchTeamDetails" />
 
-	   <%
+	<%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				|| (String) session1.getAttribute("admin") != "admin") {
-	%>
-	  <jsp:forward page="login.jsp?msg=Please Login as an Admin" /> 
+				/* || (String) session1.getAttribute("user") == null
+				|| (Boolean) session1.getAttribute("admin") != true */) {
+	%><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
 	<%
 		}
-	%> 
-	
+	%>
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
@@ -124,58 +122,12 @@
 
 			<div class="right_col_section_w650" style="height: auto">
 
-				<div class="header_01" >Team Details</div>
-					<div id="scrollable"   style="font-size: 14px;">
-						<table class="table1" >
-							
-							<thead style="font-weight:bold;position: ">
-							<tr style="font-weight:bold;">
-								<td></td>
-								<td>TeamId</td>
-								<td>TeamName</td>
-								<td>TeamDescription</td>
-								<td>ModuleId</td>
-							</tr>
-							</thead>
-						
-							<tbody>
-							<jstlcore:forEach items="${TeamList}" var="item">
-								<tr>
-									<td><input type="radio" name="teamDetails" value=""></input></td>
-									<td><jstlcore:out value="${item.teamId}" /></td>
-									<td><jstlcore:out value="${item.teamName}" /></td>
-									<td><jstlcore:out value="${item.teamDescription}" /></td>
-									<td><jstlcore:out value="${item.moduleId}" /></td>
-								</tr>
-							</jstlcore:forEach></tbody></table>
-							
-						
+				<div class="header_01" >View Team</div>
+			<div >	${team}</div>
 
-						<%-- 	<table>
-			<tr>
-				<td>MODULE:</td>
-				<td>[<select name="s_module" id="s_module"><jstlcore:forEach
-							var="aff" items="${modu}">
-
-							<option value="${aff}">${aff}</option>
-						</jstlcore:forEach></select>]</td>
-			</tr><tr>
-		<!-- <td>TEAM:</td>	<td id="ajaxResponse"></td> --></tr>
-		</table> --%>
-
-					</div>
-<br></br>
 				<div>
-				
-				<input type="button" id="" onclick="" value="Edit"></input>
-				<input type="button" id="" onclick="" value="Delete"></input>
-				</div>
-				
-				<div>
-			
-			<div>
 <br/><br/>
-			<div style="color: red;font-size: 12px">${message}</div>
+<div style="color: red;font-size: 12px">${message}</div>
 
 					<div style="font-size: 14px;">
 						<%-- <table>
@@ -206,7 +158,10 @@
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
 	</div>
-</div>
+
+
+
+
 
 </body>
 </html>
