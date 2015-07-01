@@ -5,7 +5,7 @@ public class TeamDetailsFlatDTO {
 	private String teamId;
 	private String moduleId;
 	private String teamDescription;
-	private String moduleName;
+	private String status;
 	/*private String moduleName;
 	private String Status;
 	public String getModuleName() {
@@ -38,18 +38,12 @@ public class TeamDetailsFlatDTO {
 	public void setTeamDescription(String teamDescription) {
 		this.teamDescription = teamDescription;
 	}
-	/*public String getStatus() {
-		return Status;
+	
+	public String getStatus() {
+		return status;
 	}
 	public void setStatus(String status) {
-		Status = status;
-	}*/
-	public String getModuleName() {
-		return moduleName;
+		this.status = status;
 	}
-	public void setModuleName(String moduleName) {
-		this.moduleName = moduleName;
-	}
-
 
 }
