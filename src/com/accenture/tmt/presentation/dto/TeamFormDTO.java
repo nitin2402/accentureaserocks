@@ -4,8 +4,10 @@ public class TeamFormDTO {
 	private String teamName;
 	private String teamId;
 	private String moduleName;
+	private String moduleId;
 	private String projectName;
 	private String teamDescription;
+	private String Status;
 	public String getTeamName() {
 		return teamName;
 	}
@@ -32,6 +34,18 @@ public class TeamFormDTO {
 	}
 	public String getTeamDescription() {
 		return teamDescription;
+	}
+	public String getModuleId() {
+		return moduleId;
+	}
+	public void setModuleId(String moduleId) {
+		this.moduleId = moduleId;
+	}
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
 	}
 	public void setTeamDescription(String teamDescription) {
 		this.teamDescription = teamDescription;
