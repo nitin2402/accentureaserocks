@@ -15,9 +15,11 @@ import java.util.List;
 
 
 
+
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 
 
 
@@ -138,4 +140,64 @@ public class ExcelDAO {
 	}
 	return a;
 }
+	public int addFromExcel1(List<TeamDetailsFlatDTO> excel){
+		Connection con;
+		int a = 0;
+		
+		try {
+			con = DBConnection.getConnection();
+			for(int i=0;i<excel.size();i++){
+			PreparedStatement st = con.prepareStatement(CONSTANTS.TEAM_INSERT1);
+					if (excel.get(i).getTeamName() != null) {
+						st.setString(1, excel.get(i).getTeamName());
+					} else { 
+						st.setString(1, "");
+					}
+					if (excel.get(i).getTeamId() != null) {
+						st.setString(2, excel.get(i).getTeamId());
+					}
+						else {
+							throw new SQLException("primary key cannot be null");
+						}
+					if(excel.get(i).getModuleId() != null) {
+						st.setString(3,excel.get(i).getModuleId());
+					} 
+					else {
+						st.setString(3, "");
+					}
+					if (excel.get(i).getTeamDescription() != null) {
+						st.setString(4, excel.get(i).getTeamDescription());
+					}
+					else {
+						st.setString(4, "");
+					}
+					if (excel.get(i).getStatus() != null) {
+						st.setString(5,excel.get(i).getStatus());
+					} else {
+						st.setString(5, "");
+					}
+					
+					a = st.executeUpdate();
+			}
+			if(a!=0){
+				System.out.println("Record Inserted");
+			}
+			if(a ==0){
+				
+			System.out.println("Record insertion Failed");
+		}
+		
+			
+			con.commit();
+			con.close();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
+	}
 }
