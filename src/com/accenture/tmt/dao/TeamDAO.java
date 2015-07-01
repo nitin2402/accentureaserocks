@@ -13,19 +13,17 @@ import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
-import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
-import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 
 public class TeamDAO {
 	public int addTeam(TeamDetailsFlatDTO TeamDetailsFlatDTO) {
 		int a = 0;
 		try {
-			Connection con = DBConnection.connect();
+			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con.prepareStatement(CONSTANTS.TEAM_INSERT );
 			st.setString(1, TeamDetailsFlatDTO.getTeamName());
-			st.setString(2, TeamDetailsFlatDTO.getTeamid());
+			st.setString(2, TeamDetailsFlatDTO.getTeamId());
 			st.setString(3, TeamDetailsFlatDTO.getModuleId());
-			st.setString(4, TeamDetailsFlatDTO.getTeamDesc());
+			st.setString(4, TeamDetailsFlatDTO.getTeamDescription());
 			a = st.executeUpdate();
 			con.commit();
 			con.close();
@@ -234,6 +232,7 @@ public class TeamDAO {
 			team.setTeamDescription(rs.getString(CONSTANTS.TEAM_DESCRIPTION));
 			team.setModuleId(rs.getString(CONSTANTS.MODULE_ID));
 			team.setTeamId(rs.getString(CONSTANTS.TEAM_ID));
+			team.setModuleName(rs.getString(CONSTANTS.MODULE_NAME));
 			
 			TeamDetailsList.add(team);
 		}
@@ -329,7 +328,55 @@ public List<TeamDetailsFlatDTO> viewTeam() {
 		return teamList;
 
 	}
-	
 
+public  List<TeamFormDTO> fetchTeamDetails() {
+	List<TeamFormDTO> teamList = new ArrayList<TeamFormDTO>();
+	TeamFormDTO detail = null;
+		try {
+			Connection con = DBConnection.getConnection();
+			
 
+			String sqlFetch = "SELECT t.TeamName,t.TeamId,m.ModuleName,"
+					+ "p.ProjectName,t.TeamDescription "
+					+ "FROM Team t,ModuleDetail m,ProjectDetail p "
+					+ "WHERE t.ModuleId=m.ModuleId"
+					+ " AND t.Status='Y'"
+					+ " AND m.ProjectId=p.ProjectId ORDER BY t.TeamId"
+					;  
+
+			
+			PreparedStatement st = con.prepareStatement(sqlFetch);
+			ResultSet rs = st.executeQuery();
+		//	ResultSetMetaData metaData = rs.getMetaData();
+		//	int count = metaData.getColumnCount();
+		
+		//	System.out.println();
+		//	System.out.println(rs.getString("ModuleName"));
+			while(rs.next())
+			{
+				detail = new TeamFormDTO();
+				detail.setTeamName(rs.getString("TeamName"));
+				detail.setModuleName(rs.getString("ModuleName"));
+				detail.setProjectName(rs.getString("ProjectName"));
+				detail.setTeamId(rs.getString("TeamId"));
+				detail.setTeamDescription(rs.getString("TeamDescription"));
+				
+				
+				teamList.add(detail);
+				con.close();
+			//	System.out.println(rs.getString("ModuleName"));
+			}
+
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return teamList;
+
+	}
+}
+
