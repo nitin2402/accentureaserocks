@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.accenture.tmt.dao.dto.TeamDetailsDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.manager.TeamController;
 
 
@@ -48,7 +49,7 @@ public class EditTeam extends HttpServlet {
 		String team = request.getParameter("teamedit");
 		TeamController teamoperation = new TeamController();
 		if(submit1!=null){
-		List<TeamDetailsDTO> li = new ArrayList<TeamDetailsDTO>();
+		List<TeamDetailsFlatDTO> li = new ArrayList<TeamDetailsFlatDTO>();
 		
 		li = teamoperation.FetchTeamDetails(team);
 		
