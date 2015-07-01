@@ -15,7 +15,7 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="addmodule.js"></script>
+<script type="text/javascript" src="addmodule.js"></script> 
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -40,14 +40,14 @@
 	<%
 
 HttpSession session1 = request.getSession(false);
-if (session1 == null || (String)session1.getAttribute("user") == null || (Boolean)session1.getAttribute("admin") != true ){
-    %><jsp:forward page="home.jsp?msg=Please Login as an Admin" /><%
+if (session1 == null || (String)session1.getAttribute("user") == null || (String)session1.getAttribute("admin") != "admin" ){
+    %><jsp:forward page="login.jsp?msg=Please Login as an Admin" /><%
 }
 %>
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
+			<div id="site_title">Talent Management Tool</div>
 			<div id="slogan">The place to look back</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
@@ -97,7 +97,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (Boolea
 						<li><a href="addempvia.jsp" >Add Employee</a></li>
 							
 						
-						<li><a href="addmodule.jsp" >Add Module</a></li>
+						<li><a href="addmodule.jsp" style="font-weight: bold; text-decoration: underline" >Add Module</a></li>
 						<li><a href="addteam.jsp" >Add Team</a></li>
 					</ul>
 				</div>
@@ -139,7 +139,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (Boolea
 
 					<div style="font-size: 14px;">
 						<jsp:include page="/fetchproject.jsp" />
-					<form name="add" action="AddModule" onsubmit="return validateform1()" >						 
+						<form name="add" action="AddModule" onsubmit="return validateform1()" >						 
 							<table>
 						<tr>
 									<td>MODULE ID:</td>
@@ -176,7 +176,6 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (Boolea
 							
 					
 						</form>
-
 
 						<br /> <br /> <!-- <a href="editmodule.jsp" style="font-weight: normal;margin-left:500px">Edit module</a> -->
 					</div>
