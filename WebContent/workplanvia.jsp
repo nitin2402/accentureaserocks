@@ -35,7 +35,10 @@
 			<div id="slogan">The place to look back</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
-
+<div id="welcome_msg"
+			style="color: yellow; float: right; font-size: 12px;">
+			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
+		</div>
 		<div id="header_section_code">"Overall approach is to maintain
 			pyramid form for all designation levels as per Accenture compliance."</div>
 	</div>
@@ -46,7 +49,7 @@
 			<li><a href="workplanvia.jsp" class="current">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
-			<li><a href="logout.jsp">Logout</a></li>
+		<!-- 	<li><a href="logout.jsp">Logout</a></li> -->
 			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
 	</div>
@@ -55,24 +58,7 @@
 
 		<div id="content_left">
 
-			<%-- 	<div class="content_left_section">
-				<div class="content_left_section_title">Search</div>
-				<div class="content_left_section_content">
-					<form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form>
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div> --%>
+			
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Projects</div>
 				<div class="content_left_section_content">
