@@ -54,7 +54,7 @@ public interface CONSTANTS {
 	public String MODULE_FETCH = "SELECT ModuleName FROM ModuleDetail";
 	public String MODULE_DETAIL_FETCH = "SELECT ModuleDetail.*,ProjectDetail.ProjectName FROM ModuleDetail INNER JOIN ProjectDetail ON "
 			+ "ModuleDetail.ProjectId=ProjectDetail.ProjectId"
-			+ " where ModuleName=?";
+			+ " where ModuleId=?";
 	public String PROJECT_ID = "ProjectId";
 	public String MODULE_DESCRIPTION = "ModuleDescription";
 	public String MODULE_ID = "ModuleId";
