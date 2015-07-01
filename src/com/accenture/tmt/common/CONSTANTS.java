@@ -106,7 +106,7 @@ public interface CONSTANTS {
 	public String Get_Project_QUERY = "select ProjectName from ProjectDetail ";
 	public String Get_ProjectId_QUERY = "select ProjectId from ProjectDetail where ProjectName = ?";
 	public String INSERTMODULE_QUERY = "insert into ModuleDetail(ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
-
+	public String TEAM_INSERT1 = "insert into Team (TeamName,TeamId,ModuleId,TeamDescription,Status) values(?,?,?,?,?)";
 }
 
 
