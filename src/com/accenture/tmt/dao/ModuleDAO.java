@@ -263,12 +263,12 @@ con.close();
 		return list;
 
 	}
-	public List<ModuleDetailsDTO> viewModule(){
+	public List<ModuleDetailsFlatDTO> viewModule(){
 		
-		List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
+		List<ModuleDetailsFlatDTO> moduleList = new ArrayList<ModuleDetailsFlatDTO>();
 		
 		try {
-			ModuleDetailsDTO details = null;
+			ModuleDetailsFlatDTO details = null;
 			
 			Connection con = DBConnection.getConnection();
 			Statement st = con.createStatement();
@@ -278,7 +278,7 @@ con.close();
 
 		while(rs.next())
 		{
-			details =  new ModuleDetailsDTO();
+			details =  new ModuleDetailsFlatDTO();
 			details.setModuleId(rs.getString("ModuleId"));
 			details.setModuleName(rs.getString("ModuleName"));
 			details.setProjectId(rs.getString("ProjectId"));
