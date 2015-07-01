@@ -64,7 +64,7 @@
 	  alert("Please provide Name");
 	  return false;
 	  }
-	if (id==null || id=="")
+		if (id==null || id=="")
 	  {
 	  alert("Please provide ID");
 	  return false;
@@ -164,7 +164,29 @@ function isNumeric(value) {
 		
 	}
 </script>
+<script type="text/javascript">
 
+        var specialKeys = new Array();
+
+        specialKeys.push(8); //Backspace
+
+        function IsNumeric1(e) {
+
+            var keyCode = e.which ? e.which : e.keyCode
+
+            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+
+            document.getElementById("error").style.display = ret ? "none" : "inline";
+
+            return ret;
+
+        }
+
+    </script>
+	
+    <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css'/>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+	<script type='text/javascript' src='date.js'></script>
 </head>
 <body>
 	<%-- <%
@@ -194,7 +216,7 @@ function isNumeric(value) {
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp" style="font-weight: bold; text-decoration: underline" >Admin Tools</a></li>
+			<li><a href="admintool.jsp" >Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
@@ -212,7 +234,7 @@ function isNumeric(value) {
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="addempmanually.jsp">Add Employee </a></li>
+						<li><a href="addempmanually.jsp"style="font-weight: bold; text-decoration: underline" >Add Employee </a></li>
 
 
 						<li><a href="addmodule.jsp">Add Module</a></li>
@@ -226,9 +248,7 @@ function isNumeric(value) {
 				<div class="content_left_section_content">
 					
 					<ul>
-						<li><a href="viewemployee.jsp">View Employees</a></li>
-
-
+						<li><a href="viewemployee.jsp" >View Employees</a></li>
 						<li><a href="viewteam.jsp">View Teams</a></li>
 						<li><a href="viewmodule.jsp">View Module</a></li>
 					</ul>
@@ -255,16 +275,18 @@ function isNumeric(value) {
 							<table>
 								<tr>
 									<td>EMPLOYEE NAME:</td>
-									<td><input type="text" name="name"></input></td>
-
+									<td><input type="text" name="name" ></input></td>
+									
 								</tr>
 								<tr>
 									<td>EMPLOYEE ID:</td>
-									<td><input type="text" name="idno"></input></td>
+									<td><input type="text" name="idno" onkeypress="return IsNumeric1(event);"></input></td>
+									<span id="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
 								</tr>
 								<tr>
 									<td>EMPLOYEE LEVEL:</td>
-									<td><input type="text" name="level"></input></td>
+									<td><input type="text" name="level" onkeypress="return IsNumeric1(event);"></input></td>
+									<span id="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
 								</tr>
 								<tr>
 									<td>EMPLOYEE DESIGNATION:</td>
@@ -290,7 +312,7 @@ function isNumeric(value) {
 								</tr>
 								
 								<tr>
-									<td>Proficiency Camps:</td>
+									<td>Proficiency CAMS:</td>
 									<td><input type="text" name="camps"></input></td>
 								</tr>
 								<tr>
@@ -299,11 +321,11 @@ function isNumeric(value) {
 								</tr>
 								<tr>
 									<td>Date of Joining:</td>
-									<td><input type="text" name="doj"></input></td>
+									<td><input type="text" name="doj" id="calendar"></input></td>
 								</tr>
 								<tr>
 									<td>Last Working Date:</td>
-									<td><input type="text" name="last"></input></td>
+									<td><input type="text" name="last" id="calendar1"></input></td>
 								</tr>
 								<tr>
 									<td>Billable:</td>
