@@ -39,7 +39,7 @@ public class ModuleController {
 	}
 	
 	public List<ModuleDetailsDTO> viewModule(){
-		List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
+		List<ModuleDetailsFlatDTO> moduleList = new ArrayList<ModuleDetailsFlatDTO>();
 		moduleList = moduleDAO.viewModule();;
 		return moduleList;	
 	}
