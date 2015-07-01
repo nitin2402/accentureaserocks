@@ -48,9 +48,52 @@
 			return true;
 		}
 	}
-</script>
+</script> 
 
-
+ <script >
+var validFileExtensions = [".xlsx", ".xls"];    
+function Validate(vaildateObj) {
+    var getFileName = vaildateObj.getElementsByTagName("input");
+  
+    for (var i = 0; i < getFileName.length; i++) {
+        var fileInput = getFileName[i];
+        if (fileInput.type == "file")
+        	  var fileName = fileInput.value;
+        {
+        	  if (fileName == "" ||fileName==null || fileName==0)  
+                  
+              {
+              	alert("please select a excel file to upload");
+              		return false;
+              } 
+        	  else{
+          
+            if (fileName.length > 0) {
+                var isValid = false;
+                for (var j = 0; j < validFileExtensions.length; j++) {
+                    var extensions = validFileExtensions[j];
+                    if (fileName.substr(fileName.length - extensions.length, extensions.length).toLowerCase() == extensions.toLowerCase()) {
+                        isValid = true;
+                       /*  alert("success"); */
+                        return SelectSheetNo();
+                    }
+                }  
+                if (!isValid) {
+                    alert("Sorry " + fileName + " is invalid, allowed extensions are: " + validFileExtensions.join(", "));
+                    return false;
+                }
+                
+            }
+            
+            
+            }
+          
+        }
+    }
+  
+    
+}
+</script> 
 
 </head>
 <body>
@@ -82,7 +125,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp" class="current" style="font-weight: bold; text-decoration: underline">Admin Tools</a></li>
+			<li><a href="admintool.jsp"">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
@@ -99,7 +142,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="admintool.jsp">Add Employee -></a></li>
+						<li><a href="admintool.jsp" class="current" style="font-weight: bold; text-decoration: underline">Add Employee </a></li>
 
 
 						<li><a href="addmodulevia.jsp">Add Module</a></li>
@@ -111,14 +154,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
-					<%-- <form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form> --%>
+					
 					<ul>
 						<li><a href="viewemployee.jsp">View Employees</a></li>
 
@@ -143,16 +179,17 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 
 
 					<div style="font-size: 14px;">
-						<form action="AddEmployeeExcel" method="post"
-							onsubmit="return SelectSheetNo()">
-							<input type="hidden" id="sheetno" name="sheetno" />
-							<!-- <form action="UploadServlet" method="post" enctype="multipart/form-data"> -->
-							<input type="file" name="file1" size="50" /> <br /> <br /> <br />
-							<input type="submit" value="Open" />
-						</form>
+			
 
+						<form action="AddEmployeeExcel" method="post" onsubmit="return Validate(this);">
+						
+						Choose the Excel File to Upload:-
+						<input type="file" name="file1" size="50" /> <br /> <br /> <br />
+						<input type="hidden" id="sheetno" name="sheetno" />
+						<br /> <input type="submit" value="submit" />
+						</form>
 						<br />
-						<!-- <a href="editteam.jsp">Edit Team</a> -->
+						
 					</div>
 
 
