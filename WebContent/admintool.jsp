@@ -9,7 +9,24 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="admintool.js"></script> 
+<script >
+
+function validateform2() {
+
+	if ( ( !document.getElementById('excel').checked ) && ( !document.getElementById('manually').checked ) ) 
+
+	{
+
+	alert ( "Please choose one option" );
+
+	
+	return false;
+	}
+
+	}
+
+
+</script> 
 </head>
 <body>
 	<%-- <%
@@ -93,10 +110,10 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 				<div>
 					<div style="font-size: 14px;">
-						<form action="AddEmpChoice" form name="radio"
-							onsubmit="validateform2">
-							<input type="radio"  name="select" value="addfromexcel">AddFrom Excel<br /> <br /> <br />
-							 <input type="radio" name="select" value="addmanually">Add Manually<br /> <br />
+						<form action="AddEmpChoice" name="radio1" onsubmit="validateform2()">
+							<input type="radio"  name="select" value="addfromexcel" id="excel">Add From Excel<br /> <br /> <br />
+							 <input type="radio" name="select" value="addmanually" id="manually">Add Manually<br /> <br />
+									
 									<input type="submit" value="select">
 						</form>
 					</div>
