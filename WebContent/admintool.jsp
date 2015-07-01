@@ -53,7 +53,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="admintool.jsp">Add Employee</a></li>
+						<li><a href="admintool.jsp"style="font-weight: bold; text-decoration: underline" >Add Employee</a></li>
 						<li><a href="addmodulevia.jsp">Add Module</a></li>
 						<li><a href="addteamvia.jsp">Add Team</a></li>
 					</ul>
@@ -68,14 +68,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
-					<%-- <form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form> --%>
+					
 					<ul>
 						<li><a href="viewemployee.jsp">View Employee</a></li>
 
@@ -99,21 +92,15 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 
 				<div>
-
-
 					<div style="font-size: 14px;">
-						<form action="AddEmpChoice" form name="radio" onsubmit="validateform2">
-							<input type="radio" name="select" value="addfromexcel">Add
-								From Excel<br /> <br /> <br />
-							<input type="radio" name="select" value="addmanually">Add
-									Manually<br /> <br />
-								<input type="submit" value="select">
+						<form action="AddEmpChoice" form name="radio"
+							onsubmit="validateform2">
+							<input type="radio"  name="select" value="addfromexcel">AddFrom Excel<br /> <br /> <br />
+							 <input type="radio" name="select" value="addmanually">Add Manually<br /> <br />
+									<input type="submit" value="select">
 						</form>
 					</div>
-					<br />
-					<br />
-					<br />
-					<br />
+					<br /> <br /> <br /> <br />
 					<div class="notification">${message}</div>
 
 					<div class="cleaner">&nbsp;</div>
