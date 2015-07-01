@@ -40,12 +40,14 @@ public class workplanServlet extends HttpServlet {
 		WorkplanDTO workplandto = new WorkplanDTO(); 
 		
 		String userName = request.getParameter("userName");
+		String teamName = request.getParameter("teamName");
 		int nASE = Integer.parseInt(request.getParameter("NASE"));
 		int nSE = Integer.parseInt(request.getParameter("NSE"));
 		int nSSE = Integer.parseInt(request.getParameter("NSSE"));
 		String comment = request.getParameter("comment");
 	
 		workplandto.setUserName(userName);
+		workplandto.setTeamName(teamName);
 		workplandto.setnASE(nASE);
 		workplandto.setnSE(nSE);
 		workplandto.setnSSE(nSSE);
