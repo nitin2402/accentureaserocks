@@ -62,7 +62,7 @@ public class FetchModuleDetails extends HttpServlet {
 		request.setAttribute("module", exp); */
 		
 			ModuleController fetch = new ModuleController();
-			List<ModuleDetailsDTO> moduleList = new ArrayList<ModuleDetailsDTO>();
+			List<ModuleDetailsFlatDTO> moduleList = new ArrayList<ModuleDetailsFlatDTO>();
 			moduleList = fetch.viewModule();
 			request.setAttribute("ModuleList", moduleList);
 			
