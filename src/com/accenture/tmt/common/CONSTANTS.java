@@ -27,6 +27,7 @@ public interface CONSTANTS {
 	public String Team_Decs= "TeamDescription";
 	public String TEAM_NAME= "TeamName";
 	public String Module_Id= "ModuleId";
+	public String Module_Name= "ModuleName";
 	
 	
 	
