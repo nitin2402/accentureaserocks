@@ -5,6 +5,7 @@ public class TeamDetailsFlatDTO {
 	private String teamId;
 	private String moduleId;
 	private String teamDescription;
+	private String moduleName;
 	/*private String moduleName;
 	private String Status;
 	public String getModuleName() {
@@ -43,6 +44,12 @@ public class TeamDetailsFlatDTO {
 	public void setStatus(String status) {
 		Status = status;
 	}*/
+	public String getModuleName() {
+		return moduleName;
+	}
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
+	}
 
 
 }
