@@ -81,14 +81,13 @@ public interface CONSTANTS {
 
 	public String TEAM_UPDATE_QUERY = "UPDATE Team SET TeamName=?,TeamId=?,ModuleId=?,TeamDescription=?";
 	
-	public String GET_UNAPPROVED_REQUESTS_QUERY = "SELECT ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, StatusName FROM RequestTable as R, StatusTable as S WHERE S.Status_ID = 3 AND S.Status_ID = R.Status_ID";
+	
 	public String LOGIN_CHECK_QUERY = "select * from Login where userName=? AND password=? AND ActiveUser='y'";
     public String SIGN_UP_CHECK_QUERY = "INSERT INTO Login (username,password,EmployeeId,typeofUser,ActiveUser) VALUES (?,?,?,'UNAUTHORISED','n')";
     public String SELECT_EMPLOYEE_ID_QUERY = "select * from Employee where EmployeeId=?";
     public String CHECK_ALREADY_EXIST_USER_QUERY = "select * from Login where EmployeeId=?";
     public String CHECK_ALREADY_EXIST_USERNAME_QUERY = "select * from Login where userName=?";
-    public String GET_APPROVED_REQUESTS_QUERY = "SELECT ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, StatusName FROM RequestTable as R, StatusTable as S WHERE S.Status_ID = 3 AND S.Status_ID = R.Status_ID";
-	  
+  
     
    
     
@@ -100,7 +99,7 @@ public interface CONSTANTS {
 
 	public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID) values(?,?,?,?,?,?,?)";
     public String GET_REQUESTID_QUERY = "select ReqId from RequestTable where TeamId = ?";
-    public String GET_TEAMID_QUERY = "select TeamId from Team as T, Employee as E, Login as L where L.EmployeeId = E.EmployeeId AND E.TeamId = T.TeamId AND Username = ?";
+   
          public String GET_LASTREQID_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM RequestTable";
 
 	public String Get_Project_QUERY = "select ProjectName from ProjectDetail ";
