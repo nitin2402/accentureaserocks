@@ -487,4 +487,34 @@
     <servlet-name>TeamListServlet</servlet-name>
     <url-pattern>/TeamListServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchRequestServlet</display-name>
+    <servlet-name>SearchRequestServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.SearchRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchRequestServlet</servlet-name>
+    <url-pattern>/SearchRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ActionServlet</display-name>
+    <servlet-name>ActionServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.ActionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActionServlet</servlet-name>
+    <url-pattern>/ActionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BudgetServlet</display-name>
+    <servlet-name>BudgetServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.BudgetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BudgetServlet</servlet-name>
+    <url-pattern>/BudgetServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
