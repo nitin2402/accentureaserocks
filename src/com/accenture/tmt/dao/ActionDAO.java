@@ -14,7 +14,7 @@ public class ActionDAO {
 		int flag = 0;
 		
 		try {
-			Connection con = DBConnection.connect();
+			Connection con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st = con
 						.prepareStatement(CONSTANTS.ACCEPT_REQUEST_QUERY);
@@ -35,7 +35,7 @@ public class ActionDAO {
 int flag = 0;
 		
 		try {
-			Connection con = DBConnection.connect();
+			Connection con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st = con
 						.prepareStatement(CONSTANTS.REJECT_REQUEST_QUERY);
@@ -55,7 +55,7 @@ int flag = 0;
 		int flag = 0;
 				
 				try {
-					Connection con = DBConnection.connect();
+					Connection con = DBConnection.getConnection();
 					if (con != null) {
 						PreparedStatement st = con
 								.prepareStatement(CONSTANTS.ONHOLD_REQUEST_QUERY);
