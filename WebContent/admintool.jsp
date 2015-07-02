@@ -110,7 +110,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 				<div>
 					<div style="font-size: 14px;">
-						<form action="AddEmpChoice" name="radio1" onsubmit="validateform2()">
+						<form action="AddEmpChoice" name="radio1" onsubmit="return validateform2()">
 							<input type="radio"  name="select" value="addfromexcel" id="excel">Add From Excel<br /> <br /> <br />
 							 <input type="radio" name="select" value="addmanually" id="manually">Add Manually<br /> <br />
 									
