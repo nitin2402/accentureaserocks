@@ -24,7 +24,7 @@ public class WorkplanAdminDAO {
 		
 		ResultSet rs = null ;
 		try {
-			Connection con = DBConnection.connect();
+			Connection con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st = con
 						.prepareStatement(CONSTANTS.BUDGET_DETAILS_QUERY);
