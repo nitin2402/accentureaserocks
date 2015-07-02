@@ -9,18 +9,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-
-
-
-
-
-
-
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
-
 
 
 public class ExcelDAO {
@@ -140,6 +133,7 @@ public class ExcelDAO {
 	}
 	return a;
 }
+
 	public int addFromExcel1(List<TeamDetailsFlatDTO> excel){
 		Connection con;
 		int a = 0;
@@ -199,5 +193,68 @@ public class ExcelDAO {
 			e.printStackTrace();
 		}
 		return a;
+}
+
+	
+	public int addModuleFromExcel(List<ModuleDetailsFlatDTO> moduleList) {
+		Connection con;
+		int b = 0;
+		
+		try {
+			con = DBConnection.getConnection();
+			for(int j=0;j<moduleList.size();j++){
+				PreparedStatement rs = con.prepareStatement(CONSTANTS.MODULE_INSERT);
+				
+				if (moduleList.get(j).getModuleName() != null) {
+					rs.setString(1, moduleList.get(j).getModuleName());
+				}else{
+					rs.setString(1, "");
+				}
+				
+				if (moduleList.get(j).getProjectId() != null ){
+					rs.setString(2, moduleList.get(j).getProjectId());
+				} else{
+					rs.setString(2, "");
+				}
+				
+				if (moduleList.get(j).getModuleId() != null ){
+					rs.setString(3, moduleList.get(j).getModuleId());
+				} else{
+					throw new SQLException("primary key cannot be null");
+				}
+				
+				if (moduleList.get(j).getModuleDescription() != null ){
+					rs.setString(4, moduleList.get(j).getModuleDescription());
+				} else{
+					rs.setString(4,"");
+				}
+			
+				if (moduleList.get(j).getStatus() != null ){
+					rs.setString(5, moduleList.get(j).getStatus());
+				} else{
+					rs.setString(5,"");
+				}
+				
+				b = rs.executeUpdate();
+			}
+			if(b!=0){
+				System.out.println("Record Inserted");
+			}
+			
+			if(b == 0){	
+				System.out.println("Record insertion failed");
+			}
+
+			con.commit();
+			con.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return b; 	
 	}
 }
