@@ -31,7 +31,7 @@
 				});
 	});
 </script>
-
+<script type="text/javascript" src="addteamvia.js"></script> 
 </head>
 <body>
 	<%
@@ -136,13 +136,13 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 
 
 					<div style="font-size: 14px;">
-						<form action="AddTeamSelect">
-							<input type="radio" name="select" value="addfromexcel">Add
-								From Excel<br />
+						<form action="AddTeamSelect"  onsubmit="return validateformteam()">
+							<input type="radio" name="select" value="addfromexcel" id= "excel1" />Add
+								From Excel <br />
 							<br />
-							<br /><input type="radio" name="select" value="addmanually">Add
+							<br /><input type="radio" name="select" value="addmanually" id="manually1" />Add
 								Manually<br />
-							<br/><input type="submit" value="Select">
+							<br/><input type="submit" value="Select"> </input>
 						</form>
 					</div>
 
