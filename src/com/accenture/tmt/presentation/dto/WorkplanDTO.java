@@ -3,6 +3,7 @@ package com.accenture.tmt.presentation.dto;
 public class WorkplanDTO {
 	
 	private String userName ;
+	private String teamName ;
 	private int nASE ;
 	private int nSE ;
 	private int nSSE ;
@@ -38,5 +39,12 @@ public class WorkplanDTO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+	
 	
 }
