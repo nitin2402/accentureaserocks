@@ -517,6 +517,7 @@
     <servlet-name>BudgetServlet</servlet-name>
     <url-pattern>/BudgetServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
    <description></description>
     <display-name>AddTeamExcel</display-name>
     <servlet-name>AddTeamExcel</servlet-name>
@@ -525,5 +526,15 @@
   <servlet-mapping>
     <servlet-name>AddTeamExcel</servlet-name>
     <url-pattern>/AddTeamExcel</url-pattern>
+  </servlet-mapping>
+<servlet>
+    <description></description>
+    <display-name>AddModuleExcel</display-name>
+    <servlet-name>AddModuleExcel</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AddModuleExcel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddModuleExcel</servlet-name>
+    <url-pattern>/AddModuleExcel</url-pattern>
   </servlet-mapping>
 </web-app>
