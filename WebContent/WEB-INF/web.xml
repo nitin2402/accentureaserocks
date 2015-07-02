@@ -477,4 +477,14 @@
     <servlet-name>RequestStatus</servlet-name>
     <url-pattern>/RequestStatus</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TeamListServlet</display-name>
+    <servlet-name>TeamListServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.TeamListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeamListServlet</servlet-name>
+    <url-pattern>/TeamListServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
