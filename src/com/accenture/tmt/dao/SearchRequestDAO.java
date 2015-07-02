@@ -19,7 +19,7 @@ public class SearchRequestDAO {
 		ResultSet rs = null ;
 		Connection con;
 		try {
-			con = DBConnection.connect();
+			con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st;
 					st = con
@@ -56,7 +56,7 @@ public class SearchRequestDAO {
 		ResultSet rs = null ;
 		Connection con;
 		try {
-			con = DBConnection.connect();
+			con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st;
 					st = con
@@ -92,7 +92,7 @@ public class SearchRequestDAO {
 		ResultSet rs = null ;
 		Connection con;
 		try {
-			con = DBConnection.connect();
+			con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st;
 					st = con
