@@ -35,21 +35,11 @@ public class AddModuleSelect extends HttpServlet {
 	 *  */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-String select = request.getParameter("select");
-		
-		if(select=="addfromexcel" || select .equals("addfromexcel"))
-			{
-			response.sendRedirect("storemodule.jsp");
-			}
-		if(select=="addmanually" || select .equals("addmanually"))
-			{
-			response.sendRedirect("addmodule.jsp");
-			}
-		else
-		{
-		    //request.setAttribute("msg1","please select any option");
-			response.sendRedirect("addmodulevia.jsp");
+		 String select = request.getParameter("select");
+			
+			if(select=="addfromexcel" || select .equals("addfromexcel"))
+				response.sendRedirect("addmoduleexcel.jsp");
+			if(select=="addmanually" || select .equals("addmanually"))
+				response.sendRedirect("addmodule.jsp");
 		}
-	}
-
 }
