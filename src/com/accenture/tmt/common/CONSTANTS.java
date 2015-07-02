@@ -125,6 +125,8 @@ public interface CONSTANTS {
 	public String COUNT_TL_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_TL FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Team Lead'";
 	public String GET_REQUEST_TEAMID_QUERY = "SELECT TeamID from RequestTable where ReqId = ?";
 	public String GET_TEAMNAME_QUERY = "SELECT TEAMNAME FROM Team WHERE TeamId = ?";
+	
+	public String MODULE_INSERT = "insert into ModuleDetail (ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
 }
 
 
