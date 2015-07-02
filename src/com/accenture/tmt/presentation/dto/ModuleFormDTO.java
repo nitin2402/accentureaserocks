@@ -6,6 +6,15 @@ public class ModuleFormDTO {
 	private String moduleId;
 	private String moduleDescription;
 	private String project;
+	private String status;
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public String getModuleName() {
 		return moduleName;
 	}
@@ -37,9 +46,5 @@ public class ModuleFormDTO {
 		this.project = project;
 	}
 	
-	
-	
-	
-	
-
+		
 }
