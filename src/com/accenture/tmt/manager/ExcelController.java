@@ -9,8 +9,10 @@ import java.util.List;
 
 import com.accenture.tmt.dao.ExcelDAO;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
-import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.presentation.dto.ModuleFormDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 public class ExcelController {
@@ -52,15 +54,12 @@ public class ExcelController {
 		if(b ==0){
 			out.println("Record insertion failed");
 		
-	}
+		}
 		return b;
-		
-	
 		
 	}
 
-	
-	public int addFromExcel1(List<TeamFormDTO> listOfTeams) throws IOException, ClassNotFoundException {
+public int addFromExcel1(List<TeamFormDTO> listOfTeams) throws IOException, ClassNotFoundException {
 		
 		TeamDetailsFlatDTO excel=null;
 
@@ -94,4 +93,37 @@ public class ExcelController {
 
 	
 	
+}
+
+	
+	public int addModuleFromExcel(List<ModuleFormDTO> listOfModule) throws IOException, ClassNotFoundException{
+		
+		ModuleDetailsFlatDTO moduleExcel = null;
+		List<ModuleDetailsFlatDTO> moduleList = new ArrayList<ModuleDetailsFlatDTO>();
+		
+		for(int i=0;i<listOfModule.size();i++){
+			
+			moduleExcel = new ModuleDetailsFlatDTO();
+			moduleExcel.setModuleName(listOfModule.get(i).getModuleName());
+			moduleExcel.setProjectId(listOfModule.get(i).getProjectId());
+			moduleExcel.setModuleId(listOfModule.get(i).getModuleId());
+			moduleExcel.setModuleDescription(listOfModule.get(i).getModuleDescription());
+			moduleExcel.setStatus(listOfModule.get(i).getStatus());
+			moduleList.add(moduleExcel);
+		}
+		
+		ExcelDAO moduleDAO = new ExcelDAO();
+		int list = moduleDAO.addModuleFromExcel(moduleList);
+		
+		if(list!=0){
+			out.println("Record Inserted");
+		}
+		if(list==0){
+			out.println("Record insertion failed");
+		}
+		
+		return list;
+	
+	}
+
 }
