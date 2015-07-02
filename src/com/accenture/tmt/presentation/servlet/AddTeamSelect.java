@@ -39,7 +39,7 @@ public class AddTeamSelect extends HttpServlet {
 		String select = request.getParameter("select");
 		
 		if(select=="addfromexcel" || select .equals("addfromexcel"))
-			response.sendRedirect("storeteam.jsp");
+			response.sendRedirect("addteamexcel.jsp");
 		if(select=="addmanually" || select .equals("addmanually"))
 			response.sendRedirect("addteam.jsp");
 	}
