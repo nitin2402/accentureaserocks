@@ -107,6 +107,10 @@ public interface CONSTANTS {
 	public String Get_ProjectId_QUERY = "select ProjectId from ProjectDetail where ProjectName = ?";
 	public String INSERTMODULE_QUERY = "insert into ModuleDetail(ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
 	public String TEAM_INSERT1 = "insert into Team (TeamName,TeamId,ModuleId,TeamDescription,Status) values(?,?,?,?,?)";
+
+	public String GET_TEAMID_QUERY = "select TeamId from Team WHERE TeamName = ?";
+	public String GET_EMPLOYEEID_QUERY = "select EmployeeId from Login WHERE UserName = ?";
+	public String GET_TEAM_LIST_QUERY = "SELECT TeamName FROM TEAM";
 }
 
 
