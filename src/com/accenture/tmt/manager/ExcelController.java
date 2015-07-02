@@ -9,7 +9,9 @@ import java.util.List;
 
 import com.accenture.tmt.dao.ExcelDAO;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 public class ExcelController {
 	public int addFromExcel(List<EmployeeDetailsDTO> listOfEmps) throws IOException, ClassNotFoundException {
@@ -58,6 +60,37 @@ public class ExcelController {
 	}
 
 	
+	public int addFromExcel1(List<TeamFormDTO> listOfTeams) throws IOException, ClassNotFoundException {
+		
+		TeamDetailsFlatDTO excel=null;
+
+		List<TeamDetailsFlatDTO> li=new ArrayList<TeamDetailsFlatDTO>();
+		
+		for(int i=0;i<listOfTeams.size();i++)
+		{
+		
+			excel=new TeamDetailsFlatDTO();
+			excel.setTeamName(listOfTeams.get(i).getTeamName());
+			excel.setTeamId(listOfTeams.get(i).getTeamId());
+			excel.setModuleId(listOfTeams.get(i).getModuleId());
+			excel.setTeamDescription(listOfTeams.get(i).getTeamDescription());
+			excel.setStatus(listOfTeams.get(i).getStatus());
+			li.add(excel);
+		}
+		ExcelDAO dao=new ExcelDAO();
+		int b=dao.addFromExcel1(li);
+		if(b!=0){
+			
+			out.println("Record Inserted Successfully");
+		}
+		if(b ==0){
+			out.println("Record insertion failed");
+		
+	}
+		return b;
+		
+
+	}	
 
 	
 	
