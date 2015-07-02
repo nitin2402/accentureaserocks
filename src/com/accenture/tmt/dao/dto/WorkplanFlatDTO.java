@@ -1,7 +1,7 @@
 package com.accenture.tmt.dao.dto;
 
 public class WorkplanFlatDTO {
-    
+	
 	private String reqId ;
 	private String teamId ;
 	private int nASE ;
@@ -9,6 +9,7 @@ public class WorkplanFlatDTO {
 	private int nSSE ;
 	private String comment ;
 	private int status_id ;
+	private String employeeId ;
 	
 	public String getComment() {
 		return comment;
@@ -34,12 +35,6 @@ public class WorkplanFlatDTO {
 	public void setnSSE(int nSSE) {
 		this.nSSE = nSSE;
 	}
-	public String getTeamId() {
-		return teamId;
-	}
-	public void setTeamId(String teamId) {
-		this.teamId = teamId;
-	}
 	public int getStatus_id() {
 		return status_id;
 	}
@@ -51,6 +46,18 @@ public class WorkplanFlatDTO {
 	}
 	public void setReqId(String reqId) {
 		this.reqId = reqId;
+	}
+	public String getTeamId() {
+		return teamId;
+	}
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+	public String getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
 	
 }
