@@ -1,11 +1,12 @@
 package com.accenture.tmt.dao.dto;
 
-public class ModuleDetailsDTO {
+public class ModuleDetailsFlatDTO {
 	private String moduleName;
 	private String projectId;
 	private String moduleDescription;
 	private String moduleId;
 	private String project;
+	private String status;
 	
 	public String getModuleName() {
 		return moduleName;
@@ -37,5 +38,11 @@ public class ModuleDetailsDTO {
 	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
-	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+		
 }
