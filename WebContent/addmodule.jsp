@@ -98,7 +98,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 							
 						
 						<li><a href="addmodulevia.jsp" style="font-weight: bold; text-decoration: underline" >Add Module</a></li>
-						<li><a href="addteam.jsp" >Add Team</a></li>
+						<li><a href="addteamvia.jsp" >Add Team</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
