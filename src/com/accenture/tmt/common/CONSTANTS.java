@@ -111,6 +111,21 @@ public interface CONSTANTS {
 	public String GET_TEAMID_QUERY = "select TeamId from Team WHERE TeamName = ?";
 	public String GET_EMPLOYEEID_QUERY = "select EmployeeId from Login WHERE UserName = ?";
 	public String GET_TEAM_LIST_QUERY = "SELECT TeamName FROM TEAM";
+	
+	public String GET_APPROVED_REQUESTS_QUERY = "SELECT R.ReqId, R.TeamId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName FROM RequestTable as R, StatusTable as S WHERE S.Status_ID = 3 AND S.Status_ID = R.Status_ID";
+	public String GET_UNAPPROVED_REQUESTS_QUERY = "SELECT R.ReqId, R.TeamId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName FROM RequestTable as R, StatusTable as S WHERE S.Status_ID != 3 AND S.Status_ID = R.Status_ID";
+	public String ACCEPT_REQUEST_QUERY = "UPDATE RequestTable SET Status_ID = 3, Reason = ? WHERE ReqId = ?";
+	public String REJECT_REQUEST_QUERY = "UPDATE RequestTable SET Status_ID = 4, Reason = ? WHERE ReqId = ?";
+	public String ONHOLD_REQUEST_QUERY = "UPDATE RequestTable SET Status_ID = 2, Reason = ? WHERE ReqId = ?";
+	
+	public String BUDGET_DETAILS_QUERY = "SELECT EmployeeDesignation, Currency, Amount FROM BillabilityTable";
+	public String BUDGET_REQUEST_DETAILS_QUERY = "SELECT No_Of_ASE, No_Of_SE, No_Of_SSE FROM RequestTable WHERE ReqId = ? ";
+	public String COUNT_ASE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_ASE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Associate Software Engineer'";
+	public String COUNT_SE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Software Engineer'";
+	public String COUNT_SSE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SSE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Senior Software Engineer'";
+	public String COUNT_TL_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_TL FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Team Lead'";
+	public String GET_REQUEST_TEAMID_QUERY = "SELECT TeamID from RequestTable where ReqId = ?";
+	public String GET_TEAMNAME_QUERY = "SELECT TEAMNAME FROM Team WHERE TeamId = ?";
 }
 
 
