@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -35,10 +35,12 @@
 
 </head>
 <body>
+
 	<%
 
 HttpSession session1 = request.getSession(false);
-if (session1 == null   || (String)session1.getAttribute("user") == null || (String)session1.getAttribute("admin") != "admin"){
+if (session1 == null || (String)session1.getAttribute("user") == null || (String)session1.getAttribute("admin") != "admin") 
+{
     %><jsp:forward page="login.jsp?msg=Please Login as an Admin" /><%
 }
 %>
@@ -95,7 +97,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null || (Stri
 						<li><a href="addempvia.jsp" >Add Employee </a></li>
 							
 						
-						<li><a href="addmodulevia.jsp" style="font-weight: bold; text-decoration: underline" >Add Module </a></li>
+						<li><a href="addmodulevia.jsp" style="font-weight: bold; text-decoration: underline">Add Module -></a></li>
 						<li><a href="addteamvia.jsp" >Add Team </a></li>
 					</ul>
 				</div>
@@ -132,12 +134,10 @@ if (session1 == null   || (String)session1.getAttribute("user") == null || (Stri
 
 				<div class="header_01">Module Addition</div>
 
-
 				<div>
 
-
 					<div style="font-size: 14px;">
-						<form name="radio1" action="AddModuleSelect" onsubmit="return validateform2()">
+						<form name="radio1" action="AddModuleSelect" onsubmit="validateform2">
 							<input type="radio" name="select"  id= "excel" value="addfromexcel"/>Add
 								From Excel<br />
 							<br />
@@ -145,11 +145,12 @@ if (session1 == null   || (String)session1.getAttribute("user") == null || (Stri
 								Manually<br />
 							
 								
-							<br/><input type="submit" value="Select">
+							<br/><input type="submit" value="Select" />
 						</form>
 					</div>
-
-
+					<br />
+					<br />
+					<div class="notification">${message}</div>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
