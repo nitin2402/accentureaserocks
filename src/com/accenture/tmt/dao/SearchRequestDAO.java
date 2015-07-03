@@ -29,13 +29,12 @@ public class SearchRequestDAO {
 				while(rs.next()){
 					SearchRequestFlatDTO dto = new SearchRequestFlatDTO();
 					dto.setReqId(rs.getString("ReqId"));
-					dto.setTeamId(rs.getString("TeamId"));
 					dto.setnASE(rs.getInt("No_Of_ASE"));
 					dto.setnSE(rs.getInt("No_Of_SE"));
 					dto.setnSSE(rs.getInt("No_Of_SSE"));
 					dto.setComment(rs.getString("Comments"));
 					dto.setStatusName(rs.getString("StatusName"));
-					
+					dto.setTeamName(rs.getString("TeamName"));
 					list.add(dto);
 					}
 				}
@@ -66,12 +65,12 @@ public class SearchRequestDAO {
 				while(rs.next()){
 					SearchRequestFlatDTO dto = new SearchRequestFlatDTO();
 					dto.setReqId(rs.getString("ReqId"));
-					dto.setTeamId(rs.getString("TeamId"));
 					dto.setnASE(rs.getInt("No_Of_ASE"));
 					dto.setnSE(rs.getInt("No_Of_SE"));
 					dto.setnSSE(rs.getInt("No_Of_SSE"));
 					dto.setComment(rs.getString("Comments"));
 					dto.setStatusName(rs.getString("StatusName"));
+					dto.setTeamName(rs.getString("TeamName"));
 					
 					list.add(dto);
 					}
@@ -85,32 +84,6 @@ public class SearchRequestDAO {
 		}
 		return list;
 			
-	}
-	
-	public String getTeamName(String teamId){
-		String teamName = null ;
-		ResultSet rs = null ;
-		Connection con;
-		try {
-			con = DBConnection.getConnection();
-			if (con != null) {
-				PreparedStatement st;
-					st = con
-							.prepareStatement(CONSTANTS.GET_TEAMNAME_QUERY);
-				st.setString(1, teamId);
-				rs = st.executeQuery();
-				while(rs.next()){
-					teamName = rs.getString("TeamName");
-					}
-				}
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return teamName;
 	}
 
 }
