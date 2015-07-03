@@ -24,7 +24,7 @@ public class SearchRequestController {
 			SearchRequestDTO searchrequestdto = new SearchRequestDTO();
 			
 			searchrequestdto.setReqId(get_approved_requests.get(i).getReqId());
-			searchrequestdto.setTeamName(searchrequestdao.getTeamName(get_approved_requests.get(i).getTeamId()));
+			searchrequestdto.setTeamName(get_approved_requests.get(i).getTeamName());
 			searchrequestdto.setnASE(get_approved_requests.get(i).getnASE());
 			searchrequestdto.setnSE(get_approved_requests.get(i).getnSE());
 			searchrequestdto.setnSSE(get_approved_requests.get(i).getnSSE());
@@ -54,7 +54,7 @@ public List<SearchRequestDTO> searchUnpprovedRequests(){
 			SearchRequestDTO searchrequestdto = new SearchRequestDTO();
 			
 			searchrequestdto.setReqId(get_unapproved_requests.get(i).getReqId());
-			searchrequestdto.setTeamName(searchrequestdao.getTeamName(get_unapproved_requests.get(i).getTeamId()));
+			searchrequestdto.setTeamName(get_unapproved_requests.get(i).getTeamName());
 			searchrequestdto.setnASE(get_unapproved_requests.get(i).getnASE());
 			searchrequestdto.setnSE(get_unapproved_requests.get(i).getnSE());
 			searchrequestdto.setnSSE(get_unapproved_requests.get(i).getnSSE());
