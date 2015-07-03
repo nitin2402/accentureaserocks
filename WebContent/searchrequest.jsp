@@ -343,9 +343,12 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 								</tr>
 							</jstlcore:forEach></tbody></table>
 							</div>
+							<br />
+						<div>
+						*Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
 						
-						*Reason<textarea rows="3" cols="25" id="reason" name="reason"></textarea>
-						
+						</div>
+						<br />
 							<input type="submit"  name="action" value="Calculate" onclick="return validateForm()"/>
 							<input type="submit" name="action" value="Accept" onclick="return validateButtonAccepted()"/>
 							<input type="submit" name="action" value="Reject" onclick="return validateButtonRejected()"/>
@@ -353,7 +356,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 							
 							</form>
 							
-							
+							<br />
 							<h2 style="color:white;">Approved Requests</h2>
 							
 					<div id="scrollable"   style="font-size: 14px;">
