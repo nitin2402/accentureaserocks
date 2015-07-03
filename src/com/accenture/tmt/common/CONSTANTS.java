@@ -97,7 +97,7 @@ public interface CONSTANTS {
 	public String FILE_NAME = "file1";
 	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCamps=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
 
-	public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID) values(?,?,?,?,?,?,?)";
+	public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID, EmployeeId) values(?,?,?,?,?,?,?,?)";
     public String GET_REQUESTID_QUERY = "select ReqId from RequestTable where TeamId = ?";
    
          public String GET_LASTREQID_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM RequestTable";
