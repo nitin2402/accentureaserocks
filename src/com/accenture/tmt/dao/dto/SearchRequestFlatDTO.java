@@ -3,13 +3,19 @@ package com.accenture.tmt.dao.dto;
 public class SearchRequestFlatDTO {
 	
 	private String reqId ;
-	private String teamId ;
 	private int nASE ;
 	private int nSE ;
 	private int nSSE ;
 	private String comment ;
 	private String statusName ;
+	private String teamName;
 	
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
 	public String getComment() {
 		return comment;
 	}
@@ -45,11 +51,5 @@ public class SearchRequestFlatDTO {
 	}
 	public void setStatusName(String statusName) {
 		this.statusName = statusName;
-	}
-	public String getTeamId() {
-		return teamId;
-	}
-	public void setTeamId(String teamId) {
-		this.teamId = teamId;
 	}
 }
