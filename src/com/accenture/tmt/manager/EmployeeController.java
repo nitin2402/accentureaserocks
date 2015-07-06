@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.EmployeeDAO;
+import com.accenture.tmt.dao.WorkplanDAO;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
 import com.accenture.tmt.presentation.dto.SearchFormDTO;
+
 import static java.lang.System.out;
 public class EmployeeController {
 	EmployeeDAO employeeDAO= new EmployeeDAO();
 	
 	public int addEmployee(EmployeeDetailsDTO emp)
 	{	
+		String teamId = null ;
+		WorkplanDAO workplanDao = new WorkplanDAO();
+		teamId = workplanDao.fetchTeamId(emp.getTeamName());
 	
 	EmployeeDetailsFlatDTO detailsFDO = new EmployeeDetailsFlatDTO();
 	detailsFDO.setEmpId(emp.getEmpId());
@@ -22,7 +27,7 @@ public class EmployeeController {
 	detailsFDO.setExpertise(emp.getExpertise());
 	detailsFDO.setClientId(emp.getClientId());
 	detailsFDO.setEmail(emp.getEmail());
-	detailsFDO.setTeamId(emp.getTeamId());
+	detailsFDO.setTeamId(teamId);
 	detailsFDO.setProfCamps(emp.getProfCamps());
 	detailsFDO.setProfProject(emp.getProfProject());
 	detailsFDO.setDoj(emp.getDoj());
@@ -49,7 +54,12 @@ public class EmployeeController {
 		return empList;
 		
 	}
-
+public List<String> fetchTeamList(){
+		
+		WorkplanDAO workplanDao = new WorkplanDAO();
+		return workplanDao.getTeamList();
+		 
+	}
 	
 	/** zfdfsdfsd
 	 * @param employeeDetailsDTO
