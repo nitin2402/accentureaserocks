@@ -36,10 +36,6 @@ function validateButtonAccepted() {
 			alert("Please provide reason.");
 			return false;
 		}
-		else{
-		alert("accepted");
-		return true;
-		}
 	
 	
 		}
@@ -63,10 +59,6 @@ function validateButtonRejected() {
 			alert("Please provide reason.");
 			return false;
 		}
-		else{
-		alert("rejected");
-		return true;
-		}
 }
 	
 		function validateButtonOnHold() {
@@ -87,10 +79,6 @@ function validateButtonRejected() {
 				if (reason == null || reason == "") {
 					alert("Please provide reason.");
 					return false;
-				}
-				else{
-				alert("On Hold");
-				return true;
 				}
 			
 			
