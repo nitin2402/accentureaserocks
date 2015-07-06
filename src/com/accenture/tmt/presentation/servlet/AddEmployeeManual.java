@@ -70,7 +70,7 @@ public class AddEmployeeManual extends HttpServlet {
 		detailsDO.setExpertise(expertise);
 		detailsDO.setClientId(clientId);
 		detailsDO.setEmail(email);
-		detailsDO.setTeamId(team);
+		detailsDO.setTeamName(team);
 		detailsDO.setProfCamps(camps);
 		detailsDO.setProfProject(proj);
 		detailsDO.setDoj(doj);
