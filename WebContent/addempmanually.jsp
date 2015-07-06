@@ -9,7 +9,9 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 
-
+<%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -48,25 +50,22 @@
 	var level=document.forms["add"]["level"].value;
 	var designation=document.forms["add"]["desig"].value;
 	var expertise=document.forms["add"]["area"].value;
-	/* var att=document.forms["add"]["att"].value; */
+
 	var email=document.forms["add"]["email"].value;
 
-	/* validate(name);
-	validate(id);
-	validate(level);
-	validate(designation);
-	validate(expertise);
-	validate(experience);
-	 */
+	var cams=document.forms["add"]["camps"].value;
 	
-	if (name==null || name=="")
+	var from = $("#calendar").val(); 
+	var to = $("#calendar1").val();
+	
+  if (name==null || name=="")
 	  {
 	  alert("Please provide Name");
 	  return false;
 	  }
 		if (id==null || id=="")
 	  {
-	  alert("Please provide ID");
+	  alert("Please provide Employee ID");
 	  return false;
 	  }
 	if (level==null || level=="")
@@ -88,23 +87,38 @@
 	  {
 	  alert("Please provide Email");
 	  return false;
-	  }
+	  } 
+	if (cams==null || cams=="")
+	  {
+	  alert("Please provide Proficiency in CAMS");
+	  return false;
+	  }  
+	if (from == "" || from == null){
+		alert("Please enter Date Of joining");
+		return false;
+	}
+
+	if(Date.parse(from) > Date.parse(to)){
+	   alert("Last Date Of Working must be after Date Of Joining");
+	   return false;
+	}
+	 
 	
 	    var filter = /^[a-zA-Z0-9._-]+@accenture.com$/;
 	    var filter2 = /^[0-9]{8}$/;
 	    var filter3 = /^[0-9]{1,2}$/;
-	    if (filter.test(email)) {
+	if (filter.test(email)) {
 	       
 	    }
 	    else {
 	    	alert("Enter Valid Email");
 	        return false;
 	    }
-	    if (att.length == 6) {
+	    if (client.length == 6) {
 	        
 	    }
 	    else {
-	    	alert("Enter Valid ATT ID ");
+	    	alert("Enter Valid Client Id ");
 	        return false;
 	    }
 	    if (filter2.test(id)) {
@@ -120,33 +134,27 @@
 	    else {
 	    	alert("Enter Valid Level");
 	        return false;
-	    }​
+	    } 
 
-	/* 
-	if (isNumeric(level)==false)
-	  {
-	  alert("Invalid Level");
-	  return false;
-	  }
-	if (isNumeric(experience)==false)
-	  {
-	  alert("Invalid Experience");
-	  return false;
-	  } */
-/*	if(validate(fname)==false){
-		alert("Enter valid Characters(@, . , -, (, ), #, _)");
+	    
+	/* var from = $("#calendar").val(); 
+	var to = $("#calendar1").val(); */
+	
+	/* if (from == "" || from == null){
+		alert("Please enter Date Of joining");
 		return false;
 	}
-	*/
-}
-	/* function cancelRegistration()
-	{
-		history.go(-1);
+
+	if(Date.parse(from) > Date.parse(to)){
+	   alert("Last Date Of Working must be after Date Of Joining");
+	   return false;
 	} */
 	
+	}
 	
 </script>
-<script>
+
+<!-- <script>
 function isNumeric(value) {
 	  if (value=="" || value == null || !value.toString().match(/^[-]?\d*\.?\d*$/))
 	  { return false;
@@ -163,7 +171,8 @@ function isNumeric(value) {
 		return Pattern.test(str); 
 		
 	}
-</script>
+</script> -->
+
 <script type="text/javascript">
 
         var specialKeys = new Array();
@@ -183,12 +192,25 @@ function isNumeric(value) {
         }
 
     </script>
-	
-    <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css'/>
-	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-	<script type='text/javascript' src='date.js'></script>
+
+<link rel='stylesheet' type='text/css'
+	href='http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css' />
+<script
+	src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+
+
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type='text/javascript' src='date.js'></script>
+<script type="text/javascript" src="js/jquery.ui.datepicker.validation.js"></script>
+<link href="calendar.css" rel="stylesheet" />
+
 </head>
-<body>
+<body> <jsp:include page="/TeamListServlet" /> 
 	<%-- <%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
@@ -201,7 +223,7 @@ function isNumeric(value) {
 	<div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
+			<div id="site_title">Talent Management Tool</div>
 			<div id="slogan">The place to look back</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
@@ -275,18 +297,24 @@ function isNumeric(value) {
 							<table>
 								<tr>
 									<td>EMPLOYEE NAME:</td>
-									<td><input type="text" name="name" ></input></td>
-									
+									<td><input type="text" name="name"></input></td>
+
 								</tr>
 								<tr>
 									<td>EMPLOYEE ID:</td>
-									<td><input type="text" name="idno" onkeypress="return IsNumeric1(event);"></input></td>
-									<span id="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
+									<td><input type="text" name="idno"
+										onkeypress="return IsNumeric1(event);"></input></td>
+										<span id="error" style="color: Black; display: none">
+										*Input digits (0 - 9)</span>
+									
 								</tr>
 								<tr>
 									<td>EMPLOYEE LEVEL:</td>
-									<td><input type="text" name="level" onkeypress="return IsNumeric1(event);"></input></td>
-									<span id="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
+									<td><input type="text" name="level"
+										onkeypress="return IsNumeric1(event);"></input></td>
+										<span id="error" style="color: Black; display: none">
+										*Input digits (0 - 9)</span>
+								 	 
 								</tr>
 								<tr>
 									<td>EMPLOYEE DESIGNATION:</td>
@@ -305,40 +333,55 @@ function isNumeric(value) {
 									<td>EMAIL:</td>
 									<td><input type="text" name="email"></input></td>
 								</tr>
+
 								
 								<tr>
-									<td>TEAM ID:</td>
-									<td><input type="text" name="Team"></input></td>
+								<td>TEAM</td>
+								<td><select name="Team" style="width: 143px">
+										<jstlcore:forEach items="${teamList}" var="item">
+
+											<option value="${item}">
+												<jstlcore:out value="${item}"></jstlcore:out></option>
+
+
+										</jstlcore:forEach>
+
+								</select></td>
 								</tr>
-								
 								<tr>
-									<td>Proficiency CAMS:</td>
+									<td>PROFICIENCY CAMS:</td>
 									<td><input type="text" name="camps"></input></td>
 								</tr>
 								<tr>
-									<td>Proficiency Project:</td>
+									<td>PROFICIENCY PROJECT:</td>
 									<td><input type="text" name="Project"></input></td>
 								</tr>
 								<tr>
-									<td>Date of Joining:</td>
+									<td>DATE OF JOINING:</td>
 									<td><input type="text" name="doj" id="calendar"></input></td>
 								</tr>
 								<tr>
-									<td>Last Working Date:</td>
+									<td>LAST WORKING DATE:</td>
 									<td><input type="text" name="last" id="calendar1"></input></td>
 								</tr>
 								<tr>
-									<td>Billable:</td>
-									<td><input type="text" name="bill"></input></td>
+									<td>BILLABLE:</td>
+									<td><!-- <input type="text" name="bill"></input> -->
+									<select type="text" name="bill" style="width: 143px">
+   								 	<option value="" disabled="disabled" selected="selected">Select</option>
+								    <option value="YES">YES</option>
+								    <option value="NO">NO</option>
+								     <option value="NA">NA</option>
+									</select></td>
 								</tr>
 								<tr>
-									<td>Active User:</td>
-									<td><input type="text" name="active"></input></td>
+									<td>ACITVE USER:</td>
+									<td><input type="text" name="active" value="YES"></input></td>
 								</tr>
-								
-								
-								
-								</table>
+
+
+
+							</table>
 							<input class="submit" type="submit" value="Submit"></input> <input
 								type="reset" value="Reset" id="clear" name="clear"></input><br />
 							<br /> <span style="color: green"> <%-- <%=request.getParameter("msg") != null ? request
