@@ -356,7 +356,13 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 							
 							</form>
 							
+							
+							
 							<br />
+							
+<div style="color: red;font-size: 12px">${result}</div>
+
+<br />
 							<h2 style="color:white;">Approved Requests</h2>
 							
 					<div id="scrollable"   style="font-size: 14px;">
@@ -410,7 +416,6 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 		 --%>
 					</div>
 <br/><br/>
-<div style="color: red;font-size: 12px">${message}</div>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
