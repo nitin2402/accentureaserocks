@@ -49,6 +49,7 @@ img {
 	width: 100%;
 	height: 20px;
 	font-size: 1px;
+	
 }
 
 .margin_bottom_30 {
@@ -470,6 +471,7 @@ table.table1{
 	border-width: 1px;
 	border-color: #666666;
 	border-collapse: collapse;
+	background: #D7C89D;
 }
 
 table.table1 th {
@@ -477,7 +479,8 @@ table.table1 th {
 	padding: 8px;
 	border-style: solid;
 	border-color: #666666;
-	background-color: #dedede;
+	/* background-color: #dedede; */
+	background: #D7C89D;
 }
 
 table.table1 td {
@@ -485,7 +488,8 @@ table.table1 td {
 	padding: 8px;
 	border-style: solid;
 	border-color: #666666;
-	background-color: #ffffff;
+	background: #D7C89D;
+	/* background-color: #ffffff; */
 }
 .notification{
 	color: red;
@@ -495,5 +499,6 @@ table.table1 td {
 #scrollable {
     height: 200px; /* or any value */
     overflow-y: auto;
+    
 }
 /* end of footer */
