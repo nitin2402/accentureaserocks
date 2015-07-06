@@ -60,16 +60,37 @@ public class ActionServlet extends HttpServlet {
 			
 		} else if ("Accept".equals(action)) {
 			flag = controller.acceptRequest(actiondto);
-			request.setAttribute("flag", flag);
+			if(flag == 1){
+			request.setAttribute("reqId", reqId);
+			request.setAttribute("result", "accepted");
 			request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
+			} else {
+				request.setAttribute("reqId", reqId);
+				request.setAttribute("result", "Not accepted");
+				request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
+			}
 		} else if ("Reject".equals(action)) {
 			flag = controller.rejectRequest(actiondto);
-			request.setAttribute("flag", flag);
+			if(flag == 1){
+			request.setAttribute("reqId", reqId);
+			request.setAttribute("result", "rejected");
 			request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
+			} else {
+				request.setAttribute("reqId", reqId);
+				request.setAttribute("result", "Not rejected");
+				request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
+			}
 		} else if ("OnHold".equals(action)) {
 			flag = controller.onholdRequest(actiondto);
-			request.setAttribute("flag", flag);
+			if(flag == 1){
+			request.setAttribute("reqId", reqId);
+			request.setAttribute("result", "kept on hold.");
 			request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
+			} else {
+				request.setAttribute("reqId", reqId);
+				request.setAttribute("result", "couldn't be kept on hold.");
+				request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
+			}
 		}
 	}
 
