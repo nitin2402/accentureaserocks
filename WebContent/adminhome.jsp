@@ -18,6 +18,7 @@
 
 	});
 </script>
+<script src="piechart.js"></script>
 <!-- <script type="text/javascript">
 	$(function() {
 		$('.last').click(
@@ -320,6 +321,11 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 					<div id="piechart"
 						style="background-colour: red; height: 300px; width: 600px"
 						onclick="clickToStop()"></div>
+						<div class="filter" ><span style="color: brown;font-size: 16px">Filter by</span><br/>
+					<a onclick="filter('billability')">Billability</a> /
+					<a onclick="filter('proficiency')">Proficiency</a> /
+					<a onclick="filter('expertise')">Expertise</a>
+					</div>
 					<div id="ajaxResponse"></div>
 					<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
