@@ -19,6 +19,7 @@ public class EmployeeDetailsDTO {
 	private String lastWD;
 	private String isBillable;
 	private String isActive;
+	private String teamName ;
 	public String getEmpId() {
 		return empId;
 	}
@@ -106,6 +107,12 @@ public class EmployeeDetailsDTO {
 	}
 	public void setLastWD(String lastWD) {
 		this.lastWD = lastWD;
+	}
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 }
