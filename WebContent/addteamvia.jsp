@@ -56,7 +56,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp" >Home</a></li>
-			<li><a href="addempvia.jsp" class="current">Admin Tools</a></li>
+			<li><a href="admintool.jsp" class="current">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
