@@ -360,7 +360,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 							
 							<br />
 							
-<div style="color: red;font-size: 12px">${result}</div>
+<div style="color: blue;font-size: 12px">${reqId}  ${result}</div>
 
 <br />
 							<h2 style="color:white;">Approved Requests</h2>
