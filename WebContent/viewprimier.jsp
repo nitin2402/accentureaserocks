@@ -77,7 +77,7 @@
 			/* $("#piechart").hide(); */
 			$("#teamname").val(team);
 			$.ajax({
-				url : "/TMT/FetchTeamEmployees",
+				url : "/TMT_Test/FetchTeamEmployees",
 				type : "POST",
 				data : 'teamName=' + team,
 
@@ -107,7 +107,7 @@
 			/* $("#piechart").hide(); */
 
 			$.ajax({
-				url : "/TMT/DisplayEmpList",
+				url : "/TMT_Test/DisplayEmpList",
 				type : "POST",
 				data : 'teamName=' + team,
 
@@ -143,9 +143,7 @@
 <%
 
 HttpSession session1 = request.getSession(false);
-if (session1 == null || (String)session1.getAttribute("user") == null  ){
-    %><jsp:forward page="home.jsp?msg=Please Login" /><%
-}
+
 %>
 	<jsp:include page="/ViewReportPrimier" />
 
@@ -163,18 +161,18 @@ if (session1 == null || (String)session1.getAttribute("user") == null  ){
 
 	<div id="templatemo_menu">
 		<ul>
-		<% /* if ((Boolean)session1.getAttribute("admin")==true) { */%>
+		<%  if ((String)session1.getAttribute("admin")=="admin") { %>
 			<li><a href="adminhome.jsp" >Home</a></li>
-			<li><a href="addempvia.jsp">Admin Tools</a></li>
-			<% /* } */ %>
-	<%	/* if ((Boolean)session1.getAttribute("admin")==false) { */%>
+			<li><a href="admintool.jsp">Admin Tools</a></li>
+			<%  }  %>
+	<%	 if ((String)session1.getAttribute("admin") != "admin") { %>
 	
 		<li><a href="userhome.jsp" >Home</a></li>
 		
-		<%/* } */ %>
+		<% }  %>
 			
-			<li><a href="#">Workplan</a></li>
-			<li><a href="#" class="current">Projects</a></li>
+			<li><a href="workplan.jsp">Workplan</a></li>
+			<li><a href="Projects.jsp" class="current">Projects</a></li>
 			<li><a href="#">About Us</a></li>
 				<li><a href="logout.jsp">Logout</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
