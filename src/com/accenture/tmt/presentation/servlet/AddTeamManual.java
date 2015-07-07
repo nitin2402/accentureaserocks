@@ -6,28 +6,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
-
-
-import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
-import com.accenture.tmt.manager.EmployeeController;
 import com.accenture.tmt.manager.TeamController;
-import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
-
-
 
 /**
  * Servlet implementation class AddEmployeeManual
  */
-public class AddTeamManually2 extends HttpServlet {
+public class AddTeamManual extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddTeamManually2() {
+    public AddTeamManual() {
         super();
         // TODO Auto-generated constructor stub
     }
