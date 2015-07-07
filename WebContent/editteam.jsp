@@ -63,6 +63,18 @@ $("#show1").show();
 			});
 </script>
 
+<script type="text/javascript">
+function validate(e){
+	var teamname=document.forms["edit"]["teamname"].value;
+	if (teamname == null || teamname == ""){
+		alert("Please enter a Team Name");
+		return false;
+	}
+}
+
+
+</script>
+
 
 </head>
 <body>
@@ -148,8 +160,7 @@ if (session1 == null  /* || (String)session1.getAttribute("user") == null || (Bo
 
 
 					<div style="font-size: 14px;">
-						<form action="EditTeamFinal" method="post"
-							>
+						<form name="edit" action="EditTeamFinal" method="post" onsubmit="return validate()">
 							<%-- <table>
 								<tr>
 									<td>Module:</td>
