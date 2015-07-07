@@ -472,6 +472,7 @@ table.table1{
 	border-color: #666666;
 	border-collapse: collapse;
 	background: #D7C89D;
+	
 }
 
 table.table1 th {
@@ -481,6 +482,11 @@ table.table1 th {
 	border-color: #666666;
 	/* background-color: #dedede; */
 	background: #D7C89D;
+	
+}
+
+table.table1 tr:first-child td{
+	background: #B89329;
 }
 
 table.table1 td {
