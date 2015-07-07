@@ -236,8 +236,8 @@ public class EmployeeDAO {
 				search.setTeamId(rs.getString(CONSTANTS.TEAM_ID));
 				search.setProfCamps(rs.getString(CONSTANTS.PROFICIENCY_CAMPS));
 				search.setProfProject(rs.getString(CONSTANTS.PROFICIENCY_PROJECT));
-				search.setDateOfJoining(rs.getDate(CONSTANTS.DATE_OF_JOINING));
-				search.setLastWorkingDay(rs.getDate(CONSTANTS.LAST_WORKING_DAY));
+				search.setDateOfJoining(rs.getString(CONSTANTS.DATE_OF_JOINING));
+				search.setLastWorkingDay(rs.getString(CONSTANTS.LAST_WORKING_DAY));
 				search.setBillable(rs.getString(CONSTANTS.BILLABLE));
 				search.setActiveUser(rs.getString(CONSTANTS.ACTIVE_USER));
 				searchList.add(search);
