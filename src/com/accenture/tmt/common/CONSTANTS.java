@@ -15,7 +15,7 @@ public interface CONSTANTS {
     public String EMPLOYEE_EMAIL = "EmployeeEmail";
     public String EMPLOYEE_EXPERTISE = "EmployeeExpertise";
     public String TEAM_ID = "TeamId";
-    public String PROFICIENCY_CAMPS = "ProficiencyCAMS";
+    public String PROFICIENCY_CAMPS = "ProficiencyCams";
     public String PROFICIENCY_PROJECT = "ProficiencyProject";
     public String DATE_OF_JOINING = "DateofJoining";
     public String LAST_WORKING_DAY = "LastWorkingDay";
@@ -35,7 +35,7 @@ public interface CONSTANTS {
 			"	SELECT Employee.EmployeeId, Employee.EmployeeName, "
 					+ "Employee.EmployeeLevel, Employee.EmployeeDesignation,Employee.EmployeeExpertise, "
 					+ "Employee.EmployeeClientId, Employee.EmployeeEmail,Employee.TeamId,"
-					+ "Employee.ProficiencyCAMS, Employee.ProficiencyProject, Employee.ProficiencyProject,"
+					+ "Employee.ProficiencyCams, Employee.ProficiencyProject, Employee.ProficiencyProject,"
 					+ "Employee.DateofJoining, Employee.LastWorkingDay, Employee.Billable, "
 					+ "Employee.ActiveUser"
 					+ " FROM Employee"  + " WHERE Employee.EmployeeName LIKE ? ";
@@ -92,10 +92,10 @@ public interface CONSTANTS {
    
     
 
-	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeClientId,EmployeeEmail,TeamId,ProficiencyCAMS,ProficiencyProject,DateofJoining,LastWorkingDay,Billable,ActiveUser) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeClientId,EmployeeEmail,TeamId,ProficiencyCams,ProficiencyProject,DateofJoining,LastWorkingDay,Billable,ActiveUser) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	public String SHEET_NO = "sheetno";
 	public String FILE_NAME = "file1";
-	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCAMS=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
+	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCams=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
 
 	/*CHANGED*/public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID, EmployeeId) values(?,?,?,?,?,?,?,?)";
 	
