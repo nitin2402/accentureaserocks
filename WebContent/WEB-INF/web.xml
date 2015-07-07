@@ -399,23 +399,23 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AddTeamManually1</display-name>
-    <servlet-name>AddTeamManually1</servlet-name>
-    <servlet-class>com.accenture.tmt.presentation.servlet.AddTeamManually1</servlet-class>
+    <display-name>TeamSelect</display-name>
+    <servlet-name>TeamSelect</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.TeamSelect</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AddTeamManually1</servlet-name>
-    <url-pattern>/AddTeamManually1</url-pattern>
+    <servlet-name>TeamSelect</servlet-name>
+    <url-pattern>/TeamSelect</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AddTeamManually2</display-name>
-    <servlet-name>AddTeamManually2</servlet-name>
-    <servlet-class>com.accenture.tmt.presentation.servlet.AddTeamManually2</servlet-class>
+    <display-name>AddTeamManual</display-name>
+    <servlet-name>AddTeamManual</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AddTeamManual</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AddTeamManually2</servlet-name>
-    <url-pattern>/AddTeamManually2</url-pattern>
+    <servlet-name>AddTeamManual</servlet-name>
+    <url-pattern>/AddTeamManual</url-pattern>
     </servlet-mapping>
      <servlet>
     <description></description>
