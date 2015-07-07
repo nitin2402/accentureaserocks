@@ -32,6 +32,16 @@
 	});
 </script>
 
+<script type="text/javascript">
+function validate(e){
+	var modulename=document.forms["edit"]["modulename"].value;
+	if (modulename == null || modulename == ""){
+		alert("Please enter a Module Name");
+		return false;
+	}
+}
+</script>
+
 
 </head>
 <body>
@@ -119,7 +129,7 @@
 
 
 					<div style="font-size: 14px;">
-						<form action="EditModuleFinal" method="post">
+						<form name="edit" action="EditModuleFinal" method="post" onsubmit="return validate()">
 							<%-- <table>
 			<tr>
 				<td>Module:</td>
