@@ -100,7 +100,7 @@
 
 
 					<div style="font-size: 14px;">
-						<form action="AddTeamManually1">
+						<form action="TeamSelect">
 							<input type="radio" name="select" value="addfromexcel">Add
 								From Excel<br /> <br /> <br />
 							<input type="radio" name="select" value="addmanually">Add
