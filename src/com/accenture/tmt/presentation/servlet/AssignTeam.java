@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.accenture.tmt.dao.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.manager.EmployeeController;
 
 
@@ -52,7 +52,7 @@ String submit2 = request.getParameter("edit");
 		if(submit1 !=null)
 		{
 		EmployeeController search = new EmployeeController();
-		List<EmployeeDetailsDTO> li = search.getToAssign(newEmp);
+		List<EmployeeDetailsFlatDTO> li = search.getToAssign(newEmp);
 
 		request.setAttribute("searchList", li);
 	
@@ -61,7 +61,7 @@ String submit2 = request.getParameter("edit");
 		if(submit2 != null)
 		{
 			EmployeeController search = new EmployeeController();
-			List<EmployeeDetailsDTO> li = search.getToAssign(newEmp);
+			List<EmployeeDetailsFlatDTO> li = search.getToAssign(newEmp);
 
 			request.setAttribute("searchList", li);
 			request.getRequestDispatcher("editemployee.jsp").forward(request, response);

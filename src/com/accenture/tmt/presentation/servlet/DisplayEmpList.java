@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.accenture.tmt.dao.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.manager.EmployeeController;
 
 
@@ -44,7 +44,7 @@ public class DisplayEmpList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String exp = null;
-		List<EmployeeDetailsDTO> li = new ArrayList<EmployeeDetailsDTO>();
+		List<EmployeeDetailsFlatDTO> li = new ArrayList<EmployeeDetailsFlatDTO>();
 		
 		String tid = request.getParameter("teamnam");
 	

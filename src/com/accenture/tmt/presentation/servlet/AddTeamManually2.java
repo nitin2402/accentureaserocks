@@ -52,14 +52,14 @@ public class AddTeamManually2 extends HttpServlet {
 		String TeamDesc = request.getParameter("desc");
 		TeamDetailsFlatDTO detailsDO = new TeamDetailsFlatDTO();
 		detailsDO.setTeamName(TeamName);
-		detailsDO.setTeamid(Teamid);
+		detailsDO.setTeamId(Teamid);
 		detailsDO.setModuleId(ModuleId);
-		detailsDO.setTeamDesc(TeamDesc);
+		detailsDO.setTeamDescription(TeamDesc);
 		
 	
-		TeamController TeamManager = new TeamController();
+		TeamController teamManager = new TeamController();
 		
-		int c=TeamManager.addTeam(detailsDO);
+		int c = teamManager.addTeam(detailsDO.getTeamName(), detailsDO.getModuleId());
 		if(c !=0){
 			request.setAttribute("message","Record Inserted");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}

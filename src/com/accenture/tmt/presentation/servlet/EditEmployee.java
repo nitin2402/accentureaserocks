@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.accenture.tmt.dao.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.manager.EmployeeController;
 
 
@@ -50,14 +50,14 @@ public class EditEmployee extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		
-		EmployeeDetailsDTO detailsDO = new EmployeeDetailsDTO();
+		EmployeeDetailsFlatDTO detailsDO = new EmployeeDetailsFlatDTO();
 		
 		detailsDO.setEmpId(empId);
 		detailsDO.setEmpName(empName);
 		detailsDO.setLevel(level);
 		detailsDO.setDesignation(designation);
 		detailsDO.setExpertise(expertise);
-		detailsDO.setAtt(attId);
+		detailsDO.setClientId(attId);
 		detailsDO.setEmail(email);
 		
 		EmployeeController employeeManager = new EmployeeController();
