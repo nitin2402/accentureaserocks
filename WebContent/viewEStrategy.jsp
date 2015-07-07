@@ -55,7 +55,7 @@
 
 			$.ajax({
 
-				url : "/TMT/FetchTeamEmployees",
+				url : "/TMT_Test/FetchTeamEmployees",
 				type : "POST",
 				data : {
 					'teamName' : team,
@@ -147,12 +147,12 @@ alert("Hi");
 <body>
 	<%
 		HttpSession session1 = request.getSession(false);
-		if (session1 == null
-				|| (String) session1.getAttribute("user") == null) {
-	%><jsp:forward page="home.jsp?msg=Please Login" />
-	<%
-		}
-	%>
+		  /* if (session1 == null
+				|| (String) session1.getAttribute("user") == null)  */ /* { */
+	/* <jsp:forward page="home.jsp?msg=Please Login" />
+ 	<%  */
+		/* }  */
+	%> 
 	<jsp:include page="/ViewReport" />
 
 	<div id="templatemo_container"></div>
@@ -170,21 +170,21 @@ alert("Hi");
 	<div id="templatemo_menu">
 		<ul>
 			<%
-				/* if ((Boolean) session1.getAttribute("admin") == true) { */
+				 if ((String) session1.getAttribute("admin") == "admin") { 
 			%>
 			<li><a href="adminhome.jsp">Home</a></li>
 			<li><a href="addempvia.jsp">Admin Tools</a></li>
 			<%
-				/* } */
+				 }
 			%>
 			<%
-				/* if ((Boolean) session1.getAttribute("admin") == false) { */
+				 if ((String) session1.getAttribute("admin") == "user") { 
 			%>
 
 			<li><a href="userhome.jsp">Home</a></li>
 
 			<%
-				/* } */
+				 } 
 			%>
 
 			<li><a href="#">Workplan</a></li>
