@@ -57,7 +57,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 			<li><a href="adminhome.jsp">Home</a></li>
 			<li><a href="admintool.jsp" class="current">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
-			<li><a href="#">Projects</a></li>
+			<li><a href="Projects.jsp">Projects</a></li>
 			<li><a href="#">About Us</a></li>
 			<!-- <li><a href="logout.jsp">Logout</a></li> -->
 			<li><a href="#" class="last">Contact Us</a></li>
