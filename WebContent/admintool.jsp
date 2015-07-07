@@ -72,7 +72,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 					<ul>
 						<li><a href="admintool.jsp"style="font-weight: bold; text-decoration: underline" >Add Employee</a></li>
 						<li><a href="addmodulevia.jsp">Add Module</a></li>
-						<li><a href="addteamvia.jsp">Add Team</a></li>
+						<li><a href="addteam.jsp">Add Team</a></li>
 					</ul>
 
 					<div class="cleaner">&nbsp;</div>
