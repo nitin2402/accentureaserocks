@@ -192,12 +192,13 @@ img {
 
 #templatemo_menu ul li {
 	display: inline;
+	
 }
 
 #templatemo_menu ul li a {
 	float: left;
 	padding: 11px 0;
-	width: 120px;
+	width: 106px;
 	text-align: center;
 	font-size: 12px;
 	text-align: center;
@@ -507,4 +508,5 @@ table.table1 td {
     overflow-y: auto;
     
 }
+
 /* end of footer */
