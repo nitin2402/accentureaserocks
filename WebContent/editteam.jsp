@@ -88,7 +88,7 @@ if (session1 == null  /* || (String)session1.getAttribute("user") == null || (Bo
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp" >Home</a></li>
-			<li><a href="addempvia.jsp">Admin Tools</a></li>
+			<li><a href="admintool.jsp">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Us</a></li>
