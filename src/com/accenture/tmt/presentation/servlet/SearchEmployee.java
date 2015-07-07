@@ -62,12 +62,21 @@ public class SearchEmployee extends HttpServlet {
 		
 		String exp = null;
 
-		exp = "<form action =\"AssignTeam\" method=\"post\"><div id=\"scrollable\"> <table  class= \"table1\" border=\"1\" >";
-
+		exp = "<form action =\"AssignTeam\" method=\"post\"><div id=\"scrollable\"> <table  class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\"><td></td>"
+				+ "<td>Employee ID</td><td>Employee Name </td><td>Designation</td><td>Level</td><td>Expertise</td><td>Client Id</td><td>Email</td><td>Team ID</td><td>Proficiency Cams</td><td>Proficiency Project</td><td>Date of Joining</td><td>Last Working Day</td><td>Billable</td><td>Active User</td></tr>";
+		
+	
+		
 		for (int i = 0; i < li.size(); i++) {
 			exp += "<tr><td><input type=\"radio\" name=\"employee\" value= \""
-					+ li.get(i).getEmpId() + "\"></td><td>" + li.get(i).getEmpName()
+					
+					+ li.get(i).getEmpId() + "\"></td>" ;
+			exp += "<td>" + li.get(i).getEmpId()
 					+ "</td>";
+			exp += "<td>" + li.get(i).getEmpName()
+					+ "</td>";
+			
+					
 			exp += "<td>" + li.get(i).getDesignation()
 					+ "</td>";
 			exp += "<td>" + li.get(i).getLevel() 
