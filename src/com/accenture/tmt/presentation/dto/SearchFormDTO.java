@@ -14,8 +14,8 @@ public class SearchFormDTO {
 	private String Expertise;
 	private String ProfCamps;
 	private String ProfProject;
-	private Date DateOfJoining;
-	private Date LastWorkingDay;
+	private String DateOfJoining;
+	private String LastWorkingDay;
 	private String Billable;
 	private String ActiveUser;
 	
@@ -70,6 +70,18 @@ public class SearchFormDTO {
 	public String getProfCamps() {
 		return ProfCamps;
 	}
+	public String getDateOfJoining() {
+		return DateOfJoining;
+	}
+	public void setDateOfJoining(String dateOfJoining) {
+		DateOfJoining = dateOfJoining;
+	}
+	public String getLastWorkingDay() {
+		return LastWorkingDay;
+	}
+	public void setLastWorkingDay(String lastWorkingDay) {
+		LastWorkingDay = lastWorkingDay;
+	}
 	public void setProfCamps(String profCamps) {
 		ProfCamps = profCamps;
 	}
@@ -79,18 +91,7 @@ public class SearchFormDTO {
 	public void setProfProject(String profProject) {
 		ProfProject = profProject;
 	}
-	public Date getDateOfJoining() {
-		return DateOfJoining;
-	}
-	public void setDateOfJoining(Date dateOfJoining) {
-		DateOfJoining = dateOfJoining;
-	}
-	public Date getLastWorkingDay() {
-		return LastWorkingDay;
-	}
-	public void setLastWorkingDay(Date lastWorkingDay) {
-		LastWorkingDay = lastWorkingDay;
-	}
+	
 	public String getBillable() {
 		return Billable;
 	}
