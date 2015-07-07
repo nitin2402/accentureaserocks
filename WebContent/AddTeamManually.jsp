@@ -195,7 +195,7 @@ function isNumeric(value) {
 
 <div id="scrollable"   style="font-size: 14px;">
 					
-						<form name="add" action="AddTeamManually2" method="post"
+						<form name="add" action="AddTeamManual" method="post"
 							onsubmit="return validateform()">
 							<table>
 								<tr>
