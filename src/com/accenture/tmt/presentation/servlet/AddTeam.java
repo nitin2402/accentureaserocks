@@ -1,11 +1,13 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.manager.ModuleController;
 import com.accenture.tmt.manager.TeamController;
 
@@ -58,8 +60,10 @@ public class AddTeam extends HttpServlet {
 		
 		
 		TeamController teamManager = new TeamController();
-		
-	int	a=teamManager.addTeam(tName,id);
+		TeamDetailsFlatDTO detailsDO = new TeamDetailsFlatDTO();
+		detailsDO.setTeamName(tName);
+		detailsDO.setTeamId(id);
+	int	a=teamManager.addTeam(detailsDO);
 	if (a>0){
 		request.setAttribute("message","Team Inserted");
 		request.getRequestDispatcher("addteamvia.jsp").forward(request, response);
