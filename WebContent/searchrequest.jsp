@@ -64,9 +64,9 @@
 								<td>Select</td>
 								<td>ReqId</td>
 								<td>Team Name</td>
-								<td>No_Of_ASE</td>
-								<td>No_of_SE</td>
-								<td>No_of_SSE</td>
+								<td>No Of ASE</td>
+								<td>No of SE</td>
+								<td>No of SSE</td>
 								<td>comment</td>
 								<td>Status</td>
 							</tr>
@@ -113,9 +113,9 @@
 							<tr class="one" style="font-weight:bold;">
 								<td>ReqId</td>
 								<td>Team Name</td>
-								<td>No_Of_ASE</td>
-								<td>No_of_SE</td>
-								<td>No_of_SSE</td>
+								<td>No Of ASE</td>
+								<td>No of SE</td>
+								<td>No of SSE</td>
 								<td>comment</td>
 								<td>Status</td>
 							</tr>
