@@ -554,4 +554,24 @@
     <servlet-name>AddModuleExcel</servlet-name>
     <url-pattern>/AddModuleExcel</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>ModuleListServlet</display-name>
+    <servlet-name>ModuleListServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.ModuleListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModuleListServlet</servlet-name>
+    <url-pattern>/ModuleListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ModuleReportServlet</display-name>
+    <servlet-name>ModuleReportServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.ModuleReportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModuleReportServlet</servlet-name>
+    <url-pattern>/ModuleReportServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
