@@ -27,7 +27,19 @@
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>  
-	
+	<%
+		HttpSession session1 = request.getSession(false);
+
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
+	<%
+		}
+	%>
 	<div id="templatemo_content">
 
 		<div id="content_left">
