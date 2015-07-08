@@ -9,60 +9,27 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script >
-
-function validateform2() {
-
-	if ( ( !document.getElementById('excel').checked ) && ( !document.getElementById('manually').checked ) ) 
-
-	{
-
-	alert ( "Please choose one option" );
-
-	
-	return false;
-	}
-
-	}
-
-
-</script> 
+<script type='text/javascript' src='admintool.js'></script>
 </head>
 <body>
-	<%-- <%
+	<%@ include file="header_admin.jsp" %>
+	<%
 		HttpSession session1 = request.getSession(false);
+
 		if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				|| (String) session1.getAttribute("admin") != "admin") {
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
 	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
 	<%
 		}
-	%>  --%>
-	
-<div id="templatemo_container" />
-	<div id="templatemo_header">
-		<div id="site_title_section">
-			<div id="site_title">Talent Management Tool</div>
-				<div id="slogan">The place to look back</div>
-			<div class="cleaner">&nbsp;</div>
-		</div>
-<div id="welcome_msg" style="color: yellow;float: right;
-font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
-	<div id="header_section_code">"Overall approach is to maintain
-			pyramid form for all designation levels as per Accenture compliance."</div>
-	</div>
+	%>
 
-	<div id="templatemo_menu">
-		<ul>
-			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp" class="current">Admin Tools</a></li>
-			<li><a href="#">Workplan</a></li>
-			<li><a href="Projects.jsp">Projects</a></li>
-			<li><a href="#">About Us</a></li>
-			<!-- <li><a href="logout.jsp">Logout</a></li> -->
-			<li><a href="#" class="last">Contact Us</a></li>
-		</ul>
-	</div>
+
+
+
 	<div id="templatemo_content">
 
 		<div id="content_left">
@@ -125,13 +92,5 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
-
-			<div class="cleaner">&nbsp;</div>
-		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
-	</div>
-</body>
+			<%@ include file="footer.jsp" %>     
 </html>
