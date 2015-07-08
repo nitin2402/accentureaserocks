@@ -7,6 +7,23 @@
   <session-config>
     <session-timeout>20</session-timeout>
   </session-config>
+  <context-param> 
+    <description>Location to store uploaded file</description> 
+    <param-name>file-upload</param-name> 
+    <param-value>
+         C:\Users\sachin.a.bhardwaj\Downloads\apache-tomcat-7.0.62-windows-x86\apache-tomcat-7.0.62\webapps\data
+     </param-value> 
+</context-param>
+<servlet>
+    <description></description>
+    <display-name>InitiativeUploadServlet</display-name>
+    <servlet-name>InitiativeUploadServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.InitiativeUploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitiativeUploadServlet</servlet-name>
+    <url-pattern>/InitiativeUploadServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DBConnect</display-name>
