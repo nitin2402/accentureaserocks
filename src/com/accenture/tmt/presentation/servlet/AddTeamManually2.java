@@ -7,14 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
-import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
-import com.accenture.tmt.manager.EmployeeController;
 import com.accenture.tmt.manager.TeamController;
-import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
 
 
 
@@ -59,7 +53,7 @@ public class AddTeamManually2 extends HttpServlet {
 	
 		TeamController teamManager = new TeamController();
 		
-		int c = teamManager.addTeam(detailsDO.getTeamName(), detailsDO.getModuleId());
+		int c = teamManager.addTeam(detailsDO);
 		if(c !=0){
 			request.setAttribute("message","Record Inserted");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
