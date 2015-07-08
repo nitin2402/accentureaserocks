@@ -8,6 +8,19 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	$(function() {
+		$('.last').click(
+				function(event) {
+					var email = 'chinu.mohanty@accenture.com';
+					var subject = 'Feedback';
+					var emailBody = 'Hi Chinu,';
+					window.location = 'mailto:' + email + '?subject=' + subject
+							+ '&body=' + emailBody;
+				});
+	});
+</script>
+
 </head>
 <body>
 <div id="templatemo_container" />
@@ -24,21 +37,19 @@
 		<div id="header_section_code">"Overall approach is to maintain
 			pyramid form for all designation levels as per Accenture compliance."</div>
 	</div>
-<!-- 
+ 
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp">Home</a></li>
 			<li><a href="admintool.jsp"">Admin Tools</a></li>
 			<li><a href="searchrequest.jsp">Workplan</a></li>
 			<li><a href="Projects.jsp">Projects</a></li>
-				<li><a href="mainreports.jsp">Reports</a></li>
+			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
-		
 			<li><a href="#">About Us</a></li>
-			
 			<li><a href="#" class="last">Contact Us</a></li>
-			
+
 		</ul>
-	</div> -->
+	</div>
 </body>
 </html>
