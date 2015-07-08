@@ -15,6 +15,8 @@
 
 <script type="text/javascript" src="workplan.js"></script>
 
+
+
 </head>
 <body>
 	<%-- <jsp:include page="/FetchbudgetDetail" /> --%>
@@ -29,14 +31,10 @@
 		}
 	%> 
 	
-	<%@ include file="header_admin.jsp" %> 
-	
-
-	<div id="templatemo_content">
-
+	<%@ include file="header_users.jsp" %> 
+<div id="templatemo_content">
 		<div id="content_left">
 
-			
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Projects</div>
 				<div class="content_left_section_content">
@@ -48,7 +46,19 @@
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
 			</div>
-
+	
+			<div class="content_left_section" style="font-size:14px">
+				<div class="content_left_section_title">View</div>
+				<div class="content_left_section_content">
+					
+					<ul>
+						<li><a href="viewemployee_user.jsp" >View Employee</a></li>
+						<li><a href="viewteam_user.jsp">View Team</a></li>
+						<li><a href="viewmodule_user.jsp" >View Module</a></li>
+					</ul>
+				</div>
+				<div class="content_left_section_bottom">&nbsp;</div>
+			</div>
 			<div class="margin_bottom_20">&nbsp;</div>
 
 		</div>
@@ -58,8 +68,6 @@
 
 				<div class="header_01">Work Plan</div>
 
-
-				<div class="header_09"></div>
 					<ul>
 						<li><a href="workplan.jsp">Raise a new request</a></li>
 
@@ -77,6 +85,7 @@
 		<div id="templatemo_content_bottom">&nbsp;</div>
 		<div id="templatemo_footer">
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
+		</div>
 		</div>
 	</div>
 </body>
