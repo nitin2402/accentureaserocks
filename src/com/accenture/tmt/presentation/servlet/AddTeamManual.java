@@ -43,9 +43,9 @@ public class AddTeamManual extends HttpServlet {
 		String TeamDesc = request.getParameter("desc");
 		TeamDetailsFlatDTO detailsDO = new TeamDetailsFlatDTO();
 		detailsDO.setTeamName(TeamName);
-		detailsDO.setTeamid(Teamid);
+		detailsDO.setTeamId(Teamid);
 		detailsDO.setModuleId(ModuleId);
-		detailsDO.setTeamDesc(TeamDesc);
+		detailsDO.setTeamDescription(TeamDesc);
 		
 	
 		TeamController TeamManager = new TeamController();
