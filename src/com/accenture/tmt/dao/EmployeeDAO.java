@@ -113,9 +113,7 @@ public class EmployeeDAO {
 			
 			Connection con = DBConnection.getConnection();
 			Statement st = con.createStatement();
-			
-			String querry = "select * from Employee";
-			ResultSet rs = st.executeQuery(querry);
+			ResultSet rs = st.executeQuery(CONSTANTS.VIEW_EMPLOYEE_QUERY);
 			
 			while(rs.next())
 			{
@@ -123,20 +121,21 @@ public class EmployeeDAO {
 				details.setEmpId(rs.getString("EmployeeId"));
 				details.setEmpName(rs.getString("EmployeeName"));
 				details.setDesignation(rs.getString("EmployeeDesignation"));
+				details.setLevel(rs.getString("EmployeeLevel"));
 				details.setExpertise(rs.getString("EmployeeExpertise"));
-				//details.setLevel(rs.getString("EmployeeLevel"));
-				//details.setExpertise(rs.getString("Expertise"));
-				//details.setProficiency(rs.getString("Proficiency"));
-				//details.setProject(rs.getString("Project"));
-				//details.setClientId(rs.getString("ClientId"));
-				//details.setBillability(rs.getString("Billability"));
-				//details.setEmail(rs.getString("Email"));
-				details.setTeamId(rs.getString("TeamId"));
+				details.setClientId(rs.getString("EmployeeClientId"));
+				details.setEmail(rs.getString("EmployeeEmail"));
+				details.setTeamName(rs.getString("TeamName"));
+				details.setProfCamps(rs.getString("ProficiencyCams"));
+				details.setProfProject(rs.getString("ProficiencyProject"));
+				details.setDoj(rs.getString("DateofJoining"));
+				/*details.setLastWD(rs.getString("LastWorkingDay"));*/
+				details.setIsBillable(rs.getString("Billable"));
+				/*details.setIsActive(rs.getNString("ActiveUser"));*/
+				
 				
 				empList.add(details);
 			}
-			
-			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
