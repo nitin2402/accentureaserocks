@@ -43,7 +43,7 @@
 			<li><a href="adminhome.jsp">Home</a></li>
 			<li><a href="admintool.jsp"">Admin Tools</a></li>
 			<li><a href="searchrequest.jsp">Workplan</a></li>
-			<li><a href="Projects.jsp">Projects</a></li>
+			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
 			<li><a href="#">About Us</a></li>
