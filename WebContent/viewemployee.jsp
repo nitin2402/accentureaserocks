@@ -3,6 +3,8 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -19,50 +21,13 @@
 	});
 	
 </script>-->
-<script type="text/javascript">
-	$(function() {
-		$('.last').click(
-				function(event) {
-					var email = 'chinu.mohanty@accenture.com';
-					var subject = 'Feedback';
-					var emailBody = 'Hi Chinu,';
-					window.location = 'mailto:' + email + '?subject=' + subject
-							+ '&body=' + emailBody;
-				});
-	});
-</script>
-<!--   <script>
-	$(document).ready(
-			function() {
 
-				$('#s_module').change(
-						function(event) {
-							var dropDownValue = $("#s_module").children(
-									"option").filter(":selected").text();
 
-							$.ajax({
-								url : "/EmployeeMSAccessDB/FetchTeam",
-								type : "POST",
-								data : 'moduleName=' + dropDownValue,
-
-								success : function(data) {
-
-									$("#ajaxResponse").html(data);
-
-								},
-								error : function() {
-
-								}
-							});
-
-						});
-			});
-</script> -->
 
 </head>
 <body>
 
-
+<%@ include file="header_admin.jsp" %>  
 	<jsp:include page="/ViewEmployee"/>
 	<%
 		HttpSession session1 = request.getSession(false);
@@ -74,57 +39,17 @@
 		}
 	%>
 	
-	<div id="templatemo_container" />-
-	<div id="templatemo_header">
-		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
-			<div id="slogan">The place to look back</div>
-			<div class="cleaner">&nbsp;</div>
-		</div>
-
-		<div id="header_section_code">"Overall approach is to maintain
-			pyramid form for all designation levels as per Accenture compliance."</div>
-	</div>
-
-	<div id="templatemo_menu">
-		<ul>
-			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="addempvia.jsp">Admin Tools</a></li>
-			<li><a href="#">Workplan</a></li>
-			<li><a href="#">Projects</a></li>
-			<li><a href="#">About Us</a></li>
-			<li><a href="logout.jsp">Logout</a></li>
-			<li><a href="#" class="last">Contact Us</a></li>
-		</ul>
-	</div>
-
+	
 	<div id="templatemo_content">
 
 		<div id="content_left">
 
-			<%-- 	<div class="content_left_section">
-				<div class="content_left_section_title">Search</div>
-				<div class="content_left_section_content">
-					<form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form>
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div> --%>
+			
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="addempvia.jsp">Add Employee</a></li>
+						<li><a href="admintool.jsp">Add Employee</a></li>
 
 
 						<li><a href="addmodule.jsp">Add Module</a></li>
@@ -139,14 +64,7 @@
 <div class="content_left_section" style="font-size:14px">
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
-					<%-- <form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form> --%>
+					
 					<ul>
 						<li><a href="viewemployee.jsp" style="font-weight: bold; text-decoration: underline">View Employee</a></li>
 							
@@ -177,53 +95,50 @@
 							<thead style="font-weight:bold;position: ">
 							<tr style="font-weight:bold;">
 								<td></td>
-								<td>Name</td>
-								<td>ID</td>
-								<td>Level</td>
-								<td>Designation</td>
-								<td>Experience</td>
-								<td>Expertise</td>
-								<td>Proficieny</td>
-								<td>clientID</td>
-								<td>Email</td>
-								<td>Team</td>
-								<td>billability</td>
-								<td>Project</td>
+								<td>Employee Id</td>
+								<td>Employee Name</td>
+								<td>Employee Designation</td>
+								<td>Employee Level</td>
+								<td>Employee Expertise</td>
+								<td>Employee Client Id</td>
+								<td>Employee Email</td>
+								<td>Team Name</td>
+								<td>Proficiency CAMS</td>
+								<td>Proficiency Project</td>
+								<td>Date of Joining</td>
+								<td>Last Working Date</td>
+								<td>Billable</td>
+								<td>Active User</td>
+								
+							
 							</tr>
 							</thead>
 						
 							<tbody  >
-							<jstlcore:forEach items="${employeeList}" var="item">
+							<jstlcore:forEach items="${empList}" var="item">
 								<tr>
 									<td><input type="radio" name="employeeDetails" value=""></input></td>
-									<td><jstlcore:out value="${item.empName}" /></td>
+									
+								
 									<td><jstlcore:out value="${item.empId}" /></td>
-									<%-- <td><jstlcore:out value="${item.level}" /></td>--%>
+									<td><jstlcore:out value="${item.empName}" /></td>
 									<td><jstlcore:out value="${item.designation}" /></td>
-									<%--<td><jstlcore:out value="${item.teamId}" /></td> --%>
+									<td><jstlcore:out value="${item.level}" /></td>
 									<td><jstlcore:out value="${item.expertise}" /></td>
-									<%--<td><jstlcore:out value="${item.experience}" /></td>
-									<td><jstlcore:out value="${item.proficiency}" /></td>
-								    <td><jstlcore:out value="${item.clientId}" /></td>
+									<td><jstlcore:out value="${item.clientId}" /></td>
 									<td><jstlcore:out value="${item.email}" /></td>
-									<td><jstlcore:out value="${item.billabilty}" /></td>
-									<td><jstlcore:out value="${item.project}" /></td> --%>
+									<td><jstlcore:out value="${item.teamName}" /></td>
+									<td><jstlcore:out value="${item.profCamps}" /></td>
+									<td><jstlcore:out value="${item.profProject}" /></td>
+									<td><jstlcore:out value="${item.doj}" /></td>
+									<%-- <td><jstlcore:out value="${item.lastWD}" /></td> --%>
+									<td><jstlcore:out value="${item.isBillable}" /></td>
+									<%-- <td><jstlcore:out value="${item.isActive}" /></td> --%>
 								</tr>
 							</jstlcore:forEach></tbody></table>
 							
 						
 
-						<%-- 	<table>
-			<tr>
-				<td>MODULE:</td>
-				<td>[<select name="s_module" id="s_module"><jstlcore:forEach
-							var="aff" items="${modu}">
-
-							<option value="${aff}">${aff}</option>
-						</jstlcore:forEach></select>]</td>
-			</tr><tr>
-		<!-- <td>TEAM:</td>	<td id="ajaxResponse"></td> --></tr>
-		</table> --%>
 
 					</div>
 					
@@ -244,15 +159,10 @@
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
-	</div>
+		
 
 
-
-
+<%@ include file="footer.jsp" %>     
 
 </body>
 </html>
