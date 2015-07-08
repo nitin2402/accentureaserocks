@@ -1,6 +1,6 @@
 package com.accenture.tmt.dao.dto;
 
-import java.sql.Date;
+
 
 public class EmployeeDetailsFlatDTO {
 	private String empId;
@@ -12,6 +12,7 @@ public class EmployeeDetailsFlatDTO {
 	private String clientId;
 	private String email;
 	private String teamId;
+	private String teamName;
 	private String profCamps;
 	private String profProject;
 	private String doj;
@@ -105,6 +106,12 @@ public class EmployeeDetailsFlatDTO {
 	}
 	public void setLastWD(String lastWD) {
 		this.lastWD = lastWD;
+	}
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 }
