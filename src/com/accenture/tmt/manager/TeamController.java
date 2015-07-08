@@ -16,57 +16,25 @@ public class TeamController {
 		return status;
 	}
 	public int addTeam(TeamDetailsFlatDTO detailsDO)
-	{	
-	
-	TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
-	detailsFD.setTeamName(detailsDO.getTeamName());
-	detailsFD.setTeamid(detailsDO.getTeamid());
-	detailsFD.setModuleId(detailsDO.getModuleId());
-	detailsFD.setTeamDesc(detailsDO.getTeamDesc());
-	TeamDAO dao1 =new TeamDAO();
-	int b=dao1.addEmployee(detailsFD);
-	
-	if(b!=0){
-		System.out.println("Record Inserted");
-	}
-	if(b ==0){
-		System.out.println("Record insertion failed");
-}
-	return b;
-	
-	}
+ {
 
-	/*public int addTeam(String tName, String moduleId) {
-		int status=teamDAO.addTeam(tName,moduleId);
-		return status;
-	}*
-	/
-	 * 
-	 */
-	
-/*	public List<TeamDetailsDO> fetchTeamDetails(
-			TeamDetailsDO tDetailsDO) {
-		List<TeamDetailsDO> listOfTeams = new ArrayList<TeamDetailsDO>();
-		try {
-			Connection con = DBConnect.getConnection();
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("select * from Team");
-			TeamDetailsDO teamDetailsDO = null;
-			while (rs.next()) {
+		TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
+		detailsFD.setTeamName(detailsDO.getTeamName());
+		detailsFD.setTeamId(detailsDO.getTeamId());
+		detailsFD.setModuleId(detailsDO.getModuleId());
+		detailsFD.setTeamDescription(detailsDO.getTeamDescription());
+		int b = teamDAO.addTeam(detailsFD);
 
-				teamDetailsDO = new TeamDetailsDO();
-				teamDetailsDO.settName(rs.getString(1));
-				teamDetailsDO.settCode(rs.getString(2));
-				
-				listOfTeams.add(teamDetailsDO);
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (b != 0) {
+			System.out.println("Record Inserted");
 		}
-		return listOfTeams;
+		if (b == 0) {
+			System.out.println("Record insertion failed");
+		}
+		return b;
+
 	}
-	*/
+
 	public String fetchTeamid(String team , String mid){
 		String status=teamDAO.fetchTeam(team, mid);
 		return status;
