@@ -28,38 +28,15 @@
 	<%
 		}
 	%> 
-	<div id="templatemo_container" />
-	<div id="templatemo_header">
-		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
-			<div id="slogan">The place to look back</div>
-			<div class="cleaner">&nbsp;</div>
-		</div>
-            <div id="welcome_msg"
-			style="color: yellow; float: right; font-size: 12px;">
-			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
-		</div>
-		<div id="header_section_code">"Overall approach is to maintain
-			pyramid form for all designation levels as per Accenture compliance."</div>
-	</div>
-
-	<div id="templatemo_menu">
-		<ul>
-		<li><a href="userhome.jsp" class="current">Home</a></li>
-			<li><a href="workplanvia.jsp" class="current">Workplan</a></li>
-			<li><a href="#">Projects</a></li>
-			<li><a href="#">About Us</a></li>
-			<!-- <li><a href="logout.jsp">Logout</a></li> -->
-			<li><a href="#" class="last">Contact Us</a></li>
-		</ul>
-	</div>
+	
+	<%@ include file="header_admin.jsp" %> 
 
 	<div id="templatemo_content">
 
 		<div id="content_left">
 
 
-			<div class="margin_bottom_20">&nbsp;</div> --%>
+			<div class="margin_bottom_20">&nbsp;</div> 
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Projects</div>
 				<div class="content_left_section_content">
