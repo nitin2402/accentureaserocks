@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -69,42 +69,22 @@
 
 </head>
 <body>
- <%
+<%@ include file="header_admin.jsp" %>
+	<%
 		HttpSession session1 = request.getSession(false);
+
 		if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				/* || (String) session1.getAttribute("admin") != "admin" */) {
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
 	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
 	<%
 		}
-	%> 
+	%>
+ 
 	
-	<div id="templatemo_container" />
-	<div id="templatemo_header">
-		<div id="site_title_section">
-			<div id="site_title">Talent Management Tool</div>
-			<div id="slogan">The place to look back</div>
-			<div class="cleaner">&nbsp;</div>
-		</div>
-		<div id="welcome_msg" style="color: yellow;float: right;
-font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
-
-		<div id="header_section_code">"Overall approach is to maintain
-			pyramid form for all designation levels as per Accenture compliance."</div>
-	</div>
-
-	<div id="templatemo_menu">
-		<ul>
-		  
-			<li><a href="adminhome.jsp" class="current">Home</a></li>
-			<li><a href="admintool.jsp">Admin Tools</a></li>
-			<li><a href="searchrequest.jsp">Workplan</a></li>
-			<li><a href="#">Projects</a></li>
-			<li><a href="#">About Us</a></li>
-			<!-- <li><a href="logout.jsp">Logout</a></li> -->
-			<li><a href="#" class="last">Contact Us</a></li>
-		</ul>
-	</div>
 
 	<div id="templatemo_content">
 
@@ -174,10 +154,10 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
+			<%@ include file="footer.jsp" %> 
+		
+		
 	</div>
+   
 </body>
 </html>
