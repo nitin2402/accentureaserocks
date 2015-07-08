@@ -15,12 +15,34 @@ public class TeamController {
 		int status=teamDAO.deleteTeam(teamID);
 		return status;
 	}
+	public int addTeam(TeamDetailsFlatDTO detailsDO)
+	{	
+	
+	TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
+	detailsFD.setTeamName(detailsDO.getTeamName());
+	detailsFD.setTeamid(detailsDO.getTeamid());
+	detailsFD.setModuleId(detailsDO.getModuleId());
+	detailsFD.setTeamDesc(detailsDO.getTeamDesc());
+	TeamDAO dao1 =new TeamDAO();
+	int b=dao1.addEmployee(detailsFD);
+	
+	if(b!=0){
+		System.out.println("Record Inserted");
+	}
+	if(b ==0){
+		System.out.println("Record insertion failed");
+}
+	return b;
+	
+	}
 
-
-	public int addTeam(String tName, String moduleId) {
+	/*public int addTeam(String tName, String moduleId) {
 		int status=teamDAO.addTeam(tName,moduleId);
 		return status;
-	}
+	}*
+	/
+	 * 
+	 */
 	
 /*	public List<TeamDetailsDO> fetchTeamDetails(
 			TeamDetailsDO tDetailsDO) {
