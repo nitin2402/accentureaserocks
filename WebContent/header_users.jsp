@@ -42,7 +42,7 @@
 		<ul>
 			<li><a href="userhome.jsp">Home</a></li>
 			<li><a href="workplanvia.jsp">Workplan</a></li>
-			<li><a href="admin_initiative.jsp">Initiatives</a></li>
+			<li><a href="user_initiative.jsp">Initiatives</a></li>
 			<li><a href="#">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 
