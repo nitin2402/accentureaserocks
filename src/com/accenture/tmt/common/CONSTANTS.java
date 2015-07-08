@@ -127,6 +127,26 @@ public interface CONSTANTS {
 	public String GET_REQUEST_TEAMID_QUERY = "SELECT TeamID from RequestTable where ReqId = ?";
 	
 	public String MODULE_INSERT = "insert into ModuleDetail (ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
+	public String INSERT_MODULE_REPORT_QUERY = "insert into ModuleReport(ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp) values(?,?,?,?,?,?,?)";
+	public String GET_MODULE_DETAIL_QUERY = "select ModuleName,ProjectId,ModuleDescription from ModuleDetail where ModuleId = ?";
+	public String GET_MODULE_NAME = "ModuleName";
+	public String GET_PROJECT_ID = "ProjectId";
+	public String GET_MODULE_ID = "ModuleId";
+	public String GET_MODULE_DESCRIPTION = "ModuleDescription";
+	public String GET_USER_NAME = "Username";
+	public String GET_ACTION = "Action";
+	public String GET_TIMESTAMP = "Timestamp";
+	public String GET_MODULE_LIST_QUERY = "SELECT ModuleName FROM ModuleDetail";
+	public String GET_MODULE_NAME_FOR_REPORT = "moduleName";
+	public String GET_START_DATE_FOR_MODULE_REPORT = "startDate";
+	public String GET_END_DATE_FOR_MODULE_REPORT = "endDate";
+	public String GET_REPORT_DETAIL_WITHOUT_MODULE_NAME_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates BETWEEN ? AND ? "; 
+	public String GET_REPORT_DETAIL_WITHOUT_START_DATE_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates <= ? ";
+	public String GET_REPORT_DETAIL_WITHOUT_END_DATE_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates >= ? ";
+	public String GET_REPORT_DETAIL_WITH_ONLY_END_DATE_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where  Dates <= ? ";
+	public String GET_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? ";
+	public String GET_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates >= ? ";
+	public String GET_REPORT_DETAIL_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates BETWEEN ? AND ? ";
 }
 
 
