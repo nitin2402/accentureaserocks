@@ -472,7 +472,7 @@ table.table1{
 	border-width: 1px;
 	border-color: #666666;
 	border-collapse: collapse;
-	background: #D7C89D;
+	background-color: #D7C89D;
 	
 }
 
@@ -481,23 +481,62 @@ table.table1 th {
 	padding: 8px;
 	border-style: solid;
 	border-color: #666666;
-	/* background-color: #dedede; */
-	background: #D7C89D;
+	/* background-color: #B89329; */
+	/* background: #D7C89D; */
 	
 }
 
-table.table1 tr:first-child td{
+ table.table1 tr:first-child td{
 	background: #B89329;
-}
+}  
 
 table.table1 td {
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
 	border-color: #666666;
-	background: #D7C89D;
+	/* background: #D7C89D; */
 	/* background-color: #ffffff; */
 }
+
+
+
+
+
+table.table2{
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+	background-color: #D7C89D;
+	
+}
+
+table.table2 th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	 background-color: #B89329; 
+	/* background: #D7C89D; */
+	
+}
+
+table.table2 td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	/* background: #D7C89D; */
+	/* background-color: #ffffff; */
+}
+
+.one{
+	background-color: #B89329;
+}
+
+
 .notification{
 	color: red;
 	font-size:16px;
