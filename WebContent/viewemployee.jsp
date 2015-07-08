@@ -90,10 +90,10 @@
 
 
 					<div id="scrollable"   style="font-size: 14px;">
-						<table class="table1" >
+						<table class="table2" >
 							
 							<thead style="font-weight:bold;position: ">
-							<tr style="font-weight:bold;">
+							<tr class="one" style="font-weight:bold;">
 								<td></td>
 								<td>Employee Id</td>
 								<td>Employee Name</td>
@@ -114,8 +114,8 @@
 							</tr>
 							</thead>
 						
-							<tbody  >
-							<jstlcore:forEach items="${empList}" var="item">
+							<tbody>
+							<jstlcore:forEach items="${empList}" var="item" >
 								<tr>
 									<td><input type="radio" name="employeeDetails" value=""></input></td>
 									
