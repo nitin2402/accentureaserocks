@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.manager.EmployeeController;
 import com.accenture.tmt.presentation.dto.SearchFormDTO;
 
@@ -47,25 +49,14 @@ public class ViewEmployee extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		EmployeeController fetch = new EmployeeController();
-		 List<SearchFormDTO> listOfEmps  = new ArrayList<SearchFormDTO>(); 
+		 List<EmployeeDetailsFlatDTO> listOfEmps  = new ArrayList<EmployeeDetailsFlatDTO>(); 
+			
 		
-		 listOfEmps = fetch.fetchEmployeeDetails(null);
-		/* List<EmployeeDetailsForm> listOfEmpsForms = new ArrayList<EmployeeDetailsForm>();
-		 EmployeeDetailsForm detailsForm = null;
-		 for (SearchDetailsForm SearchDetailsForm : listOfEmps) {
-			 detailsForm = new EmployeeDetailsForm();
-			 detailsForm.setDesignation(SearchDetailsForm.getDesignation());
-			 detailsForm.setEmpId(SearchDetailsForm.getEmpId());
-			 detailsForm.setEmpName(SearchDetailsForm.getEmpName());
-			 detailsForm.setLevel(SearchDetailsForm.getLevel());
-			 detailsForm.setExpertise(SearchDetailsForm.getExpertise());
-			 detailsForm.setLevel(SearchDetailsForm.getLevel());
-			 listOfEmpsForms.add(detailsForm);
-		}
-		*/
+		 listOfEmps = fetch.viewEmployee();
+		
 		 		 
 		 request.setAttribute("empList",listOfEmps);
-		// request.getRequestDispatcher("view.jsp").forward(request, response);
+		 
 		 
 	}
 
