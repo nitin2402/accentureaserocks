@@ -144,7 +144,7 @@
 	<%
 				 if ((String) session1.getAttribute("admin") == "admin") { 
 			%>
-	<%@ include file="common_left.jsp" %>
+	<%@ include file="common_left_admintool.jsp" %>
 	<%
 				 }
 			%>
@@ -152,7 +152,7 @@
 			<%
 				 if ((String) session1.getAttribute("admin") == "user") { 
 			%>
-			<%@ include file="common_left_admintool.jsp" %>
+			<%@ include file="common_left.jsp" %>
 			
 			<%
 				 } 
