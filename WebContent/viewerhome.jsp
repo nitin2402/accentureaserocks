@@ -270,7 +270,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 	<div id="templatemo_content">
 
 		<div id="content_left">
-
+			
 		<!--  	<div class="content_left_section">
 				<div class="content_left_section_title">Search Employee</div>
 				<div class="content_left_section_content">
@@ -287,10 +287,10 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 				</div>
 				<div class="cleaner">&nbsp;</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
+			</div> -->
 
-			<div class="margin_bottom_20">&nbsp;</div> -->
-			<!--  <div class="content_left_section" style="font-size: 14px">
+			<div class="margin_bottom_20">&nbsp;</div> 
+			 <div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Projects</div>
 				<div class="content_left_section_content">
 					<ul>
@@ -300,18 +300,16 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
-			</div> -->
-
-			<div class="margin_bottom_20">&nbsp;</div>
-
+			</div> 
+				<div class="margin_bottom_20">&nbsp;</div>
 		</div>
+
 
 		<div id="content_right">
 
 			<div class="right_col_section_w650">
 
-				<div class="header_01">Hi Im Viewer</div>
-				<div class="header_09"></div>
+				<div class="header_01" align="center">Welcome to Viewer Page</div>
 
 				<div>
 
@@ -336,4 +334,4 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 		</div>
 	</div>
 </body>
-</html> --> --%>
+</html> 
