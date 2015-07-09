@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-	<div id="templatemo_content_bottom">&nbsp;</div>
+	
 	<div id="templatemo_footer">
 		Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 	</div>
