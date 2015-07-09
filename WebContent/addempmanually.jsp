@@ -197,7 +197,7 @@ function isNumeric(value) {
 <script type='text/javascript' src='date.js'></script>
 <script type="text/javascript" src="js/jquery.ui.datepicker.validation.js"></script>
 <link href="calendar.css" rel="stylesheet" />
-
+<script type='text/javascript' src='search.js'></script>
 </head>
 <body> <jsp:include page="/TeamListServlet" /> 
 	
@@ -219,37 +219,7 @@ function isNumeric(value) {
 
 	<div id="templatemo_content">
 
-		<div id="content_left">
-
-			
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Tasks</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="addempmanually.jsp"style="font-weight: bold; text-decoration: underline" >Add Employee </a></li>
-
-
-						<li><a href="addmodule.jsp">Add Module</a></li>
-						<li><a href="addteam.jsp">Add Team</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">View</div>
-				<div class="content_left_section_content">
-					
-					<ul>
-						<li><a href="viewemployee.jsp" >View Employees</a></li>
-						<li><a href="viewteam.jsp">View Teams</a></li>
-						<li><a href="viewmodule.jsp">View Module</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-			<div class="margin_bottom_20">&nbsp;</div>
-
-		</div>
+			<%@ include file="common_left_admintool.jsp"%>
 
 		<div id="content_right">
 
@@ -258,10 +228,10 @@ function isNumeric(value) {
 				<div class="header_01">Employee Addition</div>
 
 
-				<div>
+				<div id="search">
 
-<div id="scrollable"   style="font-size: 14px;">
-					
+					<div id="scrollable" style="font-size: 14px;">
+
 						<form name="add" action="AddEmployeeManual" method="post"
 							onsubmit="return validateform()">
 							<table>
@@ -274,17 +244,17 @@ function isNumeric(value) {
 									<td>EMPLOYEE ID:</td>
 									<td><input type="text" name="idno"
 										onkeypress="return IsNumeric1(event);"></input></td>
-										<span id="error" style="color: Black; display: none">
+									<span id="error" style="color: Black; display: none">
 										*Input digits (0 - 9)</span>
-									
+
 								</tr>
 								<tr>
 									<td>EMPLOYEE LEVEL:</td>
 									<td><input type="text" name="level"
 										onkeypress="return IsNumeric1(event);"></input></td>
-										<span id="error" style="color: Black; display: none">
+									<span id="error" style="color: Black; display: none">
 										*Input digits (0 - 9)</span>
-								 	 
+
 								</tr>
 								<tr>
 									<td>EMPLOYEE DESIGNATION:</td>
@@ -304,19 +274,19 @@ function isNumeric(value) {
 									<td><input type="text" name="email"></input></td>
 								</tr>
 
-								
+
 								<tr>
-								<td>TEAM</td>
-								<td><select name="Team" style="width: 143px">
-										<jstlcore:forEach items="${teamList}" var="item">
+									<td>TEAM</td>
+									<td><select name="Team" style="width: 143px">
+											<jstlcore:forEach items="${teamList}" var="item">
 
-											<option value="${item}">
-												<jstlcore:out value="${item}"></jstlcore:out></option>
+												<option value="${item}">
+													<jstlcore:out value="${item}"></jstlcore:out></option>
 
 
-										</jstlcore:forEach>
+											</jstlcore:forEach>
 
-								</select></td>
+									</select></td>
 								</tr>
 								<tr>
 									<td>PROFICIENCY CAMS:</td>
@@ -336,13 +306,15 @@ function isNumeric(value) {
 								</tr>
 								<tr>
 									<td>BILLABLE:</td>
-									<td><!-- <input type="text" name="bill"></input> -->
-									<select type="text" name="bill" style="width: 143px">
-   								 	<option value="" disabled="disabled" selected="selected">Select</option>
-								    <option value="YES">YES</option>
-								    <option value="NO">NO</option>
-								     <option value="NA">NA</option>
-									</select></td>
+									<td>
+										<!-- <input type="text" name="bill"></input> --> <select
+										type="text" name="bill" style="width: 143px">
+											<option value="" disabled="disabled" selected="selected">Select</option>
+											<option value="YES">YES</option>
+											<option value="NO">NO</option>
+											<option value="NA">NA</option>
+									</select>
+									</td>
 								</tr>
 								<tr>
 									<td>ACITVE USER:</td>
@@ -361,8 +333,12 @@ function isNumeric(value) {
 					</div>
 
 
-
 					<div class="cleaner">&nbsp;</div>
+				</div>
+
+					<div id="ajaxResponse"></div>
+					<p class="error" style="font-size: 14px; color: red;">${message}</p>
+				<div class="cleaner">&nbsp;</div>
 				</div>
 
 				<div class="margin_bottom_20">&nbsp;</div>
