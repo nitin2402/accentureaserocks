@@ -14,7 +14,7 @@ public class DBConnection {
 			
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			 con = DriverManager
-					.getConnection("jdbc:ucanaccess://C:/Users/n.a.saini/Desktop/EmployeeDB.accdb");
+					.getConnection("jdbc:ucanaccess://C:/Users/chinu.mohanty/Desktop/EmployeeDB.accdb");
 			 return con;
 	}
 	
