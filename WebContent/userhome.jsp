@@ -331,7 +331,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 			<div class="right_col_section_w650">
 
-				<div class="header_01">Hi Im User</div>
+				<div class="header_01" align="center">Welcome to user page</div>
 				<div class="header_09"></div>
 
 				<div>
