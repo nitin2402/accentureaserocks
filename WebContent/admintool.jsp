@@ -10,6 +10,7 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type='text/javascript' src='admintool.js'></script>
+<script type='text/javascript' src='search.js'></script>
 </head>
 <body>
 	<%@ include file="header_admin.jsp" %>
@@ -41,13 +42,14 @@
 				<div class="header_01">Employee Addition</div>
 
 
-				<div>
+				<div id="search">
 					<div style="font-size: 14px;">
-						<form action="AddEmpChoice" name="radio1" onsubmit="return validateform2()">
-							<input type="radio"  name="select" value="addfromexcel" id="excel">Add From Excel<br /> <br /> <br />
-							 <input type="radio" name="select" value="addmanually" id="manually">Add Manually<br /> <br />
-									
-									<input type="submit" value="select">
+						<form action="AddEmpChoice" name="radio1"
+							onsubmit="return validateform2()">
+							<input type="radio" name="select" value="addfromexcel" id="excel">Add
+								From Excel<br /> <br /> <br /> <input type="radio"
+								name="select" value="addmanually" id="manually">Add
+									Manually<br /> <br /> <input type="submit" value="select">
 						</form>
 					</div>
 					<br /> <br /> <br /> <br />
@@ -55,9 +57,13 @@
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
+				<div id="ajaxResponse"></div>
+				<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
-				<div class="margin_bottom_20">&nbsp;</div>
+				<div class="cleaner">&nbsp;</div>
 			</div>
+			<div class="margin_bottom_20">&nbsp;</div>
+		</div>
 			</div>
 			<%@ include file="footer.jsp" %> 
 			</div>  
