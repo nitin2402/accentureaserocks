@@ -73,6 +73,8 @@
                  <div>
 				
 					<ul>
+						<li><a href="#">Reports Generated for Requests</a></li>
+						
 						<li><a href="#">Reports Generated for Employee</a></li>
 
 
