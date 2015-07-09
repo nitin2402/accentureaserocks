@@ -22,11 +22,55 @@
 	});
 </script>
 
+<script>
+	$(document).ready(
+			function() {
+
+				$('#search_field').keyup(
+						function(event) {
+							var searchvalue = $("#search_field").val();
+							$(".error").hide();
+							$.ajax({
+								url : "/TMT/SearchEmployee",
+								type : "POST",
+								data : 'searchName=' + searchvalue,
+
+								success : function(data) {
+
+									$(".header_01").hide();
+									$(".header_09").show();
+									$(".header_09").text(
+											'Search results for \"'
+													+ searchvalue + '\"');
+							if (data != "") {
+										$("#excel").hide();
+										 $("#ajaxResponse").show();
+										$("#ajaxResponse").html(data); 
+									} else {
+
+										 $("#ajaxResponse").hide(); 
+
+										$("#excel").show().delay(1000);
+										$(".header_09").hide();
+										$(".header_01").show();
+
+									} 
+
+								},
+								error : function() {
+
+								}
+							});
+
+						});
+			});
+</script>
 
 <script type='text/javascript' src='addempexcel.js'></script>
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>  
+	
 	<%
 		HttpSession session1 = request.getSession(false);
 
@@ -43,7 +87,24 @@
 	<div id="templatemo_content">
 
 		<div id="content_left">
+<div class="content_left_section">
+			<div class="content_left_section">
+				<div class="content_left_section_title">Search Employee</div>
+				<div class="content_left_section_content">
+					<form action="#">
+						Name<input type="text" id="search_field" name="search_field" />
+						<!--  <input
+							type="submit" value="Search" id="search_button" /> -->
+						<div>
+							<span id="msg1">${param.msg1}</span>
+						</div>
 
+					</form></div>
+				<div class="cleaner">&nbsp;</div>
+				<div class="content_left_section_bottom">&nbsp;</div>
+			</div>
+
+			<div class="margin_bottom_20">&nbsp;</div>
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
@@ -74,6 +135,7 @@
 			<div class="margin_bottom_20">&nbsp;</div>
 
 		</div>
+		</div>
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
@@ -84,7 +146,7 @@
 				<div>
 
 
-					<div style="font-size: 14px;">
+					<div id="excel" style="font-size: 14px;">
 			
 
 						<form action="AddEmployeeExcel" method="post" onsubmit="return Validate(this);">
@@ -98,7 +160,8 @@
 						
 					</div>
 
-
+<div id="ajaxResponse"></div>
+					<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
