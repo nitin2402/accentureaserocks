@@ -31,7 +31,7 @@
 							var searchvalue = $("#search_field").val();
 							$(".error").hide();
 							$.ajax({
-								url : "/EmployeeMSAccessDB/SearchEmployee",
+								url : "/TMT/SearchEmployee",
 								type : "POST",
 								data : 'searchName=' + searchvalue,
 
