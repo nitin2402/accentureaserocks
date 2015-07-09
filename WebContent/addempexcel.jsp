@@ -22,7 +22,7 @@
 	});
 </script>
 
-<script>
+<!-- <script>
 	$(document).ready(
 			function() {
 
@@ -64,8 +64,8 @@
 
 						});
 			});
-</script>
-
+</script> -->
+<script type='text/javascript' src='search.js'></script>
 <script type='text/javascript' src='addempexcel.js'></script>
 </head>
 <body>
@@ -146,7 +146,7 @@
 				<div>
 
 
-					<div id="excel" style="font-size: 14px;">
+					<div id="search" style="font-size: 14px;">
 			
 
 						<form action="AddEmployeeExcel" method="post" onsubmit="return Validate(this);">
