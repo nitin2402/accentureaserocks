@@ -55,7 +55,7 @@ public class DisplayEmpList extends HttpServlet {
 	
 		
 		exp = " <table class= \"table1\" border=\"1\" ><thead style=\"font-weight:bold;\">"
-				+ "<tr style=\"font-weight:bold\"></td><td><td>Name</td><td>ID</td><td>Level</td><td>Designation</td><td>Expertise</td></tr>";
+				+ "<tr style=\"font-weight:bold\"><td>Name</td><td>ID</td><td>Level</td><td>Designation</td><td>Expertise</td></tr>";
 
 		for (int i = 0; i < li.size(); i++) {
 			exp += "<tr><td>" + li.get(i).getEmpName()
