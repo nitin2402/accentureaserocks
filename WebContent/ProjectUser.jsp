@@ -70,7 +70,7 @@ $(document).ready(function(){
 		} 
 	    
 	< --%>
-<%@ include file="header_admin.jsp" %>  
+<%@ include file="header_users.jsp" %>  
 
 	<div id="templatemo_content">
 	
