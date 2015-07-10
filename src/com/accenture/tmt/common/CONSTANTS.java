@@ -21,7 +21,7 @@ public interface CONSTANTS {
     public String LAST_WORKING_DAY = "LastWorkingDay";
     public String BILLABLE = "Billable";
     public String ACTIVE_USER = "ActiveUser";
-    
+    public String cost = "cost";
     
 	
 
@@ -102,7 +102,7 @@ public interface CONSTANTS {
    
     
 
-	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeClientId,EmployeeEmail,TeamId,ProficiencyCams,ProficiencyProject,DateofJoining,LastWorkingDay,Billable,ActiveUser) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeClientId,EmployeeEmail,TeamId,ProficiencyCams,ProficiencyProject,DateofJoining,LastWorkingDay,Billable,ActiveUser,cost) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	public String SHEET_NO = "sheetno";
 	public String FILE_NAME = "file1";
 	public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCams=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
