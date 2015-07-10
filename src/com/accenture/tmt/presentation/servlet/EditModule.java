@@ -3,16 +3,21 @@ package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.accenture.tmt.dao.dto.ModuleDetailsDTO;
 import com.accenture.tmt.manager.ModuleController;
+import com.accenture.tmt.manager.ModuleReportController;
+import com.accenture.tmt.presentation.dto.ModuleReportUpdateDTO;
 
 
 
@@ -46,6 +51,14 @@ public class EditModule extends HttpServlet {
 		String submit1=request.getParameter("submit1");
 		String submit2=request.getParameter("submit2");
 		ModuleController editModule = new ModuleController();
+		ModuleReportUpdateDTO reportupdatedto = new ModuleReportUpdateDTO();
+		ModuleReportController modulereportcontroller = new ModuleReportController();
+		HttpSession session1 = request.getSession();
+		java.sql.Date sqlDate=null;
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Date date = new Date();
+		 String timestamp= df.format(date);
+		 sqlDate= new java.sql.Date(date.getTime());
 		String module = request.getParameter("moduleedit");
 		if(submit1 != null){
 		List<ModuleDetailsDTO> li = new ArrayList<ModuleDetailsDTO>();
@@ -78,9 +91,25 @@ public class EditModule extends HttpServlet {
 		
 		if(submit2 != null){
 			try {
+				List<ModuleDetailsDTO> li = new ArrayList<ModuleDetailsDTO>();
+				li=editModule.fetchModuleDetails(module);
 				int status=editModule.deleteModule(module);
 				if(status==1){
 					request.setAttribute("message","Module Deleted and Employees Are Set To Free !!!");
+					if(session1!= null){
+						for(int i =0;i<li.size();i++){
+						reportupdatedto.setModuleId(module);
+						reportupdatedto.setModuleName(li.get(i).getModuleName());
+						reportupdatedto.setProjectId(li.get(i).getProjectId());
+						reportupdatedto.setModuleDescription(li.get(i).getModuleDescription());
+						reportupdatedto.setUserName((String)session1.getAttribute("user"));
+						reportupdatedto.setAction("deleted");
+						reportupdatedto.setTimeStamp(timestamp);
+						reportupdatedto.setDates(sqlDate);
+					modulereportcontroller.updateModuleReport(reportupdatedto);
+					}
+					}
+					
 					}
 				else{
 					request.setAttribute("message","Technical Error!!! Try Again Later...");
