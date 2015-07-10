@@ -59,7 +59,7 @@ public class AddEmployeeManual extends HttpServlet {
 		String bill = request.getParameter("bill");
 		String active = request.getParameter("active");
 		
-		
+		String cost = request.getParameter("cost");
 
 		
 		EmployeeDetailsDTO detailsDO = new EmployeeDetailsDTO();
@@ -77,6 +77,7 @@ public class AddEmployeeManual extends HttpServlet {
 		detailsDO.setLastWD(lwd);
 		detailsDO.setIsBillable(bill);
 		detailsDO.setIsActive(active);
+		detailsDO.setCost(cost);
 		EmployeeController employeeManager = new EmployeeController();
 		
 		int c=employeeManager.addEmployee(detailsDO);
