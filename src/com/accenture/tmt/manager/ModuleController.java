@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+
 import com.accenture.tmt.dao.ModuleDAO;
 import com.accenture.tmt.dao.ProjectDAO;
 import com.accenture.tmt.dao.dto.ModuleDetailsDTO;
@@ -64,10 +66,9 @@ public  List<String> fetchProjects() {
 		
 	}
 	
-	public int addModule1(ModuleFormDTO moduleformdto){
+	public JSONObject addModule1(ModuleFormDTO moduleformdto){
 		
-		int flag;
-		
+	
 		ModuleDetailsDTO moduledetailsdto = new ModuleDetailsDTO();
 		
 		ModuleDAO moduledao = new ModuleDAO();
@@ -80,8 +81,8 @@ public  List<String> fetchProjects() {
 		
 		
 		
-		flag = moduledao.insertModule(moduledetailsdto);
-		return flag;
+		JSONObject obj = moduledao.insertModule(moduledetailsdto);
+		return obj;
 		
 	}
 	public  List<ModuleFormDTO> fetchModuleDetails() {
