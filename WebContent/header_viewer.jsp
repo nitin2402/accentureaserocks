@@ -41,7 +41,7 @@
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="viewerhome.jsp">Home</a></li>
-						<li><a href="user_initiative.jsp">Initiatives</a></li>
+						<li><a href="viewer_initiative.jsp">Initiatives</a></li>
 			<li><a href="#">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 
