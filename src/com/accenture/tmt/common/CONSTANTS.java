@@ -21,7 +21,8 @@ public interface CONSTANTS {
     public String LAST_WORKING_DAY = "LastWorkingDay";
     public String BILLABLE = "Billable";
     public String ACTIVE_USER = "ActiveUser";
-
+    
+    
 	
 
 	public String Team_Decs= "TeamDescription";
@@ -29,7 +30,16 @@ public interface CONSTANTS {
 	public String Module_Id= "ModuleId";
 	public String Module_Name= "ModuleName";
 	
+	public String Project_Name = "ProjectName";
+	public String Current_Release = "CurrentRelease";
+	public String Release_Date = "ReleaseDate";
 	
+	public String Current = 
+			" SELECT Project.CurrentRelease, Project.ProjectName"
+			+ " FROM Project";
+	public String Release = 
+			" SELECT Project.CurrentRelease, Project.ReleaseDate"
+			+" FROM Project";
 	
 	public String SEARCH_EMPLOYEE = 
 			"	SELECT Employee.EmployeeId, Employee.EmployeeName, "
