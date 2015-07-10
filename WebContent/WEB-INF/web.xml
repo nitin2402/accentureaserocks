@@ -574,4 +574,24 @@
     <servlet-name>ModuleReportServlet</servlet-name>
     <url-pattern>/ModuleReportServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>ProjectCurrent</display-name>
+    <servlet-name>ProjectCurrent</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.ProjectCurrent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjectCurrent</servlet-name>
+    <url-pattern>/ProjectCurrent</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>ProjectRelease</display-name>
+    <servlet-name>ProjectRelease</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.ProjectRelease</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjectRelease</servlet-name>
+    <url-pattern>/ProjectRelease</url-pattern>
+  </servlet-mapping>
 </web-app>
