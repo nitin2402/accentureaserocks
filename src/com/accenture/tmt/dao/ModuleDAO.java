@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.ModuleDetailsDTO;
@@ -168,6 +170,7 @@ public class ModuleDAO {
 				moduleList.setModuleName(rs.getString(CONSTANTS.MODULE_NAME));
 				moduleList.setModuleDescription(rs.getString(CONSTANTS.MODULE_DESCRIPTION));
 				moduleList.setModuleId(module);
+				moduleList.setProjectId(rs.getString(CONSTANTS.PROJECT_ID));
 	
 		ModuleDetailsList.add(moduleList);	
 	}
@@ -344,11 +347,14 @@ con.close();
 	
 	}
 
-	public int insertModule(ModuleDetailsDTO moduledetailsdto) {
+	public JSONObject insertModule(ModuleDetailsDTO moduledetailsdto) {
 
 		ResultSet rs = null;
 		String projectId = null;
 		int status = 0;
+		 JSONObject obj = new JSONObject();
+
+	     
 		try {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con
@@ -360,7 +366,7 @@ con.close();
 			}
 			PreparedStatement st1 = con
 					.prepareStatement(CONSTANTS.INSERTMODULE_QUERY);
-
+      obj.put("projectId", projectId);
 			st1.setString(1, moduledetailsdto.getModuleName());
 			st1.setString(2, projectId);
 			st1.setString(3, moduledetailsdto.getModuleId());
@@ -371,8 +377,8 @@ con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return status;
+		 obj.put("status", status);
+		return obj;
 		}		
 	public  List<ModuleFormDTO> fetchModuleDetails() {
 		List<ModuleFormDTO> list = new ArrayList<ModuleFormDTO>();
