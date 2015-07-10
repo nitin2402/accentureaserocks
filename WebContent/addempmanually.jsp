@@ -43,7 +43,7 @@
 	var email=document.forms["add"]["email"].value;
 
 	var cams=document.forms["add"]["camps"].value;
-	
+	var cost=document.forms["add"]["cost"].value;
 	var from = $("#calendar").val(); 
 	var to = $("#calendar1").val();
 	
@@ -80,6 +80,11 @@
 	if (cams==null || cams=="")
 	  {
 	  alert("Please provide Proficiency in CAMS");
+	  return false;
+	  }  
+	if (cost==null || cost=="")
+	  {
+	  alert("Please provide cost of the employee");
 	  return false;
 	  }  
 	if (from == "" || from == null){
@@ -321,7 +326,10 @@ function isNumeric(value) {
 									<td><input type="text" name="active" value="YES"></input></td>
 								</tr>
 
-
+<tr>
+									<td>COST:</td>
+									<td><input type="text" name="cost" ></input></td>
+								</tr>
 
 							</table>
 							<input class="submit" type="submit" value="Submit"></input> <input
