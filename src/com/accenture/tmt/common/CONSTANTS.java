@@ -52,7 +52,7 @@ public interface CONSTANTS {
 			" LEFT JOIN ProjectDetail ON ModuleDetail.ProjectId=ProjectDetail.ProjectId"
 			;
 	public String MODULE_FETCH = "SELECT ModuleName FROM ModuleDetail";
-	public String MODULE_DETAIL_FETCH = "SELECT ModuleDetail.*,ProjectDetail.ProjectName FROM ModuleDetail INNER JOIN ProjectDetail ON "
+	public String MODULE_DETAIL_FETCH = "SELECT ModuleDetail.*,ProjectDetail.ProjectName,ProjectDetail.ProjectId FROM ModuleDetail INNER JOIN ProjectDetail ON "
 			+ "ModuleDetail.ProjectId=ProjectDetail.ProjectId"
 			+ " where ModuleId=?";
 	public String PROJECT_ID = "ProjectId";
@@ -127,7 +127,7 @@ public interface CONSTANTS {
 	public String GET_REQUEST_TEAMID_QUERY = "SELECT TeamID from RequestTable where ReqId = ?";
 	
 	public String MODULE_INSERT = "insert into ModuleDetail (ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
-	public String INSERT_MODULE_REPORT_QUERY = "insert into ModuleReport(ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp) values(?,?,?,?,?,?,?)";
+	public String INSERT_MODULE_REPORT_QUERY = "insert into ModuleReport(ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp,Dates) values(?,?,?,?,?,?,?,?)";
 	public String GET_MODULE_DETAIL_QUERY = "select ModuleName,ProjectId,ModuleDescription from ModuleDetail where ModuleId = ?";
 	public String GET_MODULE_NAME = "ModuleName";
 	public String GET_PROJECT_ID = "ProjectId";
