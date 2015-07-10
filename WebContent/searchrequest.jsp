@@ -9,8 +9,9 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="searchrequest.js"></script> 
-
+<script type='text/javascript' src='search.js'></script>
 </head>
 <body>
 <jsp:include page="/SearchRequestServlet" />
@@ -28,27 +29,10 @@
 
 	<div id="templatemo_content">
 
-		<div id="content_left">
-
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Projects</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div>
-
-		</div>
-
+		<%@ include file="common_left.jsp" %>  
 		<div id="content_right">
-
-			<div class="right_col_section_w650" style="height: auto">
+<div id="search" style="font-size: 14px;">
+			<div class="right_col_section_w650" style="height: auto" >
 
 			
 				<div class="header_01" >Status of user requests</div>
@@ -85,19 +69,18 @@
 									<td><jstlcore:out value="${item.comment}" /></td>
 									<td><jstlcore:out value="${item.statusName}" /></td> 
 								</tr>
+									<input type="hidden" name="teamName" value="${item.teamName }"/>
 							</jstlcore:forEach></tbody></table>
 							</div>
 							<br />
 						<div>
 						*Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
-						
 						</div>
+						
 						<br />
-							<input type="submit"  name="action" value="Calculate" onclick="return validateForm()"/>
-							<input type="submit" name="action" value="Accept" onclick="return validateButtonAccepted()"/>
+							<input type="submit"  name="action" value="Accept" onclick="return validateForm()"/>
 							<input type="submit" name="action" value="Reject" onclick="return validateButtonRejected()"/>
 							<input type="submit" name="action" value="OnHold" onclick="return validateButtonOnHold()"/>
-							
 							</form>
 							<br />
 							
@@ -126,8 +109,6 @@
 							
 							<jstlcore:forEach items="${approved_requests}" var="item">
 								<tr>
-									
-									
 									<td><jstlcore:out value="${item.reqId}" /></td>
 									<td><jstlcore:out value="${item.teamName}" /></td>
 									<td><jstlcore:out value="${item.nASE}" /></td>
@@ -137,6 +118,11 @@
 									<td><jstlcore:out value="${item.statusName}" /></td> 
 								</tr>
 							</jstlcore:forEach></tbody></table>
+							
+							
+							
+					<p class="error" style="font-size: 14px; color: red;">${message}</p>
+							
 
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
@@ -144,11 +130,11 @@
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
+		<div id="ajaxResponse"></div>
 	</div>
+	
+	<%@ include file="footer.jsp" %>  
 	</div>
 </body>
 </html>

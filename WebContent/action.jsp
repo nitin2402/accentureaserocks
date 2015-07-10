@@ -9,7 +9,11 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="searchrequest.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	
+
+	
+	
 <script type="text/javascript" src="action.js"></script> 
 
 <script src="https://www.google.com/jsapi"></script>
@@ -17,7 +21,6 @@
 </head>
 <body>
 
-<jsp:include page="/SearchRequestServlet" />
 
 <%
 		HttpSession session1 = request.getSession();
@@ -31,124 +34,112 @@
 	
 	<div id="templatemo_content">
 
-		<div id="content_left">
-
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Projects</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div>
-
-		</div>
+		<%@ include file="common_left.jsp"%>
+		
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: auto">
 
 			
-				<div class="header_01" >Budget Calculation</div>
-				<h2 style="color:white;">Current Team Budget</h2>
-				
+				<div class="header_01" >Assign Resources </div>
+				<h2 style="color:white;">Request - ${reqId} FOR Team - ${teamName} </h2>
+				[ASE - ${workplanAdminDTO.aseRequested}, SE - ${workplanAdminDTO.seRequested}, SSE -${workplanAdminDTO.sseRequested}]
+					<br/>
 				<form name="calculateForm"  >
+						
 						<div id="scrollable"   style="font-size: 14px;">
+						
 						<table class="table2" > 
 							<thead style="font-weight:bold;position: ">
 							<tr class="one" style="font-weight:bold;">
-								<td>Number of Resources</td>
 								<td>Designation</td>
-								<td>Amount</td>
+								<td>Select</td>
+								<td>Employee Name</td>
+								<td>LCR</td>
 							</tr>
 							</thead>
 						
 							<tbody  >
+							 <jstlcore:forEach var="i" begin="1" end="${workplanAdminDTO.aseRequested }">
+
+								<tr>
+									<td>ASE</td>
+									<td class = "devraj"><input  type="checkbox" name="empASE[]" /></td>
+									<td>
+											<select name="employeeNameASE" id="a${i}" onchange="setLCR_ASE(${i})">
+												<option value=""></option>
+												<jstlcore:forEach items="${workplanAdminDTO.freeASEList}" var="item">
+														<option	value="${item.value}" > 
+															<jstlcore:out value="${item.key}" ></jstlcore:out>
+														</option>
+												</jstlcore:forEach>			
+											</select>
+									</td>
+									<td>
+											<input type="text" disabled="disabled" name="mytext" id="ase${i}"/>
+									</td>
+								</tr>
+							</jstlcore:forEach>
 							
-							<tr>
-									<td>${workplanAdminDTO.currentASE} </td>
-									<td>ASE </td>
-									<td>${workplanAdminDTO.currentASEValue} ${workplanAdminDTO.aseCurrency } </td>
-									
-							</tr>
+							<jstlcore:forEach var="i" begin="1" end="${workplanAdminDTO.seRequested }">
+
+								<tr>
+									<td>SE</td>
+									<td><input type="checkbox" name="empSE[]" value="document.getElementByName(employeeNameSE)" /></td>
+									<td>
+											<select name="employeeNameSE" id="b${i}" onchange="setLCR_SE(${i})">
+											<option value=""></option>
+												<jstlcore:forEach items="${workplanAdminDTO.freeSEList}" var="item1">
+														<option	value="${item1.value}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
+												</jstlcore:forEach>			
+											</select>
+									</td>
+									<td>
+											<input type="text" disabled="disabled" name="mytext" id="se${i}" value=""/>
+									</td>
+								</tr>
+							</jstlcore:forEach>
 							
-							<tr>
-									<td>${workplanAdminDTO.currentSE} </td>
-									<td>SE </td>
-									<td>${workplanAdminDTO.currentSEValue} ${workplanAdminDTO.seCurrency }</td>
-									
-							</tr>
+							<jstlcore:forEach var="i" begin="1" end="${workplanAdminDTO.sseRequested }">
+
+								<tr>
+									<td>SSE</td>
+									<td><input type="checkbox" name="empSSE[]" value="" /></td>
+									<td>
+											<select name="employeeNameSSE" id="c${i}" onchange="setLCR_SSE(${i})">
+											<option value=""></option>
+												<jstlcore:forEach items="${workplanAdminDTO.freeSSEList}" var="item1">
+														<option	value="${item1.value}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
+												</jstlcore:forEach>			
+											</select>
+												
+									</td>
+									<td>
+											<input type="text" disabled="disabled" name="mytext" id="sse${i}"/>
+									</td>
+								</tr>
+							</jstlcore:forEach>
 							
-							<tr>
-									<td>${workplanAdminDTO.currentSSE} </td>
-									<td>SSE </td>
-									<td>${workplanAdminDTO.currentSSEValue} ${workplanAdminDTO.sseCurrency }</td>
-									
-							</tr>
+							</tbody></table>
+							</div>
 							
-							<tr>
-									<td>${workplanAdminDTO.currentTL} </td>
-									<td>TL </td>
-									<td>${workplanAdminDTO.currentTLValue} ${workplanAdminDTO.tlCurrency }</td>
-									
-							</tr>
-							</tbody>
-							</table>
-							<p style="color:black">Sum : ${workplanAdminDTO.totalCurrentValue } ${workplanAdminDTO.tlCurrency }</p>
-							
-                        </div>
-						<div>
-						<input type="hidden" id="sum" name="sum" value="${workplanAdminDTO.totalCurrentValue }"/>
-						Total Budget &nbsp; <input type="text" id="total_budget" name="total_budget" onblur="validateForm()"/>
-						Balance &nbsp; <input type="text" id="balance" disabled="disabled" name="balance"/>
-						</div>
+							<div>
+									Current Average LCR - ${workplanAdminDTO.currentAvg}
+									<!-- Total Budget &nbsp; <input type="text" id="total_budget" name="total_budget" onblur="validateForm()"/>
+						Balance &nbsp; <input type="text" id="balance" disabled="disabled" name="balance"/> -->
+						<br />
+						<input type="submit"  name="calculate" value="Calculate" /> &nbsp; 
+						<input type="text" name="newAverage" disabled="disabled" id="newAverage"/>
+						<br /><br />
+						*Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
 						
-						<h2 style="color:white;">Requested Resource Budget</h2>
-				        <div id="scrollable"   style="font-size: 14px;">
-						<table class="table2" > 
-							<thead style="font-weight:bold;position: ">
-							<tr class="one" style="font-weight:bold;">
-								<td>Number of Resources</td>
-								<td>Designation</td>
-								<td>Amount</td>
-							</tr>
-							</thead>
 						
-							<tbody  >
-							
-							<tr>
-									<td>${workplanAdminDTO.aseRequested} </td>
-									<td>ASE </td>
-									<td>${workplanAdminDTO.aseRequestedValue} ${workplanAdminDTO.aseCurrency } </td>
+						<br />
+							<input type="submit"  name="action" value="Assign"  onclick="calculate()"/>
 									
-							</tr>
-							
-							<tr>
-									<td>${workplanAdminDTO.seRequested} </td>
-									<td>SE </td>
-									<td>${workplanAdminDTO.seRequestedValue} ${workplanAdminDTO.seCurrency }</td>
-									
-							</tr>
-							
-							<tr>
-									<td>${workplanAdminDTO.sseRequested} </td>
-									<td>SSE </td>
-									<td>${workplanAdminDTO.sseRequestedValue} ${workplanAdminDTO.sseCurrency }</td>
-									
-							</tr>
-							
-							</tbody>
-							</table>
-							<p style="color:black">Sum : ${workplanAdminDTO.totalRequestedValue } ${workplanAdminDTO.tlCurrency }</p>
-							
-                        </div>
+							</div>
 						
                         </form>
-                       <center> <a href="searchrequest.jsp">OK</a></center>
 					</div>
 					<br/><br/>
 					<div style="color: red;font-size: 12px">${message}</div>
