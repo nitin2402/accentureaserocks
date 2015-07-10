@@ -46,29 +46,21 @@ public class ActionServlet extends HttpServlet {
 		ActionDTO actiondto = new ActionDTO();
 		int flag = 0;
 		String reqId = request.getParameter("select");
+		String teamName = request.getParameter("teamName");
 		String action = request.getParameter("action");
 		String reason = request.getParameter("reason");
 		
 		actiondto.setReqId(reqId);
 		actiondto.setReason(reason);
 
-		if ("Calculate".equals(action)) {
+		if ("Accept".equals(action)) {
 			
 			workplanAdminDTO = workplanAdminController.fetchCalculationDetails(actiondto);
+			request.setAttribute("reqId", reqId);
+			request.setAttribute("teamName", teamName);
 			request.setAttribute("workplanAdminDTO", workplanAdminDTO);
 			request.getRequestDispatcher("action.jsp").forward(request, response);
 			
-		} else if ("Accept".equals(action)) {
-			flag = controller.acceptRequest(actiondto);
-			if(flag == 1){
-			request.setAttribute("reqId", reqId);
-			request.setAttribute("result", "accepted");
-			request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
-			} else {
-				request.setAttribute("reqId", reqId);
-				request.setAttribute("result", "Not accepted");
-				request.getRequestDispatcher("searchrequest.jsp").forward(request, response);
-			}
 		} else if ("Reject".equals(action)) {
 			flag = controller.rejectRequest(actiondto);
 			if(flag == 1){
