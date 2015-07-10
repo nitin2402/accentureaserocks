@@ -34,6 +34,9 @@ public class EmployeeController {
 	detailsFDO.setLastWD(emp.getLastWD());
 	detailsFDO.setIsBillable(emp.getIsBillable());
 	detailsFDO.setIsActive(emp.getIsActive());
+	
+	detailsFDO.setCost(emp.getCost());
+	
 	EmployeeDAO dao=new EmployeeDAO();
 	int staus=dao.addEmployee(detailsFDO);
 
