@@ -20,13 +20,16 @@
 $(document).ready(function(){
     
         $("#current").hide();
-         
+        $("#button").hide();
+        
     });
 </script>
 <script>
 $(document).ready(function(){
     
         $("#release").hide();
+        $("#button2").hide();
+        
          
     });
 </script>
@@ -34,6 +37,8 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#current1").click(function(){
         $("#current").toggle();
+        $("#button").toggle();
+        
          
     });
 });
@@ -42,6 +47,8 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#release1").click(function(){
         $("#release").toggle();
+        $("#button2").toggle();
+      
          
     });
 });
@@ -93,7 +100,7 @@ $(document).ready(function(){
 
 							<thead style="font-weight: bold; position:" >
 								<tr class="one" style="font-weight: bold;">
-									
+									<td></td>
 									<td>Current Release</td>
 									<td>Project Name</td>
 
@@ -106,7 +113,7 @@ $(document).ready(function(){
 									<tr>
 										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
-								
+										<td><input type="radio" name="select" value="${item.currentRelease}"/></td>
 										<td><jstlcore:out value="${item.currentRelease}" /></td>
 										<td><jstlcore:out value="${item.projectName}" /></td>
 
@@ -115,6 +122,12 @@ $(document).ready(function(){
 							</tbody>
 						</table>
 					</div>
+						<div>
+				
+				<input type="button" id="button" onclick="" value="Edit"></input>
+			
+				</div>
+				<br/>
 					<h1 id="release1">
 						<a href="#"> Release Date </a>
 					</h1>
@@ -123,7 +136,7 @@ $(document).ready(function(){
 
 							<thead style="font-weight: bold; position:">
 								<tr class="one" style="font-weight: bold;">
-
+									<td></td>
 									<td>Current Release</td>
 									<td>Release Date</td>
 
@@ -136,7 +149,7 @@ $(document).ready(function(){
 									<tr>
 										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
-
+										<td><input type="radio" name="select" value="${item.currentRelease}"/></td>
 										<td><jstlcore:out value="${item.currentRelease}" /></td>
 										<td><jstlcore:out value="${item.releaseDate}" /></td>
 
@@ -146,6 +159,12 @@ $(document).ready(function(){
 						</table>
 					</div>
 				</div>
+				<div>
+				
+				<input type="button" id="button2" onclick="" value="Edit"></input>
+				
+				</div>
+				
 								<div id="ajaxResponse"></div>
 				<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
