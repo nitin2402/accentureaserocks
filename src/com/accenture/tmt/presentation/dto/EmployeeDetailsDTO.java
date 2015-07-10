@@ -20,6 +20,7 @@ public class EmployeeDetailsDTO {
 	private String isBillable;
 	private String isActive;
 	private String teamName ;
+	private String cost ;
 	public String getEmpId() {
 		return empId;
 	}
@@ -113,6 +114,12 @@ public class EmployeeDetailsDTO {
 	}
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
+	}
+	public String getCost() {
+		return cost;
+	}
+	public void setCost(String cost) {
+		this.cost = cost;
 	}
 
 }
