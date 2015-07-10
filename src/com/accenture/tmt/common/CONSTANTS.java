@@ -157,6 +157,22 @@ public interface CONSTANTS {
 	public String GET_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? ";
 	public String GET_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates >= ? ";
 	public String GET_REPORT_DETAIL_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates BETWEEN ? AND ? ";
-}
+
+	/*public String BUDGET_DETAILS_QUERY = "SELECT EmployeeDesignation, Currency, Amount FROM BillabilityTable";*/
+	public String BUDGET_REQUEST_DETAILS_QUERY = "SELECT No_Of_ASE, No_Of_SE, No_Of_SSE FROM RequestTable WHERE ReqId = ? ";
+	/*public String COUNT_ASE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_ASE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Associate Software Engineer'";
+	public String COUNT_SE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Software Engineer'";
+	public String COUNT_SSE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SSE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Senior Software Engineer'";
+	public String COUNT_TL_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_TL FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Team Lead'";
+	public String GET_REQUEST_TEAMID_QUERY = "SELECT TeamID from RequestTable where ReqId = ?";*/
+	
+	public String MODULE_INSERT = "insert into ModuleDetail (ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
+	
+	public String FREE_ASE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Associate Software Engineer'";
+	public String FREE_SE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Software Engineer'";
+	public String FREE_SSE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Senior Software Engineer'";
+	public String AVERAGE_LCR_QUERY = "SELECT AVG(Cast(LCR as Float)) AS AVERAGE FROM EMPLOYEE WHERE TeamId != 'TE-000'";
+
+	
 
 
