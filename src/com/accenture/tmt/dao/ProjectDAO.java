@@ -66,7 +66,7 @@ private List<String> projectNames = new ArrayList<String>();
 		}
 
 		return projectNames;
-	
+	}
 	public List<ProjectDTO> currentRelease(){
 			List<ProjectDTO> list = new ArrayList<ProjectDTO>();
 			try {
