@@ -1,6 +1,5 @@
 package com.accenture.tmt.dao.dto;
 
-import java.util.List;
 import java.util.Map;
 
 public class WorkplanAdminFlatDTO {
@@ -8,11 +7,10 @@ public class WorkplanAdminFlatDTO {
 	private int aseRequested ;
 	private int seRequested ;
 	private int sseRequested ;
-	private int currentASE ;
-	private int currentSE ;
-	private int currentSSE ;
-	private int currentTL ;
-	Map<String, List<String>> details ;
+	private Map<String, Integer> freeASEList ;
+	private Map<String, Integer> freeSEList ;
+	private Map<String, Integer> freeSSEList ;
+	private float currentAvg ;
 	
 	public int getAseRequested() {
 		return aseRequested;
@@ -32,35 +30,29 @@ public class WorkplanAdminFlatDTO {
 	public void setSseRequested(int sseRequested) {
 		this.sseRequested = sseRequested;
 	}
-	public int getCurrentASE() {
-		return currentASE;
+	public Map<String, Integer> getFreeASEList() {
+		return freeASEList;
 	}
-	public void setCurrentASE(int currentASE) {
-		this.currentASE = currentASE;
+	public void setFreeASEList(Map<String, Integer> freeASEList) {
+		this.freeASEList = freeASEList;
 	}
-	public int getCurrentSE() {
-		return currentSE;
+	public Map<String, Integer> getFreeSEList() {
+		return freeSEList;
 	}
-	public void setCurrentSE(int currentSE) {
-		this.currentSE = currentSE;
+	public void setFreeSEList(Map<String, Integer> freeSEList) {
+		this.freeSEList = freeSEList;
 	}
-	public int getCurrentSSE() {
-		return currentSSE;
+	public Map<String, Integer> getFreeSSEList() {
+		return freeSSEList;
 	}
-	public void setCurrentSSE(int currentSSE) {
-		this.currentSSE = currentSSE;
+	public void setFreeSSEList(Map<String, Integer> freeSSEList) {
+		this.freeSSEList = freeSSEList;
 	}
-	public int getCurrentTL() {
-		return currentTL;
+	public float getCurrentAvg() {
+		return currentAvg;
 	}
-	public void setCurrentTL(int currentTL) {
-		this.currentTL = currentTL;
-	}
-	public Map<String, List<String>> getDetails() {
-		return details;
-	}
-	public void setDetails(Map<String, List<String>> details) {
-		this.details = details;
+	public void setCurrentAvg(float currentAvg) {
+		this.currentAvg = currentAvg;
 	}
 	
 }
