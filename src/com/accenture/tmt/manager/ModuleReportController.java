@@ -7,7 +7,9 @@ import com.accenture.tmt.dao.ModuleReportDAO;
 
 import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.ModuleReportFlatDTO;
+import com.accenture.tmt.presentation.dto.ModuleFormDTO;
 import com.accenture.tmt.presentation.dto.ModuleReportDTO;
+import com.accenture.tmt.presentation.dto.ModuleReportUpdateDTO;
 
 public class ModuleReportController {
 	public List<ModuleReportFlatDTO> reportModuleWithoutModuleName(ModuleReportDTO modulereportdto){
@@ -64,4 +66,12 @@ public  List<String> fetchModuleList(){
 		return modulereportDao.getModuleList();
 		 
 	}
+
+public void updateModuleReport(ModuleReportUpdateDTO reportupdatedto){
+	ModuleReportDAO modulereportdao = new ModuleReportDAO();
+	modulereportdao.insertModuleReport(reportupdatedto);
+	
+	
+	
+}
 }
