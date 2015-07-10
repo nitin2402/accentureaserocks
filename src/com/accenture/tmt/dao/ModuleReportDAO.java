@@ -14,23 +14,26 @@ import com.accenture.tmt.dao.dto.ModuleDetailsDTO;
 import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.ModuleReportFlatDTO;
 import com.accenture.tmt.presentation.dto.ModuleReportDTO;
+import com.accenture.tmt.presentation.dto.ModuleReportUpdateDTO;
 
 public class ModuleReportDAO {
-	/*public void insertModuleReport(ModuleReportFlatDTO modulereportFlatDTO){
+	public void insertModuleReport(ModuleReportUpdateDTO reportupdatedto){
 		
 		
 			
 				try {
 					Connection con = DBConnection.getConnection();
 					if(con != null){
+						
 					    PreparedStatement st1 = con.prepareStatement(CONSTANTS.INSERT_MODULE_REPORT_QUERY);
-						    st1. setString(1,modulereportFlatDTO.getModuleName());
-						    st1. setString(2,modulereportFlatDTO.getProjectId());
-						    st1. setString(3,modulereportFlatDTO.getModuleId());
-						    st1. setString(4,modulereportFlatDTO.getModuleDescription());
-						    st1. setString(5,modulereportFlatDTO.getUserName());
-						    st1. setString(6,modulereportFlatDTO.getAction());
-						    st1. setString(7,   modulereportFlatDTO.getTimeStamp());
+						    st1. setString(1,reportupdatedto.getModuleName());
+						    st1. setString(2,reportupdatedto.getProjectId());
+						    st1. setString(3,reportupdatedto.getModuleId());
+						    st1. setString(4,reportupdatedto.getModuleDescription());
+						    st1. setString(5,reportupdatedto.getUserName());
+						    st1. setString(6,reportupdatedto.getAction());
+						    st1. setString(7,reportupdatedto.getTimeStamp());
+						    st1. setDate(8,reportupdatedto.getDates());
 						
 							  st1.executeUpdate();
 							  
@@ -40,7 +43,7 @@ public class ModuleReportDAO {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-}*/
+}
 	
 	
 	
