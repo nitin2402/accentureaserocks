@@ -171,7 +171,15 @@ public interface CONSTANTS {
 	public String FREE_SE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Software Engineer'";
 	public String FREE_SSE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Senior Software Engineer'";
 	public String AVERAGE_LCR_QUERY = "SELECT AVG(Cast(LCR as Float)) AS AVERAGE FROM EMPLOYEE WHERE TeamId != 'TE-000'";
-
+	public String EMPLOYEE_REPORT = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID ";
+	public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_START_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND T.TeamId = ? AND E.Dates <= ? ";
+	public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_MODULE_NAME_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND E.Dates BETWEEN ? AND ? ";
+	public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_END_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND T.TeamId = ? AND E.Dates >= ?";
+	public String GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_END_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND E.Dates <= ?";
+	public String GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ?";
+	public String GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND E.Dates >= ?";
+	public String GET_EMPLOYEE_LIST_QUERY = "SELECT TeamName FROM Team ";
+	public String GET_EMPLOYEE_REPORT_DETAIL_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ? AND E.Dates BETWEEN ? AND ? ";
 	
 
-
+}
