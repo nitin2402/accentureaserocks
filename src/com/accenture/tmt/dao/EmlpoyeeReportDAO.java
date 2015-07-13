@@ -28,10 +28,10 @@ public List<String> getTeamList(){
 			Connection con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st = con
-					  .prepareStatement(CONSTANTS.GET_MODULE_LIST_QUERY);
+					  .prepareStatement(CONSTANTS.GET_EMPLOYEE_LIST_QUERY);
 				rs = st.executeQuery();
 				while(rs.next()){
-					teamList.add(rs.getString("ModuleName"));
+					teamList.add(rs.getString("teamName"));
 				 }
 			}
 		} catch (Exception e) {
@@ -48,7 +48,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 		ResultSet rs = null;
 		 Connection con = DBConnection.getConnection();
 			if(con != null){
-			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_TEAM_REPORT_DETAIL_QUERY);
+			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_QUERY);
 			    st1.setString(1, teamreportdto.getStatus());
 			    st1.setDate(2, (Date)teamreportdto.getStartDate());
 			    st1.setDate(3, (Date)teamreportdto.getEndDate());
@@ -86,7 +86,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 			ResultSet rs = null;
 			 Connection con = DBConnection.getConnection();
 				if(con != null){
-				    PreparedStatement st1 = con.prepareStatement(CONSTANTS.REPORT);
+				    PreparedStatement st1 = con.prepareStatement(CONSTANTS.EMPLOYEE_REPORT);
 				    System.out.println(teamreportdto.getStartDate());
 				    st1.setDate(1, (Date) (teamreportdto.getStartDate()));
 				    st1.setDate(2, (Date) (teamreportdto.getEndDate()));
@@ -122,7 +122,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 				ResultSet rs = null;
 				 Connection con = DBConnection.getConnection();
 					if(con != null){
-					    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_TEAM_REPORT_DETAIL_WITHOUT_START_DATE_QUERY);
+					    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_START_DATE_QUERY);
 					    st1.setString(1, teamreportdto.getStatus());
 					    st1.setDate(2, (Date) teamreportdto.getEndDate());
 					    rs = st1.executeQuery();
@@ -156,7 +156,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 			ResultSet rs = null;
 			 Connection con = DBConnection.getConnection();
 				if(con != null){
-				    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_TEAM_REPORT_DETAIL_WITHOUT_END_DATE_QUERY);
+				    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_END_DATE_QUERY);
 				    st1.setString(1, teamreportdto.getStatus());
 				    st1.setDate(2, (Date) teamreportdto.getStartDate());
 				    rs = st1.executeQuery();
@@ -190,7 +190,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 	    		ResultSet rs = null;
 	    		 Connection con = DBConnection.getConnection();
 	    			if(con != null){
-	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_TEAM_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY);
+	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY);
 	    			    st1.setDate(1, (Date) teamreportdto.getStartDate());
 	    			    rs = st1.executeQuery();
 	    			    while (rs.next() == true) {
@@ -222,7 +222,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 	    		ResultSet rs = null;
 	    		 Connection con = DBConnection.getConnection();
 	    			if(con != null){
-	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_TEAM_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY);
+	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY);
 	    			    st1.setString(1, teamreportdto.getStatus());
 	    			    rs = st1.executeQuery();
 	    			    while (rs.next() == true) {
@@ -254,7 +254,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 	    		ResultSet rs = null;
 	    		 Connection con = DBConnection.getConnection();
 	    			if(con != null){
-	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_TEAM_REPORT_DETAIL_WITH_ONLY_END_DATE_QUERY);
+	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_END_DATE_QUERY);
 	    			    st1.setDate(1, (Date)teamreportdto.getEndDate());
 	    			    rs = st1.executeQuery();
 	    			    while (rs.next() == true) {
@@ -287,7 +287,7 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 	    		ResultSet rs = null;
 	    		 Connection con = DBConnection.getConnection();
 	    			if(con != null){
-	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_TEAM_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY);
+	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY);
 	    			    st1.setString(1, modulereportdto.getModuleName());
 	    			    rs = st1.executeQuery();
 	    			    while (rs.next() == true) {
