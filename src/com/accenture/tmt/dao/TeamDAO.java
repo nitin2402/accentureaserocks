@@ -15,11 +15,11 @@ import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 
 public class TeamDAO {
-	public int addTeam(TeamDetailsFlatDTO TeamDetailsFlatDTO) {
+	public int addTeamManually(TeamDetailsFlatDTO TeamDetailsFlatDTO) {
 		int a = 0;
 		try {
 			Connection con = DBConnection.getConnection();
-			PreparedStatement st = con.prepareStatement(CONSTANTS.TEAM_INSERT );
+			PreparedStatement st = con.prepareStatement(CONSTANTS.TEAM_INSERT);
 			st.setString(1, TeamDetailsFlatDTO.getTeamName());
 			st.setString(2, TeamDetailsFlatDTO.getTeamId());
 			st.setString(3, TeamDetailsFlatDTO.getModuleId());
