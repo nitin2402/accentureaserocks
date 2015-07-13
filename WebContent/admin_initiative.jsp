@@ -9,6 +9,8 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <link href="pdfreadonly_style.css" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type='text/javascript' src='search.js'></script>
 </head>
 <body>
  <%
@@ -25,30 +27,11 @@
 
 	<div id="templatemo_content">
 
-			<div id="content_left">
-
-			<div class="content_left_section">
-				
-				
-			</div>
-
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Projects</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-		</div>
+		<%@ include file="common_left.jsp" %>  
 
 		 <div id="content_right">
 
-			<div class="right_col_section_w650">
+			<div id="search" class="right_col_section_w650">
 
 				<div class="header_01">Initiatives</div>
 					
@@ -62,14 +45,12 @@
 				<p class="error" style="font-size: 14px; color: black;">${message}</p>
 				</div>
 			</div>
+			
+			
+		<div id="ajaxResponse"></div>
 
-			<div class="cleaner">&nbsp;</div>
 		</div>
-		
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
+	<%@ include file="footer.jsp" %> 
 	</div>
 </body>
 </html>

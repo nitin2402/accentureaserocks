@@ -10,12 +10,8 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	
-
-	
-	
+<script type='text/javascript' src='search.js'></script>
 <script type="text/javascript" src="action.js"></script> 
-
 <script src="https://www.google.com/jsapi"></script>
 
 </head>
@@ -38,14 +34,14 @@
 		
 		<div id="content_right">
 
-			<div class="right_col_section_w650" style="height: auto">
+			<div id="search" class="right_col_section_w650" style="height: auto">
 
 			
 				<div class="header_01" >Assign Resources </div>
 				<h2 style="color:white;">Request - ${reqId} FOR Team - ${teamName} </h2>
 				[ASE - ${workplanAdminDTO.aseRequested}, SE - ${workplanAdminDTO.seRequested}, SSE -${workplanAdminDTO.sseRequested}]
 					<br/>
-				<form name="calculateForm"  >
+				<form name="calculateForm" action="AcceptRequestServlet"  onsubmit="return validateForm()"  method="post">
 						
 						<div id="scrollable"   style="font-size: 14px;">
 						
@@ -63,13 +59,13 @@
 							 <jstlcore:forEach var="i" begin="1" end="${workplanAdminDTO.aseRequested }">
 
 								<tr>
-									<td>ASE</td>
-									<td class = "devraj"><input  type="checkbox" name="empASE[]" /></td>
+									<td>ASE</td> 
+									<td class = "devraj"><input  type="checkbox" name="empASE[]" id="asebx_${i}"/></td> 
 									<td>
-											<select name="employeeNameASE" id="a${i}" onchange="setLCR_ASE(${i})">
+											<select name="employeeNameASE" id="a${i}" onchange="setLCR_ASE(${i});inputUpdateASE(${i});">
 												<option value=""></option>
 												<jstlcore:forEach items="${workplanAdminDTO.freeASEList}" var="item">
-														<option	value="${item.value}" > 
+														<option	value="${item.value}_${item.key}" > 
 															<jstlcore:out value="${item.key}" ></jstlcore:out>
 														</option>
 												</jstlcore:forEach>			
@@ -85,12 +81,12 @@
 
 								<tr>
 									<td>SE</td>
-									<td><input type="checkbox" name="empSE[]" value="document.getElementByName(employeeNameSE)" /></td>
+									<td><input type="checkbox" name="empSE[]" id="sebx_${i}" /></td>
 									<td>
-											<select name="employeeNameSE" id="b${i}" onchange="setLCR_SE(${i})">
+											<select name="employeeNameSE" id="b${i}" onchange="setLCR_SE(${i});inputUpdateSE(${i});">
 											<option value=""></option>
 												<jstlcore:forEach items="${workplanAdminDTO.freeSEList}" var="item1">
-														<option	value="${item1.value}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
+														<option	value="${item1.value}_${item1.key}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
 												</jstlcore:forEach>			
 											</select>
 									</td>
@@ -104,12 +100,12 @@
 
 								<tr>
 									<td>SSE</td>
-									<td><input type="checkbox" name="empSSE[]" value="" /></td>
+									<td><input type="checkbox" name="empSSE[]" id="ssebx_${i}"/></td>
 									<td>
-											<select name="employeeNameSSE" id="c${i}" onchange="setLCR_SSE(${i})">
+											<select name="employeeNameSSE" id="c${i}" onchange="setLCR_SSE(${i});inputUpdateSSE(${i});">
 											<option value=""></option>
 												<jstlcore:forEach items="${workplanAdminDTO.freeSSEList}" var="item1">
-														<option	value="${item1.value}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
+														<option	value="${item1.value}_${item1.key}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
 												</jstlcore:forEach>			
 											</select>
 												
@@ -125,28 +121,26 @@
 							
 							<div>
 									Current Average LCR - ${workplanAdminDTO.currentAvg}
-									<!-- Total Budget &nbsp; <input type="text" id="total_budget" name="total_budget" onblur="validateForm()"/>
-						Balance &nbsp; <input type="text" id="balance" disabled="disabled" name="balance"/> -->
+								
 						<br />
-						<input type="submit"  name="calculate" value="Calculate" /> &nbsp; 
+						<input type="button"  name="calculate" value="Calculate"  onclick="cal(${workplanAdminDTO.total}, ${workplanAdminDTO.numberOfEmployee})"/> &nbsp; 
 						<input type="text" name="newAverage" disabled="disabled" id="newAverage"/>
 						<br /><br />
 						*Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
 						
-						
+						<input type="hidden" name="reqId" value="${reqId }"/>
 						<br />
-							<input type="submit"  name="action" value="Assign"  onclick="calculate()"/>
+							<input type="submit"  name="action" value="Assign"/>
 									
 							</div>
 						
                         </form>
 					</div>
-					<br/><br/>
-					<div style="color: red;font-size: 12px">${message}</div>
-
-					<div class="cleaner">&nbsp;</div>
+					
+		<div id="ajaxResponse"></div>
+					
 				</div>
-
+<%@ include file="footer.jsp" %> 
 			</div>
 
 </body>
