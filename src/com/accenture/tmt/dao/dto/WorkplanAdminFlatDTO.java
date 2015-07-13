@@ -11,6 +11,8 @@ public class WorkplanAdminFlatDTO {
 	private Map<String, Integer> freeSEList ;
 	private Map<String, Integer> freeSSEList ;
 	private float currentAvg ;
+	private int total ;
+	private int numberOfEmployee ;
 	
 	public int getAseRequested() {
 		return aseRequested;
@@ -53,6 +55,18 @@ public class WorkplanAdminFlatDTO {
 	}
 	public void setCurrentAvg(float currentAvg) {
 		this.currentAvg = currentAvg;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	public int getNumberOfEmployee() {
+		return numberOfEmployee;
+	}
+	public void setNumberOfEmployee(int numberOfEmployee) {
+		this.numberOfEmployee = numberOfEmployee;
 	}
 	
 }
