@@ -64,8 +64,9 @@
 			</div>
 			<div class="margin_bottom_20">&nbsp;</div>
 		</div>
-			</div>
 			<%@ include file="footer.jsp" %> 
-			</div>  
+			</div>
+		
+			  
 			</body>  
 </html>
