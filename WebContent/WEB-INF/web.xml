@@ -604,4 +604,14 @@
     <servlet-name>EmployeeReportServlet</servlet-name>
     <url-pattern>/EmployeeReportServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>AcceptRequestServlet</display-name>
+    <servlet-name>AcceptRequestServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.AcceptRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AcceptRequestServlet</servlet-name>
+    <url-pattern>/AcceptRequestServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
