@@ -41,6 +41,7 @@ public class ExcelController {
 			excel.setLastWD(listOfEmps.get(i).getLastWD());
 			excel.setIsBillable(listOfEmps.get(i).getIsBillable());
 			excel.setIsActive(listOfEmps.get(i).getIsActive());
+			excel.setCost(listOfEmps.get(i).getCost());
 			li.add(excel);
 		
 			}
