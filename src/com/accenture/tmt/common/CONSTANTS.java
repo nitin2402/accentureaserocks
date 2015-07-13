@@ -173,5 +173,8 @@ public interface CONSTANTS {
 	public String GET_EMPLOYEE_LIST_QUERY = "SELECT TeamName FROM Team ";
 	public String GET_EMPLOYEE_REPORT_DETAIL_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ? AND E.Dates BETWEEN ? AND ? ";
 	
-
+	public String TOTAL_LCR_QUERY = "SELECT SUM(LCR) AS TOTAL FROM EMPLOYEE WHERE TeamId != 'TE-000'";
+	public String COUNT_BILLABLE_EMPLOYEE_QUERY = "SELECT COUNT(EmployeeId) AS NumberOfEmployee FROM EMPLOYEE WHERE TeamId != 'TE-000'";
+	public String ASSIGN_RESOURCE_QUERY = "UPDATE EMPLOYEE SET TeamId = ? WHERE EmployeeName = ?";
+	public String REQUEST_TEAMID_QUERY = "SELECT TEAMID FROM RequestTable WHERE ReqId = ?";
 }
