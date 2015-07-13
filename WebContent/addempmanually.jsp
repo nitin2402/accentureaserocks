@@ -327,7 +327,7 @@ function isNumeric(value) {
 								</tr>
 
 <tr>
-									<td>COST:</td>
+									<td>LCR:</td>
 									<td><input type="text" name="cost" ></input></td>
 								</tr>
 
