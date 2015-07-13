@@ -16,7 +16,7 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>
+	<!-- <script>
 $(document).ready(function(){
     
         $("#current").hide();
@@ -52,7 +52,7 @@ $(document).ready(function(){
          
     });
 });
-</script>
+</script> -->
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -64,6 +64,7 @@ $(document).ready(function(){
 
 
 <body>
+	
 	<jsp:include page="/ProjectCurrent"/>
 	<jsp:include page="/ProjectRelease"/>
  <%-- <% 
@@ -96,38 +97,42 @@ $(document).ready(function(){
 
 					<h1 id="current1" ><a href="#"> Current Release</a></h1>
 					<div id="scrollable" style="font-size: 14px;">
-						<table class="table2" id="current">
+				
+							<table class="table2" id="current">
 
-							<thead style="font-weight: bold; position:" >
-								<tr class="one" style="font-weight: bold;">
-									<td></td>
-									<td>Current Release</td>
-									<td>Project Name</td>
-
-								</tr>
-							</thead>
-						
-							<br/>
-							<tbody>
-								<jstlcore:forEach items="${current}" var="item">
-									<tr>
-										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
-
-										<td><input type="radio" name="select" value="${item.currentRelease}"/></td>
-										<td><jstlcore:out value="${item.currentRelease}" /></td>
-										<td><jstlcore:out value="${item.projectName}" /></td>
+								<thead style="font-weight: bold; position:">
+									<tr class="one" style="font-weight: bold;">
+										<td></td>
+										<td>Current Release</td>
+										<td>Project Name</td>
 
 									</tr>
-								</jstlcore:forEach>
-							</tbody>
-						</table>
+								</thead>
+
+								
+
+								<tbody>
+									<jstlcore:forEach items="${current}" var="item">
+										<tr>
+											<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
+
+											<td><input type="radio" name="select"
+												value="${item.currentRelease}" /></td>
+											<td><jstlcore:out value="${item.currentRelease}" /></td>
+											<td><jstlcore:out value="${item.projectName}" /></td>
+
+										</tr>
+									</jstlcore:forEach>
+								</tbody>
+								
+							</table>
 					</div>
-						<div>
-				
-				<input type="button" id="button" onclick="" value="Edit"></input>
-			
-				</div>
-				<br/>
+					<div>
+
+						<input type="submit" name="button" onclick="" value="Edit"></input>
+					
+					</div>
+					<br/>
 					<h1 id="release1">
 						<a href="#"> Release Date </a>
 					</h1>
@@ -161,7 +166,7 @@ $(document).ready(function(){
 				</div>
 				<div>
 				
-				<input type="button" id="button2" onclick="" value="Edit"></input>
+				<input type="submit" id="button2" onclick="" value="Edit"></input>
 				
 				</div>
 				
