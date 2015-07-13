@@ -166,7 +166,6 @@ public interface CONSTANTS {
 	public String COUNT_TL_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_TL FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Team Lead'";
 	public String GET_REQUEST_TEAMID_QUERY = "SELECT TeamID from RequestTable where ReqId = ?";*/
 	
-	public String MODULE_INSERT = "insert into ModuleDetail (ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
 	
 	public String FREE_ASE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Associate Software Engineer'";
 	public String FREE_SE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Software Engineer'";
