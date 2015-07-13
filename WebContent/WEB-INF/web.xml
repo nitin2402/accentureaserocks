@@ -594,4 +594,14 @@
     <servlet-name>ProjectRelease</servlet-name>
     <url-pattern>/ProjectRelease</url-pattern>
   </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>EmployeeReportServlet</display-name>
+    <servlet-name>EmployeeReportServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.EmployeeReportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeReportServlet</servlet-name>
+    <url-pattern>/EmployeeReportServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
