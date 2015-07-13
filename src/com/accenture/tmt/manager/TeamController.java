@@ -15,7 +15,7 @@ public class TeamController {
 		int status=teamDAO.deleteTeam(teamID);
 		return status;
 	}
-	public int addTeam(TeamDetailsFlatDTO detailsDO)
+	public int addTeamManual(TeamDetailsFlatDTO detailsDO)
  {
 
 		TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
@@ -23,7 +23,7 @@ public class TeamController {
 		detailsFD.setTeamId(detailsDO.getTeamId());
 		detailsFD.setModuleId(detailsDO.getModuleId());
 		detailsFD.setTeamDescription(detailsDO.getTeamDescription());
-		int b = teamDAO.addTeam(detailsFD);
+		int b = teamDAO.addTeamManually(detailsFD);
 
 		if (b != 0) {
 			System.out.println("Record Inserted");
