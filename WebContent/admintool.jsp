@@ -53,7 +53,7 @@
 						</form>
 					</div>
 					<br /> <br /> <br /> <br />
-					<div class="notification">${message}</div>
+					<div class="notification">${message1}</div>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
