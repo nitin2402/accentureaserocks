@@ -123,7 +123,10 @@ public class AddEmployeeExcel extends HttpServlet {
 									.getStringCellValue());
 						}
 						
-						
+						else if (cellCount == 14 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("LCR")) {
+							empDetailsDto.setIsActive(cellForEmp
+									.getStringCellValue());
+						}
 						
 						cellCount++;
 				}
