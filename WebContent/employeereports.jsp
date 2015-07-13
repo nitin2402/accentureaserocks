@@ -96,7 +96,9 @@
  					 $( "#datepicker1" ).datepicker();
  					 });
   				</script>
+  				<div id="scrollable"   style="font-size: 14px;">
   				<table class="table1" > 
+  				
 							<thead style="font-weight:bold;position: ">
 							<tr style="font-weight:bold;">
 								<td>ReqId</td>
@@ -127,6 +129,7 @@
 									<td><jstlcore:out value="${item.timestamp}" /></td> 
 								</tr>
 				</jstlcore:forEach></tbody></table>
+				</div>
 				<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
 				<div>
