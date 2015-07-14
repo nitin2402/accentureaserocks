@@ -614,4 +614,34 @@
     <servlet-name>AcceptRequestServlet</servlet-name>
     <url-pattern>/AcceptRequestServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditCurrent</display-name>
+    <servlet-name>EditCurrent</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.EditCurrent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditCurrent</servlet-name>
+    <url-pattern>/EditCurrent</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FetchCurrent</display-name>
+    <servlet-name>FetchCurrent</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.FetchCurrent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchCurrent</servlet-name>
+    <url-pattern>/FetchCurrent</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditServlet</display-name>
+    <servlet-name>EditServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.EditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditServlet</servlet-name>
+    <url-pattern>/EditServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
