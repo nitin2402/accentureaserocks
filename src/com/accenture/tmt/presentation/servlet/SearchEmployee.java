@@ -68,7 +68,7 @@ public class SearchEmployee extends HttpServlet {
 	
 		
 		for (int i = 0; i < li.size(); i++) {
-			exp += "<tr><td><input type=\"radio\" name=\"employee\" value= \""
+			exp += "<tr class=\"table_align\"><td><input type=\"radio\" name=\"employee\" value= \""
 					
 					+ li.get(i).getEmpId() + "\"></td>" ;
 			exp += "<td>" + li.get(i).getEmpId()
