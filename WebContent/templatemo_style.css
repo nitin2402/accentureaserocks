@@ -547,5 +547,8 @@ table.table2 td {
     overflow-y: auto;
     
 }
+.table_align{
+	text-align: center;
+}
 
 /* end of footer */
