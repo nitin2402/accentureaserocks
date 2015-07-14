@@ -97,7 +97,7 @@ $(document).ready(function(){
 
 					<h1 id="current1" ><a href="#"> Current Release</a></h1>
 					<div id="scrollable" style="font-size: 14px;">
-					<form action="EditServlet" method="post">
+					<form action="EditServlet" method="get">
 							<table class="table2" id="current">
 
 								<thead style="font-weight: bold; position:">
@@ -115,7 +115,7 @@ $(document).ready(function(){
 											<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
 											<td><input type="radio" name="select"
-												value="${item.currentRelease}" /></td>
+												value="${item.projectName}" /></td>
 											<td><jstlcore:out value="${item.currentRelease}" /></td>
 											<td><jstlcore:out value="${item.projectName}" /></td>
 
