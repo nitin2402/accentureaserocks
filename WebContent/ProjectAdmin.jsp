@@ -97,7 +97,7 @@ $(document).ready(function(){
 
 					<h1 id="current1" ><a href="#"> Current Release</a></h1>
 					<div id="scrollable" style="font-size: 14px;">
-				
+					<form action="EditServlet" method="post">
 							<table class="table2" id="current">
 
 								<thead style="font-weight: bold; position:">
@@ -108,8 +108,6 @@ $(document).ready(function(){
 
 									</tr>
 								</thead>
-
-								
 
 								<tbody>
 									<jstlcore:forEach items="${current}" var="item">
@@ -126,10 +124,12 @@ $(document).ready(function(){
 								</tbody>
 								
 							</table>
+							<input type="submit" name="button" onclick="" value="Edit"></input>
+							</form>
 					</div>
 					<div>
 
-						<input type="submit" name="button" onclick="" value="Edit"></input>
+						
 					
 					</div>
 					<br/>
@@ -137,6 +137,7 @@ $(document).ready(function(){
 						<a href="#"> Release Date </a>
 					</h1>
 					<div id="scrollable" style="font-size: 14px;">
+					<form action="/EditServlet/" method="get">
 						<table class="table2" id="release">
 
 							<thead style="font-weight: bold; position:">
@@ -148,7 +149,7 @@ $(document).ready(function(){
 								</tr>
 							</thead>
 
-							<br />
+						
 							<tbody>
 								<jstlcore:forEach items="${release}" var="item">
 									<tr>
@@ -162,19 +163,22 @@ $(document).ready(function(){
 								</jstlcore:forEach>
 							</tbody>
 						</table>
+						<input type="submit" id="button2" onclick="" value="Edit"></input>
+							</form>
 					</div>
 				</div>
-				<div>
-				
-				<input type="submit" id="button2" onclick="" value="Edit"></input>
-				
-				</div>
-				
-								<div id="ajaxResponse"></div>
+			<div id="welcome_msg"
+			style="color: yellow; float: right; font-size: 12px;">
+			<a href="AboutProjectadmin.jsp">About Project</a>
+		</div>
+	<div id="ajaxResponse"></div>
 				<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
+			</div>
 			<%@ include file="footer.jsp"%>
-		</div></body>
+		</div>
+		
+		</body>
 </html>
