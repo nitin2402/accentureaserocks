@@ -41,7 +41,7 @@
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="admintool.jsp" class="current" style="font-weight: bold; text-decoration: underline">Add Employee </a></li>
+						<li><a href="admintool.jsp" >Add Employee </a></li>
 
 
 						<li><a href="addmodulevia.jsp">Add Module</a></li>
