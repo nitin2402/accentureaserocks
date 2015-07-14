@@ -73,9 +73,9 @@
                  <div>
 				
 					<ul>
-						<li><a href="#">Reports Generated for Requests</a></li>
+						<li><a href="generateempreports.jsp">Reports Generated for Requests</a></li>
 						
-						<li><a href="generateempreports.jsp">Reports Generated for Employee</a></li>
+						<li><a href="#">Reports Generated for Employee</a></li>
 
 
 						<li><a href="#">Reports Generated for Team</a></li>
