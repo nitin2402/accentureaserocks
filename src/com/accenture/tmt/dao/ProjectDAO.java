@@ -10,6 +10,9 @@ import java.util.List;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.ProjectFlatDTO;
+import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.ProjectDTO;
 
 
@@ -66,67 +69,123 @@ private List<String> projectNames = new ArrayList<String>();
 		}
 
 		return projectNames;
+
+		
 	}
 	public List<ProjectDTO> currentRelease(){
-			List<ProjectDTO> list = new ArrayList<ProjectDTO>();
-			try {
+		List<ProjectDTO> list = new ArrayList<ProjectDTO>();
+		try {
+			
+			Connection con = DBConnection.getConnection();
+			Statement st = con.createStatement();
+			
+			
+			ResultSet rs = st.executeQuery(CONSTANTS.Current);
+			
+			while(rs.next())
+			{
+				ProjectDTO current = new ProjectDTO();
+				current.setProjectName(rs.getString("ProjectName"));
+				current.setCurrentRelease(rs.getString("CurrentRelease"));
+				/*current.setReleaseDate(rs.getString("ReleaseDate"));*/
 				
-				Connection con = DBConnection.getConnection();
-				Statement st = con.createStatement();
-				
-				
-				ResultSet rs = st.executeQuery(CONSTANTS.Current);
-				
-				while(rs.next())
-				{
-					ProjectDTO current = new ProjectDTO();
-					current.setProjectName(rs.getString("ProjectName"));
-					current.setCurrentRelease(rs.getString("CurrentRelease"));
-					/*current.setReleaseDate(rs.getString("ReleaseDate"));*/
-					
-					list.add(current);
-				}
-				
-				
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				list.add(current);
 			}
 			
-			return list;
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		return list;
+	}
 	public List<ProjectDTO> releaseDate(){
-			List<ProjectDTO> list = new ArrayList<ProjectDTO>();
-			try {
-				
-				Connection con = DBConnection.getConnection();
-				PreparedStatement st = con.prepareStatement(CONSTANTS.Release);
-				
-				
-				ResultSet rs = st.executeQuery();
-				
-				while(rs.next())
-				{
-					ProjectDTO current = new ProjectDTO();
-					/*current.setProjectName(rs.getString("ProjectName"));*/
-					current.setCurrentRelease(rs.getString("CurrentRelease"));
-					current.setReleaseDate(rs.getString("ReleaseDate"));
-					System.out.println(current.getProjectName());
-					list.add(current);
-				}
-				
-				
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		List<ProjectDTO> list = new ArrayList<ProjectDTO>();
+		try {
+			
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con.prepareStatement(CONSTANTS.Release);
+			
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next())
+			{
+				ProjectDTO current = new ProjectDTO();
+				/*current.setProjectName(rs.getString("ProjectName"));*/
+				current.setCurrentRelease(rs.getString("CurrentRelease"));
+				current.setReleaseDate(rs.getString("ReleaseDate"));
+				System.out.println(current.getProjectName());
+				list.add(current);
 			}
 			
-			return list;
-		}	
-}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public int editCurrent(String currentRelease, String projectName){
+		int curr = 0;
+		try{
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con.prepareStatement(CONSTANTS.Current_Edit);
+			st.setString(1, currentRelease);
+			st.setString(2, projectName);
+			curr= st.executeUpdate();
+			con.commit();
+			con.close();
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return curr;
+		
+	}
+	public List<ProjectDTO> fetchCurrent(String ProjectName){
+		List<ProjectDTO> currentList = new ArrayList<ProjectDTO>();
+		
+		ProjectDTO details = null;
+		try {
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con.prepareStatement(CONSTANTS.Current_Fetch);
+			st.setString(1, ProjectName);
+		
+			ResultSet rs = st.executeQuery();
+		
+			while(rs.next()){
+			details = new ProjectDTO();
+			details.setProjectName(ProjectName);
+			details.setCurrentRelease(rs.getString(CONSTANTS.Current_Release));
+			
+			currentList.add(details);
+		}
+			con.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return currentList;
+		
+		
+	}
+	}
