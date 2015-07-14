@@ -91,7 +91,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="addempvia.jsp" >Add Employee </a></li>
+						<li><a href="admintool.jsp" >Add Employee </a></li>
 							
 						
 						<li><a href="addmodulevia.jsp" >Add Module</a></li>
@@ -136,7 +136,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 
 
 					<div style="font-size: 14px;">
-						<form action="TeamSelect"  onsubmit="return validateformteam()">
+						<form action="AddTeamSelect"  onsubmit="return validateformteam()">
 							<input type="radio" name="select" value="addfromexcel" id= "excel1" />Add
 								From Excel <br />
 							<br />
