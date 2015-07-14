@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.ProjectDAO;
+import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.ProjectDTO;
 
 public class ProjectController {
@@ -15,6 +16,7 @@ public class ProjectController {
 		return projectList;
 		
 	}
+	
 	public List<ProjectDTO> currentRelease(){
 		List<ProjectDTO> list= new ArrayList<ProjectDTO>();
 		list = projectDAO.currentRelease();
@@ -25,5 +27,17 @@ public class ProjectController {
 		List<ProjectDTO> list= new ArrayList<ProjectDTO>();
 		list = projectDAO.releaseDate();
 		return list;
+		
 	}
+	public int EditCurrent(String currentRelease, String projectName){
+		int curr=projectDAO.editCurrent(currentRelease, projectName);
+		return curr;
+	}
+	
+	public List<ProjectDTO> FetchCurrent(String CurrentRelease){
+		List<ProjectDTO> list = projectDAO.fetchCurrent(CurrentRelease);
+		return list;
+		
+	}
+	
 }
