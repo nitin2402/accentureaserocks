@@ -103,7 +103,7 @@ $(document).ready(function(){
 							<br/>
 							<tbody>
 								<jstlcore:forEach items="${current}" var="item">
-									<tr>
+									<tr class="table_align">
 										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
 								
@@ -133,7 +133,7 @@ $(document).ready(function(){
 							<br />
 							<tbody>
 								<jstlcore:forEach items="${release}" var="item">
-									<tr>
+									<tr class="table_align">
 										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
 
