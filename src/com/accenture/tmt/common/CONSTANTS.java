@@ -40,6 +40,13 @@ public interface CONSTANTS {
 	public String Release = 
 			" SELECT Project.CurrentRelease, Project.ReleaseDate"
 			+" FROM Project";
+	public String Current_Edit =
+			"UPDATE Project SET CurrentRelease=? WHERE ProjectName=?";
+	public String Release_Edit =
+			"Update Project SET CurrentRelease=?, ReleaseDate=? WHERE CurrentRelease=?";
+	public String Current_Fetch =
+			"SELECT CurrentRelease FROM Project where ProjectName=?";
+	
 	
 	public String SEARCH_EMPLOYEE = 
 			"	SELECT Employee.EmployeeId, Employee.EmployeeName, "
