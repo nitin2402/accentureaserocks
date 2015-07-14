@@ -159,10 +159,10 @@ public interface CONSTANTS {
 	public String GET_REPORT_DETAIL_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates BETWEEN ? AND ? ";
 
 	
-	public String FREE_ASE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Associate Software Engineer'";
+	/*public String FREE_ASE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Associate Software Engineer'";
 	public String FREE_SE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Software Engineer'";
 	public String FREE_SSE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE TeamId = 'TE-000' AND EmployeeDesignation = 'Senior Software Engineer'";
-	public String AVERAGE_LCR_QUERY = "SELECT AVG(Cast(LCR as Float)) AS AVERAGE FROM EMPLOYEE WHERE TeamId != 'TE-000'";
+	public String AVERAGE_LCR_QUERY = "SELECT AVG(Cast(LCR as Float)) AS AVERAGE FROM EMPLOYEE WHERE TeamId != 'TE-000'";*/
 	public String EMPLOYEE_REPORT = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID ";
 	public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_START_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND T.TeamId = ? AND E.Dates <= ? ";
 	public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_MODULE_NAME_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND E.Dates BETWEEN ? AND ? ";
@@ -173,8 +173,16 @@ public interface CONSTANTS {
 	public String GET_EMPLOYEE_LIST_QUERY = "SELECT TeamName FROM Team ";
 	public String GET_EMPLOYEE_REPORT_DETAIL_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ? AND E.Dates BETWEEN ? AND ? ";
 	
-	public String TOTAL_LCR_QUERY = "SELECT SUM(LCR) AS TOTAL FROM EMPLOYEE WHERE TeamId != 'TE-000'";
-	public String COUNT_BILLABLE_EMPLOYEE_QUERY = "SELECT COUNT(EmployeeId) AS NumberOfEmployee FROM EMPLOYEE WHERE TeamId != 'TE-000'";
+	/*public String TOTAL_LCR_QUERY = "SELECT SUM(LCR) AS TOTAL FROM EMPLOYEE WHERE TeamId != 'TE-000'";
+	public String COUNT_BILLABLE_EMPLOYEE_QUERY = "SELECT COUNT(EmployeeId) AS NumberOfEmployee FROM EMPLOYEE WHERE TeamId != 'TE-000'";*/
 	public String ASSIGN_RESOURCE_QUERY = "UPDATE EMPLOYEE SET TeamId = ? WHERE EmployeeName = ?";
 	public String REQUEST_TEAMID_QUERY = "SELECT TEAMID FROM RequestTable WHERE ReqId = ?";
+	
+	public String FREE_ASE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE (TeamId = 'TE-021' OR TeamId = 'TE-034' OR TeamId = 'TE-037') AND EmployeeDesignation = 'ASE'";
+	public String FREE_SE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE (TeamId = 'TE-021' OR TeamId = 'TE-034' OR TeamId = 'TE-037') AND EmployeeDesignation = 'SE'";
+	public String FREE_SSE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE (TeamId = 'TE-021' OR TeamId = 'TE-034' OR TeamId = 'TE-037') AND EmployeeDesignation = 'SSE'";
+	public String AVERAGE_LCR_QUERY = "SELECT AVG(Cast(LCR as Float)) AS AVERAGE FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
+
+	public String TOTAL_LCR_QUERY = "SELECT SUM(Cast(LCR as INT)) AS TOTAL FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
+	public String COUNT_BILLABLE_EMPLOYEE_QUERY = "SELECT COUNT(EmployeeId) AS NumberOfEmployee FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
 }
