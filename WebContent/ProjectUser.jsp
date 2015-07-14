@@ -16,7 +16,7 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>
+	<!-- <script>
 $(document).ready(function(){
     
         $("#current").hide();
@@ -45,7 +45,7 @@ $(document).ready(function(){
          
     });
 });
-</script>
+</script> -->
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -146,7 +146,11 @@ $(document).ready(function(){
 						</table>
 					</div>
 				</div>
-								<div id="ajaxResponse"></div>
+				<div id="welcome_msg"
+					style="color: yellow; float: right; font-size: 12px;">
+					<a href="AboutProjectuser.jsp">About Project</a>
+				</div>
+				<div id="ajaxResponse"></div>
 				<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
