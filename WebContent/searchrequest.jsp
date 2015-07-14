@@ -51,7 +51,7 @@
 								<td>No Of ASE</td>
 								<td>No of SE</td>
 								<td>No of SSE</td>
-								<td>comment</td>
+								<td>Comment</td>
 								<td>Status</td>
 							</tr>
 							</thead>
@@ -59,7 +59,7 @@
 							<tbody  >
 							
 							<jstlcore:forEach items="${unapproved_requests}" var="item">
-								<tr>
+								<tr class="table_align">
 									<td><input type="radio" name="select" value="${item.reqId}" <jstlcore:if test="${item.statusName == 'Rejected'}">disabled</jstlcore:if>	/></td>
 									<td><jstlcore:out value="${item.reqId}" /></td>
 									<td><jstlcore:out value="${item.teamName}" /></td>
@@ -99,7 +99,7 @@
 								<td>No Of ASE</td>
 								<td>No of SE</td>
 								<td>No of SSE</td>
-								<td>comment</td>
+								<td>Comment</td>
 								<td>Status</td>
 							</tr>
 							</thead>
@@ -108,7 +108,7 @@
 							
 							
 							<jstlcore:forEach items="${approved_requests}" var="item">
-								<tr>
+								<tr class="table_align">
 									<td><jstlcore:out value="${item.reqId}" /></td>
 									<td><jstlcore:out value="${item.teamName}" /></td>
 									<td><jstlcore:out value="${item.nASE}" /></td>
