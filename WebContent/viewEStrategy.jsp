@@ -116,6 +116,7 @@
 			%>
 			<li><a href="adminhome.jsp">Home</a></li>
 			<li><a href="admintool.jsp">Admin Tools</a></li>
+			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
 			<%
 				 }
@@ -125,6 +126,7 @@
 			%>
 
 			<li><a href="userhome.jsp">Home</a></li>
+			<li><a href="ProjectUser.jsp">Projects</a></li>
 			<li><a href="User_initiative.jsp">Initiatives</a></li>
 			
 			<%
@@ -132,7 +134,7 @@
 			%>
 
 			<li><a href="#">Workplan</a></li>
-			<li><a href="#" class="current">Projects</a></li>
+			
 			<li><a href="#">About Us</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
 			
@@ -141,22 +143,10 @@
 	</div>
 
 	<div id="templatemo_content">
-	<%
-				 if ((String) session1.getAttribute("admin") == "admin") { 
-			%>
-	<%@ include file="common_left_admintool.jsp" %>
-	<%
-				 }
-			%>
-			
-			<%
-				 if ((String) session1.getAttribute("admin") == "user") { 
-			%>
+	
 			<%@ include file="common_left.jsp" %>
 			
-			<%
-				 } 
-			%>
+			
 			
 		<div id="content_left">
 
