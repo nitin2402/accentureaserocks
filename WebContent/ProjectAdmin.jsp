@@ -111,7 +111,7 @@ $(document).ready(function(){
 
 								<tbody>
 									<jstlcore:forEach items="${current}" var="item">
-										<tr>
+										<tr class="table_align">
 											<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
 											<td><input type="radio" name="select"
@@ -152,7 +152,7 @@ $(document).ready(function(){
 						
 							<tbody>
 								<jstlcore:forEach items="${release}" var="item">
-									<tr>
+									<tr class="table_align">
 										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
 										<td><input type="radio" name="select" value="${item.currentRelease}"/></td>
