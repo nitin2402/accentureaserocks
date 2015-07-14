@@ -4,34 +4,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-  <script type="text/javascript">
-    $(function () {
-      $('.last').click(function (event) {
-        var email = 'chinu.mohanty@accenture.com';
-        var subject = 'Feedback';
-        var emailBody = 'Hi Chinu,';
-        window.location = 'mailto:' + email + '?subject=' + subject + '&body=' + emailBody;
-      });
-    });
-  </script>
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords"
 	content="Bird Store Online, CSS Template, Free Download" />
 <meta name="description"
 	content="Bird Store Online - Download Free CSS Template" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="login.js"></script> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
 <jsp:include page = "/Logout"/>
 	<div id="templatemo_container">
 		<div id="templatemo_header">
 			<div id="site_title_section">
-				<div id="site_title">Pyramid Optimization</div>
+				<div id="site_title">Talent Management Tool</div>
 				<div id="slogan">The place to look back</div>
 				<div class="cleaner">&nbsp;</div>
 			</div>
@@ -42,7 +33,7 @@
 		</div>
 		<!-- end of header -->
 
-		<div id="templatemo_menu">
+		  <div id="templatemo_menu">
 			<ul>
 				
 			
@@ -60,12 +51,13 @@
 				<div class="content_left_section">
 					<div class="content_left_section_title">Login</div>
 					<div class="content_left_section_content">
-						<form action="AdminLogin" method="post">
+						<form name="login"
+							action="AdminLogin" method="post" onsubmit="return validateform()">
 							User Name<input type="text" id="USERNAME" name="USERNAME" /> <br />
 							<br /> Password<input type="password" id="PASSWORD"
 								name="PASSWORD" /> <input type="submit" value="Login"
-								id="search_button" /> <br /> <br /> <a href="newuser.jsp"
-								style="font-size: 14px; text-decoration: underline;font-weight:normal;">Sign up</a>
+								id="search_button" /> <br /> <br /> <a href="signup.jsp"
+								style="font-size: 14px; text-decoration: underline;font-weight:normal;">Sign up</a> 
 						</form>
 						<div class="cleaner">&nbsp;</div>
 					</div>
@@ -86,9 +78,9 @@
 					<img src="images/templatemo_image_01.jpg" alt="image" />
 
 
-					<p style="font-size: 14px; color: red;"><%=request.getParameter("msg") != null ? request
-					.getParameter("msg") : ""%></p>
-
+				<p style="font-size: 14px; color: red;"><%=request.getParameter("msg") != null ? request
+					.getParameter("msg") : ""%>${msg}</p>
+                  
 					<div class="cleaner">&nbsp;</div>
 				</div>
 
