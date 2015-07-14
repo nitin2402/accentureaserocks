@@ -94,10 +94,10 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="addempvia.jsp" >Add Employee </a></li>
+						<li><a href="admintool.jsp" >Add Employee </a></li>
 							
 						
-						<li><a href="addmodulevia.jsp" style="font-weight: bold; text-decoration: underline">Add Module -></a></li>
+						<li><a href="addmodulevia.jsp" style="font-weight: bold; text-decoration: underline">Add Module </a></li>
 						<li><a href="addteamvia.jsp" >Add Team </a></li>
 					</ul>
 				</div>
@@ -137,7 +137,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 				<div>
 
 					<div style="font-size: 14px;">
-						<form name="radio1" action="AddModuleSelect" onsubmit="validateform2">
+						<form name="radio1" action="AddModuleSelect" onsubmit="return validateform2">
 							<input type="radio" name="select"  id= "excel" value="addfromexcel"/>Add
 								From Excel<br />
 							<br />
