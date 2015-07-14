@@ -28,6 +28,7 @@
 
 
 <body>
+
 	
  <%-- <% 
 		HttpSession session1 = request.getSession(false);
@@ -53,34 +54,38 @@
 			<div class="right_col_section_w650">
 
 				<div class="header_01">Edit Current Release</div>
-
-
 				
 				<div>
-<jstlcore:forEach items="${current}" var="list">
-<form action="EditCurrent">
-<table>
-<tr>
-		<td>Current Release</td>
-		<td><input type="text" value="${list.currentRelease}" disabled="disabled" style="width:200px;"/>
-				<input type="hidden" name="id" value="${list.currentRelease}" /></td> 
-		</tr>
-		<tr>		
-		<td>Project Name</td>
-		<td><input type="text" name="name" value="${list.projectName}" style="width:200px;"/></td>
+				<form name="edit" action="EditCurrent" method="post">
+					<jstlcore:forEach items="${select1}" var="list">
+						
+							<table>
+								<tr>
+									<td>Project Name</td>
+									<td><input type="text" value="${list.projectName}"
+										disabled="disabled" style="width: 200px;" /> <input
+										type="hidden" name="ProjectName" value="${list.projectName}" /></td>
+								</tr>
+								<tr>
+									<td>Current Release</td>
+									<td><input type="text" name="CurrentRelease"
+										value="${list.currentRelease}" style="width: 200px;" /></td>
 
-</tr>
-<tr><td><input type="submit" value="Change"/></td></tr>
-			</table>
-
-
-</form>
-
-</jstlcore:forEach>
-
+								</tr>
+								<tr>
+									
+								</tr>
+							</table>
+	</jstlcore:forEach>
 	
-		
-		
+					<input type="submit" value="Change" /> <br/>
+	</form>
+
+					
+
+
+
+
 					<div class="cleaner">&nbsp;</div>
 				</div>
 
