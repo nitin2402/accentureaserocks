@@ -90,7 +90,7 @@
 						
 							<tbody  >
 							<jstlcore:forEach items="${ReportList}" var="item">
-								<tr>
+								<tr class="table_align">
 									
 									
 									<td><jstlcore:out value="${item.moduleId}" /></td>
