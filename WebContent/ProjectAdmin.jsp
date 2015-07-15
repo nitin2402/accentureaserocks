@@ -16,6 +16,22 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>
+	function validateForm() {
+
+		var myOption = -1;
+		for (var i=form.select.length-1; i > -1; i--) {
+		if (form.select[i].checked) {
+		myOption = i; i = -1;
+		}
+		}
+		if (myOption == -1) {
+		alert("Please select to Edit");
+		return false;
+		}
+					
+	}
+	</script>
 	<!-- <script>
 $(document).ready(function(){
     
@@ -95,9 +111,9 @@ $(document).ready(function(){
 
 				<div id="search">
 
-					<h1 id="current1" ><a href="#"> Current Release</a></h1>
+					<h1 id="current1" >Current Release</h1>
 					<div id="scrollable" style="font-size: 14px;">
-					<form action="EditServlet" method="get">
+					<form name= "form" action="EditServlet" method="get">
 							<table class="table2" id="current">
 
 								<thead style="font-weight: bold; position:">
@@ -105,6 +121,7 @@ $(document).ready(function(){
 										<td></td>
 										<td>Current Release</td>
 										<td>Project Name</td>
+										<td>Release Date</td>
 
 									</tr>
 								</thead>
@@ -118,22 +135,19 @@ $(document).ready(function(){
 												value="${item.projectName}" /></td>
 											<td><jstlcore:out value="${item.currentRelease}" /></td>
 											<td><jstlcore:out value="${item.projectName}" /></td>
+											<td><jstlcore:out value="${item.releaseDate}" /></td>
 
 										</tr>
 									</jstlcore:forEach>
 								</tbody>
 								
 							</table>
-							<input type="submit" name="button" onclick="" value="Edit"></input>
+							<input type="submit" name="button" onclick="return validateForm()" value="Edit"></input>
 							</form>
 					</div>
-					<div>
-
-						
 					
-					</div>
 					<br/>
-					<h1 id="release1">
+					<%-- <h1 id="release1">
 						<a href="#"> Release Date </a>
 					</h1>
 					<div id="scrollable" style="font-size: 14px;">
@@ -165,7 +179,7 @@ $(document).ready(function(){
 						</table>
 						<input type="submit" id="button2" onclick="" value="Edit"></input>
 							</form>
-					</div>
+					</div> --%>
 				</div>
 			<div id="welcome_msg"
 			style="color: yellow; float: right; font-size: 12px;">
