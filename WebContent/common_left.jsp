@@ -39,7 +39,7 @@
 					<ul>
 						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
 						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
+						<li><a href="viewprimier.jsp">Premier</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
