@@ -4,13 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <link href="pdfreadonly_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type='text/javascript' src='search.js'></script>
+<script type='text/javascript' src="admin_initiative.js"></script>
 </head>
 <body>
  <%
@@ -35,9 +36,10 @@
 
 				<div class="header_01">Initiatives</div>
 					
-				<form method="post" action="InitiativeUploadServlet" enctype="multipart/form-data">Select file to upload:
-						<input type="file" name="dataFile" id="fileChooser"/><br/><br/>
-						<input type="submit" value="Upload" />
+				<form method="post" name="upload" action="InitiativeUploadServlet" onsubmit="return Validate(this);" enctype="multipart/form-data">
+						Select file to upload:
+						<input type="file" name="dataFile" id="fileUpload"/><br/><br/>
+						<input type="submit" id="upload" value="Upload"/>
 					</form>
 					
 				<div class="margin_bottom_20">&nbsp;</div>
