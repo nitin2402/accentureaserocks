@@ -63,7 +63,7 @@ public class AddTeam extends HttpServlet {
 		TeamDetailsFlatDTO detailsDO = new TeamDetailsFlatDTO();
 		detailsDO.setTeamName(tName);
 		detailsDO.setTeamId(id);
-	int	a=teamManager.addTeam(detailsDO);
+	int	a=teamManager.addTeamManual(detailsDO);
 	if (a>0){
 		request.setAttribute("message","Team Inserted");
 		request.getRequestDispatcher("addteamvia.jsp").forward(request, response);
