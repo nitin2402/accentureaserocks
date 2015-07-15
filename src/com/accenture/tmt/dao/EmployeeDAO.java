@@ -117,14 +117,14 @@ public class EmployeeDAO {
 
 	public List<EmployeeDetailsFlatDTO> viewEmployee() {
 		List<EmployeeDetailsFlatDTO> empList = new ArrayList<EmployeeDetailsFlatDTO>();
+		EmployeeDetailsFlatDTO details = null;
 		try {
-			EmployeeDetailsFlatDTO details = null;
-
 			Connection con = DBConnection.getConnection();
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(CONSTANTS.VIEW_EMPLOYEE_QUERY);
+			PreparedStatement st = con.prepareStatement(CONSTANTS.VIEW_EMPLOYEE_QUERY);
+			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
+			
 				details = new EmployeeDetailsFlatDTO();
 				details.setEmpId(rs.getString("EmployeeId"));
 				details.setEmpName(rs.getString("EmployeeName"));
