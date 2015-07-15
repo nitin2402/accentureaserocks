@@ -60,7 +60,7 @@
 						<table class="table2" >
 							
 							<thead style="font-weight:bold;position: ">
-							<tr class="one" style="font-weight:bold;">
+							<tr class="one table_align" style="font-weight:bold;">
 								<td></td>
 								<td>Employee Id</td>
 								<td>Employee Name</td>
@@ -83,7 +83,7 @@
 						
 							<tbody>
 							<jstlcore:forEach items="${empList}" var="item" >
-								<tr>
+								<tr class="table_align">
 									<td><input type="radio" name="employeeDetails" value=""></input></td>
 									
 								
