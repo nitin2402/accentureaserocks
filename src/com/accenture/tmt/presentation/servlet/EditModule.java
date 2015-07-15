@@ -60,6 +60,10 @@ public class EditModule extends HttpServlet {
 		 String timestamp= df.format(date);
 		 sqlDate= new java.sql.Date(date.getTime());
 		String module = request.getParameter("moduleedit");
+		if(module==null){
+			request.setAttribute("message","Please select the radio button");
+			request.getRequestDispatcher("viewmodule.jsp").forward(request, response);	
+		}
 		if(submit1 != null){
 		List<ModuleDetailsDTO> li = new ArrayList<ModuleDetailsDTO>();
 	
