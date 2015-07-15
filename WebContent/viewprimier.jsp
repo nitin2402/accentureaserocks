@@ -48,7 +48,7 @@
 
 		$('li.teamclick').on('click', function() {
 			var team = $(this).text();
-			$("#ajaxResponse").show();
+			$("#ajaxResponse1").show();
 			/* $("#piechart").hide(); */
 			$("#teamname").val(team);
 			$.ajax({
@@ -58,7 +58,7 @@
 
 				success : function(data) {
 					$("empclick").show();
-					$("#ajaxResponse").html(data);
+					$("#ajaxResponse1").html(data);
 					/* 	$("#clickk").show(); */
 
 				},
@@ -197,7 +197,7 @@ HttpSession session1 = request.getSession(false);
 			<div class="right_col_section_w650">
 
 				<div class="header_01">Top view of E-Strategy</div>
-
+				<div id="search">
 				<div>
 
 					<div id="projchart" style="height: 600px; width: 1000px">
@@ -208,17 +208,17 @@ HttpSession session1 = request.getSession(false);
 								<td />
 								<td />
 								<td />
-								<td id="ajaxResponse"></td>
+								<td id="ajaxResponse1"></td>
 							</tr>
 						</table>
 					</div>
 
-					<div id="ajaxresponse"></div>
+					
 					<div class="empclick">click for employee list</div>
 					<div id="emplist"></div>
 
 
-					<div class="cleaner">&nbsp;</div>
+				
 				</div>
 
 				<div class="margin_bottom_20">&nbsp;</div>
