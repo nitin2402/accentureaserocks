@@ -180,10 +180,11 @@ $(document).ready(function(){
 						<input type="submit" id="button2" onclick="" value="Edit"></input>
 							</form>
 					</div> --%>
-				</div>
+				
 			<div id="welcome_msg"
 			style="color: yellow; float: right; font-size: 12px;">
 			<a href="AboutProjectadmin.jsp">About Project</a>
+		</div>
 		</div>
 	<div id="ajaxResponse"></div>
 				<p class="error" style="font-size: 14px; color: red;">${message}</p>
