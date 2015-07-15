@@ -161,7 +161,7 @@ function isNumeric(value) {
 
 
 						<li><a href="addmodule.jsp">Add Module</a></li>
-						<li><a href="AddTeamManually.jsp">Add Team</a></li>
+						<li><a href="AddTeamManually.jsp" style="font-weight: bold; text-decoration: underline">Add Team</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
@@ -208,7 +208,7 @@ function isNumeric(value) {
 									<td><input type="text" name="Tno"></input></td>
 								</tr>
 								<tr>
-									<td>MODULE NAME:</td>
+									<td>MODULE ID:</td>
 									<td><input type="text" name="Mname"></input></td>
 								</tr>
 								<tr>
