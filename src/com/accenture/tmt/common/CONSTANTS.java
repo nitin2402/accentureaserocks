@@ -35,17 +35,19 @@ public interface CONSTANTS {
 	public String Release_Date = "ReleaseDate";
 	
 	public String Current = 
-			" SELECT Project.CurrentRelease, Project.ProjectName"
+			" SELECT Project.CurrentRelease, Project.ProjectName, Project.ReleaseDate"
 			+ " FROM Project";
 	public String Release = 
 			" SELECT Project.CurrentRelease, Project.ReleaseDate"
 			+" FROM Project";
 	public String Current_Edit =
-			"UPDATE Project SET CurrentRelease=? WHERE ProjectName=?";
-	public String Release_Edit =
-			"Update Project SET CurrentRelease=?, ReleaseDate=? WHERE CurrentRelease=?";
+			"UPDATE Project SET CurrentRelease=?, ReleaseDate=? WHERE ProjectName=?";
+	/*public String Release_Edit =
+			"Update Project SET CurrentRelease=?, ReleaseDate=? WHERE CurrentRelease=?";*/
 	public String Current_Fetch =
-			"SELECT CurrentRelease FROM Project where ProjectName=?";
+			"SELECT CurrentRelease, ReleaseDate FROM Project where ProjectName=?";
+	public String Release_Fetch =
+			"SELECT ReleaseDate FROM Project where ProjectName=?";
 	
 	
 	public String SEARCH_EMPLOYEE = 
