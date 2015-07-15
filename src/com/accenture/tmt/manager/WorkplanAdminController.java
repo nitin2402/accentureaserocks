@@ -14,10 +14,12 @@ public class WorkplanAdminController {
 		int aseRequested = 0;
 		int seRequested = 0;
 		int sseRequested = 0;
-		Map<String, Integer> freeASEList ;
-		Map<String, Integer> freeSEList ;
-		Map<String, Integer> freeSSEList ;
+		Map<String, Float> freeASEList ;
+		Map<String, Float> freeSEList ;
+		Map<String, Float> freeSSEList ;
 		float currentAvg = 0;
+		float total = 0;
+		int numberOfEmployee = 0;
 		
 		WorkplanAdminDAO workplanAdminDAO = new WorkplanAdminDAO();
 		WorkplanAdminFlatDTO workplanAdminFlatDTO = workplanAdminDAO.fetchData(actiondto);
@@ -30,6 +32,8 @@ public class WorkplanAdminController {
 		aseRequested = workplanAdminFlatDTO.getAseRequested();
 		seRequested = workplanAdminFlatDTO.getSeRequested();
 		sseRequested = workplanAdminFlatDTO.getSseRequested();
+		total = workplanAdminFlatDTO.getTotal();
+		numberOfEmployee = workplanAdminFlatDTO.getNumberOfEmployee();
 		
 		workplanAdminDTO.setAseRequested(aseRequested);
 		workplanAdminDTO.setSeRequested(seRequested);
@@ -38,6 +42,8 @@ public class WorkplanAdminController {
 		workplanAdminDTO.setFreeSEList(freeSEList);
 		workplanAdminDTO.setFreeSSEList(freeSSEList);
 		workplanAdminDTO.setCurrentAvg(currentAvg);
+		workplanAdminDTO.setTotal(total);
+		workplanAdminDTO.setNumberOfEmployee(numberOfEmployee);
 		
 		return workplanAdminDTO;
 		}
