@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -126,7 +126,7 @@ HttpSession session1 = request.getSession(false);
 	<div id="templatemo_container"></div>
 	<div id="templatemo_header">
 		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
+			<div id="site_title">Talent Management Tool</div>
 			<div id="slogan">The place to look back</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
@@ -142,24 +142,28 @@ HttpSession session1 = request.getSession(false);
 	<div id="templatemo_menu">
 		<ul>
 		<%  if ((String)session1.getAttribute("admin")=="admin") { %>
-			<li><a href="adminhome.jsp" >Home</a></li>
-			<li><a href="admintool.jsp">Admin Tools</a></li>
-				<li><a href="ProjectAdmin.jsp">Projects</a></li>
+		
+			<li><a href="adminhome.jsp">Home</a></li>
+			<li><a href="admintool.jsp"">Admin Tools</a></li>
+			<li><a href="searchrequest.jsp">Workplan</a></li>
+			<li><a href="ProjectAdmin.jsp">Projects</a></li>
+			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
+			
 			<%  }  %>
 	<%	 if ((String)session1.getAttribute("admin") != "admin") { %>
 	
-		<li><a href="userhome.jsp" >Home</a></li>
-		<li><a href="ProjectUser.jsp">Projects</a></li>
-		<li><a href="User_initiative.jsp">Initiatives</a></li>
+		<li><a href="userhome.jsp">Home</a></li>
+			<li><a href="workplanvia.jsp">Workplan</a></li>
+			<li><a href="user_initiative.jsp">Initiatives</a></li>
+			<li><a href="ProjectUser.jsp">Project</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
+			
 		<% }  %>
 			
-			<li><a href="#">Workplan</a></li>
-			
-			<li><a href="#">About Us</a></li>
-			<li><a href="mainreports.jsp">Reports</a></li>
-			
-			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
 	</div>
 
