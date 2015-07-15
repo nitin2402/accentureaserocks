@@ -8,7 +8,7 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-
+<script type='text/javascript' src='search.js'></script>
 
 
 <script
@@ -34,6 +34,9 @@
 <script type="text/javascript" src="addteamvia.js"></script> 
 </head>
 <body>
+
+
+
 	<%
 
 HttpSession session1 = request.getSession(false);
@@ -68,30 +71,12 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 	<div id="templatemo_content">
 
 		<div id="content_left">
-
-		<%-- 	<div class="content_left_section">
-				<div class="content_left_section_title">Search</div>
-				<div class="content_left_section_content">
-					<form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form>
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div> --%>
+			<%@ include file="common_left_team.jsp" %>
 			<div class="content_left_section" style="font-size:14px">
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="admintool.jsp" >Add Employee </a></li>
+						<li><a href="addempvia.jsp" >Add Employee </a></li>
 							
 						
 						<li><a href="addmodulevia.jsp" >Add Module</a></li>
@@ -100,7 +85,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
 			</div>
-<div class="content_left_section" style="font-size:14px">
+			<div class="content_left_section" style="font-size:14px">
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
 					<%-- <form action="#">
@@ -113,8 +98,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 					</form> --%>
 					<ul>
 						<li><a href="viewemployee.jsp" >View Employees</a></li>
-							
-						
+					
 						<li><a href="viewteam.jsp" >View Teams</a></li>
 						<li><a href="viewmodule.jsp" >View Module</a></li>
 					</ul>
@@ -132,11 +116,11 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 				<div class="header_01">Team Addition</div>
 
 
-				<div>
+				<div id="search">
 
 
 					<div style="font-size: 14px;">
-						<form action="AddTeamSelect"  onsubmit="return validateformteam()">
+						<form action="TeamSelect"  onsubmit="return validateformteam()">
 							<input type="radio" name="select" value="addfromexcel" id= "excel1" />Add
 								From Excel <br />
 							<br />
@@ -150,7 +134,8 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
-
+				<div id="ajaxResponse"></div>
+				<p class="error" style="font-size: 14px; color: red;">${message}</p>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
@@ -161,5 +146,6 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
 	</div>
+	<%@ include file="footer.jsp" %> 
 </body>
 </html>
