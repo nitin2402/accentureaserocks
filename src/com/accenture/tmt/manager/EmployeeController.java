@@ -52,6 +52,7 @@ public class EmployeeController {
 	}
 	
 	public List<EmployeeDetailsFlatDTO> viewEmployee(){
+		employeeDAO= new EmployeeDAO();
 		List<EmployeeDetailsFlatDTO> empList= new ArrayList<EmployeeDetailsFlatDTO>();
 		empList = employeeDAO.viewEmployee();
 		return empList;
