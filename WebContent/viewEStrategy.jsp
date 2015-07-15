@@ -114,10 +114,14 @@
 			<%
 				 if ((String) session1.getAttribute("admin") == "admin") { 
 			%>
-			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp">Admin Tools</a></li>
+				<li><a href="adminhome.jsp">Home</a></li>
+			<li><a href="admintool.jsp"">Admin Tools</a></li>
+			<li><a href="searchrequest.jsp">Workplan</a></li>
 			<li><a href="ProjectAdmin.jsp">Projects</a></li>
+			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
 			<%
 				 }
 			%>
@@ -126,19 +130,18 @@
 			%>
 
 			<li><a href="userhome.jsp">Home</a></li>
-			<li><a href="ProjectUser.jsp">Projects</a></li>
-			<li><a href="User_initiative.jsp">Initiatives</a></li>
+			<li><a href="workplanvia.jsp">Workplan</a></li>
+			<li><a href="user_initiative.jsp">Initiatives</a></li>
+			<li><a href="ProjectUser.jsp">Project</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
 			
 			<%
 				 } 
 			%>
-
-			<li><a href="#">Workplan</a></li>
 			
-			<li><a href="#">About Us</a></li>
-			<li><a href="mainreports.jsp">Reports</a></li>
 			
-			<li><a href="#" class="last">Contact Us</a></li>
+			
 		</ul>
 	</div>
 
