@@ -42,8 +42,10 @@ public class EditCurrent extends HttpServlet {
 		
 		String currentrelease = request.getParameter("CurrentRelease");
 		String projectname = request.getParameter("ProjectName");
+		String releaseDate = request.getParameter("ReleaseDate");
+		
 		ProjectController controller = new ProjectController();
-		int a = controller.EditCurrent(currentrelease, projectname);
+		int a = controller.EditCurrent(currentrelease, projectname, releaseDate);
 		
 		if(a!=0){
 			
