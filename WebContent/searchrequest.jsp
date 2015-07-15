@@ -46,11 +46,11 @@
 							<thead style="font-weight:bold;position: ">
 							<tr class="one" style="font-weight:bold;">
 								<td>Select</td>
-								<td>ReqId</td>
+								<td>Request ID</td>
 								<td>Team Name</td>
-								<td>No Of ASE</td>
-								<td>No of SE</td>
-								<td>No of SSE</td>
+								<td>No Of A.S.E.</td>
+								<td>No of S.E.</td>
+								<td>No of S.S.E.</td>
 								<td>Comment</td>
 								<td>Status</td>
 							</tr>
@@ -94,11 +94,11 @@
 						
 							<thead style="font-weight:bold;position: ">
 							<tr class="one" style="font-weight:bold;">
-								<td>ReqId</td>
+								<td>Request ID</td>
 								<td>Team Name</td>
-								<td>No Of ASE</td>
-								<td>No of SE</td>
-								<td>No of SSE</td>
+								<td>No Of A.S.E.</td>
+								<td>No of S.E.</td>
+								<td>No of S.S.E.</td>
 								<td>Comment</td>
 								<td>Status</td>
 							</tr>
