@@ -186,6 +186,6 @@ public interface CONSTANTS {
 	public String FREE_SSE_LIST_QUERY = "SELECT EmployeeName, LCR FROM EMPLOYEE WHERE (TeamId = 'TE-021' OR TeamId = 'TE-034' OR TeamId = 'TE-037') AND EmployeeDesignation = 'SSE'";
 	public String AVERAGE_LCR_QUERY = "SELECT AVG(Cast(LCR as Float)) AS AVERAGE FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
 
-	public String TOTAL_LCR_QUERY = "SELECT SUM(Cast(LCR as INT)) AS TOTAL FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
+	public String TOTAL_LCR_QUERY = "SELECT SUM(Cast(LCR as Float)) AS TOTAL FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
 	public String COUNT_BILLABLE_EMPLOYEE_QUERY = "SELECT COUNT(EmployeeId) AS NumberOfEmployee FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
 }
