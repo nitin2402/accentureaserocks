@@ -50,7 +50,7 @@
 			var team = $(this).text();
 			var module = $(this).attr('id');
 
-			$("#ajaxResponse").show();
+			$("#ajaxResponse1").show();
 			/* $("#piechart").hide(); */
 
 			$.ajax({
@@ -65,7 +65,7 @@
 				success : function(data) {
 
 					$("empclick").show();
-					$("#ajaxResponse").html(data);
+					$("#ajaxResponse1").html(data);
 					/* 	$("#clickk").show(); */
 					$("#teamnam").val(team);
 
@@ -94,7 +94,7 @@
 	%> 
 	<jsp:include page="/ViewReport" />
 
-	<div id="templatemo_container"></div>
+	<div id="templatemo_container">
 	<div id="templatemo_header">
 		<div id="site_title_section">
 			<div id="site_title">Talent Management Tool</div>
@@ -150,38 +150,14 @@
 			<%@ include file="common_left.jsp" %>
 			
 			
-			
-		<div id="content_left">
-
-			<%-- 	<div class="content_left_section">
-				<div class="content_left_section_title">Search</div>
-				<div class="content_left_section_content">
-					<form id="form1" name="form1" action="#">
-						<input type="text" id="search_field" name="search_field"
-							onchange="validate()" />
-						<div>
-							<span id="msg1">${param.msg1}</span>
-						</div>
-
-					</form>
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div> --%>
-
-			
-			
-
-			
-
-		</div>
+		
 		<!-- <input type="hidden" id="teamname" name="teamname"></input> -->
 		<div id="content_right">
 
 			<div class="right_col_section_w650">
 
 				<div class="header_01">Top view of E-Strategy</div>
+				<div id="search">
 
 				<div>
 
@@ -193,30 +169,24 @@
 								<td />
 								<td />
 								<td />
-								<td id="ajaxResponse"></td>
+								<td id="ajaxResponse1"></td>
 							</tr>
 						</table>
 					</div>
 
-					<div id="ajaxresponse"></div>
+					
 					<div id="emplist"></div>
-
-
-					<div class="cleaner">&nbsp;</div>
-				</div>
-
-				<div class="margin_bottom_20">&nbsp;</div>
-			</div>
+					
+				</div>	
 			
-			<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
-			
+		</div>
+			<div id="ajaxResponse"></div>	
 			<div class="cleaner">&nbsp;</div>
+			</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
+		
 		</div>
+			<%@ include file="footer.jsp"%>
 	</div>
 </body>
 </html>
