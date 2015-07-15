@@ -58,17 +58,22 @@ public class EmployeeDAO {
 			ResultSet rs = st.executeQuery(CONSTANTS.VIEW_EMPLOYEE_QUERY);
 			SearchFormDTO searchDetailsDTO = null;
 			while (rs.next()) {
-				searchDetailsDTO = new SearchFormDTO();
-				searchDetailsDTO.setEmpName(rs.getString(CONSTANTS.EMPLOYEE_NAME));
-				searchDetailsDTO.setEmpId(rs.getString(CONSTANTS.EMPLOYEE_ID));
-				searchDetailsDTO.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
-				searchDetailsDTO.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
-				searchDetailsDTO.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				searchDetailsDTO.setClientId(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
-				searchDetailsDTO.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
-//				searchDetailsDTO.setTeamId(teamId);rs.getString(CONSTANTS.TEAM_NAME));
-//				searchDetailsDTO.setModule(rs.getString(CONSTANTS.MODULE_NAME));
-//				searchDetailsDTO.setProject(rs.getString(CONSTANTS.PROJECT));
+				details = new EmployeeDetailsFlatDTO();
+				details.setEmpId(rs.getString("EmployeeId"));
+				details.setEmpName(rs.getString("EmployeeName"));
+				details.setDesignation(rs.getString("EmployeeDesignation"));
+				details.setLevel(rs.getString("EmployeeLevel"));
+				details.setExpertise(rs.getString("EmployeeExpertise"));
+				details.setClientId(rs.getString("EmployeeClientId"));
+				details.setEmail(rs.getString("EmployeeEmail"));
+				details.setTeamName(rs.getString("TeamName"));
+				details.setProfCamps(rs.getString("ProficiencyCams"));
+				details.setProfProject(rs.getString("ProficiencyProject"));
+				details.setDoj(rs.getString("DateofJoining"));
+				/*details.setLastWD(rs.getString("LastWorkingDay"));*/
+				details.setIsBillable(rs.getString("Billable"));
+				/*details.setIsActive(rs.getNString("ActiveUser"));*/
+				
 				employeeList.add(searchDetailsDTO);
 
 			}
