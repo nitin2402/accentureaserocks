@@ -46,6 +46,7 @@
 
 						<li><a href="addmodulevia.jsp">Add Module</a></li>
 						<li><a href="addteamvia.jsp">Add Team</a></li>
+						<li><a href="authorizeemployee.jsp">Authorize Employee</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
