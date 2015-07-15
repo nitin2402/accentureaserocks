@@ -190,4 +190,11 @@ public interface CONSTANTS {
 
 	public String TOTAL_LCR_QUERY = "SELECT SUM(Cast(LCR as Float)) AS TOTAL FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
 	public String COUNT_BILLABLE_EMPLOYEE_QUERY = "SELECT COUNT(EmployeeId) AS NumberOfEmployee FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
+	
+	
+	
+	public String GET_UNAUTHORIZED_EMPLOYEE_QUERY = "select L_ID,Username,TypeOfUser,EmployeeId,ActiveUser,EmployeeDesignation from Login L, Employee E where L.EmployeeId = E.EMployeeId AND TypeOfUser = 'UNAUTHORISED' AND ActiveUser = 'n' ";
+	public String UPDATE_TYPE_OF_VIEWER_QUERY = "UPDATE Login SET TypeOfUser = 'VIEWER' , ActiveUser = 'y' where L_ID = ? ";
+	public String UPDATE_TYPE_OF_USER_QUERY = "UPDATE Login SET TypeOfUser = 'USER' , ActiveUser = 'y' where L_ID = ? ";
+	public String UPDATE_TYPE_OF_ADMIN_QUERY = "UPDATE Login SET TypeOfUser = 'ADMIN' , ActiveUser = 'y' where L_ID = ? ";
 }
