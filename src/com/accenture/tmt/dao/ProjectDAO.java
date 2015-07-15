@@ -11,7 +11,6 @@ import java.util.List;
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
-import com.accenture.tmt.dao.dto.ProjectFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.ProjectDTO;
 
