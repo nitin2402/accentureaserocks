@@ -41,7 +41,7 @@ public class AddTeamSelect extends HttpServlet {
 		if(select=="addfromexcel" || select .equals("addfromexcel"))
 			response.sendRedirect("addteamexcel.jsp");
 		if(select=="addmanually" || select .equals("addmanually"))
-			response.sendRedirect("addteam.jsp");
+			response.sendRedirect("AddTeamManually.jsp");
 	}
 
 }
