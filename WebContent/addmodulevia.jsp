@@ -137,7 +137,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 				<div>
 
 					<div style="font-size: 14px;">
-						<form name="radio1" action="AddModuleSelect" onsubmit="return validateform2">
+						<form name="radio1" action="AddModuleSelect" onsubmit="return validateform2()">
 							<input type="radio" name="select"  id= "excel" value="addfromexcel"/>Add
 								From Excel<br />
 							<br />
