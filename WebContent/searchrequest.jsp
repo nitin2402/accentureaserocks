@@ -74,13 +74,15 @@
 							</div>
 							<br />
 						<div>
-						*Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
+						Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
+						[Mandatory for Rejecting or OnHolding Request]
 						</div>
 						
 						<br />
 							<input type="submit"  name="action" value="Accept" onclick="return validateForm()"/>
 							<input type="submit" name="action" value="Reject" onclick="return validateButtonRejected()"/>
 							<input type="submit" name="action" value="OnHold" onclick="return validateButtonOnHold()"/>
+							<input type="reset" value="Reset"/>
 							</form>
 							<br />
 							

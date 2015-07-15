@@ -38,11 +38,11 @@
 
 			
 				<div class="header_01" >Assign Resources </div>
-				<h2 style="color:white;">Request - ${reqId} FOR Team - ${teamName} </h2>
-				[ASE - ${workplanAdminDTO.aseRequested}, SE - ${workplanAdminDTO.seRequested}, SSE -${workplanAdminDTO.sseRequested}]
+				<h2 style="color:white;">Request - <font color="#00FFFF">${reqId}</font> &nbsp; for Team - <font color="#00FFFF">${teamName}</font> </h2>
+			<font size="3" color="#00FFFF">	[ASE - ${workplanAdminDTO.aseRequested}, SE - ${workplanAdminDTO.seRequested}, SSE -${workplanAdminDTO.sseRequested}]</font>
 					<br/>
 				<form name="calculateForm" action="AcceptRequestServlet"  onsubmit="return validateForm()"  method="post">
-						
+						<br/>
 						<div id="scrollable"   style="font-size: 14px;">
 						
 						<table class="table2" > 
@@ -120,18 +120,21 @@
 							</div>
 							
 							<div>
-									Current Average LCR - ${workplanAdminDTO.currentAvg}
+							<br/>
+								<font size="4">	Current Average LCR</font> -<font color="blue" size="4"> ${workplanAdminDTO.currentAvg}</font>
 								
-						<br />
-						<input type="button"  name="calculate" value="Calculate"  onclick="cal(${workplanAdminDTO.total}, ${workplanAdminDTO.numberOfEmployee})"/> &nbsp; 
+						<br/><br/>
+						<font size="4">	New Average LCR</font> - 
 						<input type="text" name="newAverage" disabled="disabled" id="newAverage"/>
+						<input type="button"  name="calculate" value="Calculate"  onclick="cal(${workplanAdminDTO.total}, ${workplanAdminDTO.numberOfEmployee})"/> &nbsp; 
+						
 						<br /><br />
-						*Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
+						<font size="2">*Reason</font> &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>
 						
 						<input type="hidden" name="reqId" value="${reqId }"/>
 						<br />
 							<input type="submit"  name="action" value="Assign"/>
-									
+							<input type="reset" value="Reset"/>
 							</div>
 						
                         </form>
