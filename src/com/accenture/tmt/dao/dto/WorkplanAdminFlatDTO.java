@@ -7,11 +7,11 @@ public class WorkplanAdminFlatDTO {
 	private int aseRequested ;
 	private int seRequested ;
 	private int sseRequested ;
-	private Map<String, Integer> freeASEList ;
-	private Map<String, Integer> freeSEList ;
-	private Map<String, Integer> freeSSEList ;
+	private Map<String, Float> freeASEList ;
+	private Map<String, Float> freeSEList ;
+	private Map<String, Float> freeSSEList ;
 	private float currentAvg ;
-	private int total ;
+	private float total ;
 	private int numberOfEmployee ;
 	
 	public int getAseRequested() {
@@ -32,22 +32,22 @@ public class WorkplanAdminFlatDTO {
 	public void setSseRequested(int sseRequested) {
 		this.sseRequested = sseRequested;
 	}
-	public Map<String, Integer> getFreeASEList() {
+	public Map<String, Float> getFreeASEList() {
 		return freeASEList;
 	}
-	public void setFreeASEList(Map<String, Integer> freeASEList) {
-		this.freeASEList = freeASEList;
+	public void setFreeASEList(Map<String, Float> freeASEList2) {
+		this.freeASEList = freeASEList2;
 	}
-	public Map<String, Integer> getFreeSEList() {
+	public Map<String, Float> getFreeSEList() {
 		return freeSEList;
 	}
-	public void setFreeSEList(Map<String, Integer> freeSEList) {
+	public void setFreeSEList(Map<String, Float> freeSEList) {
 		this.freeSEList = freeSEList;
 	}
-	public Map<String, Integer> getFreeSSEList() {
+	public Map<String, Float> getFreeSSEList() {
 		return freeSSEList;
 	}
-	public void setFreeSSEList(Map<String, Integer> freeSSEList) {
+	public void setFreeSSEList(Map<String, Float> freeSSEList) {
 		this.freeSSEList = freeSSEList;
 	}
 	public float getCurrentAvg() {
@@ -56,10 +56,10 @@ public class WorkplanAdminFlatDTO {
 	public void setCurrentAvg(float currentAvg) {
 		this.currentAvg = currentAvg;
 	}
-	public int getTotal() {
+	public float getTotal() {
 		return total;
 	}
-	public void setTotal(int total) {
+	public void setTotal(float total) {
 		this.total = total;
 	}
 	public int getNumberOfEmployee() {
