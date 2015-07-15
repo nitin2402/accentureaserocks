@@ -86,7 +86,7 @@ private List<String> projectNames = new ArrayList<String>();
 				ProjectDTO current = new ProjectDTO();
 				current.setProjectName(rs.getString("ProjectName"));
 				current.setCurrentRelease(rs.getString("CurrentRelease"));
-				/*current.setReleaseDate(rs.getString("ReleaseDate"));*/
+				current.setReleaseDate(rs.getString("ReleaseDate"));
 				
 				list.add(current);
 			}
@@ -134,13 +134,14 @@ private List<String> projectNames = new ArrayList<String>();
 		return list;
 	}
 	
-	public int editCurrent(String currentRelease, String projectName){
+	public int editCurrent(String currentRelease, String projectName, String releaseDate){
 		int curr = 0;
 		try{
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con.prepareStatement(CONSTANTS.Current_Edit);
 			st.setString(1, currentRelease);
-			st.setString(2, projectName);
+			st.setString(2, releaseDate);
+			st.setString(3, projectName);
 			curr= st.executeUpdate();
 			con.commit();
 			con.close();
@@ -159,8 +160,7 @@ private List<String> projectNames = new ArrayList<String>();
 	}
 	public List<ProjectDTO> fetchCurrent(String ProjectName){
 		List<ProjectDTO> currentList = new ArrayList<ProjectDTO>();
-		
-		ProjectDTO details = null;
+	    ProjectDTO details = null;
 		try {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con.prepareStatement(CONSTANTS.Current_Fetch);
@@ -172,6 +172,7 @@ private List<String> projectNames = new ArrayList<String>();
 			details = new ProjectDTO();
 			details.setProjectName(ProjectName);
 			details.setCurrentRelease(rs.getString(CONSTANTS.Current_Release));
+			details.setReleaseDate(rs.getString(CONSTANTS.Release_Date));
 			
 			currentList.add(details);
 		}
