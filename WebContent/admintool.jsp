@@ -53,12 +53,12 @@
 						</form>
 					</div>
 					<br /> <br /> <br /> <br />
-					<div class="notification">${message1}</div>
+					<div class="notification">${message}</div>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
 				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
+				<p class="error" style="font-size: 14px; color: red;">${message1}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
