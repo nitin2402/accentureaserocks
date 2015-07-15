@@ -44,7 +44,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null  ){
     %><jsp:forward page="home.jsp?msg=Please Login " /><%
 }
 %>
-	<div id="templatemo_container" />
+	<div id="templatemo_container">
 	<div id="templatemo_header">
 		<div id="site_title_section">
 			<div id="site_title">Talent Management Tool</div>
@@ -65,9 +65,15 @@ if (session1 == null || (String)session1.getAttribute("user") == null  ){
 			<%
 				 if ((String) session1.getAttribute("admin") == "admin") { 
 			%>
-			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp">Admin Tools</a></li>
+			
+				<li><a href="adminhome.jsp">Home</a></li>
+			<li><a href="admintool.jsp"">Admin Tools</a></li>
+			<li><a href="searchrequest.jsp">Workplan</a></li>
+			<li><a href="ProjectAdmin.jsp">Projects</a></li>
+			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
 			<%
 				 }
 			%>
@@ -76,37 +82,23 @@ if (session1 == null || (String)session1.getAttribute("user") == null  ){
 			%>
 
 			<li><a href="userhome.jsp">Home</a></li>
-			<li><a href="User_initiative.jsp">Initiatives</a></li>
+			<li><a href="workplanvia.jsp">Workplan</a></li>
+			<li><a href="user_initiative.jsp">Initiatives</a></li>
+			<li><a href="ProjectUser.jsp">Project</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
 			
 			<%
 				 } 
 			%>
-			<li><a href="#">Workplan</a></li>
-			<li><a href="#" class="current">Projects</a></li>
-			<li><a href="#">About Us</a></li>
-			<li><a href="mainreports.jsp">Reports</a></li>
 			
-			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
 	</div>
 
 	<div id="templatemo_content">
-	<%
-				 if ((String) session1.getAttribute("admin") == "admin") { 
-			%>
-	<%@ include file="common_left_admintool.jsp" %>
-	<%
-				 }
-			%>
-			
-			<%
-				 if ((String) session1.getAttribute("admin") == "user") { 
-			%>
-			<%@ include file="common_left.jsp" %>
-			
-			<%
-				 } 
-			%>
+	
+	<%@ include file="common_left.jsp" %>
+	
 
 		<div id="content_left">
 
@@ -140,7 +132,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null  ){
 			<div class="right_col_section_w650" style="height: 300px">
 
 				<div class="header_01">Team Employee Details</div>
-
+					<div id="search">
 
 				<div>
 
@@ -160,12 +152,13 @@ if (session1 == null || (String)session1.getAttribute("user") == null  ){
 				<p class="error" style="font-size: 14px; color: red;">${message}</p>
 			<div class="cleaner">&nbsp;</div>
 		</div>
+		</div>
 		<div id="templatemo_content_bottom">&nbsp;</div>
 		<div id="templatemo_footer">
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
 	</div>
-
+</div>
 
 </body>
 </html>
