@@ -3,15 +3,14 @@ package com.accenture.tmt.presentation.servlet;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.sql.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -40,7 +39,7 @@ public class AddEmployeeExcel extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
@@ -142,7 +141,12 @@ public class AddEmployeeExcel extends HttpServlet {
 		
 			ExcelController add = new ExcelController();
 			
-			c=add.addFromExcel(listOfEmps);
+			try {
+				c=add.addFromExcel(listOfEmps);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		if(c !=0){
 			request.setAttribute("message","Record Inserted");
@@ -152,10 +156,13 @@ public class AddEmployeeExcel extends HttpServlet {
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		workbook.close();
 			file.close();
-		} catch (ClassNotFoundException e) {
+		}  catch (Exception e) {
 			// TODO Auto-generated catch block
+			System.out.println("Error in parsing XLS : ");
 			e.printStackTrace();
+			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
+		
 		}
 	}
 
-}
