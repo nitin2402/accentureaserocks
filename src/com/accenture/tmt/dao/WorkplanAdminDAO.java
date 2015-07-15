@@ -17,9 +17,9 @@ public class WorkplanAdminDAO {
 	public WorkplanAdminFlatDTO fetchData(ActionDTO actiondto){
 		
 		WorkplanAdminFlatDTO workplanAdminFlatDTO = new WorkplanAdminFlatDTO();
-		Map<String, Integer> freeASEList = new HashMap<String, Integer>();
-		Map<String, Integer> freeSEList = new HashMap<String, Integer>();
-		Map<String, Integer> freeSSEList = new HashMap<String, Integer>();
+		Map<String, Float> freeASEList = new HashMap<String, Float>();
+		Map<String, Float> freeSEList = new HashMap<String, Float>();
+		Map<String, Float> freeSSEList = new HashMap<String, Float>();
 		
 		ResultSet rs = null ;
 		try {
@@ -30,7 +30,7 @@ public class WorkplanAdminDAO {
 				rs = st.executeQuery();
 
 				 while(rs.next()){
-					 freeASEList.put(rs.getString("EmployeeName"), rs.getInt("LCR"));
+					 freeASEList.put(rs.getString("EmployeeName"), rs.getFloat("LCR"));
 			 }
 				
 				 workplanAdminFlatDTO.setFreeASEList(freeASEList);
@@ -40,8 +40,7 @@ public class WorkplanAdminDAO {
 					rs = st.executeQuery();
 					
 					 while(rs.next()){
-						 freeSEList.put(rs.getString("EmployeeName"), rs.getInt("LCR"));
-						 
+						 freeSEList.put(rs.getString("EmployeeName"), rs.getFloat("LCR"));
 				 }
 					 
 					 workplanAdminFlatDTO.setFreeSEList(freeSEList);
@@ -50,7 +49,7 @@ public class WorkplanAdminDAO {
 						rs = st.executeQuery();
 						
 						 while(rs.next()){
-							 freeSSEList.put(rs.getString("EmployeeName"), rs.getInt("LCR"));
+							 freeSSEList.put(rs.getString("EmployeeName"), rs.getFloat("LCR"));
 					 }
 						 
 						 workplanAdminFlatDTO.setFreeSSEList(freeSSEList);
@@ -72,6 +71,21 @@ public class WorkplanAdminDAO {
 				 while(rs.next()){
 					 workplanAdminFlatDTO.setCurrentAvg(rs.getFloat("AVERAGE"));
 				 }
+				 
+				 rs = null ;
+				 st = con.prepareStatement(CONSTANTS.TOTAL_LCR_QUERY);
+				 rs = st.executeQuery();
+				 while(rs.next()){
+					 workplanAdminFlatDTO.setTotal(rs.getFloat("TOTAL"));
+				 }
+				 
+				 rs = null ;
+				 st = con.prepareStatement(CONSTANTS.COUNT_BILLABLE_EMPLOYEE_QUERY);
+				 rs = st.executeQuery();
+				 while(rs.next()){
+					 workplanAdminFlatDTO.setNumberOfEmployee(rs.getInt("NumberOfEmployee"));
+				 }
+				 
 				 
 			}
 		} catch (Exception e) {
