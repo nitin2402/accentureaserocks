@@ -76,7 +76,7 @@ if (session1 == null   || (String)session1.getAttribute("user") == null /* || (B
 				<div class="content_left_section_title">Tasks</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="addempvia.jsp" >Add Employee </a></li>
+						<li><a href="admintool.jsp" >Add Employee </a></li>
 							
 						
 						<li><a href="addmodulevia.jsp" >Add Module</a></li>
