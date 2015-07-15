@@ -48,6 +48,10 @@ public class EditTeam extends HttpServlet {
 		String submit2=request.getParameter("submit2");
 		String team = request.getParameter("teamedit");
 		TeamController teamoperation = new TeamController();
+		if(team==null){
+			request.setAttribute("message","Please select the radio button");
+			request.getRequestDispatcher("viewteam.jsp").forward(request, response);	
+		}
 		if(submit1!=null){
 		List<TeamDetailsFlatDTO> li = new ArrayList<TeamDetailsFlatDTO>();
 		
