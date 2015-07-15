@@ -67,10 +67,10 @@ public class FetchTeamEmployees extends HttpServlet {
 
 		EmployeeController countEmp = new EmployeeController();
 
-		noOfASE = countEmp.fetchEmployeeCount(tid, "Associate Software Engineer");
-		noOfSE = countEmp.fetchEmployeeCount(tid, "Software Engineer");
-		noOfSSE = countEmp.fetchEmployeeCount(tid, "Senior Software Engineer");
-	    noOfTL=countEmp.fetchEmployeeCount(tid, "Team Lead");
+		noOfASE = countEmp.fetchEmployeeCount(tid, "ASE");
+		noOfSE = countEmp.fetchEmployeeCount(tid, "SE");
+		noOfSSE = countEmp.fetchEmployeeCount(tid, "SSE");
+	    noOfTL=countEmp.fetchEmployeeCount(tid, "TL");
 		
 
 		PrintWriter print = response.getWriter();
