@@ -23,13 +23,12 @@
 		<div id="templatemo_header">
 			<div id="site_title_section">
 				<div id="site_title">Talent Management Tool</div>
-				<div id="slogan">The place to look back</div>
+				<div id="slogan">plan, organize, budget, schedule</div>
 				<div class="cleaner">&nbsp;</div>
 			</div>
 
-			<div id="header_section_code">"Overall approach is to maintain
-				pyramid form for all designation levels as per Accenture
-				compliance."</div>
+			<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
+	</div>
 		</div>
 		<!-- end of header -->
 
@@ -96,7 +95,7 @@
 			Copyright © 2015 <a href="http://www.accenture.com">Accenture</a>
 		</div>
 		<!-- end of footer -->
-	</div>
+	
 	<!-- end of container -->
 </body>
 </html>
