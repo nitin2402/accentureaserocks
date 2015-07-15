@@ -41,7 +41,7 @@ function cal(total, numberOfEmployee){
 	  if (checkboxes1[i].checked) 
 	  {
 		  var res = (checkboxes1[i].value).split("_");
-		  vals += parseInt(res[0]);
+		  vals += parseFloat(res[0]);
 		  count++;
 	  }
 	}
@@ -49,7 +49,7 @@ function cal(total, numberOfEmployee){
 		  if (checkboxes2[i].checked) 
 		  {
 			  var res = (checkboxes2[i].value).split("_");
-			  vals += parseInt(res[0]);
+			  vals += parseFloat(res[0]);
 			  count++;
 		  }
 		}
@@ -57,7 +57,7 @@ function cal(total, numberOfEmployee){
 		  if (checkboxes3[i].checked) 
 		  {
 			  var res = (checkboxes3[i].value).split("_");
-			  vals += parseInt(res[0]);
+			  vals += parseFloat(res[0]);
 			  count++;
 		  }
 		}
