@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 				<div id="search">
 
-					<h1 id="current1" ><a href="#"> Current Release</a></h1>
+					<h1 id="current1" > Current Release</a></h1>
 					<div id="scrollable" style="font-size: 14px;">
 						<table class="table2" id="current">
 
@@ -96,6 +96,7 @@ $(document).ready(function(){
 									
 									<td>Current Release</td>
 									<td>Project Name</td>
+									<td>Release Date</td>
 
 								</tr>
 							</thead>
@@ -103,19 +104,22 @@ $(document).ready(function(){
 							<br/>
 							<tbody>
 								<jstlcore:forEach items="${current}" var="item">
-									<tr class="table_align">
+									<tr>
 										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
 								
 										<td><jstlcore:out value="${item.currentRelease}" /></td>
 										<td><jstlcore:out value="${item.projectName}" /></td>
+										<td><jstlcore:out value="${item.releaseDate}" /></td>
 
 									</tr>
 								</jstlcore:forEach>
 							</tbody>
 						</table>
+						<br/>
+						
 					</div>
-					<h1 id="release1">
+					<%-- <h1 id="release1">
 						<a href="#"> Release Date </a>
 					</h1>
 					<div id="scrollable" style="font-size: 14px;">
@@ -133,7 +137,7 @@ $(document).ready(function(){
 							<br />
 							<tbody>
 								<jstlcore:forEach items="${release}" var="item">
-									<tr class="table_align">
+									<tr>
 										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
 
 
@@ -144,8 +148,9 @@ $(document).ready(function(){
 								</jstlcore:forEach>
 							</tbody>
 						</table>
-					</div>
+					</div> --%>
 				</div>
+				<a href="#"> Roll on Process</a> &nbsp; &nbsp;  <a href="#"> Roll off Process</a>
 				<div id="welcome_msg"
 					style="color: yellow; float: right; font-size: 12px;">
 					<a href="AboutProjectuser.jsp">About Project</a>
@@ -156,5 +161,6 @@ $(document).ready(function(){
 				<div class="cleaner">&nbsp;</div>
 			</div>
 			<%@ include file="footer.jsp"%>
+			</div>
 		</div></body>
 </html>
