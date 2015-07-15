@@ -29,13 +29,13 @@ public class ProjectController {
 		return list;
 		
 	}
-	public int EditCurrent(String currentRelease, String projectName){
-		int curr=projectDAO.editCurrent(currentRelease, projectName);
+	public int EditCurrent(String currentRelease, String projectName, String releaseDate){
+		int curr=projectDAO.editCurrent(currentRelease, projectName, releaseDate);
 		return curr;
 	}
 	
-	public List<ProjectDTO> FetchCurrent(String CurrentRelease){
-		List<ProjectDTO> list = projectDAO.fetchCurrent(CurrentRelease);
+	public List<ProjectDTO> FetchCurrent(String ProjectName){
+		List<ProjectDTO> list = projectDAO.fetchCurrent(ProjectName);
 		return list;
 		
 	}
