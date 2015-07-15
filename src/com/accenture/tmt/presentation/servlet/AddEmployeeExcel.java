@@ -145,10 +145,10 @@ public class AddEmployeeExcel extends HttpServlet {
 			c=add.addFromExcel(listOfEmps);
 
 		if(c !=0){
-			request.setAttribute("message1","Record Inserted");
+			request.setAttribute("message","Record Inserted");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		if(c ==0){
-			request.setAttribute("message1","Record insertion failed");
+			request.setAttribute("message","Record insertion failed");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		workbook.close();
 			file.close();
