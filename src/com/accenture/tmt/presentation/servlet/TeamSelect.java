@@ -37,7 +37,7 @@ public class TeamSelect extends HttpServlet {
 String select = request.getParameter("select");
 		
 		if(select=="addfromexcel" || select .equals("addfromexcel"))
-			response.sendRedirect("store.jsp");
+			response.sendRedirect("addteamexcel.jsp");
 		if(select=="addmanually" || select .equals("addmanually"))
 			response.sendRedirect("AddTeamManually.jsp");
 		
