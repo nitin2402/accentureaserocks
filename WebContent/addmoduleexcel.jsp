@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Talent Management Tool</title>
+<title></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -22,31 +22,27 @@
 	});
 </script>
 
-<script type='text/javascript' src='addempexcel.js'></script>
 
+<script type='text/javascript' src='addempexcel.js'></script>
 <script type='text/javascript' src='search.js'></script>
 
 </head>
 <body>
-<%@ include file="header_admin.jsp" %>  
-	
+<%@ include file="header_admin.jsp"%>
+
+<%-- 	 <jsp:include page="/fetchmodule.jsp" />  --%>
+
+	<%-- <%
+
+HttpSession session1 = request.getSession(false);
+if (session1 == null  || (String)session1.getAttribute("user") == null || (Boolean)session1.getAttribute("admin") != true ){
+    %><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 	<%
-		HttpSession session1 = request.getSession(false);
-
-		if (session1 == null
-
-		|| (String) session1.getAttribute("user") == null
-
-		|| (String) session1.getAttribute("admin") != "admin") {
-	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
-
-	<%
-		}
-	%>
-	<div id="templatemo_content">
+}
+%> --%><div id="templatemo_content">
 
 		<%@ include file="common_left_admintool.jsp"%>
-		
+	
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
@@ -58,19 +54,20 @@
 
 
 					<div id="search" style="font-size: 14px;">
-					<div >
+					<div>
 							<a href="template/ModuleExcel.xlsx"> This link will open
-								the Excel Sheet Template </a>
-								<br /> <br /> <br /> 
+								the Excel Sheet Template </a> <br /> <br /> <br />
 						</div>
+					
 						<form action="AddModuleExcel" method="post"
 							onsubmit="return Validate(this);">
+							<input type="file" name="file1"
+								size="50"
+								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
+
 							<input type="hidden" id="sheetno" name="sheetno" />
 							<!-- <form action="UploadServlet" method="post" enctype="multipart/form-data"> -->
-							<input type="file" name="file1"
-								size="50" style="border: solid 1px #D7C89D;background-color:  #D7C89D; width: 50% ;color: #8D5B13;"  /> 
-							
-								 <br /> <br /> 
+							 
 							<input type="submit" value="Submit" />
 						</form>
 
@@ -78,8 +75,8 @@
 						<!-- <a href="editteam.jsp">Edit Team</a> -->
 					</div>
 
+<div id="ajaxResponse"></div>
 
-	<div id="ajaxResponse"></div>
 					<div class="cleaner">&nbsp;</div>
 				</div>
 
