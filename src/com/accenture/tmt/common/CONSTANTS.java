@@ -193,7 +193,7 @@ public interface CONSTANTS {
 	
 	
 	
-	public String GET_UNAUTHORIZED_EMPLOYEE_QUERY = "select L_ID,Username,TypeOfUser,EmployeeId,ActiveUser,EmployeeDesignation from Login L, Employee E where L.EmployeeId = E.EMployeeId AND TypeOfUser = 'UNAUTHORISED' AND ActiveUser = 'n' ";
+	public String GET_UNAUTHORIZED_EMPLOYEE_QUERY = "select L_ID,Username,TypeOfUser,EmployeeId,ActiveUser,EmployeeDesignation from Login L, Employee E where L.EmployeeId = E.EmployeeId AND TypeOfUser = 'UNAUTHORISED' AND ActiveUser = 'n' ";
 	public String UPDATE_TYPE_OF_VIEWER_QUERY = "UPDATE Login SET TypeOfUser = 'VIEWER' , ActiveUser = 'y' where L_ID = ? ";
 	public String UPDATE_TYPE_OF_USER_QUERY = "UPDATE Login SET TypeOfUser = 'USER' , ActiveUser = 'y' where L_ID = ? ";
 	public String UPDATE_TYPE_OF_ADMIN_QUERY = "UPDATE Login SET TypeOfUser = 'ADMIN' , ActiveUser = 'y' where L_ID = ? ";
