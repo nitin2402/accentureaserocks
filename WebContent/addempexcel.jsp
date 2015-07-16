@@ -31,8 +31,8 @@
 
 
 
-<%@ include file="header_admin.jsp" %>  
-	
+	<%@ include file="header_admin.jsp"%>
+
 	<%
 		HttpSession session1 = request.getSession(false);
 
@@ -59,30 +59,23 @@
 
 				<div>
 
-   
+
 					<div id="search" style="font-size: 14px;">
-						<div >
+						<div>
 							<a href="template/employee_excel.xlsx"> This link will open
-								the Excel Sheet Template </a>
-								<br /> <br /> <br /> 
+								the Excel Sheet Template </a> <br /> <br /> <br />
 						</div>
 						<form action="AddEmployeeExcel" method="post"
 							onsubmit="return Validate(this);">
 
-							Choose the Excel File to Upload:- 
-						
-							
-							<input type="file" name="file1"
-								size="50" style="border: solid 1px white;background-color: white; width: 50% ;"  /> 
-							
-								
-								
-								<br /> <br /> <br /> 
-								
-								
-								<input type="hidden"
-								id="sheetno" name="sheetno" /> <br /> <input type="submit"
-								value="Submit" />
+							Choose the Excel File to Upload:- <input type="file" name="file1"
+								size="50"
+								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
+
+
+
+							<br /> <br /> <br /> <input type="hidden" id="sheetno"
+								name="sheetno" /> <br /> <input type="submit" value="Submit" />
 						</form>
 						<br />
 
