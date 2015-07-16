@@ -6,7 +6,9 @@ import java.util.List;
 import com.accenture.tmt.dao.EmployeeDAO;
 import com.accenture.tmt.dao.WorkplanDAO;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.pieCount;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.presentation.dto.PieChartDTO;
 import com.accenture.tmt.presentation.dto.SearchFormDTO;
 
 import static java.lang.System.out;
@@ -34,9 +36,6 @@ public class EmployeeController {
 	detailsFDO.setLastWD(emp.getLastWD());
 	detailsFDO.setIsBillable(emp.getIsBillable());
 	detailsFDO.setIsActive(emp.getIsActive());
-	
-	detailsFDO.setCost(emp.getCost());
-	
 	EmployeeDAO dao=new EmployeeDAO();
 	int staus=dao.addEmployee(detailsFDO);
 
@@ -52,7 +51,6 @@ public class EmployeeController {
 	}
 	
 	public List<EmployeeDetailsFlatDTO> viewEmployee(){
-		employeeDAO= new EmployeeDAO();
 		List<EmployeeDetailsFlatDTO> empList= new ArrayList<EmployeeDetailsFlatDTO>();
 		empList = employeeDAO.viewEmployee();
 		return empList;
@@ -113,4 +111,12 @@ public List<String> fetchTeamList(){
 		List<EmployeeDetailsFlatDTO> employeeList=employeeDAO.getToAssign(employee);
 				return employeeList;
        }
+	public List<pieCount> fetchPieDetails(PieChartDTO pieDTO) {
+		List<pieCount> piechartlist= new ArrayList<pieCount>();
+		piechartlist=EmployeeDAO.fetchPieDetails(pieDTO);
+		return piechartlist;
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
