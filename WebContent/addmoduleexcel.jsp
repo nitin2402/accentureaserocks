@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -21,117 +21,31 @@
 		$(".header_09").hide();
 	});
 </script>
-<script type="text/javascript">
-	$(function() {
-		$('.last').click(
-				function(event) {
-					var email = 'chinu.mohanty@accenture.com';
-					var subject = 'Feedback';
-					var emailBody = 'Hi Chinu,';
-					window.location = 'mailto:' + email + '?subject=' + subject
-							+ '&body=' + emailBody;
-				});
-	});
-</script>
-<script>
 
-	function SelectSheetNo() {
-		var sheet = prompt("please enter sheet number", "1");
+<script type='text/javascript' src='addempexcel.js'></script>
 
-		$("#sheetno").val(sheet);
-
-		if (sheet == null || sheet == "") {
-			alert("please enter sheet number");
-			return false;
-		} else {
-
-			return true;
-		}
-	}
-</script>
-
-
+<script type='text/javascript' src='search.js'></script>
 
 </head>
 <body>
-<%-- 	 <jsp:include page="/fetchmodule.jsp" />  --%>
-
-	<%-- <%
-
-HttpSession session1 = request.getSession(false);
-if (session1 == null  || (String)session1.getAttribute("user") == null || (Boolean)session1.getAttribute("admin") != true ){
-    %><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+<%@ include file="header_admin.jsp" %>  
+	
 	<%
-}
-%> --%>
-	<div id="templatemo_container" />
-	<div id="templatemo_header">
-		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
-			<div id="slogan">The place to look back</div>
-			<div class="cleaner">&nbsp;</div>
-		</div>
-		<div id="welcome_msg"
-			style="color: yellow; float: right; font-size: 12px;">
-			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
-		</div>
-		<div id="header_section_code">"Overall approach is to maintain
-			pyramid form for all designation levels as per Accenture compliance."</div>
-	</div>
+		HttpSession session1 = request.getSession(false);
 
-	<div id="templatemo_menu">
-		<ul>
-			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp" class="current" style="font-weight: bold; text-decoration: underline">Admin Tools</a></li>
-			<li><a href="#">Workplan</a></li>
-			<li><a href="#">Projects</a></li>
-			<li><a href="aboutus.jsp">About Us</a></li>
-			<!-- <li><a href="logout.jsp">Logout</a></li> -->
-			<li><a href="#" class="last">Contact Us</a></li>
-		</ul>
-	</div>
+		if (session1 == null
 
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
+	<%
+		}
+	%>
 	<div id="templatemo_content">
 
-		<div id="content_left">
-
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Tasks</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="admintool.jsp">Add Employee </a></li>
-
-
-						<li><a href="addmodulevia.jsp" style="font-weight: bold; text-decoration: underline">Add Module -> </a></li>
-						<li><a href="addteamvia.jsp">Add Team</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">View</div>
-				<div class="content_left_section_content">
-					<%-- <form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form> --%>
-					<ul>
-						<li><a href="viewemployee.jsp">View Employees</a></li>
-
-
-						<li><a href="viewteam.jsp">View Teams</a></li>
-						<li><a href="viewmodule.jsp">View Module</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-			<div class="margin_bottom_20">&nbsp;</div>
-
-		</div>
+		<%@ include file="common_left_admintool.jsp"%>
 		
 		<div id="content_right">
 
@@ -143,13 +57,21 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 				<div>
 
 
-					<div style="font-size: 14px;">
+					<div id="search" style="font-size: 14px;">
+					<div >
+							<a href="template/ModuleExcel.xlsx"> This link will open
+								the Excel Sheet Template </a>
+								<br /> <br /> <br /> 
+						</div>
 						<form action="AddModuleExcel" method="post"
-							onsubmit="return SelectSheetNo()">
+							onsubmit="return Validate(this);">
 							<input type="hidden" id="sheetno" name="sheetno" />
 							<!-- <form action="UploadServlet" method="post" enctype="multipart/form-data"> -->
-							<input type="file" name="file1" size="50" /> <br /> <br /> 
-							<input type="submit" value="insert" />
+							<input type="file" name="file1"
+								size="50" style="border: solid 1px #D7C89D;background-color:  #D7C89D; width: 50% ;color: #8D5B13;"  /> 
+							
+								 <br /> <br /> 
+							<input type="Submit" value="Submit" />
 						</form>
 
 						<br />
@@ -157,7 +79,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 					</div>
 
 
-
+	<div id="ajaxResponse"></div>
 					<div class="cleaner">&nbsp;</div>
 				</div>
 
@@ -167,10 +89,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 			<div class="cleaner">&nbsp;</div>
 		</div>
 	
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
+		<%@ include file="footer.jsp"%>
 	</div>
 
 
