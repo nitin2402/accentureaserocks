@@ -45,7 +45,7 @@
 
 	<div id="templatemo_content">
 	
-	<%@ include file="common_left_admintool.jsp"%>
+	<%@ include file="common_left.jsp"%>
 
 
 
@@ -70,6 +70,12 @@
 									<td>Current Release</td>
 									<td><input type="text" name="CurrentRelease"
 										value="${list.currentRelease}" style="width: 200px;" /></td>
+
+								</tr>
+								<tr>
+									<td>Release Date</td>
+									<td><input type="text" name="ReleaseDate"
+										value="${list.releaseDate}" style="width: 200px;" /></td>
 
 								</tr>
 								<tr>
