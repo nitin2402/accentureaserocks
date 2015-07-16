@@ -85,7 +85,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 			<li><a href="admintool.jsp" class="current" style="font-weight: bold; text-decoration: underline">Admin Tools</a></li>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="aboutus.jsp">About Us</a></li>
 			<!-- <li><a href="logout.jsp">Logout</a></li> -->
 			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
