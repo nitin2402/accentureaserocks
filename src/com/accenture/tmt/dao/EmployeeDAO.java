@@ -383,64 +383,64 @@ public class EmployeeDAO {
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
 				++count;
-				if (rs.getString("Billable") == "yes") {
+				if (rs.getString("Billable").equals("yes")) {
 					++billable;
 				}
-				if(rs.getString("EmployeeDesignation") == "ASE"){
+				if(rs.getString("EmployeeDesignation") .equals( "ASE")){
 					++ASE;
 				}
-				if(rs.getString("EmployeeDesignation") == "SE"){
+				if(rs.getString("EmployeeDesignation") .equals( "SE")){
 					++SE;
 				}
-				if(rs.getString("EmployeeDesignation") == "SSE"){
+				if(rs.getString("EmployeeDesignation") .equals( "SSE")){
 					++SSE;
 				}
-				if(rs.getString("EmployeeDesignation") == "TL"){
+				if(rs.getString("EmployeeDesignation") .equals( "TL")){
 					++TL;
 				}
-				if(rs.getString("EmployeeDesignation") == "AM"){
+				if(rs.getString("EmployeeDesignation") .equals( "AM")){
 					++AM;
 				}
-				if(rs.getString("EmployeeExpertise") == "Angular JS"){
+				if(rs.getString("EmployeeExpertise") .equals( "Angular JS")){
 					++angularJS;
 				}
-				if(rs.getString("EmployeeExpertise") == "AT"){
+				if(rs.getString("EmployeeExpertise") .equals( "AT")){
 					++AT;
 				}
-				if(rs.getString("EmployeeExpertise") == "C++/Unix"){
+				if(rs.getString("EmployeeExpertise") .equals( "C++/Unix")){
 					++C_UNIX;
 				}
-				if(rs.getString("EmployeeExpertise") == "FST"){
+				if(rs.getString("EmployeeExpertise") .equals( "FST")){
 					++FST;
 				}
-				if(rs.getString("EmployeeExpertise") == "HTML"){
+				if(rs.getString("EmployeeExpertise") .equals( "HTML")){
 					++HTML;
 				}
-				if(rs.getString("EmployeeExpertise") == ("Java") || rs.getString("EmployeeExpertise") == ("JAVA") || rs.getString("EmployeeExpertise") == ("java")){
+				if(rs.getString("EmployeeExpertise") .equals ("Java") || rs.getString("EmployeeExpertise") .equals("JAVA") || rs.getString("EmployeeExpertise") .equals("java")){
 					++java;
 				}
-				if(rs.getString("EmployeeExpertise") == "JSP"){
+				if(rs.getString("EmployeeExpertise") .equals( "JSP")){
 					++JSP;
 				}
-				if(rs.getString("EmployeeExpertise") == "QA"){
+				if(rs.getString("EmployeeExpertise") .equals( "QA")){
 					++QA;
 				}
-				if(rs.getString("EmployeeExpertise") == "TBD"){
+				if(rs.getString("EmployeeExpertise") .equals( "TBD")){
 					++TBD;
 				}
-				if(rs.getString("ProficiencyCams") == "P0"){
+				if(rs.getString("ProficiencyCams") .equals( "P0")){
 					++p0;
 				}
-				if(rs.getString("ProficiencyCams") == "P1"){
+				if(rs.getString("ProficiencyCams") .equals( "P1")){
 					++p1;
 				}
-				if(rs.getString("ProficiencyCams") == "P2"){
+				if(rs.getString("ProficiencyCams") .equals( "P2")){
 					++p2;
 				}
-				if(rs.getString("ProficiencyCams") == "P3"){
+				if(rs.getString("ProficiencyCams") .equals( "P3")){
 					++p3;
 				}
-				if(rs.getString("ProficiencyCams") == "P4"){
+				if(rs.getString("ProficiencyCams") .equals( "P4")){
 					++p4;				}
 				
 				
