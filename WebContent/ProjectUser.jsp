@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 <body>
 	<jsp:include page="/ProjectCurrent"/>
-	<jsp:include page="/ProjectRelease"/>
+
  <%-- <% 
 		HttpSession session1 = request.getSession(false);
  %>
@@ -74,7 +74,7 @@ $(document).ready(function(){
 
 	<div id="templatemo_content">
 	
-	<%@ include file="common_left_admintool.jsp"%>
+	<%@ include file="common_left.jsp"%>
 
 
 
