@@ -53,6 +53,11 @@ $(document).ready(function(){
 	});
 </script>
 <script type='text/javascript' src='search.js'></script>
+<style>
+table, th, td {
+    border: 0px; 
+}
+</style>
 </head>
 
 
@@ -72,7 +77,7 @@ $(document).ready(function(){
 
 	<div id="templatemo_content">
 	
-	<%@ include file="common_left_admintool.jsp"%>
+	<%@ include file="common_left.jsp"%>
 
 				
 		<div id="content_right">
@@ -84,6 +89,29 @@ $(document).ready(function(){
 			style="color: yellow; float: right; font-size: 12px;">
 			<a href="ProjectUser.jsp">Back</a>
 		</div>
+				</div>
+				<div style="font-size: 14px;">
+				<p>Following projects have been taken under ARISTOS:</p>
+				<ul><li><b><u>E-Strategy</u></b></li>
+	E-Strategy is one of the projects under ARISTOS.It includes E-Ordering , E-Status , Testing , Registration and MnM. 
+				
+				<br/><br/>
+				<li><b><u>R3</u></b></li>
+				R3 includes BIDR3-1 and BIDR3-2.
+	BID: provides a single storefront (BID) where customers can easily find or be presented with relevant products and solutions based on their business needs. 
+					<br/><br/>
+				<li><b><u>Premier</u></b></li>
+	Premier Enterprise Portal  is an online (web) portal of AT&T Mobility for B2B sales and support
+    Premier architecture is based upon ATG framework and products
+	Benefits for customers :
+	Easier to purchase services, devices and accessories through personalization and targeted offers
+	Bundled and custom offers
+                               Sold across all states in the US.
+                               It includes Premier1 , Premier2 , Premier3 , Premier4 and Premier5.
+
+				
+				</ul>
+				
 				</div>
 			
 		
