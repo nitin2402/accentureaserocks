@@ -264,7 +264,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 			<li><a href="workplanvia.jsp">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="user_initiative.jsp">Initiatives</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="about_us_users.jsp">About Us</a></li>
 			<!-- <li><a href="logout.jsp">Logout</a></li>-->
 			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
