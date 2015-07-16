@@ -119,41 +119,13 @@ $(document).ready(function(){
 						<br/>
 						
 					</div>
-					<%-- <h1 id="release1">
-						<a href="#"> Release Date </a>
-					</h1>
-					<div id="scrollable" style="font-size: 14px;">
-						<table class="table2" id="release">
-
-							<thead style="font-weight: bold; position:">
-								<tr class="one" style="font-weight: bold;">
-
-									<td>Current Release</td>
-									<td>Release Date</td>
-
-								</tr>
-							</thead>
-
-							<br />
-							<tbody>
-								<jstlcore:forEach items="${release}" var="item">
-									<tr>
-										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
-
-
-										<td><jstlcore:out value="${item.currentRelease}" /></td>
-										<td><jstlcore:out value="${item.releaseDate}" /></td>
-
-									</tr>
-								</jstlcore:forEach>
-							</tbody>
-						</table>
-					</div> --%>
-				</div>
+					
+				
 				<a href="#"> Roll on Process</a> &nbsp; &nbsp;  <a href="#"> Roll off Process</a>
 				<div id="welcome_msg"
 					style="color: yellow; float: right; font-size: 12px;">
 					<a href="AboutProjectuser.jsp">About Project</a>
+				</div>
 				</div>
 				<div id="ajaxResponse"></div>
 				<p class="error" style="font-size: 14px; color: red;">${message}</p>
