@@ -112,8 +112,8 @@
 <br></br>
 				<div>
 				
-				<input type="button" id="" onclick="" value="Edit"></input>
-				<input type="button" id="" onclick="" value="Delete"></input>
+				<!-- <input type="submit" id="" onclick="" value="Edit"></input>
+				<input type="submit" id="" onclick="" value="Delete"></input> -->
 				</div>
 
 					<div>${msg1}</div>
