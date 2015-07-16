@@ -41,7 +41,7 @@
 		<ul>
 			<li><a href="viewerhome.jsp">Home</a></li>
 						<li><a href="viewer_initiative.jsp">Initiatives</a></li>
-			<li><a href="aboutus.jsp">About Us</a></li>
+			<li><a href="about_us_viewer.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 
 		</ul>
