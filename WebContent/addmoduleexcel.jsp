@@ -71,7 +71,7 @@
 								size="50" style="border: solid 1px #D7C89D;background-color:  #D7C89D; width: 50% ;color: #8D5B13;"  /> 
 							
 								 <br /> <br /> 
-							<input type="Submit" value="Submit" />
+							<input type="submit" value="Submit" />
 						</form>
 
 						<br />
