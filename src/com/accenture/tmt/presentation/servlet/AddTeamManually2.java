@@ -53,7 +53,7 @@ public class AddTeamManually2 extends HttpServlet {
 	
 		TeamController teamManager = new TeamController();
 		
-		int c = teamManager.addTeam(detailsDO);
+		int c = teamManager.addTeamManual(detailsDO);
 		if(c !=0){
 			request.setAttribute("message","Record Inserted");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
