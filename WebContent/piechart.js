@@ -114,7 +114,7 @@ function myfunction() {
 	options[2] = {
 		is3D : true,
 		backgroundColor : '#647a2f',
-		title : 'Primier',
+		title : 'Premier',
 		chartArea : {
 			left : 100,
 			top : 50
