@@ -46,7 +46,7 @@
 			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="aboutus.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 
 		</ul>
