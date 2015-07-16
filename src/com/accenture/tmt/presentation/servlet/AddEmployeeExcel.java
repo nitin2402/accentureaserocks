@@ -132,6 +132,8 @@ public class AddEmployeeExcel extends HttpServlet {
 				listOfEmps.add(empDetailsDto);
 				
 				}else{
+					
+					
 					headerRow = false;
 				}
 			}
@@ -152,7 +154,7 @@ public class AddEmployeeExcel extends HttpServlet {
 			request.setAttribute("message","Record Inserted");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		if(c ==0){
-			request.setAttribute("message","Record insertion failed");
+			request.setAttribute("message","Record insertion failed"+"\n"+"Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		workbook.close();
 			file.close();
@@ -165,4 +167,3 @@ public class AddEmployeeExcel extends HttpServlet {
 		
 		}
 	}
-
