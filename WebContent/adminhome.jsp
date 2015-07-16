@@ -8,7 +8,7 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-
+<%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
@@ -69,8 +69,10 @@
 
 </head>
 <body>
+<jsp:include page="/GetPieChartValues"/>
+ 
 <%@ include file="header_admin.jsp" %>
-	<%
+<%--	<%
 		HttpSession session1 = request.getSession(false);
 
 		if (session1 == null
@@ -82,7 +84,15 @@
 
 	<%
 		}
-	%>
+	%> --%>
+ <jstlcore:forEach var="item" items="${pielist}">
+<input type="hidden" id="ASE" value="${item.ASE}" />
+<input type="hidden" id="SE" value="${item.SE}" />
+<input type="hidden" id="SSE" value="${item.SSE}" />
+<input type="hidden" id="TL" value="${item.TL}" />
+<input type="hidden" id="AM" value="${item.AM}" />
+
+ </jstlcore:forEach>
  
 	
 
