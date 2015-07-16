@@ -23,10 +23,14 @@
 </script>
 
 
+
 <script type='text/javascript' src='search.js'></script>
 <script type='text/javascript' src='addempexcel.js'></script>
 </head>
 <body>
+
+
+
 <%@ include file="header_admin.jsp" %>  
 	
 	<%
@@ -55,17 +59,30 @@
 
 				<div>
 
-
+   
 					<div id="search" style="font-size: 14px;">
-
-
+						<div >
+							<a href="template/employee_excel.xlsx"> This link will open
+								the Excel Sheet Template </a>
+								<br /> <br /> <br /> 
+						</div>
 						<form action="AddEmployeeExcel" method="post"
 							onsubmit="return Validate(this);">
 
-							Choose the Excel File to Upload:- <input type="file" name="file1"
-								size="50" /> <br /> <br /> <br /> <input type="hidden"
+							Choose the Excel File to Upload:- 
+						
+							
+							<input type="file" name="file1"
+								size="50" style="border: solid 1px white;background-color: white; width: 50% ;"  /> 
+							
+								
+								
+								<br /> <br /> <br /> 
+								
+								
+								<input type="hidden"
 								id="sheetno" name="sheetno" /> <br /> <input type="submit"
-								value="submit" />
+								value="Submit" />
 						</form>
 						<br />
 
