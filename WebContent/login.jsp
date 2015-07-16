@@ -28,7 +28,7 @@
 			<ul>
 
 
-				<li><a href="#">About Us</a></li>
+				<li><a href="about_us_common.jsp">About Us</a></li>
 				<li><a href="#" class="last" onclick="myfunction()">Contact
 						Us</a></li>
 			</ul>
