@@ -11,6 +11,8 @@ import java.util.List;
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
+import com.accenture.tmt.dao.dto.pieCount;
+import com.accenture.tmt.presentation.dto.PieChartDTO;
 import com.accenture.tmt.presentation.dto.SearchFormDTO;
 
 public class EmployeeDAO {
@@ -345,6 +347,140 @@ public class EmployeeDAO {
 			// TODO: release connection
 		}
 		return status;
+
+	}
+	public  List<pieCount> fetchPieDetails(PieChartDTO pieDTO) {
+		List<pieCount> piechartlist= new ArrayList<pieCount>();
+		pieCount pieCount = new pieCount();
+		int count = 0;
+		int billable=0;
+		int ASE=0;
+		int SE=0;
+		int SSE=0;
+		int TL=0;
+		int AM=0;
+		int angularJS=0;
+		int AT=0;
+		int C_UNIX=0;
+		int FST=0;
+		int HTML=0;
+		int java=0;
+		int JSP=0;
+		int QA=0;
+		int TBD=0;
+		int p0=0;
+		int p1=0;
+		int p2=0;
+		int p3=0;
+		int p4=0;
+		
+
+		// TODO Auto-generated method stub
+		try {
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con
+					.prepareStatement(CONSTANTS.GET_PIECHART_DETAILS);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				++count;
+				if (rs.getString("Billable") == "yes") {
+					++billable;
+				}
+				if(rs.getString("EmployeeDesignation") == "ASE"){
+					++ASE;
+				}
+				if(rs.getString("EmployeeDesignation") == "SE"){
+					++SE;
+				}
+				if(rs.getString("EmployeeDesignation") == "SSE"){
+					++SSE;
+				}
+				if(rs.getString("EmployeeDesignation") == "TL"){
+					++TL;
+				}
+				if(rs.getString("EmployeeDesignation") == "AM"){
+					++AM;
+				}
+				if(rs.getString("EmployeeExpertise") == "Angular JS"){
+					++angularJS;
+				}
+				if(rs.getString("EmployeeExpertise") == "AT"){
+					++AT;
+				}
+				if(rs.getString("EmployeeExpertise") == "C++/Unix"){
+					++C_UNIX;
+				}
+				if(rs.getString("EmployeeExpertise") == "FST"){
+					++FST;
+				}
+				if(rs.getString("EmployeeExpertise") == "HTML"){
+					++HTML;
+				}
+				if(rs.getString("EmployeeExpertise") == ("Java") || rs.getString("EmployeeExpertise") == ("JAVA") || rs.getString("EmployeeExpertise") == ("java")){
+					++java;
+				}
+				if(rs.getString("EmployeeExpertise") == "JSP"){
+					++JSP;
+				}
+				if(rs.getString("EmployeeExpertise") == "QA"){
+					++QA;
+				}
+				if(rs.getString("EmployeeExpertise") == "TBD"){
+					++TBD;
+				}
+				if(rs.getString("ProficiencyCams") == "P0"){
+					++p0;
+				}
+				if(rs.getString("ProficiencyCams") == "P1"){
+					++p1;
+				}
+				if(rs.getString("ProficiencyCams") == "P2"){
+					++p2;
+				}
+				if(rs.getString("ProficiencyCams") == "P3"){
+					++p3;
+				}
+				if(rs.getString("ProficiencyCams") == "P4"){
+					++p4;				}
+				
+				
+			}
+			
+			pieCount.setCount(count);
+			pieCount.setBillable(billable);
+			pieCount.setASE(ASE);
+			pieCount.setSE(SE);
+			pieCount.setSSE(SSE);
+			pieCount.setTL(TL);
+			pieCount.setP0(p0);
+			pieCount.setP1(p1);
+			pieCount.setP2(p2);
+			pieCount.setP3(p3);
+			pieCount.setP4(p4);
+			
+			pieCount.setAngularJS(angularJS);
+			pieCount.setAT(AT);
+			pieCount.setC_UNIX(C_UNIX);
+			pieCount.setFST(FST);
+			pieCount.setHTML(HTML);
+			pieCount.setJava(java);
+			pieCount.setJSP(JSP);
+			pieCount.setQA(QA);
+			pieCount.setTBD(TBD);
+			
+			
+			piechartlist.add(pieCount);
+			
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return piechartlist;
 
 	}
 
