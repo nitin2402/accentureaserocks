@@ -15,13 +15,29 @@ function myfunction() {
 	var options = [];
 
 	var nASE = parseInt($("#ASE").val());
-	var nSE =parseInt($("#SE").val());
+	var nSE = parseInt($("#SE").val());
 	var nSSE = parseInt($("#SSE").val());
 
 	var nTL = parseInt($("#TL").val());
 	var nAM = parseInt($("#AM").val());
+	var p0 = parseInt($("#p0").val());
+	var p1 = parseInt($("#p1").val());
+	var p2 = parseInt($("#p2").val());
+	var p3 = parseInt($("#p3").val());
+	var p4 = parseInt($("#p4").val());
 	var nM = 1;
-
+	var billable = parseInt($("#billable").val());
+	var total = parseInt($("#count").val());
+	var nonBillable = total - billable;
+	var angularJS = parseInt($("#angularJS").val());
+	var AT = parseInt($("#AT").val());
+	var C_UNIX = parseInt($("#C_UNIX").val());
+	var FST = parseInt($("#FST").val());
+	var HTML = parseInt($("#HTML").val());
+	var java = parseInt($("#java").val());
+	var JSP = parseInt($("#JSP").val());
+	var QA = parseInt($("#QA").val());
+	var TBD = parseInt($("#TBD").val());
 	var rASE = 310;
 	var rSE = 30;
 	var rSSE = 30;
@@ -55,8 +71,8 @@ function myfunction() {
 			[ 'SSE', nSSE ], [ 'TL', nTL ], [ 'AM', nAM ], [ 'M', nM ] ]);
 
 	data[6] = google.visualization.arrayToDataTable([
-			[ 'Billability', 'percentage' ], [ 'Billable', 90 ],
-			[ 'Non-Billable', 10 ] ]);
+			[ 'Billability', 'percentage' ], [ 'Billable', billable ],
+			[ 'Non-Billable', nonBillable ] ]);
 	options[6] = {
 		is3D : true,
 		backgroundColor : '#647a2f',
@@ -68,8 +84,8 @@ function myfunction() {
 	};
 
 	data[7] = google.visualization.arrayToDataTable([
-			[ 'Proficiency', 'percentage' ], [ 'P0', 40 ], [ 'P1', 30 ],
-			[ 'P2', 20 ], [ 'P3', 8 ], [ 'P4', 2 ] ]);
+			[ 'Proficiency', 'percentage' ], [ 'P0', p0 ], [ 'P1', p1 ],
+			[ 'P2', p2 ], [ 'P3', p3 ], [ 'P4', p4 ] ]);
 	options[7] = {
 		is3D : true,
 		backgroundColor : '#647a2f',
@@ -79,8 +95,11 @@ function myfunction() {
 			top : 50
 		}
 	};
+
 	data[8] = google.visualization.arrayToDataTable([
-			[ 'Expertise', 'percentage' ], [ 'FED', 60 ], [ 'BED', 40 ] ]);
+			[ 'Expertise', 'percentage' ], [ 'AngularJS', angularJS ],
+			[ 'AT', AT ], [ 'C/UNIX', C_UNIX ], [ 'FST', FST ], [ 'HTML', HTML ],
+			[ 'JAVA', java ], [ 'JSP', JSP ], [ 'QA', QA ], [ 'TBD', TBD ] ]);
 	options[8] = {
 		is3D : true,
 		backgroundColor : '#647a2f',
@@ -146,7 +165,7 @@ function myfunction() {
 	}
 	var change = setInterval(next, 3000);
 
-	/*window.clearInterval(change);*/
+	/* window.clearInterval(change); */
 
 	function next() {
 		if (count == 3)
@@ -169,28 +188,21 @@ function initialize() {
 
 function clickk() {
 
-	/*		var searchvalue = 
-			$(".error").hide();
-			$.ajax({
-				url : "/EmployeeMSAccessDB/SearchEmployee",
-				type : "POST",
-				data : 'searchName=' + searchvalue,
-
-				success : function(data) {
-
-					if (data != "") {
-						
-					} else {
-
-					
-
-					}
-
-				},
-				error : function() {
-
-				}
-			});*/
+	/*
+	 * var searchvalue = $(".error").hide(); $.ajax({ url :
+	 * "/EmployeeMSAccessDB/SearchEmployee", type : "POST", data : 'searchName=' +
+	 * searchvalue,
+	 * 
+	 * success : function(data) {
+	 * 
+	 * if (data != "") {
+	 *  } else {
+	 * 
+	 * 
+	 *  }
+	 *  }, error : function() {
+	 *  } });
+	 */
 
 	$(".filter").show();
 	stop();
