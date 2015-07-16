@@ -106,8 +106,8 @@ public class SearchEmployee extends HttpServlet {
 			exp += "</tr>";
 	}
 	
-	exp += "</table></div><br><input type=\"submit\" value = \"Assign Team\" name = \"assign\"><input type=\"submit\" value = \"Edit Details\" name = \"edit\">";
-	exp += "</form>";
+	/*exp += "</table></div><br><input type=\"submit\" value = \"Assign Team\" name = \"assign\"><input type=\"submit\" value = \"Edit Details\" name = \"edit\">";
+	exp += "</form>";*/
 
 		/*exp += "</table></div><br><input type=\"submit\" value = \"Assign Team\" name = \"assign\">";
 		exp += "</form>";*/
