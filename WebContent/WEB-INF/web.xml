@@ -664,4 +664,15 @@
     <servlet-name>TypeOfUserServlet</servlet-name>
     <url-pattern>/TypeOfUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetPieChartValues</display-name>
+    <servlet-name>GetPieChartValues</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.GetPieChartValues</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetPieChartValues</servlet-name>
+    <url-pattern>/GetPieChartValues</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>
