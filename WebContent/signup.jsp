@@ -34,7 +34,7 @@
 				<!-- 
 				<li><a href="#">Workplan</a></li>
 				<li><a href="#">Projects</a></li> -->
-				<li><a href="#">About Us</a></li>
+				<li><a href="about_us_common.jsp">About Us</a></li>
 				<li><a href="#" class="last" onclick="myfunction()">Contact
 						Us</a></li>
 			</ul>
