@@ -349,7 +349,7 @@ public class EmployeeDAO {
 		return status;
 
 	}
-	public  List<pieCount> fetchPieDetails(PieChartDTO pieDTO) {
+	public static List<pieCount> fetchPieDetails(PieChartDTO pieDTO) {
 		List<pieCount> piechartlist= new ArrayList<pieCount>();
 		pieCount pieCount = new pieCount();
 		int count = 0;
