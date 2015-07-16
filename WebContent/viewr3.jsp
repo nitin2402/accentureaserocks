@@ -47,7 +47,7 @@
 			var searchvalue = $("#search_field").val();
 
 			$.ajax({
-				url : "/TMT_Test/SearchEmployee",
+				url : "/TMT/SearchEmployee",
 				type : "POST",
 				data : 'searchName=' + searchvalue,
 
@@ -110,7 +110,7 @@
 			/* $("#piechart").hide(); */
 			
 			$.ajax({
-				url : "/TMT_Test/DisplayEmpList",
+				url : "/TMT/DisplayEmpList",
 				type : "POST",
 				data : 'teamName=' + team,
 
