@@ -1,3 +1,4 @@
+package com.accenture.tmt.common;
 public interface CONSTANTS {
 	      
 		public String DATA_FIELD_ADMIN = "Admin";
