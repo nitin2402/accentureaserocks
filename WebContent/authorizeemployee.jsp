@@ -46,7 +46,7 @@
 				<div class="header_01">Authorize Employee</div>
 				<h2 style="color:white;">Unauthorized Employees</h2>
 				<form name="authorizeForm" method="post" action="TypeOfUserServlet" >
-				<div id="scrollable"   style="font-size: 14px;">
+				<div id="scrollable"   style="font-size: 14px; height:165px;">
 						
 						
 						<table class="table2" > 
@@ -75,19 +75,19 @@
 									<input type="hidden" id="${item.loginid}" value="${item.employeedesignation}" />
 										
 							</jstlcore:forEach></tbody></table>
-							
+							</div>
 							<input type="submit"  name="action" value="Admin" onclick="return validateAdmin()"/>
 							<input type="submit" name="action" value="User" onclick="return validateUser()" />
 							<input type="submit" name="action" value="Viewer" onclick="return validateViewer()" />
 							 <a href="admintool.jsp"style="font-size:14px;border: medium none;background-color: transparent;padding-top: 0px;position: relative;top: 7px;
     text-decoration: underline;font-weight:normal;" >Cancel</a>
-							</div>
+							
 						
 				</form>
 
 
 				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
+				<p class="error" style="font-size: 14px; color: red;line-height:75px;">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
