@@ -72,7 +72,7 @@
 <jsp:include page="/GetPieChartValues"/>
  
 <%@ include file="header_admin.jsp" %>
-<%--	<%
+	<%
 		HttpSession session1 = request.getSession(false);
 
 		if (session1 == null
@@ -84,7 +84,7 @@
 
 	<%
 		}
-	%> --%>
+	%>
  <jstlcore:forEach var="item" items="${pielist}">
 <input type="hidden" id="ASE" value="${item.ASE}" />
 <input type="hidden" id="SE" value="${item.SE}" />
