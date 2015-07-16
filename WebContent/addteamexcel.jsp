@@ -22,69 +22,11 @@
 	});
 </script>
 
-<script>
 
-	function SelectSheetNo() {
-		var sheet = prompt("please enter sheet number", "1");
-
-		$("#sheetno").val(sheet);
-
-		if (sheet == null || sheet == "") {
-			alert("please enter sheet number");
-			return false;
-		} else {
-
-			return true;
-		}
-	}
-</script> 
-
- <script >
-var validFileExtensions = [".xlsx", ".xls"];    
-function Validate(vaildateObj) {
-    var getFileName = vaildateObj.getElementsByTagName("input");
-  
-    for (var i = 0; i < getFileName.length; i++) {
-        var fileInput = getFileName[i];
-        if (fileInput.type == "file")
-        	  var fileName = fileInput.value;
-        {
-        	  if (fileName == "" ||fileName==null || fileName==0)  
-                  
-              {
-              	alert("please select a excel file to upload");
-              		return false;
-              } 
-        	  else{
-          
-            if (fileName.length > 0) {
-                var isValid = false;
-                for (var j = 0; j < validFileExtensions.length; j++) {
-                    var extensions = validFileExtensions[j];
-                    if (fileName.substr(fileName.length - extensions.length, extensions.length).toLowerCase() == extensions.toLowerCase()) {
-                        isValid = true;
-                       /*  alert("success"); */
-                        return SelectSheetNo();
-                    }
-                }  
-                if (!isValid) {
-                    alert("Sorry " + fileName + " is invalid, allowed extensions are: " + validFileExtensions.join(", "));
-                    return false;
-                }
-                
-            }
-            
-            
-            }
-          
-        }
-    }
-  
-    
-}
-</script> 
+<script type='text/javascript' src='addempexcel.js'></script>
 
 <script type='text/javascript' src='search.js'></script>
+
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>  
@@ -105,7 +47,7 @@ function Validate(vaildateObj) {
 	<div id="templatemo_content">
 
 		<%@ include file="common_left_admintool.jsp"%>
-
+		
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
@@ -115,18 +57,23 @@ function Validate(vaildateObj) {
 				<div>
 
 
-					<div id="search" style="font-size: 14px;">
+				<div id="search" style="font-size: 14px;">
 			
-
+<a href="template/TeamExcel.xlsx"> This link will open
+								the Excel Sheet Template </a>
+								<br /> <br /> <br /> 
+					
 						<form action=" AddTeamExcel" method="post" onsubmit="return Validate(this);">
 						
 						Choose the Excel File to Upload:-
-						<input type="file" name="file1" size="50" /> <br /> <br /> <br />
+						<input type="file" name="file1"
+								size="50" style="border: solid 1px #D7C89D;background-color:  #D7C89D; width: 50% ;color: #8D5B13;" /> 
+							 <br /> <br /> <br />
 						<input type="hidden" id="sheetno" name="sheetno" />
-						<br /> <input type="submit" value="SUBMIT" />
+						<br /> <input type="submit" value="Submit" />
 						</form>
 						<br />
-						
+							</div>
 					</div>
 					<div id="ajaxResponse"></div>
 
