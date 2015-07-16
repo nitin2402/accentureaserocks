@@ -53,8 +53,12 @@ table, th, td {
     <td>Vipul Mangla</td>
     <td>Nitin Saini</td>
   </tr>
+    <tr>
+    <td>Sachin Bhardwaj</td>
+    <td>Gunveen Kaur Gulati</td>
+  </tr>
   <tr>
-    <td>Rekha Tresa</td>
+    <td>Rekha Tresa Mathew</td>
     <td>Suchismita Singh</td>
   </tr>
   <tr>
