@@ -51,9 +51,9 @@
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: auto">
-
+<div id="search">
 				<div class="header_01">View Module</div>
-<div >${module}</div>
+                    <div >${module}</div>
 
 				<div>
 
@@ -76,7 +76,8 @@
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
-
+				</div>
+<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
