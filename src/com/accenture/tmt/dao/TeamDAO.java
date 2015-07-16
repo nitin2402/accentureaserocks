@@ -24,6 +24,7 @@ public class TeamDAO {
 			st.setString(2, TeamDetailsFlatDTO.getTeamId());
 			st.setString(3, TeamDetailsFlatDTO.getModuleId());
 			st.setString(4, TeamDetailsFlatDTO.getTeamDescription());
+			st.setString(5, "Y");
 			a = st.executeUpdate();
 			con.commit();
 			con.close();
