@@ -120,8 +120,9 @@
 			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="aboutus.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
+			  
 			<%
 				 }
 			%>
@@ -133,7 +134,7 @@
 			<li><a href="workplanvia.jsp">Workplan</a></li>
 			<li><a href="user_initiative.jsp">Initiatives</a></li>
 			<li><a href="ProjectUser.jsp">Project</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="about_us_users.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 			
 			<%
