@@ -654,4 +654,14 @@
     <servlet-name>AuthorizeEmployeeServlet</servlet-name>
     <url-pattern>/AuthorizeEmployeeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TypeOfUserServlet</display-name>
+    <servlet-name>TypeOfUserServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.TypeOfUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TypeOfUserServlet</servlet-name>
+    <url-pattern>/TypeOfUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
