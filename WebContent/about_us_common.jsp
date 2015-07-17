@@ -84,30 +84,30 @@
     <th style="width:60%"></th>
   </tr>
   <tr>
-    <td>Deril PBS</td>
-    <td>Pranjal Jain</td>
-  </tr>
-  <tr>
-    <td>Vipul Mangla</td>
-    <td>Nitin Saini</td>
-  </tr>
-   <tr>
-    <td>Sachin Bhardwaj</td>
+    <td>Devraj Bisi</td>
     <td>Gunveen Kaur Gulati</td>
   </tr>
   <tr>
-    <td>Rekha Tresa</td>
-    <td>Suchismita Singh</td>
+    <td>Jerin Petson Jacob</td>
+    <td>Nitin Saini</td>
   </tr>
-  <tr>
-    <td>Simlee Das</td>
-    <td>Devraj Bisi</td>
+   <tr>
+    <td>PBS Deril</td>
+    <td>Pranjal Jain</td>
   </tr>
   <tr>
     <td>Priyam Kanungo</td>
-    <td>Jerin Petson Jacob</td>
+    <td>Rekha Tresa</td>
   </tr>
-</table>		
+  <tr>
+    <td>Sachin Bhardwaj</td>
+    <td>Simlee Das</td>
+  </tr>
+  <tr>
+    <td>Suchismita Singh</td>
+    <td>Vipul Mangla</td>
+  </tr>
+</table>>		
 				<div class="margin_bottom_20">&nbsp;</div>
 							</div>
 			</div>
