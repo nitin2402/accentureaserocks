@@ -23,7 +23,7 @@
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
 				|| (String) session1.getAttribute("admin") != "viewer") {
-	%><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
+	%><jsp:forward page="home.jsp?msg=Please Login" />
 	<%
 		}
 	%>
