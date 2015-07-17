@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -33,7 +33,7 @@ table, th, td {
 
 				<div class="header_01">ABOUT US</div>
 					<div style="font-size: 14px;">
-		<p>The Talent Mnagement Tool is an integrated software tool that addresses the four pillars of talent management:
+		<p>The Talent Management Tool is an integrated software tool that addresses the four pillars of talent management:
 		</p>
 		<p>Plan,Organize,Budget and Schedule talents.</p>
 		<p></p>This application is made under the guidance of <b>Chinu Mohanty</b></p>
