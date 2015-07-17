@@ -25,7 +25,24 @@ table, th, td {
 
 	<div id="templatemo_content">
 
-		<%@ include file="common_left.jsp" %>  
+		<div id="content_left">
+			
+		
+
+			<div class="margin_bottom_20">&nbsp;</div> 
+			 <div class="content_left_section" style="font-size: 14px">
+				<div class="content_left_section_title">Projects</div>
+				<div class="content_left_section_content">
+					<ul>
+						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
+						<li><a href="viewr3.jsp">R3</a></li>
+						<li><a href="viewprimier.jsp">Primier</a></li>
+					</ul>
+				</div>
+				<div class="content_left_section_bottom">&nbsp;</div>
+			</div> 
+				<div class="margin_bottom_20">&nbsp;</div>
+		</div>
 
 		 <div id="content_right">
 
