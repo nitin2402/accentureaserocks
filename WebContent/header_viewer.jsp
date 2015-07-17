@@ -23,6 +23,12 @@
 
 </head>
 <body>
+<%
+
+   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
+   response.addHeader("Pragma", "no-cache"); 
+   response.addDateHeader ("Expires", 0);
+   %>
 <div id="templatemo_container" />
 	<div id="templatemo_header">
 		<div id="site_title_section">
