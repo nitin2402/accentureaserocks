@@ -27,7 +27,7 @@
 	<div id="templatemo_header">
 		<div id="site_title_section">
 			<div id="site_title">Talent Management Tool</div>
-			<div id="slogan">plan, organize, budget, schedule</div>
+			<div id="slogan">Plan, Organize, Budget, Schedule</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		<div id="welcome_msg"
