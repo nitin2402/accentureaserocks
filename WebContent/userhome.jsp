@@ -234,12 +234,18 @@
 
 </head>
 <body>
+<%
+
+   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
+   response.addHeader("Pragma", "no-cache"); 
+   response.addDateHeader ("Expires", 0);
+   %>
 	<%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
 				|| (String) session1.getAttribute("admin") != "user") {
-	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+	%><jsp:forward page="login.jsp?msg=Please Login " />
 	<%
 		}
 	%>
