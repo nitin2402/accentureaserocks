@@ -49,7 +49,8 @@
 							<input type="radio" name="select" value="addfromexcel" id="excel">Add
 								From Excel<br /> <br /> <br /> <input type="radio"
 								name="select" value="addmanually" id="manually">Add
-									Manually<br /> <br /> <input type="submit" value="select">
+									Manually<br /> <br />
+									 <input type="submit" value="Select">
 						</form>
 					</div>
 					<br /> <br /> <br /> <br />
