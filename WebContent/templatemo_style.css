@@ -456,6 +456,21 @@ input[type=submit] {
 	color: yellow; /* or whatever other color you want */
 	font-size: 14px;
 }
+.back {
+	border: none;
+	background-color: transparent;
+	padding-top: 0;
+	position: relative;
+	top: 6px;
+	text-decoration: underline !important; 
+	color: yellow; /* or whatever other color you want */
+	font-size: 14px;
+	font-weight: normal !important;
+	 
+}
+.back:hover{
+	color: yellow !important;
+}
 input[type=reset] {
 	border: none;
 	background-color: transparent;
