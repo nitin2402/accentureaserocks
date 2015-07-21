@@ -49,7 +49,7 @@ public class ViewReportR3 extends HttpServlet {
 
 		li = fetchmodule.FetchModuleByProject("R3");
 
-		for (int i = 0; i < li.size() - 1; i++) {
+		for (int i = 0; i < li.size(); i++) {
 			List<String> tempLi = new ArrayList<String>();
 			String moduleId = null;
 			ModuleController temp = new ModuleController();
