@@ -72,10 +72,13 @@ public  List<String> fetchProjects() {
 		ModuleDetailsDTO moduledetailsdto = new ModuleDetailsDTO();
 		
 		ModuleDAO moduledao = new ModuleDAO();
+int lastCount = moduledao.countRows1();
+		
+		String ModuleId = "MOD_"+ (lastCount + 1);
 		
 		moduledetailsdto.setModuleName(moduleformdto.getModuleName());
 		moduledetailsdto.setProject(moduleformdto.getProject());
-		moduledetailsdto.setModuleId(moduleformdto.getModuleId());
+		moduledetailsdto.setModuleId(ModuleId);
 		moduledetailsdto.setModuleDescription(moduleformdto.getModuleDescription());
 		
 		
