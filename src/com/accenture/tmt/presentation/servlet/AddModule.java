@@ -65,10 +65,10 @@ public class AddModule extends HttpServlet {
 		String moduleName = request.getParameter("modulename");
 		String projectName = request.getParameter("project1");
 		String moduleDescription = request.getParameter("moduledesc");
-		String moduleId = request.getParameter("moduleid");
+	/*	String moduleId = request.getParameter("moduleid");*/
 		
 		moduleformdto.setModuleName(moduleName);
-		moduleformdto.setModuleId(moduleId);
+	/*	moduleformdto.setModuleId(moduleId);*/
 		moduleformdto.setModuleDescription(moduleDescription);
 		moduleformdto.setProject(projectName);
 		
@@ -76,7 +76,7 @@ public class AddModule extends HttpServlet {
 		if(obj.get("status").toString().equals("1")){
 			request.setAttribute("message", "Module Inserted Successfully");
 			if(session1!= null){
-				reportupdatedto.setModuleId(moduleId);
+				reportupdatedto.setModuleId(obj.get("moduleId").toString());
 				reportupdatedto.setModuleName(moduleName);
 				reportupdatedto.setProjectId(obj.get("projectId").toString());
 				reportupdatedto.setModuleDescription(moduleDescription);
