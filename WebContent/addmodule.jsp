@@ -55,10 +55,8 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 						<jsp:include page="/fetchproject.jsp" />
 						<form name="add" action="AddModule" onsubmit="return validateform1()" >						 
 							<table>
-						<tr>
-									<td>MODULE ID:</td>
-									<td><input type="text" name="moduleid" id="module_id"></input></td>
-								</tr>
+					
+									
 								<tr>
 									<td>MODULE NAME:</td>
 									<td><input type="text" name="modulename" id="module_name"></input></td>
