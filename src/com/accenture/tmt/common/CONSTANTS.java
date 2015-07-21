@@ -167,7 +167,22 @@ public interface CONSTANTS {
 		public String GET_REPORT_DETAIL_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates BETWEEN ? AND ? ";
 
 		
+		public String TEAM_REPORT = "select * from TeamReport";
+		public String GET_TEAM_NAME_FOR_REPORT = "teamName";
+		public String GET_START_DATE_FOR_TEAM_REPORT = "startDate";
+		public String GET_END_DATE_FOR_TEAM_REPORT = "endDate";
+		public String INSERT_TEAM_REPORT_QUERY = "insert into TeamReport(TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp,Date) values(?,?,?,?,?,?,?,?)";		
+		public String GET_TEAM_NAME = "TeamName";
+		public String GET_TEAM_ID = "TeamId";
+		public String GET_REPORT_DETAIL_WITHOUT_TEAM_NAME_QUERY = "select TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp from TeamReport where Date BETWEEN ? AND ? ";
+		public String GET_TEAMREPORT_DETAIL_WITHOUT_START_DATE_QUERY = "select TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp from TeamReport where TeamName = ? AND Date <= ?";
+		public String GET_TEAMREPORT_DETAIL_WITHOUT_END_DATE_QUERY = "select TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp from TeamReport where TeamName = ? AND Date >= ?";
+		public String GET_TEAMREPORT_DETAIL_WITH_ONLY_END_DATE_QUERY = "select TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp from TeamReport where  Date <= ? ";
+		public String GET_TEAMREPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY = "select TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp from TeamReport where TeamName = ? ";
+		public String GET_TEAMREPORT_DETAIL_WITH_ONLY_START_DATE_QUERY = "select TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp from TeamReport where Date >= ? ";
+		public String GET_TEAMREPORT_DETAIL_QUERY = "select TeamName,TeamId,ModuleId,TeamDescription,Username,Action,Timestamp from TeamReport where TeamName = ? AND Date BETWEEN ? AND ? ";
 
+		
 		public String EMPLOYEE_REPORT = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID ";
 		public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_START_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND T.TeamId = ? AND E.Dates <= ? ";
 		public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_MODULE_NAME_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND E.Dates BETWEEN ? AND ? ";
