@@ -53,10 +53,10 @@
 							<thead style="font-weight:bold;position: ">
 							<tr  class="one" style="font-weight:bold;">
 								<td>Select</td>
-								<td>UserName</td>
+								<td>User Name</td>
 								<td>Type Of User</td>
-								<td>EmployeeId</td>
-								<td>EmployeeDesignation</td>	
+								<td>Employee Id</td>
+								<td>Employee Designation</td>	
 							</tr>
 							</thead>
 						
