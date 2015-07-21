@@ -26,30 +26,9 @@
   </script>
 </head>
 <body>
-
+<%@ include file="header_admin.jsp" %>
 <div id="templatemo_container" />
-	<div id="templatemo_header">
-		<div id="site_title_section">
-			<div id="site_title">Pyramid Optimization</div>
-				<div id="slogan">The place to look back</div>
-			<div class="cleaner">&nbsp;</div>
-		</div>
 
-	<div id="header_section_code">"Overall approach is to maintain
-			pyramid form for all designation levels as per Accenture compliance."</div>
-	</div>
-
-	<div id="templatemo_menu">
-		<ul>
-			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp" class="current">Admin Tools</a></li>
-			<li><a href="#">Workplan</a></li>
-			<li><a href="#">Projects</a></li>
-			<li><a href="#">About Us</a></li>
-			<li><a href="logout.jsp">Logout</a></li>
-			<li><a href="#" class="last">Contact Us</a></li>
-		</ul>
-	</div>
 	<div id="templatemo_content">
 
 		<div id="content_left">
@@ -134,9 +113,7 @@
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
+		<%@ include file="footer.jsp" %>
 	</div>
 </body>
 </html>
