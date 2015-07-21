@@ -92,7 +92,9 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 						<br /> <br /> <!-- <a href="editmodule.jsp" style="font-weight: normal;margin-left:500px">Edit module</a> -->
 					</div>
 					
-				
+								
+  <p style="font-size: 14px; color: red;"><%=request.getParameter("message") != null ? request
+					.getParameter("message") : ""%>${message}</p>
 
 
 
