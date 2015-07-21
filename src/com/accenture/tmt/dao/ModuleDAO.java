@@ -366,10 +366,12 @@ con.close();
 			}
 			PreparedStatement st1 = con
 					.prepareStatement(CONSTANTS.INSERTMODULE_QUERY);
-      obj.put("projectId", projectId);
+            obj.put("projectId", projectId);
+  
 			st1.setString(1, moduledetailsdto.getModuleName());
 			st1.setString(2, projectId);
 			st1.setString(3, moduledetailsdto.getModuleId());
+	       obj.put("moduleId",moduledetailsdto.getModuleId());
 			st1.setString(4, moduledetailsdto.getModuleDescription());
 			st1.setString(5, "Y");
 
@@ -415,12 +417,35 @@ con.close();
 			return list;
 			}
 
-	
-	
-	
-	
-	
+public int countRows1(){
+		
+		int number_of_rows = 0 ;
+		 ResultSet rs = null ;
+			
+			try {
+				Connection con = DBConnection.getConnection();
+				if (con != null) {
+					PreparedStatement st = con
+						  .prepareStatement(CONSTANTS.GET_LASTMODID_QUERY);
+						  rs = st.executeQuery();
+						  while(rs.next()){
+							  number_of_rows = rs.getInt("NumberOfRows");
+						  
+					 }
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return number_of_rows;
+		
 	}
-
+}
+	
+	
+	
+	
+	
+	
 
 
