@@ -62,7 +62,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 									<td><input type="text" name="modulename" id="module_name"></input></td>
 								</tr>
 								<tr>
-									<td>MODULE Description:</td>
+									<td>MODULE DESCRIPTION:</td>
 									<td><input type="text" name="moduledesc" id="module_desc"></input></td>
 								</tr>
 								<tr>
