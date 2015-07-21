@@ -63,7 +63,7 @@
 				<div class="right_col_section_w650" style="height: 400px">
 
 					<form name="registration" action="Registration"
-						onsubmit="return validateform()">
+						>
 						<table style="font-size: 14px;">
 							<tr>
 							 	<td>Employee ID:</td>
@@ -82,7 +82,8 @@
 								<td><input type="password" name="cpassword" /></td>
 							</tr>
 							<tr>
-								<td><input type="submit" value="Register" /></td>
+								<td><input type="submit" value="Register" onclick="return validateform()" /></td>
+								<td><a class="back" href="login.jsp">Back</a></td>
 							</tr>
 						</table>
 					</form>
