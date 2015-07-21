@@ -1,15 +1,23 @@
 package com.accenture.tmt.presentation.servlet;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -52,12 +60,88 @@ public class AddEmployeeExcel extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
+		int maxFileSize = 5000 * 1024;
+		   int maxMemSize = 5000 * 1024;
+
+
+		File file=null;
+		String sheetno = null;
+		 boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+
+	        if (!isMultipart) {
+	            return;
+	        }
+	        
+		ServletContext context = getServletContext();
+		String filePath = context.getInitParameter("file-upload");
+
+		file = new File(filePath);
+		FileUtils.cleanDirectory(file);
+
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+
+		factory.setSizeThreshold(maxMemSize);
+
+		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+
+		ServletFileUpload upload = new ServletFileUpload(factory);
+
+		upload.setSizeMax(maxFileSize);
+		
+		
+		
+		
+	        try {
+				 List fileItems = upload.parseRequest(request);
+
+		
+				 Iterator iterator = fileItems.iterator();
+
+     
+				 while ( iterator.hasNext () ) 
+				 {
+				    FileItem filename = (FileItem)iterator.next();
+				    
+				    
+				    if ( filename.isFormField () )
+				    
+				    {
+				    sheetno=filename.getString();
+				    }	
+				    else          	
+				    {
+		
+				    String fieldName = filename.getFieldName();
+				    String fileName = filename.getName();
+				    boolean isInMemory = filename.isInMemory();
+				    long sizeInBytes = filename.getSize();
+				
+				    if( fileName.lastIndexOf("\\") >= 0 ){
+				    file = new File( filePath + 
+				    fileName.substring( fileName.lastIndexOf("\\"))) ;
+				    }else{
+				    file = new File( filePath + 
+				    fileName.substring(fileName.lastIndexOf("\\")+1)) ;
+				    }
+				    filename.write( file ) ;
+				   
+				    }
+				 }
+			} catch (FileUploadException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	        
+	     
 		
 		try {
 					
-			String file1 = request.getParameter(CONSTANTS.FILE_NAME);
-			String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
-			FileInputStream file = new FileInputStream(file1);
+			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
+			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
+			//FileInputStream file = new FileInputStream(file1);
 			int sno =Integer.parseInt(sheetno);
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
@@ -89,7 +173,7 @@ public class AddEmployeeExcel extends HttpServlet {
 						} else if (cellCount == 4 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeExpertise")) {
 							empDetailsDto.setExpertise(cellForEmp
 									.getStringCellValue());
-						} else if (cellCount == 5 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeAttId")) {
+						} else if (cellCount == 5 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeClientId")) {
 							empDetailsDto.setClientId(cellForEmp
 									.getStringCellValue());
 						} else if (cellCount == 6 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeEmail")) {
@@ -143,12 +227,9 @@ public class AddEmployeeExcel extends HttpServlet {
 		
 			ExcelController add = new ExcelController();
 			
-			try {
+			
 				c=add.addFromExcel(listOfEmps);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		 
 
 		if(c !=0){
 			request.setAttribute("message","Record Inserted");
@@ -157,13 +238,24 @@ public class AddEmployeeExcel extends HttpServlet {
 			request.setAttribute("message","Record insertion failed"+"\n"+"Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		workbook.close();
-			file.close();
-		}  catch (Exception e) {
+			//file.close();
+		}catch (ClassNotFoundException | InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+		
+		
+		
+		/*catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error in parsing XLS : ");
 			e.printStackTrace();
 			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		
-		}
+		}*/
 	}
