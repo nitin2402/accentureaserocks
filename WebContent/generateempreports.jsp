@@ -96,7 +96,7 @@
 				</form>
 				<br />
 				<br />
-				<p><b>Note:</b> Reports Generated for Employee </p>
+				<p><b>Note:</b> Reports Generated for Requests </p>
 				
 					<br />
 					<br />
