@@ -91,7 +91,7 @@ public class AddModule extends HttpServlet {
 			request.setAttribute("message", "No Module Inserted	");
 		}
 		
-		request.getRequestDispatcher("admintool.jsp").forward(request, response);
+		request.getRequestDispatcher("addmodule.jsp").forward(request, response);
 		
 	}
 	}
