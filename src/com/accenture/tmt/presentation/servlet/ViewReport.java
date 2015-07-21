@@ -54,7 +54,7 @@ public class ViewReport extends HttpServlet {
 
 		li = fetchmodule.FetchModuleByProject("E-Strategy");
 
-		for (int i = 0; i < li.size() - 1; i++) {
+		for (int i = 0; i < li.size(); i++) {
 			List<String> tempLi = new ArrayList<String>();
 			String moduleId = null;
 			ModuleController temp = new ModuleController();
