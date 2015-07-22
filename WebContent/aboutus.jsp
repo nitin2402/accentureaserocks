@@ -74,7 +74,7 @@ table, th, td {
 							</div>
 			</div>
 			
-		
+		 <div id="ajaxResponse"></div>
 
 		</div>
 	<%@ include file="footer.jsp" %> 
