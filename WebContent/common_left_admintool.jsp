@@ -75,7 +75,7 @@
 
 					<li><a href="viewteam.jsp">View Teams</a></li>
 
-					<li><a href="viewmodule.jsp">View Module</a></li>
+					<li><a href="viewmodule.jsp">View Modules</a></li>
 
 				</ul>
 
