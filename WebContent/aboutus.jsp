@@ -33,7 +33,7 @@ table, th, td {
 
 				<div class="header_01">ABOUT US</div>
 					<div style="font-size: 14px;">
-		<p>The Talent Mnagement Tool is an integrated software tool that addresses the four pillars of talent management:
+		<p>The Talent Management Tool is an integrated software tool that addresses the four pillars of talent management:
 		</p>
 		<p>Plan,Organize,Budget and Schedule talents.</p>
 		<p></p>This application is made under the guidance of <b>Chinu Mohanty</b></p>
