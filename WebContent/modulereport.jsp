@@ -60,7 +60,9 @@
 
 				<div id="search">
 				<form  name = "modulereport" action="ModuleReportServlet" method="post" onsubmit ="return validateform()">
-				<p>PLEASE SELECT THE MODULE&nbsp;&nbsp;<select name="moduleName">
+			<table>
+				<tr>
+				<td>PLEASE SELECT THE MODULE&nbsp;&nbsp;</td><td><select name="moduleName">
 				<option value=""></option>
 												<jstlcore:forEach items="${moduleList}" var="item">
 							
@@ -69,10 +71,15 @@
 							
 							</jstlcore:forEach>
 														
-												</select></p>
-				<p>Start Date: <input type="text" id="calendar" name="startDate"/></p>
-				<p>End Date : <input type="text" id="calendar1" name="endDate"/></p>
-				<button type="submit" value="Submit">Generate Report</button>
+												</select></td></tr>
+			   <tr> 
+			   <td>Start Date:</td><td> <input type="text" id="calendar" name="startDate" /></td></tr>
+				<tr><td>End Date :</td><td> <input type="text" id="calendar1" name="endDate"/></td></tr>
+				</table>
+				<br/>
+				
+				<button type="submit" value="Submit"style="margin-left:100px">Generate Report</button>
+
 				</form>
 				<br />
 				<br />
