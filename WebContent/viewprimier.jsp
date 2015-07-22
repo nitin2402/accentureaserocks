@@ -52,7 +52,7 @@
 			/* $("#piechart").hide(); */
 			$("#teamname").val(team);
 			$.ajax({
-				url : "/TMT_Test/FetchTeamEmployees",
+				url : "/TMT/FetchTeamEmployees",
 				type : "POST",
 				data : 'teamName=' + team,
 
