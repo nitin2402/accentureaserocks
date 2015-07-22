@@ -9,7 +9,8 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type='text/javascript' src='search.js'></script>
 
 </head>
 <body>
@@ -26,43 +27,7 @@
 
 	<div id="templatemo_content">
 
-		<div id="content_left">
-
-			<div class="content_left_section">
-				<div class="content_left_section_title">Search Employee</div>
-				<div class="content_left_section_content">
-					<form action="#">
-						Name<input type="text" id="search_field" name="search_field" />
-						<!--  <input
-							type="submit" value="Search" id="search_button" /> -->
-						<div>
-							<span id="msg1">${param.msg1}</span>
-						</div>
-
-					</form>
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div>
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Projects</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div>
-
-		</div>
-
+	<%@ include file="common_left_admintool.jsp" %>
 
 		
 			<div id="content_right">
@@ -72,18 +37,19 @@
 				<div class="header_01" >Report Generated For Module</div>
 					
 					<h2 style="color:white;">Reports</h2>
+					<div id= "search">
 					<div id="scrollable"   style="font-size: 14px;">
 						<table class="table2" > 
 						
 							<thead style="font-weight:bold;position: ">
 							<tr class="one" style="font-weight:bold;">
-							    <td>ModuleId</td>
-								<td>ModuleName</td>
-								<td>ProjectId</td>
-								<td>ModuleDescription</td>
-								<td>Username</td>
+							    <td>Module Id</td>
+								<td>Module Name</td>
+								<td>Project Id</td>
+								<td>Module Description</td>
+								<td>User Name</td>
 								<td>Action</td>
-								<td>TimeStamp</td>
+								<td>Time Stamp</td>
 							
 							</tr>
 							</thead>
@@ -105,6 +71,8 @@
 							<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
 							</div>
+							</div>
+							 <div id="ajaxResponse"></div>
 							<div class="margin_bottom_20">&nbsp;</div>
 							
 				</div>		
