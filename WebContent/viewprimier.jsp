@@ -82,7 +82,7 @@
 			/* $("#piechart").hide(); */
 
 			$.ajax({
-				url : "/TMT_Test/DisplayEmpList",
+				url : "/TMT/DisplayEmpList",
 				type : "POST",
 				data : 'teamName=' + team,
 
