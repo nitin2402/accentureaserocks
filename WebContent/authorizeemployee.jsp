@@ -44,6 +44,7 @@
 			<div class="right_col_section_w650" style="height: 300px">
 
 				<div class="header_01">Authorize Employee</div>
+				<div id="search">
 				<h2 style="color:white;">Unauthorized Employees</h2>
 				<form name="authorizeForm" method="post" action="TypeOfUserServlet" >
 				<div id="scrollable"   style="font-size: 14px; height:165px;">
@@ -84,7 +85,7 @@
 							
 						
 				</form>
-
+           </div>
 
 				<div id="ajaxResponse"></div>
 				<p class="error" style="font-size: 14px; color: red;line-height:75px;">${message}</p>
