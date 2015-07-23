@@ -40,25 +40,36 @@ public class EditEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String empId = request.getParameter("id");
 		
-		String empName = request.getParameter("name");
-		String expertise = request.getParameter("area");
-		String designation = request.getParameter("desig");
-		String level = request.getParameter("level"); 
-		String attId = request.getParameter("att");
-		String email = request.getParameter("email");
+		String employeeId = request.getParameter("EmployeeId");
+		String employeeName = request.getParameter("EmployeeName");
+		String designation = request.getParameter("EmployeeDesignation");
+		String level = request.getParameter("EmployeeLevel"); 
+		String employeeExpertise = request.getParameter("EmployeeExpertise");
+		String employeeClientId = request.getParameter("EmployeeClientId");
+		String employeeEmail = request.getParameter("EmployeeEmail");
+		String proficiencyCams = request.getParameter("ProficiencyCams");
+		String proficiencyProject = request.getParameter("ProficiencyProject");
+		String teamName = request.getParameter("TeamName");
+		String dateofJoining = request.getParameter("DateofJoining");
+		String billable = request.getParameter("Billable");
 		
 		
 		EmployeeDetailsFlatDTO detailsDO = new EmployeeDetailsFlatDTO();
 		
-		detailsDO.setEmpId(empId);
-		detailsDO.setEmpName(empName);
-		detailsDO.setLevel(level);
+		detailsDO.setEmpId(employeeId);
+		detailsDO.setEmpName(employeeName);
 		detailsDO.setDesignation(designation);
-		detailsDO.setExpertise(expertise);
-		detailsDO.setClientId(attId);
-		detailsDO.setEmail(email);
+		detailsDO.setLevel(level);
+		detailsDO.setExpertise(employeeExpertise);
+		detailsDO.setClientId(employeeClientId);
+		detailsDO.setEmail(employeeEmail);
+		detailsDO.setProfCamps(proficiencyCams);
+		detailsDO.setProfProject(proficiencyProject);
+		detailsDO.setTeamName(teamName);
+		detailsDO.setDoj(dateofJoining);
+		detailsDO.setIsBillable(billable);
+		
 		
 		EmployeeController employeeManager = new EmployeeController();
 		
@@ -67,13 +78,13 @@ public class EditEmployee extends HttpServlet {
 		{
 		request.setAttribute("message", "Record updated");
 		
-		request.getRequestDispatcher("adminhome.jsp").forward(request, response);
+		request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
 		}
 		else
 		{
 		request.setAttribute("message", "Update Failed");
 		
-		request.getRequestDispatcher("adminhome.jsp").forward(request, response);
+		request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
 		}
 	}
 
