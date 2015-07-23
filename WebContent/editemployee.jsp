@@ -37,94 +37,125 @@
 
 
 </head>
-<body><body><%@ include file="header_admin.jsp" %> 
-	<jsp:include page="/fetchmodule.jsp" />
-
-	<%
-
+<body><%@ include file="header_admin.jsp" %> 
+<jsp:include page="/fetchmodule.jsp" />
+	 
+   
+       <%-- <%
 HttpSession session1 = request.getSession(false);
-if (session1 == null  ||  (String)session1.getAttribute("user") == null || (Boolean)session1.getAttribute("admin") != true ){
+if (session1 == null  ||  (String)session1.getAttribute("user") == null || (String)session1.getAttribute("admin") != "admin" ){
     %><jsp:forward page="home.jsp?msg=Please Login as an Admin" /><%
 }
-%><div id="templatemo_content">
+%> --%><div id="templatemo_content">
 
 		<%@ include file="common_left_admintool.jsp"%>
 	
 		<div id="content_right">
 
-			<div id="search" class="right_col_section_w650" style="height: 300px">
+			<div id="search" class="right_col_section_w650">
 
 				<div class="header_01">Edit Employee</div>
 
 
-				<div>
+				
+		
+<form action="EditEmployee" method="post" >
 
-<jstlcore:forEach items="${searchList}" var="list">
+<jstlcore:forEach items="${editemp}" var="list">
 
-<form action="EditEmployee">
+
 <table >
 <tr>
 				<td>EMPLOYEE ID:</td>
 				<td><input type="text" value="${list.empId}" disabled="disabled" style="width:200px;"/>
-				<input type="hidden" name="id" value="${list.empId}" /></td>
+				<input type="hidden" name="EmployeeId" value="${list.empId}" /></td>
 
 			</tr>
 			<tr>
 				<td>EMPLOYEE NAME:</td>
-				<td><input type="text" name="name" value="${list.empName}" style="width:200px;"/></td>
+				<td><input type="text" name="EmployeeName" value="${list.empName}" style="width:200px;"/></td>
 
+			</tr>
+			
+			<tr>
+				<td>DESIGNATION:</td>
+				<td><input type="text" name="EmployeeDesignation" value="${list.designation}" style="width:200px;"/></td>
 			</tr>
 		
 			<tr>
-				<td>EMPLOYEE LEVEL:</td>
-				<td><input type="text" name="level" value="${list.level}" style="width:200px;"/></td>
+				<td>LEVEL:</td>
+				<td><input type="text" name="EmployeeLevel" value="${list.level}" style="width:200px;"/></td>
 			</tr>
+			
 			<tr>
-				<td>EMPLOYEE DESIGNATION:</td>
-				<td><input type="text" name="desig" value="${list.designation}" style="width:200px;"/></td>
-			</tr>
-			<tr>
-				<td>EMPLOYEE EXPERTISE:</td>
+				<td>EXPERTISE:</td>
 
-				<td><input type="text" name="area" value="${list.expertise}" style="width:200px;"/></td>
+				<td><input type="text" name="EmployeeExpertise" value="${list.expertise}" style="width:200px;"/></td>
 			</tr>
 			<tr>
-				<td>EMPLOYEE ATTID:</td>
-				<td><input type="text" name="att" value="${list.att}" style="width:200px;"/></td>
+				<td>CLIENT ID:</td>
+				<td><input type="text" name="EmployeeClientId" value="${list.clientId}" style="width:200px;"/></td>
 
 			</tr>
 			<tr>
-				<td>EMPLOYEE EMAIL:</td>
-				<td><input type="text" name="email" value="${list.email}" style="width:200px;"/></td>
+				<td>EMAIL:</td>
+				<td><input type="text" name="EmployeeEmail" value="${list.email}" style="width:200px;"/></td>
 
 			</tr>
-			<%-- <tr>
-				<td>EMPLOYEE EXPERIENCE:</td>
-				<td><input type="text" name="exp" value="${list.experience}"/></td>
-			</tr> --%>
+			
+			<tr>
+				<td>TEAM NAME:</td>
+				<td><input type="text" name="ProficiencyCams" value="${list.teamName}" disabled="disabled" style="width:200px;"/></td>
+
+			</tr>
+			
+			<tr>
+				<td>PROFICIENCY CAMS:</td>
+				<td><input type="text" name="ProficiencyProject" value="${list.profCamps}" style="width:200px;"/></td>
+
+			</tr>
+			
+			<tr>
+				<td>PROFICIENCY PROJECT:</td>
+				<td><input type="text" name="TeamName" value="${list.profProject}" style="width:200px;"/></td>
+
+			</tr>
+			
+			<tr>
+				<td>DATE OF JOINING:</td>
+				<td><input type="text" name="DateofJoining" value="${list.doj}" style="width:200px;"/></td>
+
+			</tr>
+			
+			<tr>
+				<td>BILLABILITY:</td>
+				<td><input type="text" name="Billable" value="${list.isBillable}" style="width:200px;"/></td>
+
+			</tr>
+			
+			
 			<tr><td><input type="submit" value="Change"/></td></tr>
 			</table>
-			
-</form>
+
 </jstlcore:forEach>
 
-
+			
+</form>
 
 					<div class="cleaner">&nbsp;</div>
-				</div>
+				
 
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 			
 
-			<div class="cleaner">&nbsp;</div>
+			
 		</div>
+		<div class="cleaner">&nbsp;</div>
+		
 		<%@ include file="footer.jsp"%>
 		</div>
-	</div>
-
-
-</body>
+	</body>
 </html>
 
 
