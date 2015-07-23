@@ -76,14 +76,19 @@ public class ModuleDAO {
 		return module;
 	}
 	
-	public int editModule(String moduleName, String projectId, String moduleDescription, String moduleId){
+	public int editModule(String moduleName, String projectName, String moduleDescription, String moduleId){
 		int status=0;
+		String projectId = null;
+		ResultSet rs = null;
 		try {
 			Connection con = DBConnection.getConnection();
-			
-
-		
-			
+			PreparedStatement st1 = con
+					.prepareStatement(CONSTANTS.Get_ProjectId_QUERY);
+			st1.setString(1, projectName );
+			rs = st1.executeQuery();
+			while (rs.next()) {
+				projectId = rs.getString("ProjectId");
+			}
 			PreparedStatement st = con.prepareStatement(CONSTANTS.MODULE_UPDATE);
 		//	System.out.println(module+id+projectId);
 			st.setString(1, moduleName);
