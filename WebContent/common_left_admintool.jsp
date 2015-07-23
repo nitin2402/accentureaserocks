@@ -39,14 +39,14 @@
 			
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Tasks</div>
-				<div class="content_left_section_content">
+				<div id="abc" class="content_left_section_content">
 					<ul>
-						<li><a href="admintool.jsp" >Add Employee </a></li>
+						<li><a href="admintool.jsp" id="empCss" >Add Employee </a></li>
 
 
-						<li><a href="addmodulevia.jsp">Add Module</a></li>
-						<li><a href="addteamvia.jsp">Add Team</a></li>
-						<li><a href="authorizeemployee.jsp">Authorize Employee</a></li>
+						<li><a href="addmodulevia.jsp" id="modCss" >Add Module</a></li>
+						<li><a href="addteamvia.jsp" id="teamCss">Add Team</a></li>
+						<li><a href="authorizeemployee.jsp" id="authCss">Authorize Employee</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
@@ -57,25 +57,18 @@
 
 
 
-
-
-
-
-
-
-
 		<div class="content_left_section" style="font-size: 14px">
 
-			<div class="content_left_section_title">Projects</div>
+			<div class="content_left_section_title">Actions</div>
 			<div class="content_left_section_content">
 				<ul>
 
-					<li><a href="viewemployee.jsp">View Employee</a></li>
+					<li><a href="viewemployee.jsp" id="ViewempCss">View Employees</a></li>
 
 
-					<li><a href="viewteam.jsp">View Team</a></li>
+					<li><a href="viewteam.jsp"id="ViewteamCss">View Teams</a></li>
 
-					<li><a href="viewmodule.jsp">View Module</a></li>
+					<li><a href="viewmodule.jsp"id="ViewteamCss">View Module</a></li>
 
 				</ul>
 
