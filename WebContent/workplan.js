@@ -16,17 +16,17 @@ function validateForm() {
 		}
 		if(!nase.match(numbers))  
 		{  
-		alert('Please input numeric characters only');  
+		alert("Please input positive numeric integers only");  
 		return false;  
 		} 
 		if(!nse.match(numbers))  
 		{  
-		alert('Please input numeric characters only');  
+		alert("Please input positive numeric integers only");  
 		return false;  
 		} 
 		if(!nsse.match(numbers))  
 		{  
-		alert('Please input numeric characters only');  
+		alert("Please input positive numeric integers only");  
 		return false;  
 		} 
 		if (nse == null || nse == "") {
@@ -49,6 +49,9 @@ function validateForm() {
 			alert("Number of resources can't exceeed 15");
 			return false;
 		}
-		
+		if (nase + nsse + nse == 0) {
+			alert("For raising a request you must request for one resource at least.");
+			return false;
+		}
 		
 	}

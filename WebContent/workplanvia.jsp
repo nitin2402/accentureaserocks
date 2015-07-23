@@ -13,11 +13,12 @@
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<script type="text/javascript" src="workplan.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-
-
+<script type="text/javascript" src='search.js'></script>
 </head>
+
 <body>
 	<%-- <jsp:include page="/FetchbudgetDetail" /> --%>
 	<input type="hidden" id="backup" name="backup" value="0"></input>
@@ -30,63 +31,33 @@
 	<%
 		}
 	%> 
-	
-	<%@ include file="header_users.jsp" %> 
-<div id="templatemo_content">
-		<div id="content_left">
+	<%@ include file="header_users.jsp" %>
 
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Projects</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-	
-			<div class="content_left_section" style="font-size:14px">
-				<div class="content_left_section_title">View</div>
-				<div class="content_left_section_content">
-					
-					<ul>
-						<li><a href="viewemployee_user.jsp" >View Employee</a></li>
-						<li><a href="viewteam_user.jsp">View Team</a></li>
-						<li><a href="viewmodule_user.jsp" >View Module</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-			<div class="margin_bottom_20">&nbsp;</div>
+	<div id="templatemo_content">
 
-		</div>
-		<div id="content_right">
+		<%@ include file="common_left.jsp" %>  
 
-			<div class="right_col_section_w650" style="height: auto;">
+		 <div id="content_right">
+
+			<div class="right_col_section_w650" style="height: 400px">
 
 				<div class="header_01">Work Plan</div>
 
-					<ul>
-						<li><a href="workplan.jsp">Raise a new request</a></li>
-
-
+				<div id="search">
+					<ul class="text_size">
+						<li><a href="workplan.jsp">Raise a new request</a></li></br>
 						<li><a href="requeststatus.jsp">Request Status</a></li>
 					
 					</ul>
 				<div>
+				</div>
+				</div>
+				<div id="ajaxResponse"></div>
 
-				<div class="margin_bottom_20">&nbsp;</div>
+				<div class="cleaner">&nbsp;</div>
 			</div>
-
-			<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
-		</div>
+	<%@ include file="footer.jsp" %> 
 	</div>
 </body>
 </html>
