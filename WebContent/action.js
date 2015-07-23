@@ -60,10 +60,14 @@ function cal(total, numberOfEmployee){
 	
 	for (var k in nameOfAse){
 	         if(nameOfAse[k] > 1){
-	        	 alert("You can't assign " + k + " more than once.");
 	        	 isDuplicate = true ;
 	        	 break;
 	         }
+	}
+	
+	if(isDuplicate){
+		alert("You can't calculate LCR "+ "\n" +"by assigning same resource more than once.");
+		return false;
 	}
 	
 	for (var i=0, n=checkboxes2.length;i<n;i++) {
@@ -74,7 +78,7 @@ function cal(total, numberOfEmployee){
 			  if(nameOfSe[res[0]] == null){
 				  nameOfSe[res[0]] = 1;
 			  }else{
-				  var count1 = nameOfSe[res[1]];
+				  var count1 = nameOfSe[res[0]];
 				  nameOfSe[res[0]]= ++count1;
 			  }
 		  }
@@ -82,10 +86,14 @@ function cal(total, numberOfEmployee){
 	
 	for (var k in nameOfSe){
 	         if(nameOfSe[k] > 1){
-	        	 alert("You can't assign " + k + " more than once.");
 	        	 isDuplicate = true ;
 	        	 break;
 	         }
+	}
+	
+	if(isDuplicate){
+		alert("You can't calculate LCR "+ "\n" +"by assigning same resource more than once.");
+		return false;
 	}
 	
 	for (var i=0, n=checkboxes3.length;i<n;i++) {
@@ -96,7 +104,7 @@ function cal(total, numberOfEmployee){
 			  if(nameOfSse[res[0]] == null){
 				  nameOfSse[res[0]] = 1;
 			  }else{
-				  var count1 = nameOfSse[res[1]];
+				  var count1 = nameOfSse[res[0]];
 				  nameOfSse[res[0]]= ++count1;
 			  }
 		  }
@@ -104,13 +112,13 @@ function cal(total, numberOfEmployee){
 	
 	for (var k in nameOfSse){
 	         if(nameOfSse[k] > 1){
-	        	 alert("You can't assign " + k + " more than once.");
 	        	 isDuplicate = true ;
 	        	 break;
 	         }
 	}
 	
 	if(isDuplicate){
+		alert("You can't calculate LCR "+ "\n" +"by assigning same resource more than once.");
 		return false;
 	}
 	
@@ -185,7 +193,7 @@ function validateForm(){
 			  if(nameOfAse[res[0]] == null){
 				  nameOfAse[res[0]] = 1;
 			  }else{
-				  var count1 = nameOfAse[res[1]];
+				  var count1 = nameOfAse[res[0]];
 				  nameOfAse[res[0]]= ++count1;
 			  }
 		  }
@@ -193,10 +201,14 @@ function validateForm(){
 	
 	for (var k in nameOfAse){
 	         if(nameOfAse[k] > 1){
-	        	 alert("You can't assign " + k + " more than once.");
 	        	 isDuplicate = true ;
 	        	 break;
 	         }
+	}
+	
+	if(isDuplicate){
+		alert("You can't assign same resource more than once.");
+		return false;
 	}
 	
 	for (var i=0, n=checkboxes2.length;i<n;i++) {
@@ -207,7 +219,7 @@ function validateForm(){
 			  if(nameOfSe[res[0]] == null){
 				  nameOfSe[res[0]] = 1;
 			  }else{
-				  var count1 = nameOfSe[res[1]];
+				  var count1 = nameOfSe[res[0]];
 				  nameOfSe[res[0]]= ++count1;
 			  }
 		  }
@@ -215,10 +227,14 @@ function validateForm(){
 	
 	for (var k in nameOfSe){
 	         if(nameOfSe[k] > 1){
-	        	 alert("You can't assign " + k + " more than once.");
 	        	 isDuplicate = true ;
 	        	 break;
 	         }
+	}
+	
+	if(isDuplicate){
+		alert("You can't assign same resource more than once.");
+		return false;
 	}
 	
 	for (var i=0, n=checkboxes3.length;i<n;i++) {
@@ -229,7 +245,7 @@ function validateForm(){
 			  if(nameOfSse[res[0]] == null){
 				  nameOfSse[res[0]] = 1;
 			  }else{
-				  var count1 = nameOfSse[res[1]];
+				  var count1 = nameOfSse[res[0]];
 				  nameOfSse[res[0]]= ++count1;
 			  }
 		  }
@@ -237,13 +253,13 @@ function validateForm(){
 	
 	for (var k in nameOfSse){
 	         if(nameOfSse[k] > 1){
-	        	 alert("You can't assign " + k + " more than once.");
 	        	 isDuplicate = true ;
 	        	 break;
 	         }
 	}
 	
 	if(isDuplicate){
+		alert("You can't assign same resource more than once.");
 		return false;
 	}
 	else if(count == 0){
