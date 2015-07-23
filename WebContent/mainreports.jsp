@@ -44,7 +44,7 @@
 						<li><a href="#">Reports Generated for Employee</a></li>
 
 
-						<li><a href="#">Reports Generated for Team</a></li>
+						<li><a href="teamreport.jsp">Reports Generated for Team</a></li>
 						
 						<li><a href="modulereport.jsp">Reports Generated for Module</a></li>
 					</ul>
