@@ -24,8 +24,8 @@ public class ModuleController {
 		return moduleID;
 		}
 
-	public int editModule(String moduleName,String projectId,String moduleDescription,String moduleId){
-		int status=moduleDAO.editModule(moduleName, projectId, moduleDescription, moduleId);
+	public int editModule(String moduleName,String projectName,String moduleDescription,String moduleId){
+		int status=moduleDAO.editModule(moduleName, projectName, moduleDescription, moduleId);
 		return status;
 	}
 	
