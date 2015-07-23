@@ -1,5 +1,6 @@
 package com.accenture.tmt.manager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,11 @@ import com.accenture.tmt.presentation.dto.SearchFormDTO;
 import static java.lang.System.out;
 public class EmployeeController {
 	EmployeeDAO employeeDAO= new EmployeeDAO();
+	
+	public  int deleteEmployee(String empId) throws ClassNotFoundException, SQLException{
+		int status=employeeDAO.deleteEmployee(empId);
+		return status;
+	}
 	
 	public int addEmployee(EmployeeDetailsDTO emp)
 	{	
@@ -79,8 +85,8 @@ public List<String> fetchTeamList(){
 		return empCount;
 			}
 	
-	public List<EmployeeDetailsFlatDTO> FetchEmployeeList(String teamID){
-		List<EmployeeDetailsFlatDTO> employeeList=employeeDAO.fetchEmployeeList(teamID);
+	public List<EmployeeDetailsFlatDTO> FetchEmployeeList(String empId){
+		List<EmployeeDetailsFlatDTO> employeeList=employeeDAO.fetchEmployeeList(empId);
 		return employeeList;
 		
 	}
