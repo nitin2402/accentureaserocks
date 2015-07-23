@@ -3,7 +3,9 @@ package com.accenture.tmt.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.accenture.tmt.common.CONSTANTS;
@@ -17,9 +19,9 @@ public class WorkplanAdminDAO {
 	public WorkplanAdminFlatDTO fetchData(ActionDTO actiondto){
 		
 		WorkplanAdminFlatDTO workplanAdminFlatDTO = new WorkplanAdminFlatDTO();
-		Map<String, Float> freeASEList = new HashMap<String, Float>();
-		Map<String, Float> freeSEList = new HashMap<String, Float>();
-		Map<String, Float> freeSSEList = new HashMap<String, Float>();
+		Map<String, List<String>> freeASEList = new HashMap<String, List<String>>();
+		Map<String, List<String>> freeSEList = new HashMap<String, List<String>>();
+		Map<String, List<String>> freeSSEList = new HashMap<String, List<String>>();
 		
 		ResultSet rs = null ;
 		try {
@@ -28,9 +30,11 @@ public class WorkplanAdminDAO {
 				PreparedStatement st;
 				st = con.prepareStatement(CONSTANTS.FREE_ASE_LIST_QUERY);
 				rs = st.executeQuery();
-
 				 while(rs.next()){
-					 freeASEList.put(rs.getString("EmployeeName"), rs.getFloat("LCR"));
+					 List<String> list = new ArrayList<String>();
+					 list.add(rs.getString("EmployeeName"));
+					 list.add(rs.getString("LCR"));
+					 freeASEList.put(rs.getString("EmployeeId"), list);
 			 }
 				
 				 workplanAdminFlatDTO.setFreeASEList(freeASEList);
@@ -40,7 +44,10 @@ public class WorkplanAdminDAO {
 					rs = st.executeQuery();
 					
 					 while(rs.next()){
-						 freeSEList.put(rs.getString("EmployeeName"), rs.getFloat("LCR"));
+					 List<String> list = new ArrayList<String>();
+					 list.add(rs.getString("EmployeeName"));
+					 list.add(rs.getString("LCR"));
+					 freeSEList.put(rs.getString("EmployeeId"), list);
 				 }
 					 
 					 workplanAdminFlatDTO.setFreeSEList(freeSEList);
@@ -49,7 +56,10 @@ public class WorkplanAdminDAO {
 						rs = st.executeQuery();
 						
 						 while(rs.next()){
-							 freeSSEList.put(rs.getString("EmployeeName"), rs.getFloat("LCR"));
+						 List<String> list = new ArrayList<String>();
+						 list.add(rs.getString("EmployeeName"));
+						 list.add(rs.getString("LCR"));
+						 freeSSEList.put(rs.getString("EmployeeId"), list);
 					 }
 						 
 						 workplanAdminFlatDTO.setFreeSSEList(freeSSEList);
