@@ -1,5 +1,6 @@
 package com.accenture.tmt.manager;
 
+import java.util.List;
 import java.util.Map;
 
 import com.accenture.tmt.dao.WorkplanAdminDAO;
@@ -14,9 +15,9 @@ public class WorkplanAdminController {
 		int aseRequested = 0;
 		int seRequested = 0;
 		int sseRequested = 0;
-		Map<String, Float> freeASEList ;
-		Map<String, Float> freeSEList ;
-		Map<String, Float> freeSSEList ;
+		Map<String, List<String>> freeASEList ;
+		Map<String, List<String>> freeSEList ;
+		Map<String, List<String>> freeSSEList ;
 		float currentAvg = 0;
 		float total = 0;
 		int numberOfEmployee = 0;
