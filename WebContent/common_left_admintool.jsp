@@ -70,12 +70,12 @@
 			<div class="content_left_section_content">
 				<ul>
 
-					<li><a href="viewemployee.jsp">View Employees</a></li>
+					<li><a href="viewemployee.jsp">View Employee</a></li>
 
 
-					<li><a href="viewteam.jsp">View Teams</a></li>
+					<li><a href="viewteam.jsp">View Team</a></li>
 
-					<li><a href="viewmodule.jsp">View Modules</a></li>
+					<li><a href="viewmodule.jsp">View Module</a></li>
 
 				</ul>
 
