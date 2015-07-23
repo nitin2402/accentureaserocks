@@ -34,7 +34,8 @@
 		
 		<div id="content_right">
 
-			<div id="search" class="right_col_section_w650" style="height: auto">
+			<div class="right_col_section_w650" style="height: 500px" >
+					<div id="search" style="font-size: 14px;">
 
 			
 				<div class="header_01" >Assign Resources </div>
@@ -47,7 +48,7 @@
 						
 						<table class="table2" > 
 							<thead style="font-weight:bold;position: ">
-							<tr class="one" style="font-weight:bold;">
+							<tr class="one table_align" style="font-weight:bold;">
 								<td>Designation</td>
 								<td>Select</td>
 								<td>Employee Name</td>
@@ -58,16 +59,16 @@
 							<tbody  >
 							 <jstlcore:forEach var="i" begin="1" end="${workplanAdminDTO.aseRequested }">
 
-								<tr>
+								<tr class="table_align">
 									<td>ASE</td> 
 									<td class = "devraj"><input  type="checkbox" name="empASE[]" id="asebx_${i}"/></td> 
 									<td>
-											<select name="employeeNameASE" id="a${i}" onchange="setLCR_ASE(${i});inputUpdateASE(${i});">
+											<select name="employeeNameASE" id="a${i}" onchange="setLCR_ASE(${i});inputUpdateASE(${i});" class="dropbox_size">
 												<option value=""></option>
 												<jstlcore:forEach items="${workplanAdminDTO.freeASEList}" var="item">
-														<option	value="${item.value}_${item.key}" > 
-															<jstlcore:out value="${item.key}" ></jstlcore:out>
-														</option>
+												        <option	value="${item.key}_${item.value[1]}_${item.value[0]}" > 
+																<jstlcore:out value="${item.value[0]}" ></jstlcore:out>
+												        </option>
 												</jstlcore:forEach>			
 											</select>
 									</td>
@@ -79,14 +80,16 @@
 							
 							<jstlcore:forEach var="i" begin="1" end="${workplanAdminDTO.seRequested }">
 
-								<tr>
+								<tr class="table_align">
 									<td>SE</td>
 									<td><input type="checkbox" name="empSE[]" id="sebx_${i}" /></td>
 									<td>
-											<select name="employeeNameSE" id="b${i}" onchange="setLCR_SE(${i});inputUpdateSE(${i});">
+											<select name="employeeNameSE" id="b${i}" onchange="setLCR_SE(${i});inputUpdateSE(${i});" class="dropbox_size">
 											<option value=""></option>
-												<jstlcore:forEach items="${workplanAdminDTO.freeSEList}" var="item1">
-														<option	value="${item1.value}_${item1.key}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
+												<jstlcore:forEach items="${workplanAdminDTO.freeSEList}" var="item">
+ 														<option	value="${item.key}_${item.value[1]}_${item.value[0]}" > 
+																<jstlcore:out value="${item.value[0]}" ></jstlcore:out>
+												        </option>
 												</jstlcore:forEach>			
 											</select>
 									</td>
@@ -98,14 +101,16 @@
 							
 							<jstlcore:forEach var="i" begin="1" end="${workplanAdminDTO.sseRequested }">
 
-								<tr>
+								<tr class="table_align">
 									<td>SSE</td>
 									<td><input type="checkbox" name="empSSE[]" id="ssebx_${i}"/></td>
 									<td>
-											<select name="employeeNameSSE" id="c${i}" onchange="setLCR_SSE(${i});inputUpdateSSE(${i});">
+											<select name="employeeNameSSE" id="c${i}" onchange="setLCR_SSE(${i});inputUpdateSSE(${i});" class="dropbox_size">
 											<option value=""></option>
-												<jstlcore:forEach items="${workplanAdminDTO.freeSSEList}" var="item1">
-														<option	value="${item1.value}_${item1.key}" > <jstlcore:out value="${item1.key}" ></jstlcore:out></option>
+												<jstlcore:forEach items="${workplanAdminDTO.freeSSEList}" var="item">
+														 <option	value="${item.key}_${item.value[1]}_${item.value[0]}" > 
+																<jstlcore:out value="${item.value[0]}" ></jstlcore:out>
+												        </option>
 												</jstlcore:forEach>			
 											</select>
 												
@@ -139,9 +144,10 @@
 						
                         </form>
 					</div>
-					
-		<div id="ajaxResponse"></div>
-					
+					<div id="ajaxResponse"></div>
+					<div class="cleaner">&nbsp;</div>
+				</div>
+				<div class="margin_bottom_20">&nbsp;</div>
 				</div>
 <%@ include file="footer.jsp" %> 
 			</div>

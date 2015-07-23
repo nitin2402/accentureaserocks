@@ -17,18 +17,21 @@ function validateForm() {
 function validateButtonRejected() {
 
 	var chx = document.getElementsByTagName('input');
+	var reason = document.forms["actionForm"]["reason"].value;
+	var isChecked = false ;
 	  for (var i=0; i<chx.length; i++) {
 	   
 	    if (chx[i].type == 'radio' && chx[i].checked) {
-	      return true;
+	    	isChecked = true ;
+	    	break;
 	    } 
 	  }
-	  alert("Please select a request");
-	  return false;	
-	
-	var reason = document.forms["actionForm"]["reason"].value;
-	
-		if (reason == null || reason == "") {
+	  
+	  if(!isChecked){
+		  alert("Please select a request");
+		  return false;	
+	  }
+	  else if (reason == null || reason == "") {
 			alert("Please provide reason.");
 			return false;
 		}
@@ -37,18 +40,22 @@ function validateButtonRejected() {
 		function validateButtonOnHold() {
 
 			var chx = document.getElementsByTagName('input');
+			var reason = document.forms["actionForm"]["reason"].value;
+			var isChecked = false ;
 			  for (var i=0; i<chx.length; i++) {
 			   
 			    if (chx[i].type == 'radio' && chx[i].checked) {
-			      return true;
+			    	isChecked = true ;
+			    	break;
 			    } 
 			  }
-			  alert("Please select a request");
-			  return false;	
+			  
+			  if(!isChecked){
+				  alert("Please select a request");
+				  return false;	
+			  }
 			
-			var reason = document.forms["actionForm"]["reason"].value;
-			
-				if (reason == null || reason == "") {
+			  else if (reason == null || reason == "") {
 					alert("Please provide reason.");
 					return false;
 				}

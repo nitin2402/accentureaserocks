@@ -31,9 +31,9 @@
 
 		<%@ include file="common_left.jsp" %>  
 		<div id="content_right">
-<div id="search" style="font-size: 14px;">
-			<div class="right_col_section_w650" style="height: auto" >
-
+				
+			<div class="right_col_section_w650" style="height: 700px" >
+					<div id="search" style="font-size: 14px;">
 			
 				<div class="header_01" >Status of user requests</div>
 				<h2 style="color:white;">Unapproved Requests</h2>
@@ -44,11 +44,11 @@
 						
 						<table class="table2" > 
 							<thead style="font-weight:bold;position: ">
-							<tr class="one" style="font-weight:bold;">
+							<tr class="one table_align" style="font-weight:bold;">
 								<td>Select</td>
 								<td>Request ID</td>
 								<td>Team Name</td>
-								<td>No Of A.S.E.</td>
+								<td>No of A.S.E.</td>
 								<td>No of S.E.</td>
 								<td>No of S.S.E.</td>
 								<td>Comment</td>
@@ -95,10 +95,10 @@
 							<table class="table2" > 
 						
 							<thead style="font-weight:bold;position: ">
-							<tr class="one" style="font-weight:bold;">
+							<tr class="one table_align" style="font-weight:bold;">
 								<td>Request ID</td>
 								<td>Team Name</td>
-								<td>No Of A.S.E.</td>
+								<td>No of A.S.E.</td>
 								<td>No of S.E.</td>
 								<td>No of S.S.E.</td>
 								<td>Comment</td>
@@ -121,19 +121,12 @@
 								</tr>
 							</jstlcore:forEach></tbody></table>
 							
-							
-							
-					<p class="error" style="font-size: 14px; color: red;">${message}</p>
-							
-
-				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
-
-			<div class="cleaner">&nbsp;</div>
 		</div>
-		
+				<div id="ajaxResponse"></div>
+				<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="ajaxResponse"></div>
+		<div class="margin_bottom_20">&nbsp;</div>
 	</div>
 	
 	<%@ include file="footer.jsp" %>  
