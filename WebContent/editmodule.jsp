@@ -64,6 +64,7 @@ function validate(e){
 
 
 					<div id="search" style="font-size: 14px;">
+						<jsp:include page="/fetchproject.jsp" />
 						<form name="edit" action="EditModuleFinal" method="post" onsubmit="return validate()">
 							<%-- <table>
 			<tr>
@@ -97,11 +98,17 @@ function validate(e){
 								<tr>
 									<td>Module Name : </td><td><input type="text" name="modulename" value="${list.moduleName}"></input></td>
 								</tr>
-								<tr>
-									<td>Project:</td><td><select name="project"><option value="PR01">E-Strategy</option>
-									<option value="PR02">R3</option>
-									<option value="PR03">PRIMIER</option></select></td>
-								</tr>
+											<tr>
+									<td>PROJECT:</td>
+									<td> <select name="project">
+															<jstlcore:forEach var="proj" items="${project}">
+
+												<option value="${proj}"> ${proj} </option>
+
+									</jstlcore:forEach>
+									</select>
+									</td>
+			</tr> 
 								
 								<tr>
 									<td>Module Description : </td><td><input type="text" name="moduledesc" value="${list.moduleDescription}"></input>
