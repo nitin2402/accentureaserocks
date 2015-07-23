@@ -156,14 +156,14 @@ public class EmployeeDAO {
 		return empList;
 	}
 
-	public List<EmployeeDetailsFlatDTO> fetchEmployeeList(String teamID) {
+	public List<EmployeeDetailsFlatDTO> fetchEmployeeList(String empId) {
 		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
 
 		try {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con
-					.prepareStatement("SELECT * FROM Employee WHERE TeamId=? ");
-			st.setString(1, teamID);
+					.prepareStatement("SELECT Employee.*,Team.TeamName FROM Employee inner join Team on Team.TeamId=Employee.TeamId WHERE Employee.EmployeeId=?");
+			st.setString(1, empId);
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
@@ -173,8 +173,16 @@ public class EmployeeDAO {
 				emp.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 				emp.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
 				emp.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
+				emp.setClientId(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
+				emp.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
+				emp.setTeamName(rs.getString(CONSTANTS.TEAM_NAME));
+				emp.setProfCamps(rs.getString(CONSTANTS.PROFICIENCY_CAMPS));
+				emp.setProfProject(rs.getString(CONSTANTS.PROFICIENCY_PROJECT));
+				emp.setDoj(rs.getString(CONSTANTS.DATE_OF_JOINING));
+				emp.setIsBillable(rs.getString(CONSTANTS.BILLABLE));
 				employeeList.add(emp);
 			}
+		
 			con.close();
 
 		} catch (ClassNotFoundException e) {
@@ -196,14 +204,19 @@ public class EmployeeDAO {
 			PreparedStatement st = con.prepareStatement(CONSTANTS.UPDATE_QUERY);
 			st.setString(1, employeeDetailsDTO.getEmpName());
 
-			// System.out.println(empDetailDo.getEmpId());
+			
 			st.setString(2, employeeDetailsDTO.getLevel());
-			// System.out.println(empDetailDo.getLevel());
+		
 			st.setString(3, employeeDetailsDTO.getDesignation());
 			st.setString(4, employeeDetailsDTO.getExpertise());
 			st.setString(5, employeeDetailsDTO.getClientId());
 			st.setString(6, employeeDetailsDTO.getEmail());
-			st.setString(7, employeeDetailsDTO.getEmpId());
+			st.setString(7, employeeDetailsDTO.getProfCamps());
+			st.setString(8, employeeDetailsDTO.getProfProject());
+			st.setString(9, employeeDetailsDTO.getDoj());
+			st.setString(10, employeeDetailsDTO.getIsBillable());
+			st.setString(11, employeeDetailsDTO.getEmpId() );
+
 			status = st.executeUpdate();
 			con.commit();
 			con.close();
@@ -268,6 +281,29 @@ public class EmployeeDAO {
 
 	}
 
+	
+	public int deleteEmployee(String empId) throws ClassNotFoundException, SQLException{
+		Connection con = DBConnection.getConnection();
+		int status=0;
+		try{
+			String sqlemp = "UPDATE Employee SET ActiveUser = 'No' WHERE EmployeeId = ?";
+			/*String sqlUpdate = "UPDATE Employee SET Status = 'N' WHERE EmployeeId = ?";*/
+			PreparedStatement stemp=con.prepareStatement(sqlemp);
+			stemp.setString(1, empId);
+			/*PreparedStatement st = con.prepareStatement(sqlUpdate);
+			st.setString(1, empId);*/
+			stemp.executeUpdate();
+			/*status=st.executeUpdate();*/
+		}
+		finally{
+			con.commit();
+			con.close();
+			
+		}
+		return status;
+		
+	}
+	
 	public List<EmployeeDetailsFlatDTO> getToAssign(String employee) {
 
 		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
