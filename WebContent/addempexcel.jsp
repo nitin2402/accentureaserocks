@@ -65,8 +65,9 @@
 							<a href="template/employee_excel.xlsx"> This link will open
 								the Excel Sheet Template </a> <br /> <br /> <br />
 						</div>
-						<form action="AddEmployeeExcel" method="post"
-							onsubmit="return Validate(this);">
+							<form action="AddEmployeeExcel" method="post"
+							onsubmit="return Validate(this);" enctype="multipart/form-data">
+
 
 							Choose the Excel File to Upload:- <input type="file" name="file1"
 								size="50"
