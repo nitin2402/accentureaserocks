@@ -19,9 +19,15 @@
 											'Search results for \"'
 													+ searchvalue + '\"');
 							if (data != "") {
-										$("#search").hide();
-										 $("#ajaxResponse").show();
-										$("#ajaxResponse").html(data); 
+								if(data=="Please Login"){
+									alert("Session Expired");
+									window.location = "login.jsp";
+								}else{
+									$("#search").hide();
+									 $("#ajaxResponse").show();
+									$("#ajaxResponse").html(data); 
+								}
+									
 									} else {
 
 										 $("#ajaxResponse").hide(); 
