@@ -114,7 +114,7 @@
 				 if ((String) session1.getAttribute("admin") == "admin") { 
 			%>
 				<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp"">Admin Tools</a></li>
+			<li><a href="admintool.jsp">Admin Tools</a></li>
 			<li><a href="searchrequest.jsp">Workplan</a></li>
 			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
@@ -180,13 +180,16 @@
 				</div>	
 			
 		</div>
-			<div id="ajaxResponse"></div>	
-			<div class="cleaner">&nbsp;</div>
-			</div>
-		</div>
-		
-		</div>
-			<%@ include file="footer.jsp"%>
-	</div>
+			 <div id="ajaxResponse"></div>
+
+                           <div class="margin_bottom_20">&nbsp;</div>
+                     </div>
+
+                     <div class="cleaner">&nbsp;</div>
+              </div>
+              <%@ include file="footer.jsp" %>   
+</div>
+</div>
+
 </body>
 </html>
