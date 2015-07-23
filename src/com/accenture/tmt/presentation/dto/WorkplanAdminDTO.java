@@ -1,5 +1,6 @@
 package com.accenture.tmt.presentation.dto;
 
+import java.util.List;
 import java.util.Map;
 
 public class WorkplanAdminDTO {
@@ -7,9 +8,9 @@ public class WorkplanAdminDTO {
 	private int aseRequested ;
 	private int seRequested ;
 	private int sseRequested ;
-	private Map<String, Float> freeASEList ;
-	private Map<String, Float> freeSEList ;
-	private Map<String, Float> freeSSEList ;
+	private Map<String, List<String>> freeASEList ;
+	private Map<String, List<String>> freeSEList ;
+	private Map<String, List<String>> freeSSEList ;
 	private float currentAvg ;
 	private float total ;
 	private int numberOfEmployee ;
@@ -32,22 +33,22 @@ public class WorkplanAdminDTO {
 	public void setSseRequested(int sseRequested) {
 		this.sseRequested = sseRequested;
 	}
-	public Map<String, Float> getFreeASEList() {
+	public Map<String, List<String>> getFreeASEList() {
 		return freeASEList;
 	}
-	public void setFreeASEList(Map<String, Float> freeASEList2) {
-		this.freeASEList = freeASEList2;
+	public void setFreeASEList(Map<String, List<String>> freeASEList) {
+		this.freeASEList = freeASEList;
 	}
-	public Map<String, Float> getFreeSEList() {
+	public Map<String, List<String>> getFreeSEList() {
 		return freeSEList;
 	}
-	public void setFreeSEList(Map<String, Float> freeSEList) {
+	public void setFreeSEList(Map<String, List<String>> freeSEList) {
 		this.freeSEList = freeSEList;
 	}
-	public Map<String, Float> getFreeSSEList() {
+	public Map<String, List<String>> getFreeSSEList() {
 		return freeSSEList;
 	}
-	public void setFreeSSEList(Map<String, Float> freeSSEList) {
+	public void setFreeSSEList(Map<String, List<String>> freeSSEList) {
 		this.freeSSEList = freeSSEList;
 	}
 	public float getCurrentAvg() {
