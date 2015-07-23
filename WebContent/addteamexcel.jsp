@@ -63,7 +63,7 @@
 								the Excel Sheet Template </a>
 								<br /> <br /> <br /> 
 					
-						<form action=" AddTeamExcel" method="post" onsubmit="return Validate(this);">
+						<form action=" AddTeamExcel" method="post" onsubmit="return Validate(this);" enctype="multipart/form-data">
 						
 						Choose the Excel File to Upload:-
 						<input type="file" name="file1"
@@ -77,6 +77,7 @@
 					</div>
 					<div id="ajaxResponse"></div>
 
+<p class="error" style="font-size: 14px; color: red;">${message}</p>
 
 
 					<div class="cleaner">&nbsp;</div>
