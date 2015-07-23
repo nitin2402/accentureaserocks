@@ -123,7 +123,7 @@ HttpSession session1 = request.getSession(false);
 %>
 	<jsp:include page="/ViewReportPrimier" />
 
-	<div id="templatemo_container"></div>
+	<div id="templatemo_container">
 	<div id="templatemo_header">
 		<div id="site_title_section">
 			<div id="site_title">Talent Management Tool</div>
@@ -134,72 +134,63 @@ HttpSession session1 = request.getSession(false);
 			style="color: yellow; float: right; font-size: 12px;">
 			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
 		</div>
-
 		<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
 	</div>
 
 	<div id="templatemo_menu">
 		<ul>
-		<%  if ((String)session1.getAttribute("admin")=="admin") { %>
-		
-			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp"">Admin Tools</a></li>
+			<%
+				 if ((String) session1.getAttribute("admin") == "admin") { 
+			%>
+				<li><a href="adminhome.jsp">Home</a></li>
+			<li><a href="admintool.jsp">Admin Tools</a></li>
 			<li><a href="searchrequest.jsp">Workplan</a></li>
 			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
 			<li><a href="aboutus.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
-			
-			<%  }  %>
-	<%	 if ((String)session1.getAttribute("admin") != "admin") { %>
-	
-		<li><a href="userhome.jsp">Home</a></li>
+			  
+			<%
+				 }
+			%>
+			<%
+				 if ((String) session1.getAttribute("admin") == "user") { 
+			%>
+
+			<li><a href="userhome.jsp">Home</a></li>
 			<li><a href="workplanvia.jsp">Workplan</a></li>
 			<li><a href="user_initiative.jsp">Initiatives</a></li>
 			<li><a href="ProjectUser.jsp">Project</a></li>
 			<li><a href="about_us_users.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 			
-		<% }  %>
+			<%
+				 } 
+			%>
+			
+			
 			
 		</ul>
 	</div>
 
 	<div id="templatemo_content">
-		
+	
 			<%@ include file="common_left.jsp" %>
+			
+			
 		
-		<div id="content_left">
-
-			<%-- 	<div class="content_left_section">
-				<div class="content_left_section_title">Search</div>
-				<div class="content_left_section_content">
-					<form id="form1" name="form1" action="#">
-						<input type="text" id="search_field" name="search_field"
-							onchange="validate()" />
-						<div>
-							<span id="msg1">${param.msg1}</span>
-						</div>
-
-					</form>
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div> --%>
-
-		</div>
-		<input type="hidden" id="teamname" name="teamname"></input>
+		<!-- <input type="hidden" id="teamname" name="teamname"></input> -->
 		<div id="content_right">
 
 			<div class="right_col_section_w650">
 
 				<div class="header_01">Top view of E-Strategy</div>
 				<div id="search">
+
 				<div>
 
-					<div id="projchart" style="height: 600px; width: 1000px">
+					<div id="projchart" style="height: auto; width: 1000px">
 						<%-- 	<div class="tree">${html1}</div> --%>
 						<table>
 							<tr>
@@ -213,25 +204,21 @@ HttpSession session1 = request.getSession(false);
 					</div>
 
 					
-					<div class="empclick">click for employee list</div>
 					<div id="emplist"></div>
-
-
-				
-				</div>
-
-				<div class="margin_bottom_20">&nbsp;</div>
-			</div>
-				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
+					
+				</div>	
 			
-			
-			<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
-		</div>
-	</div>
+			 <div id="ajaxResponse"></div>
+
+                           <div class="margin_bottom_20">&nbsp;</div>
+                     </div>
+
+                     <div class="cleaner">&nbsp;</div>
+              </div>
+              <%@ include file="footer.jsp" %>   
+</div>
+</div>
+
 </body>
 </html>
