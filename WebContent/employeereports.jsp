@@ -81,13 +81,13 @@
 							<tr class="one" style="font-weight:bold;">
 								<td>ReqId</td>
 								<td>Team Name</td>
-								<td>No_Of_ASE</td>
-								<td>No_of_SE</td>
-								<td>No_of_SSE</td>
-								<td>comment</td>
+								<td>No of A.S.E.</td>
+								<td>No of S.E.</td>
+								<td>No of S.S.E.</td>
+								<td>Comment</td>
 								<td>Status ID</td>
-								<td>EmployeeId</td>
-								<td>EmployeeName</td>
+								<td>Employee Id</td>
+								<td>Employee Name</td>
 								<td>TimeStamp</td>
 							</tr>
 							</thead>
