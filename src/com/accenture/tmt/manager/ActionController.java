@@ -23,7 +23,7 @@ public class ActionController {
 			empNamesASE = new String[aseLength] ;
 			for(int i=0; i < aseLength; i++){
 				temp = empASE[i].split("_") ;
-				empNamesASE[i] = temp[1] ;
+				empNamesASE[i] = temp[0] ;
 			}
 		}
 		
@@ -32,7 +32,7 @@ public class ActionController {
 		empNamesSE = new String[seLength] ;
 		for(int i=0; i < seLength; i++){
 			temp = empSE[i].split("_") ;
-			empNamesSE[i] = temp[1] ;
+			empNamesSE[i] = temp[0] ;
 		}
 		}
 		
@@ -41,7 +41,7 @@ public class ActionController {
 			empNamesSSE = new String[sseLength] ;
 			for(int i=0; i < sseLength; i++){
 				temp = empSSE[i].split("_") ;
-				empNamesSSE[i] = temp[1] ;
+				empNamesSSE[i] = temp[0] ;
 			}
 		}
 		
