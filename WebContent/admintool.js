@@ -1,4 +1,15 @@
 
+$(document).ready(function(){
+
+        $("#empCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+
+
 
 
 	$(document).ready(function() {
