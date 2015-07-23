@@ -56,6 +56,8 @@ public class SearchEmployee extends HttpServlet {
 		List<SearchFormDTO> li = new ArrayList<SearchFormDTO>();
 		EmployeeController search = new EmployeeController();
 		li = search.searchEmployee(name);
+	if(session!= null){
+		
 	
 		if(name!="" && li.size() != 0)
 		{
@@ -119,8 +121,13 @@ public class SearchEmployee extends HttpServlet {
 	else
 	{
 		PrintWriter out = response.getWriter();
-
 		out.print("");
+		
+	}
+	}
+	else{
+		PrintWriter out = response.getWriter();
+		out.print("Please Login");
 	}
 	// request.setAttribute("searchList", li);
 
