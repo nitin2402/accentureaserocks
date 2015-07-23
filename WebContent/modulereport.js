@@ -6,5 +6,9 @@ function validateform(){
 		alert("Fields cannot be empty");
 		return false;
 	}
+	if ((Date.parse(startDate) > Date.parse(endDate))) {
+        alert("End date should be greater than Start date");
+        return false;
+    }
 	
 }
