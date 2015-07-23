@@ -7,14 +7,14 @@
   <session-config>
     <session-timeout>5</session-timeout>
   </session-config>
-  <context-param> 
-    <description>Location to store uploaded file</description> 
-    <param-name>file-upload</param-name> 
+  <context-param>
+    <description>Location to store uploaded file</description>
+    <param-name>file-upload</param-name>
     <param-value>
          C:\Users\sachin.a.bhardwaj\Downloads\apache-tomcat-7.0.62-windows-x86\apache-tomcat-7.0.62\webapps\data
-     </param-value> 
-</context-param>
-<servlet>
+     </param-value>
+  </context-param>
+  <servlet>
     <description></description>
     <display-name>InitiativeUploadServlet</display-name>
     <servlet-name>InitiativeUploadServlet</servlet-name>
@@ -254,7 +254,7 @@
     <servlet-name>DisplayEmpList</servlet-name>
     <url-pattern>/DisplayEmpList</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>StoreServlet</display-name>
     <servlet-name>StoreServlet</servlet-name>
@@ -433,8 +433,8 @@
   <servlet-mapping>
     <servlet-name>AddTeamManual</servlet-name>
     <url-pattern>/AddTeamManual</url-pattern>
-    </servlet-mapping>
-     <servlet>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>AddEmpManual</display-name>
     <servlet-name>AddEmpManual</servlet-name>
@@ -484,7 +484,7 @@
     <servlet-name>workplanServlet</servlet-name>
     <url-pattern>/workplanServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>RequestStatus</display-name>
     <servlet-name>RequestStatus</servlet-name>
@@ -535,7 +535,7 @@
     <url-pattern>/BudgetServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-   <description></description>
+    <description></description>
     <display-name>AddTeamExcel</display-name>
     <servlet-name>AddTeamExcel</servlet-name>
     <servlet-class>com.accenture.tmt.presentation.servlet.AddTeamExcel</servlet-class>
@@ -544,7 +544,7 @@
     <servlet-name>AddTeamExcel</servlet-name>
     <url-pattern>/AddTeamExcel</url-pattern>
   </servlet-mapping>
-<servlet>
+  <servlet>
     <description></description>
     <display-name>AddModuleExcel</display-name>
     <servlet-name>AddModuleExcel</servlet-name>
@@ -554,7 +554,7 @@
     <servlet-name>AddModuleExcel</servlet-name>
     <url-pattern>/AddModuleExcel</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>ModuleListServlet</display-name>
     <servlet-name>ModuleListServlet</servlet-name>
@@ -574,7 +574,7 @@
     <servlet-name>ModuleReportServlet</servlet-name>
     <url-pattern>/ModuleReportServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>ProjectCurrent</display-name>
     <servlet-name>ProjectCurrent</servlet-name>
@@ -584,7 +584,7 @@
     <servlet-name>ProjectCurrent</servlet-name>
     <url-pattern>/ProjectCurrent</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>ProjectRelease</display-name>
     <servlet-name>ProjectRelease</servlet-name>
@@ -594,7 +594,7 @@
     <servlet-name>ProjectRelease</servlet-name>
     <url-pattern>/ProjectRelease</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description></description>
     <display-name>EmployeeReportServlet</display-name>
     <servlet-name>EmployeeReportServlet</servlet-name>
@@ -604,7 +604,7 @@
     <servlet-name>EmployeeReportServlet</servlet-name>
     <url-pattern>/EmployeeReportServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>AcceptRequestServlet</display-name>
     <servlet-name>AcceptRequestServlet</servlet-name>
@@ -644,7 +644,7 @@
     <servlet-name>EditServlet</servlet-name>
     <url-pattern>/EditServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>AuthorizeEmployeeServlet</display-name>
     <servlet-name>AuthorizeEmployeeServlet</servlet-name>
@@ -674,5 +674,34 @@
     <servlet-name>GetPieChartValues</servlet-name>
     <url-pattern>/GetPieChartValues</url-pattern>
   </servlet-mapping>
- 
+  <servlet>
+    <description></description>
+    <display-name>EditEmployeeFinal</display-name>
+    <servlet-name>EditEmployeeFinal</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.EditEmployeeFinal</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditEmployeeFinal</servlet-name>
+    <url-pattern>/EditEmployeeFinal</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchEmployeeAdmin</display-name>
+    <servlet-name>SearchEmployeeAdmin</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.SearchEmployeeAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchEmployeeAdmin</servlet-name>
+    <url-pattern>/SearchEmployeeAdmin</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>Searchedit</display-name>
+    <servlet-name>Searchedit</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.Searchedit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Searchedit</servlet-name>
+    <url-pattern>/Searchedit</url-pattern>
+  </servlet-mapping>
 </web-app>
