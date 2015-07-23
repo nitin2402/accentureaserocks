@@ -56,10 +56,13 @@ public interface CONSTANTS {
 						+ "Employee.ProficiencyCams, Employee.ProficiencyProject, Employee.ProficiencyProject,"
 						+ "Employee.DateofJoining, Employee.LastWorkingDay, Employee.Billable, "
 						+ "Employee.ActiveUser"
-						+ " FROM Employee"  + " WHERE Employee.EmployeeName LIKE ? ";
+						+ " FROM Employee"  + " WHERE Employee.EmployeeName LIKE ? AND Employee.ActiveUser='yes'";
 		
 		public String PROJECT = "ProjectName";
 		public String MODULE_NAME = "ModuleName";
+		
+	public String EMPLOYEE_UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?, EmployeeDesignation=?,EmployeeLevel=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamName=?,ProficiencyCams=?,ProficiencyProject=?,DateofJoiningBillable=? WHERE EmployeeId=?";
+		
 		public String VIEW_EMPLOYEE_QUERY = "	SELECT Employee.*, Team.TeamName,"
 		
 			+ " ModuleDetail.ModuleName, ProjectDetail.ProjectName"+
@@ -113,7 +116,7 @@ public interface CONSTANTS {
 		public String EMPLOYEE_INSERT = "insert into Employee (EmployeeId,EmployeeName,EmployeeDesignation,EmployeeLevel,EmployeeExpertise,EmployeeClientId,EmployeeEmail,TeamId,ProficiencyCams,ProficiencyProject,DateofJoining,LastWorkingDay,Billable,ActiveUser,LCR) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		public String SHEET_NO = "sheetno";
 		public String FILE_NAME = "file1";
-		public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,TeamId=?,ProficiencyCams=?,ProficiencyProject=?,DateofJoining=?,LastWorkingDay=?,Billable=?,ActiveUser=? WHERE EmployeeId=?";
+		public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,ProficiencyCams=?,ProficiencyProject=?,DateofJoining=?,Billable=? WHERE EmployeeId=?";
 
 		/*CHANGED*/public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID, EmployeeId) values(?,?,?,?,?,?,?,?)";
 		
