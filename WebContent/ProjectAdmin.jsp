@@ -80,7 +80,7 @@ $(document).ready(function(){
 
 
 <body>
-	
+	<%@ include file="header_admin.jsp" %>  
 	<jsp:include page="/ProjectCurrent"/>
 	<jsp:include page="/ProjectRelease"/>
  <%-- <% 
@@ -94,7 +94,7 @@ $(document).ready(function(){
 		} 
 	    
 	< --%>
-<%@ include file="header_admin.jsp" %>  
+
 
 	<div id="templatemo_content">
 	
@@ -147,44 +147,17 @@ $(document).ready(function(){
 					</div>
 					
 					<br/>
-					<%-- <h1 id="release1">
-						<a href="#"> Release Date </a>
-					</h1>
-					<div id="scrollable" style="font-size: 14px;">
-					<form action="/EditServlet/" method="get">
-						<table class="table2" id="release">
-
-							<thead style="font-weight: bold; position:">
-								<tr class="one" style="font-weight: bold;">
-									<td></td>
-									<td>Current Release</td>
-									<td>Release Date</td>
-
-								</tr>
-							</thead>
-
-						
-							<tbody>
-								<jstlcore:forEach items="${release}" var="item">
-									<tr class="table_align">
-										<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
-
-										<td><input type="radio" name="select" value="${item.currentRelease}"/></td>
-										<td><jstlcore:out value="${item.currentRelease}" /></td>
-										<td><jstlcore:out value="${item.releaseDate}" /></td>
-
-									</tr>
-								</jstlcore:forEach>
-							</tbody>
-						</table>
-						<input type="submit" id="button2" onclick="" value="Edit"></input>
-							</form>
-					</div> --%>
+					<ul>
+				<li><a href="OnBoarding.jsp">On Boarding</a>  </li>
+				
+				<li> <a href="RollOff.jsp"> Roll off </a></li>
+				</ul>
 				
 			<div id="welcome_msg"
 			style="color: yellow; float: right; font-size: 12px;">
 			<a href="AboutProjectadmin.jsp">About Project</a>
 		</div>
+		<div class="margin_bottom_20">&nbsp;</div>
 		</div>
 	<div id="ajaxResponse"></div>
 				<p class="error" style="font-size: 14px; color: red;">${message}</p>
