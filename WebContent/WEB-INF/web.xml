@@ -566,6 +566,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>TeamReport</display-name>
+    <servlet-name>TeamReport</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.TeamReport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeamReport</servlet-name>
+    <url-pattern>/TeamReport</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>ModuleReportServlet</display-name>
     <servlet-name>ModuleReportServlet</servlet-name>
     <servlet-class>com.accenture.tmt.presentation.servlet.ModuleReportServlet</servlet-class>
