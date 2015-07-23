@@ -86,13 +86,12 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 			ResultSet rs = null;
 			 Connection con = DBConnection.getConnection();
 				if(con != null){
-				    PreparedStatement st1 = con.prepareStatement(CONSTANTS.EMPLOYEE_REPORT);
-				    System.out.println(teamreportdto.getStartDate());
+				    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_TEAM_NAME_QUERY);
 				    st1.setDate(1, (Date) (teamreportdto.getStartDate()));
 				    st1.setDate(2, (Date) (teamreportdto.getEndDate()));
 				    rs = st1.executeQuery();
 				
-				    if (rs.next() == true) {
+				     while(rs.next() == true) {
 				    	teamList = new ReportsDetailsFlatDTO();  
 				    	teamList.setReqId(rs.getString("ReqId"));
 				    	teamList.setTeamName(rs.getString("teamName"));
