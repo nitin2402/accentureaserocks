@@ -38,7 +38,7 @@
 
 </head>
 <body><%@ include file="header_admin.jsp" %> 
-<jsp:include page="/fetchmodule.jsp" />
+<%-- <jsp:include page="/fetchmodule.jsp" /> --%>
 	 
    
        <%-- <%
