@@ -217,5 +217,8 @@ public interface CONSTANTS {
 		public String GET_PIECHART_DETAILS = "SELECT * FROM Employee INNER JOIN Team ON Team.TeamId=Employee.TeamId INNER JOIN ModuleDetail ON ModuleDetail.ModuleId=Team.ModuleId INNER JOIN ProjectDetail ON ProjectDetail.ProjectId=ModuleDetail.ProjectId WHERE ProjectDetail.ProjectId='PR01'";
 	
 		 public String GET_LASTMODID_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM ModuleDetail ";
+		 
+		public String REQUEST_STATUS_QUERY = "SELECT R.ReqId, R.TeamId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName FROM RequestTable R, StatusTable S,Login L WHERE R.Status_ID = S.Status_ID AND R.EmployeeId = L.EmployeeId AND L.Username = ?";
+
 }
 
