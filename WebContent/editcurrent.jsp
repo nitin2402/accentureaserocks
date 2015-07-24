@@ -23,7 +23,7 @@
 
 	});
 </script>
-<script type='text/javascript' src='search.js'></script>
+<script type='text/javascript' src='searchAdmin.js'></script>
 </head>
 
 
@@ -55,7 +55,7 @@
 
 				<div class="header_01">Edit Current Release</div>
 				
-				<div>
+					<div id="search">
 				<form name="edit" action="EditCurrent" method="post">
 					<jstlcore:forEach items="${select1}" var="list">
 						
@@ -87,23 +87,17 @@
 					<input type="submit" value="Change" /> <br/>
 	</form>
 
-					
-
-
-
-
-					<div class="cleaner">&nbsp;</div>
-				</div>
-
+				
+				
 				<div class="margin_bottom_20">&nbsp;</div>
-			</div>
+				</div>
+			<div id="ajaxResponse"></div>
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
-	</div>
+		<%@ include file="footer.jsp"%>
+		</div>
+		
 		</body>
 </html>
