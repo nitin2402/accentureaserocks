@@ -19,16 +19,24 @@
 											'Search results for \"'
 													+ searchvalue + '\"');
 							if (data != "") {
-										$("#search").hide();
-										 $("#ajaxResponse").show();
-										$("#ajaxResponse").html(data); 
+								count=4;
+								if(data=="Please Login"){
+									alert("Session Expired");
+									window.location = "login.jsp";
+								}else{
+									$("#search").hide();
+									 $("#ajaxResponse").show();
+									$("#ajaxResponse").html(data); 
+								}
 									} else {
 
 										 $("#ajaxResponse").hide(); 
 
-										$("#search").show().delay(1000);
-										$(".header_09").hide();
-										$(".header_01").show();
+											$("#search").show();
+											count=0;
+											$(".header_09").hide();
+											$(".header_01").show();
+
 
 									} 
 
