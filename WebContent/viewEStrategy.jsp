@@ -78,14 +78,36 @@
 		});
 	});
 </script>
+<%
+	HttpSession session1 = request.getSession(false);
+	/* if (session1 == null
+		|| (String) session1.getAttribute("user") == null)  *//* { */
+	/* <jsp:forward page="home.jsp?msg=Please Login" />
+	<%  */
+	/* }  */
+%>
 
+<%
+	if ((String) session1.getAttribute("admin") == "admin") {
+%>
 
+<script type='text/javascript' src='searchAdmin.js'></script>
+<%
+	}
+%>
 
- <script type='text/javascript' src='search.js'></script>
+<%
+	if ((String) session1.getAttribute("admin") == "user") {
+%>
+<script type='text/javascript' src='search.js'></script>
+<%
+	}
+%>
+
 </head>
 <body>
 	<%
-		HttpSession session1 = request.getSession(false);
+		HttpSession session2 = request.getSession(false);
 		  /* if (session1 == null
 				|| (String) session1.getAttribute("user") == null)  */ /* { */
 	/* <jsp:forward page="home.jsp?msg=Please Login" />
@@ -95,101 +117,103 @@
 	<jsp:include page="/ViewReport" />
 
 	<div id="templatemo_container">
-	<div id="templatemo_header">
-		<div id="site_title_section">
-			<div id="site_title">Talent Management Tool</div>
-			<div id="slogan">Plan, Organize, Budget, Schedule</div>
-			<div class="cleaner">&nbsp;</div>
+		<div id="templatemo_header">
+			<div id="site_title_section">
+				<div id="site_title">Talent Management Tool</div>
+				<div id="slogan">Plan, Organize, Budget, Schedule</div>
+				<div class="cleaner">&nbsp;</div>
+			</div>
+			<div id="welcome_msg"
+				style="color: yellow; float: right; font-size: 12px;">
+				Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
+			</div>
+			<div id="header_section_code">"The talent management tool is an
+				integrated software tool that addresses the four pillars of talent
+				management: plan, organize, budget and schedule talents"</div>
 		</div>
-		<div id="welcome_msg"
-			style="color: yellow; float: right; font-size: 12px;">
-			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
-		</div>
-		<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
-	</div>
 
-	<div id="templatemo_menu">
-		<ul>
-			<%
-				 if ((String) session1.getAttribute("admin") == "admin") { 
+		<div id="templatemo_menu">
+			<ul>
+				<%
+				 if ((String) session2.getAttribute("admin") == "admin") { 
 			%>
 				<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="admintool.jsp">Admin Tools</a></li>
-			<li><a href="searchrequest.jsp">Workplan</a></li>
-			<li><a href="ProjectAdmin.jsp">Projects</a></li>
-			<li><a href="mainreports.jsp">Reports</a></li>
-			<li><a href="admin_initiative.jsp">Initiatives</a></li>
-			<li><a href="aboutus.jsp">About Us</a></li>
-			<li><a href="#" class="last">Contact Us</a></li>
-			  
-			<%
+				<li><a href="admintool.jsp">Admin Tools</a></li>
+				<li><a href="searchrequest.jsp">Workplan</a></li>
+				<li><a href="ProjectAdmin.jsp">Projects</a></li>
+				<li><a href="mainreports.jsp">Reports</a></li>
+				<li><a href="admin_initiative.jsp">Initiatives</a></li>
+				<li><a href="aboutus.jsp">About Us</a></li>
+				<li><a href="#" class="last">Contact Us</a></li>
+
+				<%
 				 }
 			%>
-			<%
-				 if ((String) session1.getAttribute("admin") == "user") { 
+				<%
+				 if ((String) session2.getAttribute("admin") == "user") { 
 			%>
 
-			<li><a href="userhome.jsp">Home</a></li>
-			<li><a href="workplanvia.jsp">Workplan</a></li>
-			<li><a href="user_initiative.jsp">Initiatives</a></li>
-			<li><a href="ProjectUser.jsp">Project</a></li>
-			<li><a href="about_us_users.jsp">About Us</a></li>
-			<li><a href="#" class="last">Contact Us</a></li>
-			
-			<%
+				<li><a href="userhome.jsp">Home</a></li>
+				<li><a href="workplanvia.jsp">Workplan</a></li>
+				<li><a href="user_initiative.jsp">Initiatives</a></li>
+				<li><a href="ProjectUser.jsp">Project</a></li>
+				<li><a href="about_us_users.jsp">About Us</a></li>
+				<li><a href="#" class="last">Contact Us</a></li>
+
+				<%
 				 } 
 			%>
-			
-			
-			
-		</ul>
-	</div>
 
-	<div id="templatemo_content">
-	
-			<%@ include file="common_left.jsp" %>
-			
-			
-		
-		<!-- <input type="hidden" id="teamname" name="teamname"></input> -->
-		<div id="content_right">
 
-			<div class="right_col_section_w650">
 
-				<div class="header_01">Top view of E-Strategy</div>
-				<div id="search">
-
-				<div>
-
-					<div id="projchart" style="height: auto; width: 1000px">
-						<%-- 	<div class="tree">${html1}</div> --%>
-						<table>
-							<tr>
-								<td class="tree">${html1}</td>
-								<td />
-								<td />
-								<td />
-								<td id="ajaxResponse1"></td>
-							</tr>
-						</table>
-					</div>
-
-					
-					<div id="emplist"></div>
-					
-				</div>	
-			
+			</ul>
 		</div>
-			 <div id="ajaxResponse"></div>
 
-                           <div class="margin_bottom_20">&nbsp;</div>
-                     </div>
+		<div id="templatemo_content">
 
-                     <div class="cleaner">&nbsp;</div>
-              </div>
-              <%@ include file="footer.jsp" %>   
-</div>
-</div>
+			<%@ include file="common_left.jsp"%>
+
+
+
+			<!-- <input type="hidden" id="teamname" name="teamname"></input> -->
+			<div id="content_right">
+
+				<div class="right_col_section_w650">
+
+					<div class="header_01">Top view of E-Strategy</div>
+					<div id="search">
+
+						<div>
+
+							<div id="projchart" style="height: auto; width: 1000px">
+								<%-- 	<div class="tree">${html1}</div> --%>
+								<table>
+									<tr>
+										<td class="tree">${html1}</td>
+										<td />
+										<td />
+										<td />
+										<td id="ajaxResponse1"></td>
+									</tr>
+								</table>
+							</div>
+
+
+							<div id="emplist"></div>
+
+						</div>
+
+					</div>
+					<div id="ajaxResponse"></div>
+
+					<div class="margin_bottom_20">&nbsp;</div>
+				</div>
+
+				<div class="cleaner">&nbsp;</div>
+			</div>
+			<%@ include file="footer.jsp"%>
+		</div>
+	</div>
 
 </body>
 </html>
