@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 	});
 </script>
-<script type='text/javascript' src='search.js'></script>
+<script type='text/javascript' src='searchAdmin.js'></script>
 </head>
 
 
