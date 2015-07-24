@@ -46,7 +46,7 @@
 				<div id="search">
 					<ul class="text_size">
 						<li><a href="workplan.jsp">Raise a new request</a></li></br>
-						<li><a href="requeststatus.jsp">Request Status</a></li>
+						<li><a href="<%=request.getContextPath()%>/RequestStatus?userName=${user}">Request Status</a></li>
 					
 					</ul>
 				<div>
