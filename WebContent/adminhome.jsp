@@ -31,7 +31,7 @@
 							var searchvalue = $("#search_field").val();
 							$(".error").hide();
 							$.ajax({
-								url : "/TMT/SearchEmployee",
+								url : "/TMT/SearchEmployeeAdmin",
 								type : "POST",
 								data : 'searchName=' + searchvalue,
 
@@ -43,14 +43,21 @@
 											'Search results for \"'
 													+ searchvalue + '\"');
 									if (data != "") {
-										$("#piechart").hide();
-										$("#ajaxResponse").show();
-										$("#ajaxResponse").html(data);
+										count=4;
+										if(data=="Please Login"){
+											alert("Session Expired");
+											window.location = "login.jsp";
+										}else{
+											$("#search").hide();
+											 $("#ajaxResponse").show();
+											$("#ajaxResponse").html(data); 
+										}
 									} else {
 
 										$("#ajaxResponse").hide();
 
-										$("#piechart").show().delay(1000);
+										$("#search").show();
+										count=0;
 										$(".header_09").hide();
 										$(".header_01").show();
 
@@ -157,7 +164,7 @@
 				<div class="header_09"></div>
 
 				<div>
-
+<div id = "search">
 					<div id="piechart"
 						style="background-colour: red; height: 300px; width: 600px"
 						onclick="clickk()"></div>
@@ -165,6 +172,7 @@
 					<a onclick="filter('billability')">Billability</a> /
 					<a onclick="filter('proficiency')">Proficiency</a> /
 					<a onclick="filter('expertise')">Expertise</a>
+					</div>
 					</div>
 					<div id="ajaxResponse"></div>
 					<p class="error" style="font-size: 14px; color: red;">${message}</p>
