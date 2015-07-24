@@ -19,6 +19,7 @@
 											'Search results for \"'
 													+ searchvalue + '\"');
 							if (data != "") {
+								count=4;
 								if(data=="Please Login"){
 									alert("Session Expired");
 									window.location = "login.jsp";
@@ -29,13 +30,12 @@
 								}
 									
 									} else {
-
 										 $("#ajaxResponse").hide(); 
 
-										$("#search").show().delay(1000);
-										$(".header_09").hide();
-										$(".header_01").show();
-
+											$("#search").show();
+											count=0;
+											$(".header_09").hide();
+											$(".header_01").show();
 									} 
 
 								},
