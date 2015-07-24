@@ -38,12 +38,14 @@ public class RequestStatus extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String userName = request.getParameter("userName");
 		RequestStatusController fetch = new RequestStatusController();
 		List<RequestStatusFlatDTO> statusList = new ArrayList<RequestStatusFlatDTO>();
 		
-		statusList = fetch.viewStatus();
+		statusList = fetch.viewStatus(userName);
 		
 		request.setAttribute("StatusList", statusList);
+		request.getRequestDispatcher("requeststatus.jsp").forward(request, response);
 	}
 
 }

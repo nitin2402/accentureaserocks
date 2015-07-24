@@ -1,30 +1,33 @@
 package com.accenture.tmt.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.RequestStatusFlatDTO;
 
 public class RequestStatusDAO {
 
-	public List<RequestStatusFlatDTO> viewStatus() {
+	public List<RequestStatusFlatDTO> viewStatus(String userName) {
 		
 		List<RequestStatusFlatDTO> requestStatus = new ArrayList<RequestStatusFlatDTO>();
 		
 		try {
 			RequestStatusFlatDTO status = null;
+			ResultSet rs = null ;
 			
 			Connection con = DBConnection.getConnection();
-			Statement st = con.createStatement();
+			PreparedStatement st = con
+					  .prepareStatement(CONSTANTS.REQUEST_STATUS_QUERY);
 			
-			String querry = "SELECT R.ReqId, R.TeamId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName FROM RequestTable R INNER JOIN StatusTable S ON R.Status_ID= S.Status_ID";
-			
-			ResultSet rs = st.executeQuery(querry);
+			st.setString(1, userName);
+			rs = st.executeQuery();
 			
 			while(rs.next())
 			{

@@ -10,9 +10,9 @@ public class RequestStatusController {
 
 	RequestStatusDAO reqst = new RequestStatusDAO();
 	
-	public List<RequestStatusFlatDTO> viewStatus(){
+	public List<RequestStatusFlatDTO> viewStatus(String userName){
 		List<RequestStatusFlatDTO> statusList = new ArrayList<RequestStatusFlatDTO>();
-		statusList = reqst.viewStatus();
+		statusList = reqst.viewStatus(userName);
 		return statusList;
 		
 	}
