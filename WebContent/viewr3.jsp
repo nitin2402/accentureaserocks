@@ -78,14 +78,35 @@
 		});
 	});
 </script>
+<%
+	HttpSession session1 = request.getSession(false);
+	/* if (session1 == null
+		|| (String) session1.getAttribute("user") == null)  *//* { */
+	/* <jsp:forward page="home.jsp?msg=Please Login" />
+	<%  */
+	/* }  */
+%>
 
+<%
+	if ((String) session1.getAttribute("admin") == "admin") {
+%>
 
+<script type='text/javascript' src='searchAdmin.js'></script>
+<%
+	}
+%>
 
- <script type='text/javascript' src='search.js'></script>
+<%
+	if ((String) session1.getAttribute("admin") == "user") {
+%>
+<script type='text/javascript' src='search.js'></script>
+<%
+	}
+%>
 </head>
 <body>
 	<%
-		HttpSession session1 = request.getSession(false);
+		HttpSession session2 = request.getSession(false);
 		  /* if (session1 == null
 				|| (String) session1.getAttribute("user") == null)  */ /* { */
 	/* <jsp:forward page="home.jsp?msg=Please Login" />
@@ -111,7 +132,7 @@
 	<div id="templatemo_menu">
 		<ul>
 			<%
-				 if ((String) session1.getAttribute("admin") == "admin") { 
+				 if ((String) session2.getAttribute("admin") == "admin") { 
 			%>
 				<li><a href="adminhome.jsp">Home</a></li>
 			<li><a href="admintool.jsp">Admin Tools</a></li>
@@ -126,7 +147,7 @@
 				 }
 			%>
 			<%
-				 if ((String) session1.getAttribute("admin") == "user") { 
+				 if ((String) session2.getAttribute("admin") == "user") { 
 			%>
 
 			<li><a href="userhome.jsp">Home</a></li>
