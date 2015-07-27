@@ -128,7 +128,7 @@ public interface CONSTANTS {
 		public String Get_ProjectId_QUERY = "select ProjectId from ProjectDetail where ProjectName = ?";
 		public String INSERTMODULE_QUERY = "insert into ModuleDetail(ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
 		public String TEAM_INSERT1 = "insert into Team (TeamName,TeamId,ModuleId,TeamDescription,Status) values(?,?,?,?,?)";
-
+		public String TEAM_INSERT = "insert into Team (TeamName,TeamId,ModuleId,TeamDescription,Status) values(?,?,?,?,?)";
 		public String GET_TEAMID_QUERY = "select TeamId from Team WHERE TeamName = ?";
 		public String GET_EMPLOYEEID_QUERY = "select EmployeeId from Login WHERE UserName = ?";
 		public String GET_TEAM_LIST_QUERY = "SELECT TeamName FROM TEAM";
@@ -199,7 +199,6 @@ public interface CONSTANTS {
 		
 		public String ASSIGN_RESOURCE_QUERY = "UPDATE EMPLOYEE SET TeamId = ? WHERE EmployeeId = ?";
 		public String REQUEST_TEAMID_QUERY = "SELECT TEAMID FROM RequestTable WHERE ReqId = ?";
-		
 		public String FREE_ASE_LIST_QUERY = "SELECT EmployeeId, EmployeeName, LCR FROM EMPLOYEE WHERE (TeamId = 'TE-021' OR TeamId = 'TE-034' OR TeamId = 'TE-037') AND EmployeeDesignation = 'ASE'";
 		public String FREE_SE_LIST_QUERY = "SELECT EmployeeId, EmployeeName, LCR FROM EMPLOYEE WHERE (TeamId = 'TE-021' OR TeamId = 'TE-034' OR TeamId = 'TE-037') AND EmployeeDesignation = 'SE'";
 		public String FREE_SSE_LIST_QUERY = "SELECT EmployeeId, EmployeeName, LCR FROM EMPLOYEE WHERE (TeamId = 'TE-021' OR TeamId = 'TE-034' OR TeamId = 'TE-037') AND EmployeeDesignation = 'SSE'";
@@ -207,9 +206,7 @@ public interface CONSTANTS {
 
 		public String TOTAL_LCR_QUERY = "SELECT SUM(Cast(LCR as Float)) AS TOTAL FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
 		public String COUNT_BILLABLE_EMPLOYEE_QUERY = "SELECT COUNT(EmployeeId) AS NumberOfEmployee FROM EMPLOYEE WHERE (TeamId != 'TE-021' AND TeamId != 'TE-034' AND TeamId != 'TE-037')";
-		
-		
-		
+		public String GET_ROW_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM Team";
 		public String GET_UNAUTHORIZED_EMPLOYEE_QUERY = "select L_ID,Username,TypeOfUser,EmployeeId,ActiveUser,EmployeeDesignation from Login L, Employee E where L.EmployeeId = E.EMployeeId AND TypeOfUser = 'UNAUTHORISED' AND ActiveUser = 'n' ";
 		public String UPDATE_TYPE_OF_VIEWER_QUERY = "UPDATE Login SET TypeOfUser = 'VIEWER' , ActiveUser = 'y' where L_ID = ? ";
 		public String UPDATE_TYPE_OF_USER_QUERY = "UPDATE Login SET TypeOfUser = 'USER' , ActiveUser = 'y' where L_ID = ? ";
