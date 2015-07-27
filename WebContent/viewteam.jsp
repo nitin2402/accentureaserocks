@@ -20,6 +20,16 @@
 	});
 </script>
 <script type='text/javascript' src='search.js'></script>
+<script >$(document).ready(function(){
+
+        $("#ViewteamCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+	</script>
 
 </head>
 <body>
