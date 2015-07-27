@@ -32,7 +32,7 @@
 		<%@ include file="common_left.jsp" %>  
 		<div id="content_right">
 				
-			<div class="right_col_section_w650" style="height: 700px" >
+			<div class="right_col_section_w650" style="height: auto" >
 					<div id="search" style="font-size: 14px;">
 			
 				<div class="header_01" >Status of user requests</div>
