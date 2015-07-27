@@ -23,7 +23,18 @@
 
 	});
 </script>
-<script type='text/javascript' src='search.js'></script>
+<script type='text/javascript' src='searchAdmin.js'></script>
+
+<link rel="stylesheet" type="text/css" href="tooltipster.css" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+    <script type="text/javascript" src="jquery.tooltipster.min.js"></script>
+    
+     <script>
+        $(document).ready(function() {
+            $('.tooltip').tooltipster();
+        });
+    </script>
 </head>
 
 
@@ -57,33 +68,33 @@
 
 
 				<div id="search" style="font-size: 14px;">     <h2><b>USEFUL LINKS</b></h2>
-				<h3> <u>VPN Access</u></h3>
+				<h3> <u class="tooltip" title="This is my div's tooltip message!">VPN Access</u></h3>
 				1.Check Details</br>
 				<a href="http://webphone.att.com/ "><u>http://webphone.att.com/ </u></a> 
 				</br>
 				2.Register Password</br>
 				<a href="https://www.e-access.att.com/src "><u>https://www.e-access.att.com/src </u></a> 
 				</br>
-				<h3><u>RSA Mapping</u></h3>
+				<h3><u class="tooltip" title="This is my div's tooltip message!">RSA Mapping</u></h3>
 				<a href=" https://www.e-access.att.com/src/RsaProvisioningServlet?submenu=SP:RT "><u> https://www.e-access.att.com/src/RsaProvisioningServlet?submenu=SP:RT </u></a>
 				</br> 
-				<h3><u>RSA Token Installation</u></h3>
+				<h3><u class="tooltip" title="This is my div's tooltip message!">RSA Token Installation</u></h3>
 				1.	Log in to <a href="https://www.e-access.att.com/stdm"><u> www.e-access.att.com/stdm</u> </a> </br>
 				2.  IT Services password <a href=" https://www.toolsssl.sbc.com"> <u>https://www.toolsssl.sbc.com</u></a>
 				</br>
-				<h3><u>QC Access</u></h3>
+				<h3><u class="tooltip" title="This is my div's tooltip message!">QC Access</u></h3>
 				<a href=" https://www.e-access.att.com/idm/webapp//tticket/index.jsp"><u> https://www.e-access.att.com/idm/webapp//tticket/index.jsp</u></a>
 				</br>
-				<h3><u>Request Rally Access</u></h3>
+				<h3><u class="tooltip" title="This is my div's tooltip message!">Request Rally Access</u></h3>
 				<a href="https://operations.web.att.com/sites/Agile-COE/Agile%20COE%20Library/Tools/Rally%20Dev/Ordering%20Rally%20Dev%20Licenses%20Job%20Aid.docx"><u>https://operations.web.att.com/sites/Agile-COE/Agile%20COE%20Library/Tools/Rally%20Dev/Ordering%20Rally%20Dev%20Licenses%20Job%20Aid.docx</u></a>
 				</br>
-				<h3><u>Getting the Admin Rights</u></h3>
+				<h3><u class="tooltip" title="This is my div's tooltip message!">Getting the Admin Rights</u></h3>
 				<a href="http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush"><u>http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush</u></a>
 				</br>
-				<h3><u>New software installation process - RAISE THE TICKET</u></h3>
+				<h3><u class="tooltip" title="This is my div's tooltip message!">New software installation process - RAISE THE TICKET</u></h3>
 				<a href="http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush"><u>http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush</u></a>
 				</br>
-				<h3><u>CONFIGURE MACHINE</u></h3>
+				<h3><u class="tooltip" title="This is my div's tooltip message!">CONFIGURE MACHINE</u></h3>
 				<a href="ftp://bsdevprem01.edc.cingular.net/Windows/"><u>ftp://bsdevprem01.edc.cingular.net/Windows/</u></a>
 				
 				
