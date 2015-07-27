@@ -187,6 +187,7 @@
  -->
 
 
+
 <script>
 	$(document).ready(
 			function() {
@@ -208,14 +209,21 @@
 											'Search results for \"'
 													+ searchvalue + '\"');
 									if (data != "") {
-										$("#piechart").hide();
-										$("#ajaxResponse").show();
-										$("#ajaxResponse").html(data);
+										count=4;
+										if(data=="Please Login"){
+											alert("Session Expired..Please Login");
+											window.location = "login.jsp";
+										}else{
+											$("#search").hide();
+											 $("#ajaxResponse").show();
+											$("#ajaxResponse").html(data); 
+										}
 									} else {
 
 										$("#ajaxResponse").hide();
 
-										$("#piechart").show().delay(1000);
+										$("#search").show();
+										count=0;
 										$(".header_09").hide();
 										$(".header_01").show();
 
@@ -305,7 +313,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 					<ul>
 						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
 						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
+						<li><a href="viewprimier.jsp">Premier</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
@@ -343,7 +351,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 				<div class="header_09"></div>
 
 				<div>
-
+<div id="search">
 					<div id="piechart"
 						style="background-colour: red; height: 300px; width: 600px"
 						onclick="clickToStop()"></div>
@@ -351,6 +359,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 					<a onclick="filter('billability')">Billability</a> /
 					<a onclick="filter('proficiency')">Proficiency</a> /
 					<a onclick="filter('expertise')">Expertise</a>
+					</div>
 					</div>
 					<div id="ajaxResponse"></div>
 					<p class="error" style="font-size: 14px; color: black;">${message}</p>
@@ -364,7 +373,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
+		
 		<div id="templatemo_footer">
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
