@@ -13,6 +13,7 @@
 		
 	    var getFileName = vaildateObj.getElementsByTagName("input");
 	  
+	    
 	        var fileInput = getFileName[0];
 	        if (fileInput.type == "file"){
 	         var fileName = fileInput.value;
@@ -32,12 +33,6 @@
 	            }
 	        }
 	        
-	         var size = $("#fileUpload")[0].files[0].size ;
-
-	         if (size > 1048576){
-	        	 alert("File size should be less than 1 MB");
-	        	 return false ;
-	         }
 	}
 	            
 	    
