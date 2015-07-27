@@ -66,8 +66,9 @@ $("#show1").show();
 <script type="text/javascript">
 function validate(e){
 	var teamname=document.forms["edit"]["teamname"].value;
-	if (teamname == null || teamname == ""){
-		alert("Please enter a Team Name");
+	var teamdesc=document.forms["edit"]["teamdesc"].value;
+	if (teamname == null || teamname == "" || teamdesc==null || teamdesc=="" ){
+		alert("Please enter the required fields!");
 		return false;
 	}
 }
