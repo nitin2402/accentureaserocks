@@ -379,5 +379,33 @@ public  List<TeamFormDTO> fetchTeamDetails() {
 		return teamList;
 
 	}
+public List<TeamFormDTO> teamFetch(){
+	List<TeamFormDTO> teamList = new ArrayList<TeamFormDTO>();
+	TeamFormDTO detail = null;
+	try {
+		Connection con = DBConnection.getConnection();
+		
+		PreparedStatement st = con.prepareStatement(CONSTANTS.TEAMDETAILS);
+		ResultSet rs = st.executeQuery();
+
+       while(rs.next())
+       {
+    	   detail = new TeamFormDTO();
+    	   detail.setModuleId(rs.getString("ModuleId"));
+			detail.setTeamId(rs.getString("TeamId"));
+    	   detail.setTeamName(rs.getString("TeamName"));
+    	   teamList.add(detail);
+       }
+       con.close();
+		
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return teamList;
+}
 }
 
