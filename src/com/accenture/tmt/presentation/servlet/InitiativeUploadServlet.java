@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.FileUploadBase.SizeLimitExceededException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
@@ -89,6 +90,10 @@ public class InitiativeUploadServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/admin_initiative.jsp").forward(
                     request, response);
 
+        } catch (SizeLimitExceededException e){
+        	request.setAttribute("message", "File size should not exceed 1 MB. Upload Unsuccessful.");
+            getServletContext().getRequestDispatcher("/admin_initiative.jsp").forward(
+                    request, response);
         } catch (FileUploadException ex) {
             throw new ServletException(ex);
         } catch (Exception ex) {
