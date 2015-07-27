@@ -28,6 +28,17 @@
 
 	}
 </script>
+<script >
+$(document).ready(function(){
+
+        $("#PrimierCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+	</script>
 <script type="text/javascript">
 	$(function() {
 		$('.last').click(
