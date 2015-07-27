@@ -68,7 +68,7 @@
 
 					<li><a href="viewteam.jsp"id="ViewteamCss">View Teams</a></li>
 
-					<li><a href="viewmodule.jsp"id="ViewteamCss">View Module</a></li>
+					<li><a href="viewmodule.jsp"id="ViewmodCss">View Module</a></li>
 
 				</ul>
 
