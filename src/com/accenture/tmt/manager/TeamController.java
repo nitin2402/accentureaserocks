@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.TeamDAO;
+import com.accenture.tmt.dao.WorkplanDAO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
@@ -16,13 +17,18 @@ public class TeamController {
 		return status;
 	}
 	public int addTeamManual(TeamDetailsFlatDTO detailsDO)
- {
-
+	{
+		String ModuleId = null;
+		WorkplanDAO workplanDao = new WorkplanDAO();
+		ModuleId = workplanDao.fetchModuleId(detailsDO.getModuleName());
+		int lastCount = teamDAO.countRows();
+		String newReqId = "TE -"+ (lastCount + 1);
 		TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
 		detailsFD.setTeamName(detailsDO.getTeamName());
-		detailsFD.setTeamId(detailsDO.getTeamId());
+		detailsFD.setTeamId(newReqId);
 		detailsFD.setModuleId(detailsDO.getModuleId());
 		detailsFD.setTeamDescription(detailsDO.getTeamDescription());
+		
 		int b = teamDAO.addTeamManually(detailsFD);
 
 		if (b != 0) {
