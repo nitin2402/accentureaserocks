@@ -39,6 +39,16 @@
 					
 	}
 	</script>
+	<script >$(document).ready(function(){
+
+        $("#ViewempCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+	</script>
 
 <script type='text/javascript' src='searchAdmin.js'></script>
 
