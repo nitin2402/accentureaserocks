@@ -36,17 +36,21 @@
 				<div class="header_01">Reports</div>
 
 
-                 <div id="search">
+                 <div id="search" style="font-size:14px">
 				    <div>
 					<ul>
+						</br>
 						<li><a href="generateempreports.jsp">Reports Generated for Requests</a></li>
+						</br>
 						
 						<li><a href="#">Reports Generated for Employee</a></li>
-
+						</br>
 
 						<li><a href="teamreport.jsp">Reports Generated for Team</a></li>
+						</br>
 						
 						<li><a href="modulereport.jsp">Reports Generated for Module</a></li>
+						</br>
 					</ul>
 					</div>
 				</div>
