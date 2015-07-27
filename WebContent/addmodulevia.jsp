@@ -22,6 +22,17 @@
 
 <script type="text/javascript" src="addmodulevia.js"></script> 
 <script type='text/javascript' src='search.js'></script>
+<script >
+$(document).ready(function(){
+
+        $("#modCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+	</script>
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>
