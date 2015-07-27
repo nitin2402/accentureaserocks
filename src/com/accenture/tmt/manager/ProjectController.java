@@ -39,5 +39,9 @@ public class ProjectController {
 		return list;
 		
 	}
-	
+	public  List<ProjectDTO> fetchProjectDetails(){
+		List<ProjectDTO> projectList =projectDAO.fetchProjectDetails();
+		return projectList;
+		
+	}
 }
