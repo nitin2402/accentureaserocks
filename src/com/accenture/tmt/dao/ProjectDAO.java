@@ -188,4 +188,35 @@ private List<String> projectNames = new ArrayList<String>();
 		
 		
 	}
+	public  List<ProjectDTO> fetchProjectDetails() {
+		List<ProjectDTO> prjDetails = new ArrayList<ProjectDTO>();
+		ProjectDTO details=null;
+			try {
+				Connection con = DBConnection.getConnection();
+				
+
+				String sqlFetch = "SELECT * FROM ProjectDetail";
+				
+				PreparedStatement st = con.prepareStatement(sqlFetch);
+				ResultSet rs = st.executeQuery();
+		
+				while(rs.next())
+				{
+					details=new ProjectDTO();
+					details.setProjectName(rs.getString("ProjectName"));
+					details.setProjectId(rs.getString("ProjectId"));
+					prjDetails.add(details);
+				}
+				con.close();
+				
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return prjDetails;
+
+}
 	}
