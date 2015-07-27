@@ -140,6 +140,7 @@
                            <div>
                            
                            <input type="submit" id="editEmployee" name="editEmployee" onclick="return validateForm()" value="Edit" ></input>
+                           <input type="submit" id="deleteEmployee" name="deleteEmployee" onclick="return validateForm()" value="Delete" ></input>
                          <!--  <input type="submit" id="deleteEmployee" onclick="return validateForm()" value="Delete"></input> -->
                            </div>
 </form>
