@@ -17,7 +17,7 @@ function myfunction() {
 	function getPieValue() {
 
 		$.ajax({
-			url : "/localTMT/GetPieChartValues",
+			url : "/TMT/GetPieChartValues",
 			type : "POST",
 			data : 'projectId=' + ('PR0' + (count + 1)),
 
