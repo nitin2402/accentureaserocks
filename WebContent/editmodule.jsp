@@ -34,8 +34,9 @@
 <script type="text/javascript">
 function validate(e){
 	var modulename=document.forms["edit"]["modulename"].value;
-	if (modulename == null || modulename == ""){
-		alert("Please enter a Module Name");
+	var moduledesc=document.forms["edit"]["moduledesc"].value;
+	if (modulename == null || modulename == "" || moduledesc == null || moduledesc == ""){
+		alert("Please enter the required fields!");
 		return false;
 	}
 }
