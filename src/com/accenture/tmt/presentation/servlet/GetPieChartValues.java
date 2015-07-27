@@ -45,7 +45,7 @@ public class GetPieChartValues extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
 		String project = request.getParameter("projectId");
-		System.out.println(project);
+	
 		PieChartDTO pieDTO = new PieChartDTO();
 		pieDTO.setProject(project);
 		EmployeeController getEmpDetails = new EmployeeController();
