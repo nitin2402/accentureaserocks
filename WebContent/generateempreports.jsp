@@ -30,55 +30,21 @@
 <div id="templatemo_container" />
 
 	<div id="templatemo_content">
-
-		<div id="content_left">
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Tasks</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="admintool.jsp">Add Employee</a></li>
-						<li><a href="addmodulevia.jsp">Add Module</a></li>
-						<li><a href="addteam.jsp">Add Team</a></li>
-					</ul>
-
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				<div class="cleaner">&nbsp;</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div>
-			<div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">View</div>
-				<div class="content_left_section_content">
-				
-					<ul>
-						<li><a href="viewemployee.jsp">View Employee</a></li>
-
-
-						<li><a href="viewteam.jsp">View Team</a></li>
-						<li><a href="viewmodule.jsp">View Module</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
-			<div class="margin_bottom_20">&nbsp;</div>
-
-		</div>
+	<%@ include file="common_left.jsp" %>
 
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
 
 				<div class="header_01">Enter Time</div>
+				
 				<script>
  					 $(function() {
  					 $( "#datepicker1" ).datepicker();
  					 });
   				</script>
 
-				<div>
+				<div id="search">
 				<form  action="EmployeeReportServlet" method="post">
 				<p>Start Date: <input type="text" id="datepicker" name="startdate" /></p>
 				<p>End Date : <input type="text" id="datepicker1" name="enddate" /></p>
