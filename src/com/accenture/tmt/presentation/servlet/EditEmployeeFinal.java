@@ -45,6 +45,10 @@ public class EditEmployeeFinal extends HttpServlet {
 		String editEmployee=request.getParameter("editEmployee");
 		String deleteEmployee=request.getParameter("deleteEmployee");
 		EmployeeController controller = new EmployeeController();
+		if(employeeDetails==null){
+			request.setAttribute("message","Please Select An Employee");
+			request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
+		}
 		
 		if(editEmployee!=null){
 			List<EmployeeDetailsFlatDTO> li = new ArrayList<EmployeeDetailsFlatDTO>();
@@ -52,11 +56,11 @@ public class EditEmployeeFinal extends HttpServlet {
 			request.setAttribute("editemp", li);
 			request.getRequestDispatcher("editemployee.jsp").forward(request, response);
 		}
-		/*if(deleteEmployee!=null){
+		if(deleteEmployee!=null){
 			
 			
 			try {
-				 controller.(employeeDetails);
+				 controller.deleteEmployee(employeeDetails);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -64,9 +68,9 @@ public class EditEmployeeFinal extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.setAttribute("message","Record Deleted");
-			request.getRequestDispatcher("viewteam.jsp").forward(request, response);
+			request.setAttribute("message","Employee Deleted");
+			request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
 	}
-*/
+
 }
 }
