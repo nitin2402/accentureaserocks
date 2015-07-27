@@ -388,6 +388,7 @@ public class EmployeeDAO {
 	public static List<pieCount> fetchPieDetails(PieChartDTO pieDTO) {
 		List<pieCount> piechartlist= new ArrayList<pieCount>();
 		pieCount pieCount = new pieCount();
+		String name = "";
 		int count = 0;
 		int billable=0;
 		int ASE=0;
@@ -395,6 +396,7 @@ public class EmployeeDAO {
 		int SSE=0;
 		int TL=0;
 		int AM=0;
+		int M=0;
 		int angularJS=0;
 		int AT=0;
 		int C_UNIX=0;
@@ -416,8 +418,11 @@ public class EmployeeDAO {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con
 					.prepareStatement(CONSTANTS.GET_PIECHART_DETAILS);
+			st.setString(1, pieDTO.getProject());
 			ResultSet rs = st.executeQuery();
+		
 			while (rs.next()) {
+				name = rs.getString("ProjectName");
 				++count;
 				if (rs.getString("Billable").equals("yes")) {
 					++billable;
@@ -436,6 +441,9 @@ public class EmployeeDAO {
 				}
 				if(rs.getString("EmployeeDesignation") .equals( "AM")){
 					++AM;
+				}
+				if(rs.getString("EmployeeDesignation") .equals( "M")){
+					++M;
 				}
 				if(rs.getString("EmployeeExpertise") .equals( "Angular JS")){
 					++angularJS;
@@ -488,6 +496,8 @@ public class EmployeeDAO {
 			pieCount.setSE(SE);
 			pieCount.setSSE(SSE);
 			pieCount.setTL(TL);
+			pieCount.setAM(AM);
+			pieCount.setM(M);
 			pieCount.setP0(p0);
 			pieCount.setP1(p1);
 			pieCount.setP2(p2);
@@ -504,6 +514,7 @@ public class EmployeeDAO {
 			pieCount.setQA(QA);
 			pieCount.setTBD(TBD);
 			
+			pieCount.setName(name);
 			
 			piechartlist.add(pieCount);
 			
