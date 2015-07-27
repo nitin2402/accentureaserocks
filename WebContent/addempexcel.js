@@ -1,3 +1,12 @@
+$(document).ready(function(){
+
+        $("#empCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
 
 	function SelectSheetNo(e) {
 		var sheet = prompt("please enter sheet number", "1");
