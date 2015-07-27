@@ -37,6 +37,29 @@ public class TeamDAO {
 		}
 		return a;
 	}
+	public int countRows(){
+		
+		int number_of_rows = 0 ;
+		 ResultSet rs = null ;
+			
+			try {
+				Connection con = DBConnection.getConnection();
+				if (con != null) {
+					PreparedStatement st = con
+						  .prepareStatement(CONSTANTS.GET_ROW_QUERY);
+						  rs = st.executeQuery();
+						  while(rs.next()){
+							  number_of_rows = rs.getInt("NumberOfRows");
+						  
+					 }
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return number_of_rows;
+		
+	}
 	public int addTeam(String tName,String moduleId){
 		int status=0;
 		try {
