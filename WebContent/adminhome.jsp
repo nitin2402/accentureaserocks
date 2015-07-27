@@ -31,7 +31,7 @@
 							var searchvalue = $("#search_field").val();
 							$(".error").hide();
 							$.ajax({
-								url : "/Final_TMT/SearchEmployeeAdmin",
+								url : "/TMT/SearchEmployeeAdmin",
 								type : "POST",
 								data : 'searchName=' + searchvalue,
 
