@@ -209,7 +209,7 @@ public interface CONSTANTS {
 		public String UPDATE_TYPE_OF_VIEWER_QUERY = "UPDATE Login SET TypeOfUser = 'VIEWER' , ActiveUser = 'y' where L_ID = ? ";
 		public String UPDATE_TYPE_OF_USER_QUERY = "UPDATE Login SET TypeOfUser = 'USER' , ActiveUser = 'y' where L_ID = ? ";
 		public String UPDATE_TYPE_OF_ADMIN_QUERY = "UPDATE Login SET TypeOfUser = 'ADMIN' , ActiveUser = 'y' where L_ID = ? ";
-		public String GET_PIECHART_DETAILS = "SELECT * FROM Employee INNER JOIN Team ON Team.TeamId=Employee.TeamId INNER JOIN ModuleDetail ON ModuleDetail.ModuleId=Team.ModuleId INNER JOIN ProjectDetail ON ProjectDetail.ProjectId=ModuleDetail.ProjectId WHERE ProjectDetail.ProjectId='PR01'";
+		public String GET_PIECHART_DETAILS = "SELECT * FROM Employee INNER JOIN Team ON Team.TeamId=Employee.TeamId INNER JOIN ModuleDetail ON ModuleDetail.ModuleId=Team.ModuleId INNER JOIN ProjectDetail ON ProjectDetail.ProjectId=ModuleDetail.ProjectId WHERE ProjectDetail.ProjectId=?";
 	
 		 public String GET_LASTMODID_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM ModuleDetail ";
 		 
