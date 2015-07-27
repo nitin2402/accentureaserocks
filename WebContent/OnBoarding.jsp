@@ -85,9 +85,36 @@ $(document).ready(function(){
 				<div class="header_01">On Boarding</div>
 
 
-				<div id="search">
-
-					
+				<div id="search" style="font-size: 14px;">     <h2><b>USEFUL LINKS</b></h2>
+				<h3> VPN Access:</h3>
+				1.Check Details</br>
+				<a href="http://webphone.att.com/ "><u>http://webphone.att.com/ </u></a> 
+				</br>
+				2.Register Password</br>
+				<a href="https://www.e-access.att.com/src "><u>https://www.e-access.att.com/src </u></a> 
+				</br>
+				<h3>RSA Mapping</h3>
+				<a href=" https://www.e-access.att.com/src/RsaProvisioningServlet?submenu=SP:RT "><u> https://www.e-access.att.com/src/RsaProvisioningServlet?submenu=SP:RT </u></a>
+				</br> 
+				<h3>RSA Token Installation</h3>
+				1.	Log in to <a href="https://www.e-access.att.com/stdm"><u> www.e-access.att.com/stdm</u> </a> </br>
+				2.  IT Services password <a href=" https://www.toolsssl.sbc.com"> <u>https://www.toolsssl.sbc.com</u></a>
+				</br>
+				<h3>QC Access</h3>
+				<a href=" https://www.e-access.att.com/idm/webapp//tticket/index.jsp"><u> https://www.e-access.att.com/idm/webapp//tticket/index.jsp</u></a>
+				</br>
+				<h3>Request Rally Access</h3>
+				<a href="https://operations.web.att.com/sites/Agile-COE/Agile%20COE%20Library/Tools/Rally%20Dev/Ordering%20Rally%20Dev%20Licenses%20Job%20Aid.docx"><u>https://operations.web.att.com/sites/Agile-COE/Agile%20COE%20Library/Tools/Rally%20Dev/Ordering%20Rally%20Dev%20Licenses%20Job%20Aid.docx</u></a>
+				</br>
+				<h3>Getting the Admin Rights</h3>
+				<a href="http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush"><u>http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush</u></a>
+				</br>
+				<h3>New software installation process - RAISE THE TICKET</h3>
+				<a href="http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush"><u>http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush</u></a>
+				</br>
+				<h3>CONFIGURE MACHINE</h3>
+				<a href="ftp://bsdevprem01.edc.cingular.net/Windows/"><u>ftp://bsdevprem01.edc.cingular.net/Windows/</u></a>
+				
 				
 				
 				</div>
