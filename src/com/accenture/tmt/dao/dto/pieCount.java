@@ -22,7 +22,21 @@ public class pieCount {
 	int p2=0;
 	int p3=0;
 	int p4=0;
+	int M=0;
+	private String name;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getM() {
+		return M;
+	}
+	public void setM(int m) {
+		M = m;
+	}
 	public int getCount() {
 		return count;
 	}
@@ -149,6 +163,7 @@ public class pieCount {
 	public void setP4(int p4) {
 		this.p4 = p4;
 	}
+	
 
 
 }
