@@ -15,6 +15,13 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="jquery.chained.js"></script>
+	<script>
+	$(function(){$("#mdl").chained("#prj");
+	$("#tem").chained("#mdl")});
+	
+	
+	</script>
 
 <!-- <script>
 	$(document).ready(function() {
@@ -204,7 +211,8 @@ function isNumeric(value) {
 <link href="calendar.css" rel="stylesheet" />
 <script type='text/javascript' src='search.js'></script>
 </head>
-<body> <jsp:include page="/TeamListServlet" /> 
+<body> 
+<jsp:include page="/DropDownDetails" />  
 	
 	<%@ include file="header_admin.jsp" %>
 	<%
@@ -228,25 +236,25 @@ function isNumeric(value) {
 
 		<div id="content_right">
 
-			<div class="right_col_section_w650" style="height: 300px">
+			<div class="right_col_section_w650" id="scrollable" style="height: 440px">
 
 				<div class="header_01">Employee Addition</div>
 
 
 				<div id="search">
 
-					<div id="scrollable" style="font-size: 14px;">
+					<div  style="font-size: 14px;">
 
 						<form name="add" action="AddEmployeeManual" method="post"
 							onsubmit="return validateform()">
 							<table>
 								<tr>
-									<td>EMPLOYEE NAME:</td>
+									<td><span style="color: Red;">* </span>EMPLOYEE NAME :</td>
 									<td><input type="text" name="name"></input></td>
 
 								</tr>
 								<tr>
-									<td>EMPLOYEE ID:</td>
+									<td><span style="color: Red;">* </span>EMPLOYEE ID:</td>
 									<td><input type="text" name="idno"
 										onkeypress="return IsNumeric1(event);"></input></td>
 									<span id="error" style="color: Black; display: none">
@@ -254,7 +262,7 @@ function isNumeric(value) {
 
 								</tr>
 								<tr>
-									<td>EMPLOYEE LEVEL:</td>
+									<td><span style="color: Red;">* </span>EMPLOYEE LEVEL:</td>
 									<td><input type="text" name="level"
 										onkeypress="return IsNumeric1(event);"></input></td>
 									<span id="error" style="color: Black; display: none">
@@ -262,31 +270,56 @@ function isNumeric(value) {
 
 								</tr>
 								<tr>
-									<td>EMPLOYEE DESIGNATION:</td>
+									<td><span style="color: Red;">* </span>EMPLOYEE DESIGNATION:</td>
 									<td><input type="text" name="desig"></input></td>
 								</tr>
 								<tr>
-									<td>EMPLOYEE EXPERTISE:</td>
+									<td>&nbsp EMPLOYEE EXPERTISE:</td>
 
 									<td><input type="text" name="area"></input></td>
 								</tr>
 								<tr>
-									<td>CLIENT ID:</td>
+									<td>&nbsp CLIENT ID:</td>
 									<td><input type="text" name="client"></input></td>
 								</tr>
 								<tr>
-									<td>EMAIL:</td>
+									<td><span style="color: Red;">* </span>EMAIL:</td>
 									<td><input type="text" name="email"></input></td>
 								</tr>
+								 <tr>
+									<td>&nbsp PROJECT</td>
+									<td><select id="prj" class="chain" name="project" style="width: 143px">
+											<jstlcore:forEach items="${project}" var="prj_item">
+
+												<option value="${prj_item.projectId}">
+													<jstlcore:out value="${prj_item.projectName}"></jstlcore:out></option>
 
 
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr> 
+
+                           <tr>
+									<td>&nbsp MODULE</td>
+									<td><select id="mdl" class="chain" name="module" style="width: 143px">
+											<jstlcore:forEach items="${module}" var="mod_item">
+
+												<option value="${mod_item.moduleId}" class="${mod_item.projectId}">
+													<jstlcore:out value="${mod_item.moduleName}"></jstlcore:out></option>
+
+
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr> 
 								<tr>
-									<td>TEAM</td>
-									<td><select name="Team" style="width: 143px">
-											<jstlcore:forEach items="${teamList}" var="item">
+									<td>&nbsp TEAM</td>
+									<td><select name="Team" style="width: 143px" class="chain" id="tem">
+											<jstlcore:forEach items="${team}" var="item">
 
-												<option value="${item}">
-													<jstlcore:out value="${item}"></jstlcore:out></option>
+												<option value="${item.teamId}" class="${item.moduleId}">
+													<jstlcore:out value="${item.teamName}"></jstlcore:out></option>
 
 
 											</jstlcore:forEach>
@@ -294,23 +327,23 @@ function isNumeric(value) {
 									</select></td>
 								</tr>
 								<tr>
-									<td>PROFICIENCY CAMS:</td>
+									<td><span style="color: Red;">* </span>PROFICIENCY CAMS:</td>
 									<td><input type="text" name="camps"></input></td>
 								</tr>
 								<tr>
-									<td>PROFICIENCY PROJECT:</td>
+									<td>&nbsp PROFICIENCY PROJECT:</td>
 									<td><input type="text" name="Project"></input></td>
 								</tr>
 								<tr>
-									<td>DATE OF JOINING:</td>
+									<td><span style="color: Red;">* </span>DATE OF JOINING:</td>
 									<td><input type="text" name="doj" id="calendar"></input></td>
 								</tr>
 								<tr>
-									<td>LAST WORKING DATE:</td>
+									<td>&nbsp LAST WORKING DATE:</td>
 									<td><input type="text" name="last" id="calendar1"></input></td>
 								</tr>
 								<tr>
-									<td>BILLABLE:</td>
+									<td>&nbsp BILLABLE:</td>
 									<td>
 										<!-- <input type="text" name="bill"></input> --> <select
 										type="text" name="bill" style="width: 143px">
@@ -322,12 +355,12 @@ function isNumeric(value) {
 									</td>
 								</tr>
 								<tr>
-									<td>ACITVE USER:</td>
+									<td>&nbsp ACITVE USER:</td>
 									<td><input type="text" name="active" value="YES"></input></td>
 								</tr>
 
 <tr>
-									<td>LCR:</td>
+									<td><span style="color: Red;">* </span>LCR:</td>
 									<td><input type="text" name="cost" ></input></td>
 								</tr>
 
@@ -338,6 +371,8 @@ function isNumeric(value) {
 					.getParameter("msg") : ""%> --%></span><br />
 
 						</form>
+						<div style="color: Red;"> * Mandatory Fields</div>
+						
 					</div>
 
 
