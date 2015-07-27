@@ -74,7 +74,17 @@ function validate(e){
 
 
 </script>
+<script >
+$(document).ready(function(){
 
+        $("#ViewteamCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+	</script>
 
 </head>
 <body>
