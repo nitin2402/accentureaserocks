@@ -79,19 +79,19 @@
 													</select></td>
 												</tr>
 												<tr>
-													<td>*No. Of ASE Required &nbsp;</td>
+													<td>*No. of ASE Required &nbsp;</td>
 													<td><input type="text" id="NASE" name="NASE" value="0"
 														class="dropbox_size" /></td>
 												</tr>
 
 												<tr>
-													<td>*No. Of SE Required &nbsp;</td>
+													<td>*No. of SE Required &nbsp;</td>
 													<td><input type="text" id="NSE" name="NSE" value="0"
 														class="dropbox_size" /></td>
 												</tr>
 
 												<tr>
-													<td>*No. Of SSE Required &nbsp;</td>
+													<td>*No. of SSE Required &nbsp;</td>
 													<td><input type="text" id="NSSE" name="NSSE" value="0"
 														class="dropbox_size" /></td>
 												</tr>
