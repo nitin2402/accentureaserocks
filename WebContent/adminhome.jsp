@@ -31,7 +31,7 @@
 							var searchvalue = $("#search_field").val();
 							$(".error").hide();
 							$.ajax({
-								url : "/TMT/SearchEmployeeAdmin",
+								url : "/Final_TMT/SearchEmployeeAdmin",
 								type : "POST",
 								data : 'searchName=' + searchvalue,
 
@@ -45,7 +45,7 @@
 									if (data != "") {
 										count=4;
 										if(data=="Please Login"){
-											alert("Session Expired..Please Login");
+											alert("Session Expired");
 											window.location = "login.jsp";
 										}else{
 											$("#search").hide();
@@ -76,7 +76,7 @@
 
 </head>
 <body>
-	<jsp:include page="/GetPieChartValues" />
+	
 
 	<%@ include file="header_admin.jsp"%>
 	<%
@@ -92,30 +92,7 @@
 	<%
 		}
 	%>
-	<jstlcore:forEach var="item" items="${pielist}">
-		<input type="hidden" id="ASE" value="${item.ASE}" />
-		<input type="hidden" id="SE" value="${item.SE}" />
-		<input type="hidden" id="SSE" value="${item.SSE}" />
-		<input type="hidden" id="TL" value="${item.TL}" />
-		<input type="hidden" id="AM" value="${item.AM}" />
-		<input type="hidden" id="count" value="${item.count}" />
-		<input type="hidden" id="billable" value="${item.billable}" />
-		<input type="hidden" id="p0" value="${item.p0}" />
-		<input type="hidden" id="p1" value="${item.p1}" />
-		<input type="hidden" id="p2" value="${item.p2}" />
-		<input type="hidden" id="p3" value="${item.p3}" />
-		<input type="hidden" id="p4" value="${item.p4}" />
-		<input type="hidden" id="angularJS" value="${item.angularJS}" />
-		<input type="hidden" id="AT" value="${item.AT}" />
-		<input type="hidden" id="C_UNIX" value="${item.c_UNIX}" />
-		<input type="hidden" id="FST" value="${item.FST}" />
-		<input type="hidden" id="HTML" value="${item.HTML}" />
-		<input type="hidden" id="java" value="${item.java}" />
-		<input type="hidden" id="JSP" value="${item.JSP}" />
-		<input type="hidden" id="QA" value="${item.QA}" />
-		<input type="hidden" id="TBD" value="${item.TBD}" />
-		
-	</jstlcore:forEach>
+
 	
 	<div id="templatemo_content">
 
