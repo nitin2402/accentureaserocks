@@ -22,6 +22,19 @@
 	
 	
 	</script>
+	<script >$(document).ready(function(){
+
+        $("#empCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+	</script>
+	
+
+	
 
 <!-- <script>
 	$(document).ready(function() {
