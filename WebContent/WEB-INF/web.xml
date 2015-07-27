@@ -714,4 +714,15 @@
     <servlet-name>Searchedit</servlet-name>
     <url-pattern>/Searchedit</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DropDownDetails</display-name>
+    <servlet-name>DropDownDetails</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.DropDownDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DropDownDetails</servlet-name>
+    <url-pattern>/DropDownDetails</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
