@@ -92,5 +92,9 @@ int lastCount = moduledao.countRows1();
 		List<ModuleFormDTO> list=moduleDAO.fetchModuleDetails();
 		return list;
 	}
+	public  List<ModuleFormDTO> moduleFetch() {
+		List<ModuleFormDTO> list=moduleDAO.moduleFetch();
+		return list;
+	}
 	
 }
