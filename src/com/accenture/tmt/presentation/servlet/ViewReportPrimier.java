@@ -43,11 +43,11 @@ public class ViewReportPrimier extends HttpServlet {
 		// TODO Auto-generated method stub
 		List<String> li = new ArrayList<String>();
 
-		String htmlTree = "<ul><li ><a  href=\"#\">Primier</a><ul>";
+		String htmlTree = "<ul><li ><a  href=\"#\">Premier</a><ul>";
 
 		ModuleController fetchmodule = new ModuleController();
 
-		li = fetchmodule.FetchModuleByProject("Primier");
+		li = fetchmodule.FetchModuleByProject("Premier");
 
 		for (int i = 0; i < li.size(); i++) {
 			List<String> tempLi = new ArrayList<String>();
