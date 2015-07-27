@@ -13,6 +13,7 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="searchrequest.js"></script>
 <script type='text/javascript' src='searchAdmin.js'></script>
+<script type='text/javascript' src='admin_initiative.js'></script>
 </head>
 <body>
 	<%
