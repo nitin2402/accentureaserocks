@@ -37,9 +37,9 @@ public class AddTeamManual extends HttpServlet {
 		// TODO Auto-generated method stub
 	
 
-		String TeamName = request.getParameter("Tname");
-		String Teamid = request.getParameter("Tno");
-		String ModuleId = request.getParameter("Mname");
+		String TeamName = request.getParameter("tname");
+		String Teamid = request.getParameter("project1");
+		String ModuleId = request.getParameter("module");
 		String TeamDesc = request.getParameter("desc");
 		TeamDetailsFlatDTO detailsDO = new TeamDetailsFlatDTO();
 		detailsDO.setTeamName(TeamName);
