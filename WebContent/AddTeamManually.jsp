@@ -8,123 +8,63 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-
+<%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type='text/javascript' src='search.js'></script>
-<!-- <script>
-	$(document).ready(function() {
-		$(".header_09").hide();
-		
+
+<script src="jquery.chained.js"></script>
+	<script>
+	$(function(){$("#mdl").chained("#prj");
+	$("#tem").chained("#mdl")});
 	
-	});
 	
-	
-
-</script> -->
-
-<script >
-$(document).ready(function(){
-
-        $("#teamCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
-
 	</script>
 
 <script>
 
 	function validateform()
 	{
-	
-	var name=document.forms["add"]["name"].value;
-	var id=document.forms["add"]["idno"].value;
-	var level=document.forms["add"]["level"].value;
-	var designation=document.forms["add"]["desig"].value;
+	var name=document.forms["add"]["tname"].value;
+	var id=document.forms["add"]["project"].value;
+	var level=document.forms["add"]["module"].value;
+	var designation=document.forms["add"]["desc"].value;
 
 
-	if (name==null || name=="")
+	if (name == null || name=="")
 	  {
 	  alert("Please provide Team Name");
 	  return false;
 	  }
-	if (id==null || id=="")
+	if (id == null || id=="")
 	  {
 	  alert("Please provide Team ID");
 	  return false;
 	  }
-	if (level==null || level=="")
+	if (level == null || level=="")
 	  {
 	  alert("Please provide Module Name");s
 	  return false;
 	  }
-	if (designation==null || designation=="")
+	if (designation == null || designation=="")
 	  {
 	  alert("Please provide Team Description");
 	  return false;
 	  }
-	
-	
-	    var filter = /^[a-zA-Z0-9._-]+@accenture.com$/;
-	    var filter2 = /^[0-9]{8}$/;
-	    var filter3 = /^[0-9]{1,2}$/;
-	    if (filter.test(email)) {
-	       
-	    }
-	    else {
-	    	alert("Enter Valid Email");
-	        return false;
-	    }
-	    if (att.length == 6) {
-	        
-	    }
-	    else {
-	    	alert("Enter Valid ATT ID ");
-	        return false;
-	    }
-	    if (filter2.test(id)) {
-	      
-	    }
-	    else {
-	    	alert("Enter Valid Employee Id");
-	        return false;
-	    }
-	    if (filter3.test(level)) {
-		       
-	    }
-	    else {
-	    	alert("Enter Valid Level");
-	        return false;
-	    }​
 
-function isNumeric(value) {
-	  if (value=="" || value == null || !value.toString().match(/^[-]?\d*\.?\d*$/))
-	  { return false;
-	  }
-	  return true;
-	}		
-	
-	function validate(str){
-		var pattern=/^[a-zA-Z0-9@.-()#_]{2,50}$/;
-		if(str != pattern)
-			{
-			alert("Enter valid Characters(@, . , -, (, ), #, _)");
-			}
-		return Pattern.test(str); 
-		
-	}
+}
+
 </script>
-
 </head>
 <body>
+<jsp:include page="/DropDownDetails" />
 <%@ include file="header_admin.jsp" %>  
 	
-	
+
 
 	<div id="templatemo_content">
 
@@ -133,7 +73,7 @@ function isNumeric(value) {
 			
 			
 
-		<div id="content_right">
+		<div id="content_right" >
 
 			<div class="right_col_section_w650" style="height: 300px">
 
@@ -141,27 +81,43 @@ function isNumeric(value) {
 
 
 				<div id="search">
-
-<div id="scrollable"   style="font-size: 14px;">
 					
-						<form name="add" action="AddTeamManual" method="post"
-							onsubmit="return validateform()">
+					<div id="scrollable"   style="font-size: 14px;">
+					
+						<form name="add" action="AddTeamManual" method="post" onsubmit="return validateform()">
 							<table>
 								<tr>
 									<td>TEAM NAME:</td>
-									<td><input type="text" name="Tname"></input></td>
+									<td><input type="text" name="tname"></input></td>
+								</tr>
+								<tr>
+									<td>PROJECT</td>
+									<td><select id="prj" class="chain" name="project" style="width: 143px">
+											<jstlcore:forEach items="${project}" var="prj_item">
 
-								</tr>
-								<tr>
-									<td>TEAM ID:</td>
-									<td><input type="text" name="Tno"></input></td>
-								</tr>
-								<tr>
-									<td>MODULE ID:</td>
-									<td><input type="text" name="Mname"></input></td>
-								</tr>
-								<tr>
-									<td>TEAM DESCRIPTION:</td>
+												<option value="${prj_item.projectId}">
+													<jstlcore:out value="${prj_item.projectName}"></jstlcore:out></option>
+
+
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr> 
+
+                          		 <tr>
+									<td>MODULE</td>
+									<td><select id="mdl" class="chain" name="module" style="width: 143px">
+											<jstlcore:forEach items="${module}" var="mod_item">
+
+												<option value="${mod_item.moduleId}" class="${mod_item.projectId}">
+													<jstlcore:out value="${mod_item.moduleName}"></jstlcore:out></option>
+
+
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr> 
+								<td>TEAM DESCRIPTION:</td>
 									<td><input type="text" name="desc"></input></td>
 								</tr>
 								</table>
@@ -177,7 +133,7 @@ function isNumeric(value) {
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
-<div id="ajaxResponse"></div>
+				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
