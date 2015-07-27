@@ -148,9 +148,9 @@ $(document).ready(function(){
 					
 					<br/>
 					<ul>
-				<li><a href="OnBoarding.jsp">On Boarding</a>  </li>
+				<li><a href="Onboarding_admin.jsp">On Boarding</a>  </li>
 				
-				<li> <a href="RollOff.jsp"> Roll off </a></li>
+				<li> <a href="RollOff_Admin.jsp"> Roll off </a></li>
 				</ul>
 				
 			<div id="welcome_msg"
