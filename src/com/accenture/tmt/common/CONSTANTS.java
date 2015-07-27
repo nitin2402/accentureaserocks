@@ -98,8 +98,6 @@ public interface CONSTANTS {
 		public String NEW_USER_PASS_WORD = "password";
 		public String PASSWORD = "password";
 		public String USERNAME = "userName";
-		public String TEAM_INSERT = "insert into Team (TeamName,TeamId,ModuleId,TeamDescription) values(?,?,?,?)";
-
 		public String TEAM_UPDATE_QUERY = "UPDATE Team SET TeamName=?,TeamId=?,ModuleId=?,TeamDescription=?";
 		
 		
