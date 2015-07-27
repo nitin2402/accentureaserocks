@@ -37,9 +37,9 @@
 				<div class="content_left_section_title">Projects</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Premier</a></li>
+						<li><a href="viewEStrategy.jsp" id="EstrategyCss">E-Strategy</a></li>
+						<li><a href="viewr3.jsp" id="R3Css">R3</a></li>
+						<li><a href="viewprimier.jsp" id="PremierCss">Premier</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
