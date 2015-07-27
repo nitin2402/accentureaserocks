@@ -36,7 +36,7 @@
 				<div class="header_01">Reports</div>
 
 
-                 <div id="search" style="font-size:14px">
+                 <div id="search" style="font-size:13px">
 				    <div>
 					<ul>
 						</br>
