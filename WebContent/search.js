@@ -21,7 +21,7 @@
 							if (data != "") {
 								count=4;
 								if(data=="Please Login"){
-									alert("Session Expired");
+									alert("Session Expired...Please Login");
 									window.location = "login.jsp";
 								}else{
 									$("#search").hide();
