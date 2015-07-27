@@ -220,7 +220,7 @@ HttpSession session2 = request.getSession(false);
 
 			<div class="right_col_section_w650">
 
-				<div class="header_01">Top view of E-Strategy</div>
+				<div class="header_01">Top view of Premier</div>
 				<div id="search">
 
 				<div>
