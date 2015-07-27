@@ -14,134 +14,89 @@ function myfunction() {
 	var data = [];
 	var options = [];
 
-	var nASE = parseInt($("#ASE").val());
-	var nSE = parseInt($("#SE").val());
-	var nSSE = parseInt($("#SSE").val());
+	function getPieValue() {
 
-	var nTL = parseInt($("#TL").val());
-	var nAM = parseInt($("#AM").val());
-	var p0 = parseInt($("#p0").val());
-	var p1 = parseInt($("#p1").val());
-	var p2 = parseInt($("#p2").val());
-	var p3 = parseInt($("#p3").val());
-	var p4 = parseInt($("#p4").val());
-	var nM = 1;
-	var billable = parseInt($("#billable").val());
-	var total = parseInt($("#count").val());
-	var nonBillable = total - billable;
-	var angularJS = parseInt($("#angularJS").val());
-	var AT = parseInt($("#AT").val());
-	var C_UNIX = parseInt($("#C_UNIX").val());
-	var FST = parseInt($("#FST").val());
-	var HTML = parseInt($("#HTML").val());
-	var java = parseInt($("#java").val());
-	var JSP = parseInt($("#JSP").val());
-	var QA = parseInt($("#QA").val());
-	var TBD = parseInt($("#TBD").val());
-	var rASE = 310;
-	var rSE = 30;
-	var rSSE = 30;
+		$.ajax({
+			url : "/localTMT/GetPieChartValues",
+			type : "POST",
+			data : 'projectId=' + ('PR0' + (count + 1)),
 
-	var rTL = 13;
-	var rAM = 02;
-	var rM = 1;
+			success : function(data) {
+				a = JSON.parse(data);
+				setPieValue();
+			},
+			error : function() {
 
-	var pASE = 110;
-	var pSE = 17;
-	var pSSE = 15;
+			}
+		});
 
-	var pTL = 13;
-	var pAM = 12;
-	var pM = 11;
+	}
 
-	data[0] = google.visualization.arrayToDataTable([
-			[ 'Designation', 'number' ], [ 'ASE', nASE ], [ 'SE', nSE ],
-			[ 'SSE', nSSE ], [ 'TL', nTL ], [ 'AM', nAM ] ]);
+	function setPieValue() {
 
-	data[1] = google.visualization.arrayToDataTable([
-			[ 'Designation', 'number' ], [ 'ASE', rASE ], [ 'SE', rSE ],
-			[ 'SSE', rSSE ], [ 'TL', rTL ], [ 'AM', rAM ], [ 'M', rM ] ]);
+		nASE = parseInt(a.ASE);
+		nSE = parseInt(a.SE);
+		nSSE = parseInt(a.SSE);
+		nTL = parseInt(a.TL);
+		nAM = parseInt(a.AM);
+		nM = parseInt(a.M);
 
-	data[2] = google.visualization.arrayToDataTable([
-			[ 'Designation', 'number' ], [ 'ASE', pASE ], [ 'SE', pSE ],
-			[ 'SSE', pSSE ], [ 'TL', pTL ], [ 'AM', pAM ], [ 'M', pM ] ]);
+		p0 = parseInt(a.p0);
+		p1 = parseInt(a.p1);
+		p2 = parseInt(a.p2);
+		p3 = parseInt(a.p3);
+		p4 = parseInt(a.p4);
 
-	data[5] = google.visualization.arrayToDataTable([
-			[ 'Designation', 'number' ], [ 'ASE', nASE ], [ 'SE', nSE ],
-			[ 'SSE', nSSE ], [ 'TL', nTL ], [ 'AM', nAM ], [ 'M', nM ] ]);
+		total = parseInt(a.total);
+		billable = parseInt(a.billable);
+		nonBillable = total - billable;
 
-	data[6] = google.visualization.arrayToDataTable([
-			[ 'Billability', 'percentage' ], [ 'Billable', billable ],
-			[ 'Non-Billable', nonBillable ] ]);
-	options[6] = {
-		is3D : true,
-		backgroundColor : '#647a2f',
-		title : 'Billability',
-		chartArea : {
-			left : 100,
-			top : 50
-		}
-	};
+		angularJS = parseInt(a.angularJS);
+		AT = parseInt(a.AT);
+		C_UNIX = parseInt(a.C_UNIX);
+		FST = parseInt(a.FST);
+		HTML = parseInt(a.HTML);
+		java = parseInt(a.java);
+		JSP = parseInt(a.jsp);
+		QA = parseInt(a.QA);
+		TBD = parseInt(a.TBD);
 
-	data[7] = google.visualization.arrayToDataTable([
-			[ 'Proficiency', 'percentage' ], [ 'P0', p0 ], [ 'P1', p1 ],
-			[ 'P2', p2 ], [ 'P3', p3 ], [ 'P4', p4 ] ]);
-	options[7] = {
-		is3D : true,
-		backgroundColor : '#647a2f',
-		title : 'Proficiency',
-		chartArea : {
-			left : 100,
-			top : 50
-		}
-	};
+		Name=a.name;
+		drawChart(0);
+	}
 
-	data[8] = google.visualization.arrayToDataTable([
-			[ 'Expertise', 'percentage' ], [ 'AngularJS', angularJS ],
-			[ 'AT', AT ], [ 'C/UNIX', C_UNIX ], [ 'FST', FST ], [ 'HTML', HTML ],
-			[ 'JAVA', java ], [ 'JSP', JSP ], [ 'QA', QA ], [ 'TBD', TBD ] ]);
-	options[8] = {
-		is3D : true,
-		backgroundColor : '#647a2f',
-		title : 'Expertise',
-		chartArea : {
-			left : 100,
-			top : 50
-		}
-	};
-	var chart = new google.visualization.PieChart(document
-			.getElementById('piechart'));
+	function drawChart(type) {
 
-	options[0] = {
-		is3D : true,
-		backgroundColor : '#647a2f',
-		title : 'E-Strategy',
-		chartArea : {
-			left : 100,
-			top : 50
-		}
-	};
-	options[1] = {
-		is3D : true,
-		backgroundColor : '#647a2f',
-		title : 'R3',
-		chartArea : {
-			left : 100,
-			top : 50
-		}
-	};
-	options[2] = {
-		is3D : true,
-		backgroundColor : '#647a2f',
-		title : 'Premier',
-		chartArea : {
-			left : 100,
-			top : 50
-		}
-	};
+		data[0] = google.visualization.arrayToDataTable([
+				[ 'Designation', 'number' ], [ 'ASE', nASE ], [ 'SE', nSE ],
+				[ 'SSE', nSSE ], [ 'TL', nTL ], [ 'AM', nAM ], [ 'M', nM ] ]);
+		data[1] = google.visualization.arrayToDataTable([
+				[ 'Billability', 'percentage' ], [ 'Billable', billable ],
+				[ 'Non-Billable', nonBillable ] ]);
+		data[2] = google.visualization.arrayToDataTable([
+				[ 'Proficiency', 'percentage' ], [ 'P0', p0 ], [ 'P1', p1 ],
+				[ 'P2', p2 ], [ 'P3', p3 ], [ 'P4', p4 ] ]);
+		data[3] = google.visualization.arrayToDataTable([
+				[ 'Expertise', 'percentage' ], [ 'AngularJS', angularJS ],
+				[ 'AT', AT ], [ 'C/UNIX', C_UNIX ], [ 'FST', FST ],
+				[ 'HTML', HTML ], [ 'JAVA', java ], [ 'JSP', JSP ],
+				[ 'QA', QA ], [ 'TBD', TBD ] ]);
 
-	var chart = new google.visualization.PieChart(document
-			.getElementById('piechart'));
+		options[0] = {
+			is3D : true,
+			backgroundColor : '#647a2f',
+			title : Name,
+			chartArea : {
+				left : 100,
+				top : 50
+			}
+		};
+
+		chart = new google.visualization.PieChart(document
+				.getElementById('piechart'));
+		chart.draw(data[type], options[0]);
+
+	}
 
 	this.stop = function() {
 		if (firstClick) {
@@ -156,24 +111,32 @@ function myfunction() {
 	this.filterChart = function(a) {
 		var chart = new google.visualization.PieChart(document
 				.getElementById('piechart'));
-		if (a == 'billability')
-			chart.draw(data[6], options[6]);
-		if (a == 'proficiency')
-			chart.draw(data[7], options[7]);
-		if (a == 'expertise')
-			chart.draw(data[8], options[8]);
+		if (a == 'billability') {
+			Name = "Billability";
+			drawChart(1);
+		
+		}
+		if (a == 'proficiency') {
+			Name = "Proficiency";
+			drawChart(2);
+		
+		}
+		if (a == 'expertise') {
+			Name = "Expertise";
+			drawChart(3);
+		
+		}
 	}
 	var change = setInterval(next, 3000);
-
-	/* window.clearInterval(change); */
 
 	function next() {
 		if (count == 3)
 			count = 0;
 		if (count < 3) {
-			var chart = new google.visualization.PieChart(document
-					.getElementById('piechart'));
-			chart.draw(data[count], options[count]);
+
+			getPieValue();
+			
+
 			count++;
 		}
 	}
@@ -187,22 +150,6 @@ function initialize() {
 }
 
 function clickk() {
-
-	/*
-	 * var searchvalue = $(".error").hide(); $.ajax({ url :
-	 * "/EmployeeMSAccessDB/SearchEmployee", type : "POST", data : 'searchName=' +
-	 * searchvalue,
-	 * 
-	 * success : function(data) {
-	 * 
-	 * if (data != "") {
-	 *  } else {
-	 * 
-	 * 
-	 *  }
-	 *  }, error : function() {
-	 *  } });
-	 */
 
 	$(".filter").show();
 	stop();
