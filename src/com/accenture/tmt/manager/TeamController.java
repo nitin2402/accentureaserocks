@@ -75,4 +75,9 @@ public class TeamController {
 		List<TeamFormDTO> teamList=teamDAO.fetchTeamDetails();
 		return teamList;
 	}
+	public  List<TeamFormDTO> teamFetch() {
+		List<TeamFormDTO> teamList=teamDAO.teamFetch();
+		//teamList=teamDAO.teamFetch();
+		return teamList;
+	}
 }
