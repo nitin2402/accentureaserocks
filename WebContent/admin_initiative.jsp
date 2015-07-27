@@ -33,7 +33,7 @@
 		<%@ include file="common_left.jsp"%>
 		<div id="content_right">
 
-			<div class="right_col_section_w650" style="height: 500px">
+			<div class="right_col_section_w650" style="height:auto">
 				<div id="search" style="font-size: 14px;">
 
 					<div class="header_01">Initiatives</div>
