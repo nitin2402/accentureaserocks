@@ -4,6 +4,7 @@ public class ProjectDTO {
 		private String ProjectName;
 		private String CurrentRelease;
 		private String ReleaseDate;
+		private String ProjectId;
 		public String getProjectName() {
 			return ProjectName;
 		}
@@ -21,6 +22,12 @@ public class ProjectDTO {
 		}
 		public void setReleaseDate(String releaseDate) {
 			ReleaseDate = releaseDate;
+		}
+		public String getProjectId() {
+			return ProjectId;
+		}
+		public void setProjectId(String projectId) {
+			ProjectId = projectId;
 		}
 		
 		
