@@ -38,7 +38,6 @@ public class WorkplanDAO {
 			e.printStackTrace();
 		}
 		return flag;
-		
 	}
 
 	public String fetchTeamId(String teamName) {
@@ -62,7 +61,28 @@ public class WorkplanDAO {
 		}
 		return teamId;
 	}
-	
+
+	public String fetchModuleId(String teamName) {
+		// TODO Auto-generated method stub
+		String teamId = null;
+        ResultSet rs = null ;
+		try {
+			Connection con = DBConnection.getConnection();
+			if (con != null) {
+				PreparedStatement st = con
+					  .prepareStatement(CONSTANTS.GET_MODULEID_QUERY);
+				st.setString(1, teamName);
+				rs = st.executeQuery();
+				while(rs.next()){
+						  teamId = rs.getString("ModuleId");
+				 }
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return teamId;
+	}
 	public String fetchEmployeeId(String userName) {
 		// TODO Auto-generated method stub
 		String employeeId = null;
