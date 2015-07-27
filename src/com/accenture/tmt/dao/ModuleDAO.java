@@ -445,6 +445,37 @@ public int countRows1(){
 		return number_of_rows;
 		
 	}
+public  List<ModuleFormDTO> moduleFetch() {
+	List<ModuleFormDTO> list = new ArrayList<ModuleFormDTO>();
+	ModuleFormDTO detail = null;
+	try {
+		Connection con = DBConnection.getConnection();
+		//String sqlFetch = "SELECT ModuleDetail.ProjectId,ModuleDetail.ModuleId,ModuleDetail.ModuleName FROM (ProjectDetail INNER JOIN ModuleDetail ON ProjectDetail.ProjectId=ModuleDetail.ProjectId)where ModuleDetail.Status='Y'";
+		PreparedStatement st = con.prepareStatement(CONSTANTS.MODULEDETAILS);
+		ResultSet rs = st.executeQuery();
+	
+	while(rs.next())
+	{
+		detail = new ModuleFormDTO();
+		detail.setModuleName(rs.getString("ModuleName"));
+		detail.setModuleId(rs.getString("ModuleId"));
+		detail.setProjectId(rs.getString("ProjectId"));
+		
+		list.add(detail);
+
+		}
+		con.close();
+		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+		}
+
 }
 	
 	
