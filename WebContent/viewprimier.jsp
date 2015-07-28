@@ -59,18 +59,26 @@ $(document).ready(function(){
 
 		$('li.teamclick').on('click', function() {
 			var team = $(this).text();
+			var module = $(this).attr('id');
+
 			$("#ajaxResponse1").show();
 			/* $("#piechart").hide(); */
-			$("#teamname").val(team);
+
 			$.ajax({
+
 				url : "/TMT/FetchTeamEmployees",
 				type : "POST",
-				data : 'teamName=' + team,
+				data : {
+					'teamName' : team,
+					'moduleName' : module
+				},
 
 				success : function(data) {
+
 					$("empclick").show();
 					$("#ajaxResponse1").html(data);
 					/* 	$("#clickk").show(); */
+					$("#teamnam").val(team);
 
 				},
 				error : function() {
@@ -81,37 +89,6 @@ $(document).ready(function(){
 		});
 	});
 </script>
-
-<script>
-	$(document).ready(function() {
-		$("empclick").hide();
-		/* $("#clickk").hide(); */
-
-		$('empclick').on('click', function() {
-
-			var team = document.getElementById("teamname");
-			/* $("#piechart").hide(); */
-
-			$.ajax({
-				url : "/TMT/DisplayEmpList",
-				type : "POST",
-				data : 'teamName=' + team,
-
-				success : function(data) {
-
-					$("#emplist").html(data);
-					/* 	$("#clickk").show(); */
-
-				},
-				error : function() {
-
-				}
-			});
-
-		});
-	});
-</script>
-
 
 <!-- <script>
 	$(document).ready(function()
