@@ -88,7 +88,7 @@ if (session2 == null || (String)session2.getAttribute("user") == null  ){
 			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
 			<li><a href="admin_initiative.jsp">Initiatives</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="aboutus.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 			<%
 				 }
@@ -101,13 +101,22 @@ if (session2 == null || (String)session2.getAttribute("user") == null  ){
 			<li><a href="workplanvia.jsp">Workplan</a></li>
 			<li><a href="user_initiative.jsp">Initiatives</a></li>
 			<li><a href="ProjectUser.jsp">Project</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="about_us_users.jsp">About Us</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 			
 			<%
 				 } 
 			%>
-			
+			<%
+				 if ((String) session1.getAttribute("admin") == "viewer") { 
+			%>
+			<li><a href="viewerhome.jsp">Home</a></li>
+						<li><a href="viewer_initiative.jsp">Initiatives</a></li>
+			<li><a href="about_us_viewer.jsp">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
+			<%
+				 } 
+			%>
 		</ul>
 	</div>
 
