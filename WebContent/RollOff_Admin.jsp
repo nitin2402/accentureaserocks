@@ -191,7 +191,7 @@ $(document).ready(function(){
 	</div>
 	</br> 
 				
-	<button type="submit" value="Generate">Generate PDF</button>		
+	<!-- <button type="submit" value="Generate">Generate PDF</button>	 -->	
 
 					
 				
