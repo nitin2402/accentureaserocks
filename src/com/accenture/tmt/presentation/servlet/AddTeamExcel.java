@@ -140,7 +140,7 @@ public class AddTeamExcel extends HttpServlet {
 			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
 			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
 			//FileInputStream file = new FileInputStream(file1);
-			int sno =Integer.parseInt(sheetno);
+			int sno =Integer.parseInt("1");
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
 	List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
