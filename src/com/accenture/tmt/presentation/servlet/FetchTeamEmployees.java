@@ -74,7 +74,7 @@ public class FetchTeamEmployees extends HttpServlet {
 		
 
 		PrintWriter print = response.getWriter();
-		print.print("<table id=\"hi\" class=\"table1\" border=\"1\"><tr><td>ASE:</td><td name=\"ase\" id=\"ase\">" + noOfASE
+		print.print("<table id=\"hi\" class=\"table2\" border=\"1\"><tr><td>ASE:</td><td name=\"ase\" id=\"ase\">" + noOfASE
 				+ "</td></tr><tr><td>SE:</td><td name=\"se\" id=\"se\">" + noOfSE
 				+ "</td></tr><tr><td>SSE:</td><td name=\"sse\" id=\"sse\">" + noOfSSE + "</td></tr>"
 						+ "<tr><td>TL:</td><td name=\"tl\" id=\"tl\">" + noOfTL + "</td></tr>"
