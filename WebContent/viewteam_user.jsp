@@ -55,20 +55,21 @@
 							
 							<thead style="font-weight:bold;position: ">
 							<tr style="font-weight:bold;">
-								<td>TeamId</td>
+								
 								<td>TeamName</td>
 								<td>TeamDescription</td>
-								<td>ModuleId</td>
+								<td>ModuleName</td>
+								<td>Project</td>
 							</tr>
 							</thead>
 						
 							<tbody>
 							<jstlcore:forEach items="${TeamList}" var="item">
 								<tr>
-									<td><jstlcore:out value="${item.teamId}" /></td>
 									<td><jstlcore:out value="${item.teamName}" /></td>
 									<td><jstlcore:out value="${item.teamDescription}" /></td>
-									<td><jstlcore:out value="${item.moduleId}" /></td>
+									<td><jstlcore:out value="${item.moduleName}" /></td>
+									<td><jstlcore:out value="${item.projectName}" /></td>
 								</tr>
 							</jstlcore:forEach></tbody></table>
 							
