@@ -4,8 +4,6 @@ package com.accenture.tmt.presentation.servlet;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
+
 import com.accenture.tmt.manager.TeamController;
+import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 
 /**
@@ -56,8 +55,8 @@ public class FetchTeam extends HttpServlet {
 	//String module =	request.getParameter("moduleName");
 	
 		TeamController fetch = new TeamController();
-		List<TeamDetailsFlatDTO> teamList = new ArrayList<TeamDetailsFlatDTO>();
-		teamList =  fetch.viewTeam();
+		List<TeamFormDTO> teamList = new ArrayList<TeamFormDTO>();
+		teamList =  fetch.fetchTeamDetails();
 		request.setAttribute("TeamList",teamList);
 	}
 
