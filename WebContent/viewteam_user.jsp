@@ -27,10 +27,10 @@
 </head>
 
 <body>
-	<%@ include file="header_users.jsp" %>
+	
 	<jsp:include page="/FetchTeam"/>
 	
-	<%
+	<%-- <%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
@@ -38,12 +38,52 @@
 	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 	<%
 		}
-	%> 
+	%>  --%>
+	
+	
 	
 
 	<div id="templatemo_content">
 
-		<%@ include file="common_left_userview.jsp"%>
+		<%
+              HttpSession session1 = request.getSession(false);
+              if (session1 == null
+                           || (String) session1.getAttribute("user") == null
+                           || (String) session1.getAttribute("admin") == "admin") {
+       %><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+       <%
+              }
+       %> 
+       
+
+       <%
+              if (((String) session.getAttribute("admin") == "user")) {
+       %>
+
+
+
+       <%@ include file="header_users.jsp"%>
+       <div id="templatemo_content"/>
+
+              <%@ include file="common_left_userview.jsp"%>
+              <%
+                     }
+              %>
+
+
+              <%
+                     if (((String) session.getAttribute("admin") == "viewer")) {
+              %>
+
+
+
+              <%@ include file="header_viewer.jsp"%>
+              <div id="templatemo_content"/>
+
+                     <%@ include file="common_left.jsp"%>
+                     <%
+                           }
+                     %>
 
 		<div id="content_right">
 
