@@ -530,5 +530,38 @@ public class EmployeeDAO {
 		return piechartlist;
 
 	}
+	public List<EmployeeDetailsFlatDTO> fetchEmployeeListForTeam(String teamID) {
+		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
+
+		try {
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con
+					.prepareStatement("SELECT * FROM Employee WHERE TeamId=? ");
+			st.setString(1, teamID);
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				EmployeeDetailsFlatDTO emp = new EmployeeDetailsFlatDTO();
+				emp.setEmpName(rs.getString(CONSTANTS.EMPLOYEE_NAME));
+				emp.setEmpId(rs.getString(CONSTANTS.EMPLOYEE_ID));
+				emp.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
+				emp.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
+				emp.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
+				employeeList.add(emp);
+			}
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return employeeList;
+
+	}
+
 
 }
