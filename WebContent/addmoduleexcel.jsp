@@ -79,8 +79,9 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 
 							<input type="hidden" id="sheetno" name="sheetno" />
 							<!-- <form action="UploadServlet" method="post" enctype="multipart/form-data"> -->
-							 
+							 <div>
 							<input type="submit" value="Submit" />
+							</div>
 						</form>
 
 						<br />
