@@ -26,7 +26,7 @@
 </script> -->
 
 
-<script type='text/javascript' src='search.js'></script>
+<script type='text/javascript' src='searchAdmin.js'></script>
 <script >$(document).ready(function(){
 
         $("#ViewmodCss").css({
