@@ -23,46 +23,33 @@
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
 				|| (String) session1.getAttribute("admin") != "viewer") {
-	%><jsp:forward page="home.jsp?msg=Please Login" />
+	%><jsp:forward page="login.jsp?msg=Please Login" />
 	<%
 		}
 	%>
 	<div id="templatemo_container" />
 	<%@ include file="header_viewer.jsp" %> 
 
-	<div id="templatemo_content">
+	<div id="templatemo_content"/>
 
-		<div id="content_left">
+		<%@ include file="common_left.jsp"%>
 			
 		
 
-			<div class="margin_bottom_20">&nbsp;</div> 
-			 <div class="content_left_section" style="font-size: 14px">
-				<div class="content_left_section_title">Projects</div>
-				<div class="content_left_section_content">
-					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Primier</a></li>
-					</ul>
-				</div>
-				<div class="content_left_section_bottom">&nbsp;</div>
-			</div> 
-				<div class="margin_bottom_20">&nbsp;</div>
-		</div>
+			
 
 
 		<div id="content_right">
 
 			<div class="right_col_section_w650">
-
+<div class="header_09">
 				<div class="header_01" align="center">Welcome to Viewer Page</div>
 
-				<div>
+			
 
 					
-				<div class="header_09"></div>
-
+				</div>
+	<div>
 				<div>
 
 					<div id="piechart"
@@ -78,12 +65,15 @@
 				</div>
 
 				<div class="margin_bottom_20">&nbsp;</div>
-			</div>
+			
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		</div>
-<%@ include file="footer.jsp" %> 
+
+	</div>
+
+	<%@ include file="footer.jsp" %> 
 	</div>
 </body>
 </html> 
