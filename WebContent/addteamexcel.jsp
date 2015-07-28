@@ -21,6 +21,7 @@
 		$(".header_09").hide();
 	});
 </script>
+<script type='text/javascript' src='addteamexcel.js'></script>
 <script >
 $(document).ready(function(){
 
