@@ -178,7 +178,7 @@ if (session2 == null || (String)session2.getAttribute("user") == null  ){
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
+	
 		<div id="templatemo_footer">
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
