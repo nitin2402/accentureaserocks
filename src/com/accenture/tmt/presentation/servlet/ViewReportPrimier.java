@@ -60,7 +60,7 @@ public class ViewReportPrimier extends HttpServlet {
 			htmlTree += "<li class=\"moduleclick\" id=\""+li.get(i)+"\">" + li.get(i)
 					+ "</li><ul>";
 			for (int j = 0; j < tempLi.size(); j++) {
-				htmlTree += "<li class=\"teamclick\"><a>" + tempLi.get(j)
+				htmlTree += "<li class=\"teamclick\" id=\""+li.get(i)+"\"><a>" + tempLi.get(j)
 						+ "</a></li>";
 			}
 			htmlTree += "</ul>";
