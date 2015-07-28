@@ -79,7 +79,7 @@
 			%>
 			<li><a href="#">Workplan</a></li>
 			<li><a href="#">Projects</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="aboutus.jsp">About Us</a></li>
 			<li><a href="logout.jsp">Logout</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
