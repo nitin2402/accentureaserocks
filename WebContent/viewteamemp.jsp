@@ -33,22 +33,39 @@
 				});
 	});
 </script>
+<%
+	HttpSession session1 = request.getSession(false);
+%>
+<%
+	if ((String) session1.getAttribute("admin") == "admin") {
+%>
 
+<script type='text/javascript' src='searchAdmin.js'></script>
+<%
+	}
+%>
+
+<%
+	if ((String) session1.getAttribute("admin") == "user") {
+%>
 <script type='text/javascript' src='search.js'></script>
+<%
+	}
+%>
 </head>
 <body>
 	<%
 
-HttpSession session1 = request.getSession(false);
-if (session1 == null || (String)session1.getAttribute("user") == null  ){
-    %><jsp:forward page="home.jsp?msg=Please Login " /><%
+HttpSession session2 = request.getSession(false);
+if (session2 == null || (String)session2.getAttribute("user") == null  ){
+    %><jsp:forward page="login.jsp?msg=Please Login " /><%
 }
 %>
 	<div id="templatemo_container">
 	<div id="templatemo_header">
 		<div id="site_title_section">
 			<div id="site_title">Talent Management Tool</div>
-			<div id="slogan">The place to look back</div>
+			<div id="slogan">Plan, Organize, Budget, Schedule</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		<div id="welcome_msg"
@@ -56,8 +73,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null  ){
 			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
 			</div>
 
-		<div id="header_section_code">"Overall approach is to maintain
-			pyramid form for all designation levels as per Accenture compliance."</div>
+		<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
 	</div>
 
 	<div id="templatemo_menu">
