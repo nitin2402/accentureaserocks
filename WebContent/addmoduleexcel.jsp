@@ -21,6 +21,7 @@
 		$(".header_09").hide();
 	});
 </script>
+<script type='text/javascript' src='addmoduleexcel.js'></script>
 <script >
 $(document).ready(function(){
 
@@ -71,7 +72,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 						</div>
 					
 						<form action="AddModuleExcel" method="post"
-							onsubmit="return Validate(this);">
+							onsubmit="return Validate(this); " enctype="multipart/form-data">
 							<input type="file" name="file1"
 								size="50"
 								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
