@@ -51,10 +51,10 @@
 
 				<div class="header_01" >Team Details</div>
 					<div id="scrollable"   style="font-size: 14px;">
-						<table class="table1" >
+						<table class="table2 table_align" >
 							
 							<thead style="font-weight:bold;position: ">
-							<tr style="font-weight:bold;">
+							<tr class="one" style="font-weight:bold;">
 								
 								<td>TeamName</td>
 								<td>TeamDescription</td>
