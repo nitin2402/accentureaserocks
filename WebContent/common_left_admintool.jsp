@@ -63,10 +63,10 @@
 			<div class="content_left_section_content">
 				<ul>
 
-					<li><a href="viewemployee.jsp" id="ViewempCss">View Employees</a></li>
+					<li><a href="viewemployee.jsp" id="ViewempCss">View Employee</a></li>
 
 
-					<li><a href="viewteam.jsp"id="ViewteamCss">View Teams</a></li>
+					<li><a href="viewteam.jsp"id="ViewteamCss">View Team</a></li>
 
 					<li><a href="viewmodule.jsp"id="ViewmodCss">View Module</a></li>
 
