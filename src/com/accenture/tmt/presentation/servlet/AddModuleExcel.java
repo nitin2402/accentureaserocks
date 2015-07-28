@@ -1,18 +1,26 @@
 package com.accenture.tmt.presentation.servlet;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -23,6 +31,7 @@ import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.ModuleReportController;
 import com.accenture.tmt.presentation.dto.ModuleFormDTO;
 import com.accenture.tmt.presentation.dto.ModuleReportUpdateDTO;
+import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 /**
  * Servlet implementation class AddModuleExcel
@@ -53,12 +62,86 @@ public class AddModuleExcel extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
+		int maxFileSize = 5000 * 1024;
+		   int maxMemSize = 5000 * 1024;
+
+
+		File file=null;
+		String sheetno = null;
+		 boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+
+	        if (!isMultipart) {
+	            return;
+	        }
+	        
+		ServletContext context = getServletContext();
+		String filePath = context.getInitParameter("file-upload");
+
+		file = new File(filePath);
+		FileUtils.cleanDirectory(file);
+
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+
+		factory.setSizeThreshold(maxMemSize);
+
+		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+
+		ServletFileUpload upload = new ServletFileUpload(factory);
+
+		upload.setSizeMax(maxFileSize);
 		
-		try {
+		
+		
+		
+	        try {
+				 List fileItems = upload.parseRequest(request);
+
+		
+				 Iterator iterator = fileItems.iterator();
+
+  
+				 while ( iterator.hasNext () ) 
+				 {
+				    FileItem filename = (FileItem)iterator.next();
+				    
+				    
+				    if ( filename.isFormField () )
+				    
+				    {
+				    sheetno=filename.getString();
+				    }	
+				    else          	
+				    {
+		
+				    String fieldName = filename.getFieldName();
+				    String fileName = filename.getName();
+				    boolean isInMemory = filename.isInMemory();
+				    long sizeInBytes = filename.getSize();
+				
+				    if( fileName.lastIndexOf("\\") >= 0 ){
+				    file = new File( filePath + 
+				    fileName.substring( fileName.lastIndexOf("\\"))) ;
+				    }else{
+				    file = new File( filePath + 
+				    fileName.substring(fileName.lastIndexOf("\\")+1)) ;
+				    }
+				    filename.write( file ) ;
+				   
+				    }
+				 }
+			} catch (FileUploadException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		
+	        try {
 					
-			String file1 = request.getParameter(CONSTANTS.FILE_NAME);
-			String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
-			FileInputStream file = new FileInputStream(file1);
+			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
+			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
+			//FileInputStream file = new FileInputStream(file1);
 			int sno =Integer.parseInt(sheetno);
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
@@ -135,8 +218,8 @@ public class AddModuleExcel extends HttpServlet {
 				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);}
 				
 			workbook.close();
-				file.close();
-			} catch (ClassNotFoundException e) {
+				//file.close();
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
