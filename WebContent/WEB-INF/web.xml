@@ -724,5 +724,14 @@
     <servlet-name>DropDownDetails</servlet-name>
     <url-pattern>/DropDownDetails</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>FetchModuleForUser</display-name>
+    <servlet-name>FetchModuleForUser</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.FetchModuleForUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchModuleForUser</servlet-name>
+    <url-pattern>/FetchModuleForUser</url-pattern>
+  </servlet-mapping>
 </web-app>
