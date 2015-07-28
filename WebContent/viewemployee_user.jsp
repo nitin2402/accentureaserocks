@@ -55,28 +55,52 @@
 </head>
 <body>
 
-<%@ include file="header_users.jsp" %>  
-       <jsp:include page="/ViewEmployee"/>
-    
-       <%
-              HttpSession session1 = request.getSession(false);
-              if (session1 == null
-                           || (String) session1.getAttribute("user") == null
-                           /* || (Boolean) session1.getAttribute("admin") != true */) {
-       %><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
-       <%
-              }
-       %>
-       
-       
-       <div id="templatemo_content">
-       <%@ include file="common_left_userview.jsp"%>
-              
-              <div id="content_right">
 
-                     <div class="right_col_section_w650" style="height: 300px">
+<jsp:include page="/ViewEmployee"/>
+	
+	<%
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null
+				||( (String) session1.getAttribute("admin") == "admin") ) {
+	%><jsp:forward page="login.jsp?msg=Please Login..." />
+	<%
+		}
+	%>
+	<%
+		if (((String) session.getAttribute("admin") == "user")) {
+	%>
 
-                           <div class="header_01">Employee Details</div>
+
+
+	<%@ include file="header_users.jsp"%>
+	<div id="templatemo_content"/>
+
+		<%@ include file="common_left_userview.jsp"%>
+		<%
+			}
+		%>
+
+
+		<%
+			if (((String) session.getAttribute("admin") == "viewer")) {
+		%>
+
+
+
+		<%@ include file="header_viewer.jsp"%>
+		<div id="templatemo_content"/>
+
+			<%@ include file="common_left.jsp"%>
+			<%
+				}
+			%>
+
+			<div id="content_right">
+
+				<div class="right_col_section_w650" style="height: 300px">
+
+					<div class="header_01">Employee Details</div>
 
 
                            <div id="search">
