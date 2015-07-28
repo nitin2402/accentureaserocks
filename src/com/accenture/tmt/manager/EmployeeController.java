@@ -124,5 +124,10 @@ public List<String> fetchTeamList(){
 		// TODO Auto-generated method stub
 		
 	}
+	public List<EmployeeDetailsFlatDTO> FetchEmployeeListForTeam(String teamId){
+		List<EmployeeDetailsFlatDTO> employeeList=employeeDAO.fetchEmployeeListForTeam(teamId);
+		return employeeList;
+		
+	}
 	
 }
