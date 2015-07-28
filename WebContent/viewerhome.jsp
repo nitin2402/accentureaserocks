@@ -17,6 +17,7 @@
 
 </head>
 <body>
+<div>
 <div id="ajaxResponse"/>
 	<%
 		HttpSession session1 = request.getSession(false);
