@@ -75,8 +75,8 @@
 	<div id="templatemo_container">
 		<div id="templatemo_header">
 			<div id="site_title_section">
-				<div id="site_title">Pyramid Optimization</div>
-				<div id="slogan">The place to look back</div>
+				<div id="site_title">Talent Management Tool</div>
+				<div id="slogan">plan,organize,budget and schedule</div>
 				<div class="cleaner">&nbsp;</div>
 			</div>
 
@@ -91,7 +91,7 @@
 				<!-- 
 				<li><a href="#">Workplan</a></li>
 				<li><a href="#">Projects</a></li> -->
-				<li><a href="#">About Us</a></li>
+				<li><a href="about_us_users.jsp">About Us</a></li>
 				<li><a href="#" class="last" onclick="myfunction()">Contact
 						Us</a></li>
 			</ul>
