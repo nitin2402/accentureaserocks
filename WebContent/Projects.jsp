@@ -237,7 +237,7 @@
 			<li><a href="admintool.jsp">Admin Tools</a></li> -->
 			<li><a href="#">Workplan</a></li>
 			<li><a href="Projects.jsp" class="current">Projects</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="aboutus.jsp">About Us</a></li>
 			<li><a href="logout.jsp">Logout</a></li>
 			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
