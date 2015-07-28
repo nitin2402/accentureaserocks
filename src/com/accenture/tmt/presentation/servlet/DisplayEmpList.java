@@ -50,7 +50,7 @@ public class DisplayEmpList extends HttpServlet {
 	
 	
 		EmployeeController disp = new EmployeeController();
-		li=disp.FetchEmployeeList(tid);
+		li=disp.FetchEmployeeListForTeam(tid);
 		
 	
 		
