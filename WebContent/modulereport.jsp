@@ -73,8 +73,8 @@
 														
 												</select></td></tr>
 			   <tr> 
-			   <td>Start Date:</td><td> <input type="text" id="calendar" name="startDate" /></td></tr>
-				<tr><td>End Date :</td><td> <input type="text" id="calendar1" name="endDate"/></td></tr>
+			   <td>START DATE :</td><td> <input type="text" id="calendar" name="startDate" /></td></tr>
+				<tr><td>END DATE :</td><td> <input type="text" id="calendar1" name="endDate"/></td></tr>
 				</table>
 				<br/>
 				
