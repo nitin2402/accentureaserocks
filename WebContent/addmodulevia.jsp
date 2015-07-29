@@ -76,7 +76,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 					
 
 					<div class="cleaner">&nbsp;</div>
-					<div class="notification">${message}</div>
+					<div class="notification message">${message}</div>
 				</div>
 				<div id="ajaxResponse"></div>
 
