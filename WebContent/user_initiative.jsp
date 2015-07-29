@@ -39,7 +39,7 @@
 
 		 <div id="content_right">
 
-			<div class="right_col_section_w650" style="height: 400px">
+			<div class="right_col_section_w650" style="height:auto;">
 
 				<div class="header_01">Initiative</div>
 
