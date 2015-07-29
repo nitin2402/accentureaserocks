@@ -11,7 +11,6 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="admintool.js"></script> 
-
 <meta charset="utf-8" />
   <title>jQuery UI Datepicker - Default functionality</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
@@ -28,22 +27,16 @@
 <body>
 <%@ include file="header_admin.jsp" %>
 <div id="templatemo_container" />
-
 	<div id="templatemo_content">
 	<%@ include file="common_left.jsp" %>
-
 		<div id="content_right">
-
 			<div class="right_col_section_w650" style="height: 300px">
-
-				<div class="header_01">Enter Time</div>
-				
+				<div class="header_01">Reports Generated for Requests </div>
 				<script>
  					 $(function() {
  					 $( "#datepicker1" ).datepicker();
  					 });
   				</script>
-
 				<div id="search">
 				<form  action="EmployeeReportServlet" method="post">
 				<table>
@@ -70,20 +63,16 @@
 				</form>
 				<br />
 				<br />
-				<p><b>Note:</b> Reports Generated for Requests </p>
-				
-					<br />
+					<br /> 
 					<br />
 					<br />
 					<br />
 					<div class="notification">${message}</div>
-
 					<div class="cleaner">&nbsp;</div>
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
-
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		<div id="templatemo_content_bottom">&nbsp;</div>
