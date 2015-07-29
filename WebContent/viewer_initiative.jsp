@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
 				/* || (String) session1.getAttribute("admin") != "admin" */) {
-	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+	%><jsp:forward page="login.jsp?msg=Please Login" />
 	<%
 		}
 	%> 
@@ -43,7 +43,7 @@
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		
-		<div id="templatemo_content_bottom">&nbsp;</div>
+		
 		<div id="templatemo_footer">
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
