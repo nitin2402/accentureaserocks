@@ -56,8 +56,8 @@
 					<div class="content_left_section_content">
 						<form name="login" 
 							action="AdminLogin" method="post">
-							User Name<input type="text" id="USERNAME" name="USERNAME" /> <br />
-							<br /> Password<input type="password" id="PASSWORD"
+							User Name*<input type="text" id="USERNAME" name="USERNAME" /> <br />
+							<br /> Password*<input type="password" id="PASSWORD"
 								name="PASSWORD" /> <input type="submit" value="Login"
 								id="search_button" /> <br /> <br /><a href="signup.jsp"
 								style="font-size: 14px; text-decoration: underline; font-weight: normal;">Sign
@@ -80,7 +80,7 @@
 					<div class="header_01">The project hierarchy</div>
 					<img src="images/templatemo_image_01.jpg" alt="image" />
 
-                 <p style="font-size: 14px; color: red;"><%=request.getParameter("msg") != null ? request
+                 <p class = "message"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%>${msg}</p>
 
 					<div class="cleaner">&nbsp;</div>
