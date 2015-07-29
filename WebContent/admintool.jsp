@@ -59,7 +59,7 @@
 					<div class="cleaner">&nbsp;</div>
 				</div>
 				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message1}</p>
+				<p class="error message">${message1}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
