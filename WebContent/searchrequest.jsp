@@ -86,7 +86,7 @@
 							</form>
 							<br />
 							
-						<div style="color: blue;font-size: 12px">${reqId}  ${result}</div>
+						<div class="message">${reqId}  ${result}</div>
 
 						<br />
 							<h2 style="color:white;">Approved Requests</h2>
