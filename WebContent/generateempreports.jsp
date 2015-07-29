@@ -18,7 +18,7 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
-  
+  <script type='text/javascript' src='search.js'></script>
   <script>
   $(function() {
     $( "#datepicker" ).datepicker();
@@ -72,7 +72,7 @@
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
-
+				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
