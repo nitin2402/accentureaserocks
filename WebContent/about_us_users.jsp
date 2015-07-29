@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -19,7 +19,15 @@ table, th, td {
 
 </head>
 <body>
- > 
+  <%
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null
+				|| (String) session1.getAttribute("admin") != "user") {
+	%><jsp:forward page="login.jsp?msg=Please Login " />
+	<%
+		}
+	%>
 	
 	<%@ include file="header_users.jsp" %>
 
@@ -29,11 +37,12 @@ table, th, td {
 
 		 <div id="content_right">
 
-			<div id="search" class="right_col_section_w650">
+			<div  class="right_col_section_w650">
 
 				<div class="header_01">ABOUT US</div>
 					<div style="font-size: 14px;">
-		<p>The Talent Mnagement Tool is an integrated software tool that addresses the four pillars of talent management:
+         <div id = "search">		
+         <p>The Talent Management Tool is an integrated software tool that addresses the four pillars of talent management:
 		</p>
 		<p>Plan,Organize,Budget and Schedule talents.</p>
 		<p></p>This application is made under the guidance of <b>Chinu Mohanty</b></p>
@@ -70,6 +79,9 @@ table, th, td {
     <td>Vipul Mangla</td>
   </tr>
 </table>	
+</div>
+	<div id="ajaxResponse"></div>
+
 				<div class="margin_bottom_20">&nbsp;</div>
 							</div>
 			</div>
