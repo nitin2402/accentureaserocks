@@ -47,7 +47,7 @@
 					</div>
 					<br />
 					<div>
-						<p class="error" style="font-size: 14px; color: black;">${message}</p>
+						<p class="error message">${message}</p>
 					</div>
 				</div>
 				<div id="ajaxResponse"></div>
