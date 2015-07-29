@@ -64,19 +64,19 @@
 						>
 						<table style="font-size: 14px;">
 							<tr>
-							 	<td>Employee ID:</td>
+							 	<td>Employee ID:*</td>
 								<td><input type="text" name="employeeid" /></td>
 							</tr>
 							<tr>
-								<td>User Name:</td>
+								<td>User Name:*</td>
 								<td><input type="text" name="newuser" /></td>
 							</tr>
 							<tr>
-								<td>Password:</td>
+								<td>Password:*</td>
 								<td><input type="password" name="password" /></td>
 							</tr>
 							<tr>
-								<td>Confirm Password:</td>
+								<td>Confirm Password:*</td>
 								<td><input type="password" name="cpassword" /></td>
 							</tr>
 							<tr>
@@ -87,7 +87,7 @@
 					</form>
 
 
-					<p style="font-size: 14px; color: red;"><%=request.getParameter("msg") != null ? request
+					<p class="message"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
 
 					<div class="cleaner">&nbsp;</div>
