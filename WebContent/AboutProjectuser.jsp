@@ -122,7 +122,7 @@ table, th, td {
 					
 				</div>
 								<div id="ajaxResponse"></div>
-				<p class="error" class="message">${message}</p>
+				<p class="error message">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
