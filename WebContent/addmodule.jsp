@@ -104,7 +104,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 					</div>
 					
 								
-  <p style="font-size: 14px; color: red;"><%=request.getParameter("message") != null ? request
+  <p class = "message"><%=request.getParameter("message") != null ? request
 					.getParameter("message") : ""%>${message}</p>
 
 
