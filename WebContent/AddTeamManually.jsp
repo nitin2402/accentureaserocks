@@ -98,11 +98,11 @@ $(document).ready(function(){
 						<form name="add" action="AddTeamManual" method="post" onsubmit="return validateform()">
 							<table>
 								<tr>
-									<td>TEAM NAME:</td>
+									<td><span style="color: Red;">* </span>TEAM NAME:</td>
 									<td><input type="text" name="tname"></input></td>
 								</tr>
 								<tr>
-									<td>PROJECT</td>
+									<td>&nbsp PROJECT:</td>
 									<td><select id="prj" class="chain" name="project" style="width: 143px">
 											<jstlcore:forEach items="${project}" var="prj_item">
 
@@ -116,7 +116,7 @@ $(document).ready(function(){
 								</tr> 
 
                           		 <tr>
-									<td>MODULE</td>
+									<td>&nbsp MODULE:</td>
 									<td><select id="mdl" class="chain" name="module" style="width: 143px">
 											<jstlcore:forEach items="${module}" var="mod_item">
 
@@ -128,7 +128,7 @@ $(document).ready(function(){
 
 									</select></td>
 								</tr> 
-								<td>TEAM DESCRIPTION:</td>
+								<td><span style="color: Red;">* </span>TEAM DESCRIPTION:</td>
 									<td><input type="text" name="desc"></input></td>
 								</tr>
 								</table>
@@ -143,6 +143,7 @@ $(document).ready(function(){
 
 
 					<div class="cleaner">&nbsp;</div>
+					<div style="color: Red;"> * Mandatory Fields</div>
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
