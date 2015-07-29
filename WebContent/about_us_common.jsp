@@ -12,19 +12,29 @@
 	<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 	<script src="login.js"></script> 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script type="text/javascript">
+	$(function() {
+		$('.last').click(
+				function(event) {
+					var email = 'chinu.mohanty@accenture.com';
+					var subject = 'Feedback';
+					var emailBody = 'Hi Chinu,';
+					window.location = 'mailto:' + email + '?subject=' + subject
+							+ '&body=' + emailBody;
+				});
+	});
+</script>
 </head>
 <body>
 <div id="templatemo_container">
 		<div id="templatemo_header">
 			<div id="site_title_section">
 				<div id="site_title">Talent Management Tool</div>
-				<div id="slogan">The place to look back</div>
+				<div id="slogan">Plan, Organize, Budget, Schedule</div>
 				<div class="cleaner">&nbsp;</div>
 			</div>
 
-			<div id="header_section_code">"Overall approach is to maintain
-				pyramid form for all designation levels as per Accenture
-				compliance."</div>
+			<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
 		</div>
 		<!-- end of header -->
 		<div id="templatemo_menu">
