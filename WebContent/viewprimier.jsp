@@ -180,6 +180,19 @@ HttpSession session2 = request.getSession(false);
 			<%
 				 } 
 			%>
+			<%
+				 if ((String) session2.getAttribute("admin") == "viewer") { 
+			%>
+			
+			<li><a href="viewerhome.jsp">Home</a></li>
+			<li><a href="viewer_initiative.jsp">Initiatives</a></li>
+			<li><a href="about_us_viewer.jsp">About Us</a></li>
+			<li><a href="#" class="last">Contact Us</a></li>
+
+		<%
+				 }
+			%>
+			
 			
 			
 			
