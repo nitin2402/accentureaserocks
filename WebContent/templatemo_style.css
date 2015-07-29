@@ -573,4 +573,9 @@ table.table2 td {
 .text_size{
 	font-size:14px;
 }
+
+.message{
+	color: black;
+	font-size:12px;
+}
 /* end of footer */
