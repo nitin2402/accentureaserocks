@@ -116,7 +116,7 @@ $(document).ready(function(){
 					
 				</div>
 								<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
+				<p class="error" class="message">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
