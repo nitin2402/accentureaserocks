@@ -63,7 +63,7 @@
 			<table>
 				<tr>
 				<td>PLEASE SELECT THE MODULE&nbsp;&nbsp;</td><td><select name="moduleName">
-				<option value=""></option>
+				<option value="">--Please select--</option>
 												<jstlcore:forEach items="${moduleList}" var="item">
 							
 								<option	value="${item}" > <jstlcore:out value="${item}" ></jstlcore:out></option>
