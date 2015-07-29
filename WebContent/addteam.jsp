@@ -112,7 +112,7 @@
 					<br />
 					<br />
 					<br />
-					<div class="notification">${message}</div>
+					<div class="notification message">${message}</div>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
