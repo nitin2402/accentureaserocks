@@ -27,13 +27,10 @@
 <body>
 <%@ include file="header_admin.jsp" %>
 <div id="templatemo_container" />
-
 	<div id="templatemo_content">
 		<%@ include file="common_left.jsp" %>
 		<div id="content_right">
-
 			<div class="right_col_section_w650" style="height: 300px">
-
 				<script>
  					 $(function() {
  					 $( "#datepicker1" ).datepicker();
@@ -42,7 +39,6 @@
   				<div id = "search">
   				<div id="scrollable"   style="font-size: 14px;">
   				<table class="table2" > 
-  				
 							<thead style="font-weight:bold;position: ">
 							<tr class="one" style="font-weight:bold;">
 								<td>ReqId</td>
@@ -57,7 +53,6 @@
 								<td>TimeStamp</td>
 							</tr>
 							</thead>
-						
 							<tbody  >
 				<jstlcore:forEach items="${ReportList}" var="item">
 								<tr>
@@ -79,7 +74,6 @@
 				<div>
 				<br />
 				<br />
-					
 					<br />
 					<br />
 					<br />
@@ -92,7 +86,6 @@
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
-
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		<div id="templatemo_content_bottom">&nbsp;</div>
