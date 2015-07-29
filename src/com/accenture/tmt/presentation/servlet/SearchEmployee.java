@@ -64,15 +64,15 @@ public class SearchEmployee extends HttpServlet {
 		
 		String exp = null;
 
-		exp = "<form action =\"Searchedit\" method=\"post\"><div id=\"scrollable\"> <table  class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\"><td></td>"
+		exp = "<form action =\"Searchedit\" method=\"post\"><div id=\"scrollable\"> <table  class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\">"
 				+ "<td>Employee ID</td><td>Employee Name </td><td>Designation</td><td>Level</td><td>Expertise</td><td>Client Id</td><td>Email</td><td>Team ID</td><td>Proficiency Cams</td><td>Proficiency Project</td><td>Date of Joining</td><td>Last Working Day</td><td>Billable</td><td>Active User</td></tr>";
 		
 	
 		
 		for (int i = 0; i < li.size(); i++) {
-			exp += "<tr class=\"table_align\"><td><input type=\"radio\" name=\"employee\" value= \""
+		/*	exp += "<tr class=\"table_align\"><td><input type=\"radio\" name=\"employee\" value= \""
 					
-					+ li.get(i).getEmpId() + "\"></td>" ;
+					+ li.get(i).getEmpId() + "\"></td>" ;*/
 			exp += "<td>" + li.get(i).getEmpId()
 					+ "</td>";
 			exp += "<td>" + li.get(i).getEmpName()
