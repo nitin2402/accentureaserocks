@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title>Talent Management Tool</title>
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -46,19 +46,27 @@
 
 				<div id="search">
 				<form  action="EmployeeReportServlet" method="post">
-				<p>Start Date: <input type="text" id="datepicker" name="startdate" /></p>
-				<p>End Date : <input type="text" id="datepicker1" name="enddate" /></p>
-				<p>Select Status :</p>
-				<select name="status">
-					<option value=""></option>
+				<table>
+				<tr>
+				<td>PLEASE SELECT THE STATUS &nbsp;&nbsp;</td>
+				<td><select name="status">
+					<option value="">--Please select--</option>
  				 	<option value="pending">Pending</option>
   					<option value="onhold">OnHold</option>
  				 	<option value="accepted">Accepted</option>
 					<option value="rejected">Rejected</option>
-				</select>
+				</select></td>
+				</tr>
+				<tr>
+				<td>START DATE:<td> <input type="text" id="datepicker" name="startdate" /></td></td>
+				</tr>
+				<tr>
+				<td>END DATE: <td><input type="text" id="datepicker1" name="enddate" /></td></td>
+				</tr>
+				</table>
 				<br />
 				<br />
-				<button type="submit" value="Submit">Generate Report</button>
+				<button type="submit" value="Submit" style="margin-left:100px">Generate Report</button>
 				</form>
 				<br />
 				<br />
