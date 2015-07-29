@@ -88,7 +88,7 @@
            </div>
 
 				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;line-height:75px;">${message}</p>
+				<p class="error message" style="line-height:75px;">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
