@@ -21,6 +21,8 @@ public class EmployeeDetailsDTO {
 	private String isActive;
 	private String teamName ;
 	private String cost ;
+	private String projectName ;
+	private String moduleName ;
 	public String getEmpId() {
 		return empId;
 	}
@@ -120,6 +122,18 @@ public class EmployeeDetailsDTO {
 	}
 	public void setCost(String cost) {
 		this.cost = cost;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	public String getModuleName() {
+		return moduleName;
+	}
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
 	}
 
 }
