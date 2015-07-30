@@ -17,7 +17,7 @@ $(document).ready(function(){
 			alert("please enter sheet number");
 			return false;
 		} else {
-
+			 alert("PLEASE ENSURE THAT THE PROJECT,MODULE,TEAM nmaes are correct.YOU MAY REFER TO SHEET 2,3,4 OF THE ABOVE LINK."); 
 			return true;
 		}
 	}
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	                    var extensions = validFileExtensions[j];
 	                    if (fileName.substr(fileName.length - extensions.length, extensions.length).toLowerCase() == extensions.toLowerCase()) {
 	                        isValid = true;
-	                       /*  alert("success"); */
+	                       
 	                        return SelectSheetNo();
 	                    }
 	                }  
