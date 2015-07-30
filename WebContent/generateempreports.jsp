@@ -17,6 +17,7 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script type='text/javascript' src='searchAdmin.js'></script>
   <script type='text/javascript' src='search.js'></script>
   <script>
   $(function() {
@@ -28,7 +29,7 @@
 		var moduleName = document.forms["request"]["status"].value;
 		var startDate = document.forms["request"]["startdate"].value;
 		var endDate = document.forms["request"]["enddate"].value;
-		if((moduleName == null || moduleName =="")&& (startDate == null|| startDate == "")&& (endDate == null || endDate == "")){
+		if((status == null || status =="")&& (startdate == null|| startdate == "")&& (enddate == null || enddate == "")){
 			alert("Fields cannot be empty");
 			return false;
 		}
@@ -52,13 +53,15 @@
 				<table>
 				<tr>
 				<td>PLEASE SELECT THE STATUS &nbsp;&nbsp;</td>
-				<td><select name="status">
+				<td>
+				<select name="status">
 					<option value="">--Please select--</option>
  				 	<option value="pending">Pending</option>
   					<option value="onhold">OnHold</option>
  				 	<option value="accepted">Accepted</option>
 					<option value="rejected">Rejected</option>
-				</select></td>
+				</select>
+				</td>
 				</tr>
 				<tr>
 				<td>START DATE:<td> <input type="text" id="datepicker" name="startdate" /></td></td>
