@@ -118,7 +118,7 @@ private List<String> projectNames = new ArrayList<String>();
 				/*current.setProjectName(rs.getString("ProjectName"));*/
 				current.setCurrentRelease(rs.getString("CurrentRelease"));
 				current.setReleaseDate(rs.getString("ReleaseDate"));
-				System.out.println(current.getProjectName());
+		
 				list.add(current);
 			}
 			
