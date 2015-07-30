@@ -43,7 +43,7 @@
 	
 	
 
-	<div id="templatemo_content">
+	
 
 		<%
               HttpSession session1 = request.getSession(false);
@@ -130,6 +130,6 @@
 		</div>
 	</div>
 	<%@ include file="footer.jsp" %>   
-	</div>
+	
 </body>
 </html>
