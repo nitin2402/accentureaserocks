@@ -23,9 +23,9 @@ public class EmployeeController {
 	
 	public int addEmployee(EmployeeDetailsDTO emp)
 	{	
-		String teamId = null ;
+		/*String teamId = null ;
 		WorkplanDAO workplanDao = new WorkplanDAO();
-		teamId = workplanDao.fetchTeamId(emp.getTeamName());
+		teamId = workplanDao.fetchTeamId(emp.getTeamName());*/
 	
 	EmployeeDetailsFlatDTO detailsFDO = new EmployeeDetailsFlatDTO();
 	detailsFDO.setEmpId(emp.getEmpId());
@@ -35,13 +35,14 @@ public class EmployeeController {
 	detailsFDO.setExpertise(emp.getExpertise());
 	detailsFDO.setClientId(emp.getClientId());
 	detailsFDO.setEmail(emp.getEmail());
-	detailsFDO.setTeamId(teamId);
+	detailsFDO.setTeamId(emp.getTeamName());
 	detailsFDO.setProfCamps(emp.getProfCamps());
 	detailsFDO.setProfProject(emp.getProfProject());
 	detailsFDO.setDoj(emp.getDoj());
 	detailsFDO.setLastWD(emp.getLastWD());
 	detailsFDO.setIsBillable(emp.getIsBillable());
 	detailsFDO.setIsActive(emp.getIsActive());
+	detailsFDO.setCost(emp.getCost());
 	EmployeeDAO dao=new EmployeeDAO();
 	int staus=dao.addEmployee(detailsFDO);
 
