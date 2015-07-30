@@ -126,6 +126,7 @@ table, th, td {
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
+			</div>
 			<%@ include file="footer.jsp"%>
 		</div></body>
 </html>
