@@ -103,11 +103,13 @@ $(document).ready(function(){
  -->
   <%
 	HttpSession session1 = request.getSession(false);
-	/* if (session1 == null
-		|| (String) session1.getAttribute("user") == null)  *//* { */
-	/* <jsp:forward page="home.jsp?msg=Please Login" />
-	<%  */
-	/* }  */
+  if (session1 == null
+
+		  || (String) session1.getAttribute("user") == null) {
+		  %><jsp:forward page="login.jsp?msg=Please Login" />
+
+		  <%
+		  }
 %>
 
 <%
@@ -131,7 +133,13 @@ $(document).ready(function(){
 <%
 
 HttpSession session2 = request.getSession(false);
+if (session2 == null
 
+|| (String) session2.getAttribute("user") == null) {
+%><jsp:forward page="login.jsp?msg=Please Login" />
+
+<%
+}
 %>
 	<jsp:include page="/ViewReportPrimier" />
 
