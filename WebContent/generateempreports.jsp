@@ -23,6 +23,17 @@
     $( "#datepicker" ).datepicker();
   });
   </script>
+  <script>
+  function validateform(){
+		var moduleName = document.forms["request"]["status"].value;
+		var startDate = document.forms["request"]["startdate"].value;
+		var endDate = document.forms["request"]["enddate"].value;
+		if((moduleName == null || moduleName =="")&& (startDate == null|| startDate == "")&& (endDate == null || endDate == "")){
+			alert("Fields cannot be empty");
+			return false;
+		}
+	}
+  </script>
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>
@@ -38,7 +49,7 @@
  					 });
   				</script>
 				<div id="search">
-				<form  action="EmployeeReportServlet" method="post">
+				<form  name ="request" action="EmployeeReportServlet" method="post"  onsubmit ="return validateform()">
 				<table>
 				<tr>
 				<td>PLEASE SELECT THE STATUS &nbsp;&nbsp;</td>
