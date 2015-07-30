@@ -3,7 +3,9 @@ package com.accenture.tmt.presentation.servlet;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,13 +23,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.manager.ExcelController;
+import com.accenture.tmt.manager.TeamReportController;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
+import com.accenture.tmt.presentation.dto.TeamReportUpdateDTO;
 
 /**
  * Servlet implementation class AddTeamExcel
@@ -87,11 +92,9 @@ public class AddTeamExcel extends HttpServlet {
 		ServletFileUpload upload = new ServletFileUpload(factory);
 
 		upload.setSizeMax(maxFileSize);
-		
-		
-		
-		
-	        try {
+
+
+			try {
 				 List fileItems = upload.parseRequest(request);
 
 		
@@ -143,7 +146,7 @@ public class AddTeamExcel extends HttpServlet {
 			int sno =Integer.parseInt(sheetno);
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
-	List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
+			List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
 			
 			TeamFormDTO teamFormDto = null;
 			boolean headerRow = true;
@@ -180,17 +183,44 @@ public class AddTeamExcel extends HttpServlet {
 			}
 		}
 	        
-
+			/*code for Teamreports (TeamReports will get updated)*/
+			HttpSession session1 = request.getSession();
+			TeamReportUpdateDTO reportUpdateDTO = new TeamReportUpdateDTO();
+			TeamReportController teamReportController = new TeamReportController();
+			
+			java.sql.Date sqlDate=null;
+			
+			SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+			Date date = new Date();
+			String timestamp= df.format(date);
+			sqlDate= new java.sql.Date(date.getTime());
+			 
+			/*TeamReports code ends here*/
+			
 			int c=0;
 			
 			ExcelController add = new ExcelController();
-			
-			
-				c=add.addFromExcel1(listOfTeams);
+			c=add.addFromExcel1(listOfTeams);
 		 
 				if(c !=0){
 					request.setAttribute("message","Record Inserted");
-					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);}
+					if(session1!= null){
+						for(int i =0;i<listOfTeams.size();i++){
+						reportUpdateDTO.setTeamName(listOfTeams.get(i).getTeamName());
+						reportUpdateDTO.setTeamId(listOfTeams.get(i).getTeamId());
+						reportUpdateDTO.setModuleId(listOfTeams.get(i).getModuleId());
+						reportUpdateDTO.setTeamDescription(listOfTeams.get(i).getTeamDescription());
+						reportUpdateDTO.setUsername((String)session1.getAttribute("user"));
+						reportUpdateDTO.setAction("added by excel");
+						reportUpdateDTO.setTimestamp(timestamp);
+						reportUpdateDTO.setDate(sqlDate);
+					
+						teamReportController.updateTeamReport(reportUpdateDTO);
+						}
+					}
+					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
+				}
+				
 				if(c ==0){
 					request.setAttribute("message","Record insertion failed");
 					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);}
