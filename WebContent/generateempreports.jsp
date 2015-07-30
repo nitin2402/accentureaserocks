@@ -37,11 +37,10 @@
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>
-<div id="templatemo_container" />
 	<div id="templatemo_content">
 	<%@ include file="common_left.jsp" %>
 		<div id="content_right">
-			<div class="right_col_section_w650" style="height: 300px">
+			<div class="right_col_section_w650" style="height: auto;">
 				<div class="header_01">Reports Generated for Requests </div>
 				<script>
  					 $(function() {
@@ -79,14 +78,12 @@
 					<br />
 					<br />
 					<div class="notification">${message}</div>
-					<div class="cleaner">&nbsp;</div>
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<div id="templatemo_content_bottom">&nbsp;</div>
 		<%@ include file="footer.jsp" %>
 	</div>
 </body>
