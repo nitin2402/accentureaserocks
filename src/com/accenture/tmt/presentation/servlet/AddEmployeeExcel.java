@@ -148,7 +148,10 @@ public class AddEmployeeExcel extends HttpServlet {
 			List<EmployeeDetailsDTO> listOfEmps = new ArrayList<EmployeeDetailsDTO>();
 			
 			EmployeeDetailsDTO empDetailsDto = null;
-
+			
+			/*workbook.*/
+			
+			//projectDetail
 			boolean headerRow = true;
 			for (Row rowOfEmployee1 : projectDetails) {
 				
@@ -179,40 +182,52 @@ public class AddEmployeeExcel extends HttpServlet {
 						} else if (cellCount == 6 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeEmail")) {
 							empDetailsDto.setEmail(cellForEmp
 									.getStringCellValue());
-						} else if (cellCount == 7 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("TeamId")) {
-							empDetailsDto.setTeamId(cellForEmp
+						} else if (cellCount == 7 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ProjectName")) {
+							empDetailsDto.setProjectName(cellForEmp
 									.getStringCellValue());
 						}
-						else if (cellCount == 8 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ProficiencyCamps")) {
-							empDetailsDto.setProfCamps(cellForEmp
+						else if (cellCount == 8 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ModuleNmae")) {
+							empDetailsDto.setModuleName(cellForEmp
 									.getStringCellValue());
 						}
-						else if (cellCount == 9 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ProficiencyProject")) {
-							empDetailsDto.setProfProject(cellForEmp
+						else if (cellCount == 9 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("TeamName")) {
+							empDetailsDto.setTeamName(cellForEmp
 									.getStringCellValue());
 						}
-						else if (cellCount == 10 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("DateofJoining")) {
-							empDetailsDto.setDoj(cellForEmp.getStringCellValue());
+						else if (cellCount == 10 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ProficiencyCamps")) {
+							empDetailsDto.setProfCamps(cellForEmp.getStringCellValue());
 						}
-						else if (cellCount == 11 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("LastWorkingDay")) {
-							empDetailsDto.setLastWD(cellForEmp.getStringCellValue());
+						else if (cellCount == 11 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ProficiencyProject")) {
+							empDetailsDto.setProfProject(cellForEmp.getStringCellValue());
 						}
-						else if (cellCount == 12 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("Billable")) {
-							empDetailsDto.setIsBillable(cellForEmp
+						else if (cellCount == 12 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("DateofJoining")) {
+							empDetailsDto.setDoj(cellForEmp
 									.getStringCellValue());
 						}
-						else if (cellCount == 13 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ActiveUser")) {
-							empDetailsDto.setIsActive(cellForEmp
+						else if (cellCount == 13 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("LastWorkingDay")) {
+							empDetailsDto.setLastWD(cellForEmp
 									.getStringCellValue());
 						}
 						
-						else if (cellCount == 14 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("LCR")) {
+						else if (cellCount == 14 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("Billable")) {
+							empDetailsDto.setIsBillable(cellForEmp
+									.getStringCellValue());
+						}
+						else if (cellCount == 15 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("ActiveUser")) {
 							empDetailsDto.setIsActive(cellForEmp
+									.getStringCellValue());
+						}
+						else if (cellCount == 16 && cellForEmp.getStringCellValue() != null && !cellForEmp.getStringCellValue().equalsIgnoreCase("LCR")) {
+							empDetailsDto.setCost(cellForEmp
 									.getStringCellValue());
 						}
 						
 						cellCount++;
+							
+						
 				}
+				ExcelController fetchTeamId = new ExcelController();
+				empDetailsDto.setTeamId(fetchTeamId.detailsFromExcel(empDetailsDto));
 				listOfEmps.add(empDetailsDto);
 				
 				}else{
