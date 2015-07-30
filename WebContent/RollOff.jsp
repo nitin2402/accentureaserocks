@@ -198,11 +198,12 @@ $(document).ready(function(){
 				
 				</div>
 				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
+				<p class="error message">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
-			<%@ include file="footer.jsp"%>
 			</div>
+			<%@ include file="footer.jsp"%>
+			
 		</div></body>
 </html>
