@@ -61,25 +61,27 @@ public class EditModuleFinal extends HttpServlet {
 		ModuleReportUpdateDTO reportupdatedto = new ModuleReportUpdateDTO();
 		
 		int a = edit.editModule(modulename, project, moduledesc, moduleid);
-if(a!=0)
-{request.setAttribute("message","Module Updated");
-if(session1 != null){
-	reportupdatedto.setModuleId(moduleid);
-	reportupdatedto.setModuleName(modulename);
-	reportupdatedto.setProjectId(project);
-	reportupdatedto.setModuleDescription(moduledesc);
-	reportupdatedto.setUserName((String)session1.getAttribute("user"));
-	reportupdatedto.setAction("edited");
-	reportupdatedto.setTimeStamp(timestamp);
-	reportupdatedto.setDates(sqlDate);
-	modulereportcontroller.updateModuleReport(reportupdatedto);
-request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
-}
+		if(a!=0)
+		{
+			request.setAttribute("message","Module Updated");
+			if(session1 != null){
+				reportupdatedto.setModuleId(moduleid);
+				reportupdatedto.setModuleName(modulename);
+				reportupdatedto.setProjectId(project);
+				reportupdatedto.setModuleDescription(moduledesc);
+				reportupdatedto.setUserName((String)session1.getAttribute("user"));
+				reportupdatedto.setAction("edited");
+				reportupdatedto.setTimeStamp(timestamp);
+				reportupdatedto.setDates(sqlDate);
+				modulereportcontroller.updateModuleReport(reportupdatedto);
+				request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
+			}
+		}
+		if (a==0)
+		{
+			request.setAttribute("message","Module not Updated");
+			request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
+		}
+	
 	}
-if (a==0)
-{
-	request.setAttribute("message","Module not Updated");
-	request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
-	}
-}
 }
