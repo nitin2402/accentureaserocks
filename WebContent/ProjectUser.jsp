@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 				<div id="search">
 
-					<h1 id="current1" > Current Release</a></h1>
+					<h1 id="current1" > Current Release</h1>
 					<div id="scrollable" style="font-size: 14px;">
 						<table class="table2" id="current">
 
@@ -130,11 +130,13 @@ $(document).ready(function(){
 				</div>
 				</div>
 				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
+				<p class="error message" >${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
-			<%@ include file="footer.jsp"%>
 			</div>
-		</div></body>
+			<%@ include file="footer.jsp"%>
+			
+		</div>
+		</body>
 </html>
