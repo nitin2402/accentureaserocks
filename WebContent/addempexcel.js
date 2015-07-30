@@ -17,7 +17,7 @@ $(document).ready(function(){
 			alert("please enter sheet number");
 			return false;
 		} else {
-			 alert("PLEASE ENSURE THAT THE PROJECT,MODULE,TEAM nmaes are correct.YOU MAY REFER TO SHEET 2,3,4 OF THE ABOVE LINK."); 
+			 alert("PLEASE ENSURE THAT THE PROJECT,MODULE,TEAM names are correct.YOU MAY REFER TO SHEET 2,3,4 OF THE ABOVE LINK."); 
 			return true;
 		}
 	}
