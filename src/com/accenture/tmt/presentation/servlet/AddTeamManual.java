@@ -1,13 +1,19 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.manager.TeamController;
+import com.accenture.tmt.manager.TeamReportController;
+import com.accenture.tmt.presentation.dto.TeamReportUpdateDTO;
 
 /**
  * Servlet implementation class AddEmployeeManual
@@ -35,11 +41,13 @@ public class AddTeamManual extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
-
-		String TeamName = request.getParameter("tname");
-		String Teamid = request.getParameter("project1");
-		String ModuleId = request.getParameter("module");
+	    TeamReportUpdateDTO reportUpdateDTO = new TeamReportUpdateDTO();
+	    TeamReportController reportController = new TeamReportController();
+		HttpSession session1 = request.getSession();
+		
+		String TeamName = request.getParameter("Tname");
+		String Teamid = request.getParameter("Tno");
+		String ModuleId = request.getParameter("Mname");
 		String TeamDesc = request.getParameter("desc");
 		TeamDetailsFlatDTO detailsDO = new TeamDetailsFlatDTO();
 		detailsDO.setTeamName(TeamName);
@@ -47,14 +55,32 @@ public class AddTeamManual extends HttpServlet {
 		detailsDO.setModuleId(ModuleId);
 		detailsDO.setTeamDescription(TeamDesc);
 		
-	
-		TeamController TeamManager = new TeamController();
+		java.sql.Date sqlDate=null;
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Date date = new Date();
+		String timestamp= df.format(date);
+		sqlDate= new java.sql.Date(date.getTime());
 		
-		int c=TeamManager.addTeamManual(detailsDO);
-		if(c !=0){
+		TeamController TeamManager = new TeamController();
+		int c = 0;
+		c = TeamManager.addTeamManual(detailsDO);
+		
+		if(c!=0){
 			request.setAttribute("message","Record Inserted");
+			if(session1!= null){
+				reportUpdateDTO.setTeamId(Teamid);
+				reportUpdateDTO.setTeamName(TeamName);
+				reportUpdateDTO.setModuleId(ModuleId);
+				reportUpdateDTO.setTeamDescription(TeamDesc);
+				reportUpdateDTO.setUsername((String)session1.getAttribute("user"));
+				reportUpdateDTO.setAction("added");
+				reportUpdateDTO.setTimestamp(timestamp);
+				reportUpdateDTO.setDate(sqlDate);
+				reportController.updateTeamReport(reportUpdateDTO);
+			}
+			
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
-		if(c ==0){
+		if(c == 0){
 			request.setAttribute("message","Record insertion failed");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		
