@@ -72,13 +72,14 @@
 							</jstlcore:forEach>
 														
 												</select></p>
-				<p> START DATE: <input type="text" id="calendar" name="startDate" /></p>
-				<p>END DATE: <input type="text" id="calendar1" name="endDate" /></p>
-				<button type="submit" value="Submit">Generate Report</button>
+				<p> START DATE: <input type="text" id="calendar" name="startDate" style="margin-left:83px"/></p>
+				<p>END DATE: <input type="text" id="calendar1" name="endDate" style="margin-left:95px" /></p>
+				<br />
+				<button type="submit" value="Submit" style="margin-left:90px">Generate Report</button>
 				</form>
 				<br />
 				<br />
-				<p><b>Note:</b> Reports Generated for Team </p>
+		
 				
 					<br />
 					<br />
