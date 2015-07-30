@@ -5,16 +5,21 @@ import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
+import com.accenture.tmt.common.PROPERTY;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
+import com.accenture.tmt.manager.ExcelController;
+import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
 
 
 public class ExcelDAO {
@@ -263,4 +268,37 @@ public class ExcelDAO {
 		
 		return b; 	
 	}
+	
+	public String fetchTeamIdForExcel(EmployeeDetailsDTO listOfEmps ) {
+		// TODO Auto-generated method stub
+		//ExcelController prjDetails =new ExcelController();
+		 String teamId=null;
+	
+		//List<EmployeeDetailsFlatDTO> li=new ArrayList<EmployeeDetailsFlatDTO>();
+        ResultSet rs = null ;
+		try {
+			Connection con = DBConnection.getConnection();
+			if (con != null) {
+				PreparedStatement st = con.prepareStatement(PROPERTY.FETCHDETAILS);
+		
+					
+					st.setString(1, listOfEmps.getProjectName());
+					st.setString(2, listOfEmps.getModuleName());
+					st.setString(3, listOfEmps.getTeamName());
+					rs = st.executeQuery();
+				
+				
+				while(rs.next()){
+				
+						  
+						 teamId = rs.getString("TeamId");
+				 }
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return teamId;
+	}
+	
 }
