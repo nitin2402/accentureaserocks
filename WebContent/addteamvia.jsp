@@ -28,6 +28,7 @@ $(document).ready(function(){
 
 	</script>
 <script type="text/javascript" src="addteamvia.js"></script> 
+<script type='text/javascript' src='searchAdmin.js'></script>
 <script type='text/javascript' src='search.js'></script>
 </head>
 <body>
