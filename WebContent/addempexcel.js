@@ -22,7 +22,7 @@ $(document).ready(function(){
 		}
 	}
 	
-	var validFileExtensions = [".xlsx", ".xls"];    
+	var validFileExtensions = [".xlsx"];    
 	function Validate(vaildateObj) {
 	    var getFileName = vaildateObj.getElementsByTagName("input");
 	  
