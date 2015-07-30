@@ -10,6 +10,7 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type='text/javascript' src='searchAdmin.js'></script>
+<script type='text/javascript' src='search.js'></script>
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>
@@ -22,48 +23,33 @@
 	<%
 		}
 	%> 
-	
-
-	<div id="templatemo_content">
-	
+<div id="templatemo_content">
 <%@ include file="common_left.jsp" %>
-
-		
 			<div id="content_right">
-
 			<div class="right_col_section_w650" style="height: auto;">
-
 				<div class="header_01">Reports</div>
-
-
                  <div id="search" style="font-size:13px">
 				    <div>
 					<ul>
 						</br>
 						<li><a href="generateempreports.jsp">Reports Generated for Requests</a></li>
 						</br>
-						
 						<li><a href="#">Reports Generated for Employee</a></li>
 						</br>
-
 						<li><a href="teamreport.jsp">Reports Generated for Team</a></li>
 						</br>
-						
 						<li><a href="modulereport.jsp">Reports Generated for Module</a></li>
 						</br>
 					</ul>
 					</div>
 				</div>
-				
                 <div id="ajaxResponse"></div>
                 <p class="error" style="font-size: 14px; color: red;">${message1}</p>
 				<div class="margin_bottom_20">&nbsp;</div>
-				
 			</div>
-
 			<div class="cleaner">&nbsp;</div>
 		</div>
-						<%@ include file="footer.jsp" %> 
+	<%@ include file="footer.jsp" %> 
 	</div>
 </body>
 </html>
