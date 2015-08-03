@@ -46,7 +46,7 @@ public class ModuleReportServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String moduleName = request.getParameter(CONSTANTS.GET_MODULE_NAME_FOR_REPORT);
+		String moduleName = request.getParameter("module");
 		   String startDate = request.getParameter(CONSTANTS.GET_START_DATE_FOR_MODULE_REPORT);
 		    String endDate = request.getParameter(CONSTANTS.GET_END_DATE_FOR_MODULE_REPORT);
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
