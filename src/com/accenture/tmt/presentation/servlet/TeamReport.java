@@ -53,7 +53,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 		request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
 		*/
 		
-		String teamName = request.getParameter(CONSTANTS.GET_TEAM_NAME_FOR_REPORT);
+		String teamName = request.getParameter("Team");
 		String startDate = request.getParameter(CONSTANTS.GET_START_DATE_FOR_TEAM_REPORT);
 		String endDate = request.getParameter(CONSTANTS.GET_END_DATE_FOR_TEAM_REPORT);
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
