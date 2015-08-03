@@ -79,7 +79,7 @@
 						</div>
 						
 						<br />
-							<input type="submit"  name="action" value="Accept" onclick="return validateForm()"/>
+							<input type="submit"  name="action" value="Continue" onclick="return validateForm()"/>
 							<input type="submit" name="action" value="Reject" onclick="return validateButtonRejected()"/>
 							<input type="submit" name="action" value="OnHold" onclick="return validateButtonOnHold()"/>
 							<input type="reset" value="Reset"/>
