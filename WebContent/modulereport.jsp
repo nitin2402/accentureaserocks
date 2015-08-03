@@ -86,6 +86,7 @@
 								<td>&nbsp PROJECT</td>
 								<td><select id="prj" class="chain" name="project"
 									style="width: 143px">
+									<option value="">--Please select--</option>
 										<jstlcore:forEach items="${project}" var="prj_item">
 
 											<option value="${prj_item.projectId}">
@@ -101,6 +102,7 @@
 								<td>&nbsp MODULE</td>
 								<td><select id="mdl" class="chain" name="module"
 									style="width: 143px">
+									<option value="">--Please select--</option>
 										<jstlcore:forEach items="${module}" var="mod_item">
 
 											<option value="${mod_item.moduleName}"
@@ -112,6 +114,9 @@
 
 								</select></td>
 							</tr>
+
+
+
 
 							<tr>
 								<td>START DATE :</td>
