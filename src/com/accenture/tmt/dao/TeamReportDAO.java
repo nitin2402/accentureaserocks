@@ -6,7 +6,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +13,13 @@ import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.TeamReportFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamReportDTO;
+import com.accenture.tmt.presentation.dto.TeamReportUpdateDTO;
 
 	
 	public class TeamReportDAO {
 	
 		
-		public void insertTeamReport(TeamReportFlatDTO reportUpdateDTO){
+		public void insertTeamReport(TeamReportUpdateDTO reportUpdateDTO){
 				
 					try {
 						Connection con = DBConnection.getConnection();
