@@ -2,9 +2,11 @@ package com.accenture.tmt.manager;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.accenture.tmt.dao.TeamReportDAO;
 import com.accenture.tmt.dao.dto.TeamReportFlatDTO;
 import com.accenture.tmt.presentation.dto.TeamReportDTO;
+import com.accenture.tmt.presentation.dto.TeamReportUpdateDTO;
 
 
 public class TeamReportController {
@@ -58,9 +60,9 @@ public class TeamReportController {
 		return teamReportFlatDTO ;
 		}
 
-/*public void updateTeamReport(TeamReportUpdateDTO reportUpdateDTO){
+    public void updateTeamReport(TeamReportUpdateDTO reportUpdateDTO){
 	TeamReportDAO teamReportDAO = new TeamReportDAO();
 	teamReportDAO.insertTeamReport(reportUpdateDTO);
 		
-	}*/
+	}
 }
