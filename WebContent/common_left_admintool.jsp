@@ -41,11 +41,9 @@
 				<div class="content_left_section_title">Tasks</div>
 				<div id="abc" class="content_left_section_content">
 					<ul>
-						<li><a href="admintool.jsp" id="empCss" >Add Employee </a></li>
-
-
 						<li><a href="addmodulevia.jsp" id="modCss" >Add Module</a></li>
 						<li><a href="addteamvia.jsp" id="teamCss">Add Team</a></li>
+						<li><a href="admintool.jsp" id="empCss" >Add Employee </a></li>
 						<li><a href="authorizeemployee.jsp" id="authCss">Authorize Employee</a></li>
 					</ul>
 				</div>
@@ -62,13 +60,9 @@
 			<div class="content_left_section_title">Actions</div>
 			<div class="content_left_section_content">
 				<ul>
-
-					<li><a href="viewemployee.jsp" id="ViewempCss">View Employee</a></li>
-
-
-					<li><a href="viewteam.jsp"id="ViewteamCss">View Team</a></li>
-
 					<li><a href="viewmodule.jsp"id="ViewmodCss">View Module</a></li>
+					<li><a href="viewteam.jsp"id="ViewteamCss">View Team</a></li>
+					<li><a href="viewemployee.jsp" id="ViewempCss">View Employee</a></li>
 
 				</ul>
 
