@@ -14,7 +14,7 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 </script>
-
+<script type='text/javascript' src='searchAdmin.js'></script>
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -32,11 +32,16 @@
 <script type='text/javascript' src='date.js'></script>
 <script type="text/javascript" src="js/jquery.ui.datepicker.validation.js"></script>
 <link href="calendar.css" rel="stylesheet" />
+<script src="jquery.chained.js"></script>
+<script>
+	$(function(){$("#mdl").chained("#prj");
+	$("#tem").chained("#mdl")});
+</script>
 </head>
 
 <body>
 
-	 <jsp:include page="/TeamListServlet" /> 
+	 <jsp:include page="/DropDownDetails" /> 
 	 
   <%@ include file="header_admin.jsp" %>
   	
@@ -60,9 +65,9 @@
 
 				<div class="header_01">Generate a Team Report</div>
 
-				<div>
+				<div id="search">
 				<form name="teamreport" action="TeamReport" method="post" onsubmit ="return validateform()" >
-				<p> PLEASE SELECT THE TEAM &nbsp; &nbsp;<select name="teamName">
+						<%-- <p> PLEASE SELECT THE TEAM &nbsp; &nbsp;<select name="teamName">
 				<option value="">--Please select--</option>
 												<jstlcore:forEach items="${teamList}" var="item">
 							
@@ -71,15 +76,71 @@
 							
 							</jstlcore:forEach>
 														
-												</select></p>
-				<p> START DATE: <input type="text" id="calendar" name="startDate" style="margin-left:83px"/></p>
-				<p>END DATE: <input type="text" id="calendar1" name="endDate" style="margin-left:95px" /></p>
+												</select></p> --%>
+						<table>						
+						<tr>
+							<td>&nbsp PROJECT</td>
+							<td><select id="prj" class="chain" name="project"
+								style="width: 143px">
+								<option value="">--Please select--</option>
+									<jstlcore:forEach items="${project}" var="prj_item">
+
+										<option value="${prj_item.projectId}">
+											<jstlcore:out value="${prj_item.projectName}"></jstlcore:out></option>
+
+
+									</jstlcore:forEach>
+
+							</select></td>
+						</tr>
+
+						<tr>
+									<td>&nbsp MODULE</td>
+									<td><select id="mdl" class="chain" name="module" style="width: 143px">
+									<option value="">--Please select--</option>
+											<jstlcore:forEach items="${module}" var="mod_item">
+
+												<option value="${mod_item.moduleId}" class="${mod_item.projectId}">
+													<jstlcore:out value="${mod_item.moduleName}"></jstlcore:out></option>
+
+
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr> 
+								<tr>
+									<td>&nbsp TEAM</td>
+									<td><select name="Team" style="width: 143px" class="chain" id="tem">
+									<option value="">--Please select--</option>
+											<jstlcore:forEach items="${team}" var="item">
+
+												<option value="${item.teamName}" class="${item.moduleId}">
+													<jstlcore:out value="${item.teamName}"></jstlcore:out></option>
+
+
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr>
+			    <tr>
+				<td><p> START DATE:</td>
+				<td> <input type="text" id="calendar" name="startDate" /></p><td>
+				</tr>
+				<tr>
+				<td><p>END DATE:</td>
+				 <td><input type="text" id="calendar1" name="endDate" /></p></td>
+				
+				</tr>
 				<br />
-				<button type="submit" value="Submit" style="margin-left:90px">Generate Report</button>
+					
+				</table>
+				<button type="submit" value="Submit">Generate Report</button>
+				
+			
 				</form>
 				<br />
 				<br />
-		
+				<p><b>Note:</b> Reports Generated for Team </p>
 				
 					<br />
 					<br />
@@ -89,7 +150,7 @@
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
-
+	<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
