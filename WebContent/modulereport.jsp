@@ -66,24 +66,10 @@
 
 				<div id="search">
 					<form name="modulereport" action="ModuleReportServlet"
-						method="post" onsubmit="return validateform()">
+						method="post" onsubmit="return validateform()" >
 						<table>
-							<%-- <tr>
-				<td>PLEASE SELECT THE MODULE&nbsp;&nbsp;</td><td><select name="moduleName">
-				<option value="">--Please select--</option>
-												<jstlcore:forEach items="${moduleList}" var="item">
-							
-								<option	value="${item}" > <jstlcore:out value="${item}" ></jstlcore:out></option>
-									
-							
-							</jstlcore:forEach>
-														
-												</select></td></tr>
- --%>
-
-
 							<tr>
-								<td>&nbsp PROJECT</td>
+								<td> PROJECT :</td>
 								<td><select id="prj" class="chain" name="project"
 									style="width: 143px">
 									<option value="">--Please select--</option>
@@ -99,7 +85,7 @@
 							</tr>
 
 							<tr>
-								<td>&nbsp MODULE</td>
+								<td> MODULE :</td>
 								<td><select id="mdl" class="chain" name="module"
 									style="width: 143px">
 									<option value="">--Please select--</option>
@@ -114,7 +100,16 @@
 
 								</select></td>
 							</tr>
-
+							<tr>
+								<td>ACTION :</td>
+								<td>
+								<select  id="action" name="action">
+										<option ></option>
+										<option >added</option>
+										<option >edited</option>
+										<option >deleted</option>
+								</select></td>
+							</tr>
 
 
 
