@@ -159,14 +159,23 @@ public interface CONSTANTS {
 		public String GET_MODULE_NAME_FOR_REPORT = "moduleName";
 		public String GET_START_DATE_FOR_MODULE_REPORT = "startDate";
 		public String GET_END_DATE_FOR_MODULE_REPORT = "endDate";
-		public String GET_REPORT_DETAIL_WITHOUT_MODULE_NAME_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates BETWEEN ? AND ? "; 
+		public String GET_MODULE_REPORT = "select * from ModuleReport ";
+		public String GET_REPORT_DETAIL_WITHOUT_MODULE_NAME_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates BETWEEN ? AND ? ";
+		public String GET_REPORT_DETAIL_WITHOUT_MODULE_NAME_QUERY_WITH_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates BETWEEN ? AND ? AND Action=? ";
 		public String GET_REPORT_DETAIL_WITHOUT_START_DATE_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates <= ? ";
+		public String GET_REPORT_DETAIL_WITHOUT_START_DATE_QUERY_WITH_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates <= ? AND Action=?";
 		public String GET_REPORT_DETAIL_WITHOUT_END_DATE_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates >= ? ";
+		public String GET_REPORT_DETAIL_WITHOUT_END_DATE_QUERY_WITH_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates >= ? AND Action=? ";
+		public String GET_REPORT_DETAIL_WITH_END_DATE_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where  Dates >= ? AND Action=? ";
+		public String GET_REPORT_DETAIL_WITH_START_DATE_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where  Dates <=? AND Action=? ";
+		public String GET_REPORT_DETAIL_WITH_MODULENAME_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ?  AND Action=? ";
 		public String GET_REPORT_DETAIL_WITH_ONLY_END_DATE_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where  Dates <= ? ";
-		public String GET_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? ";
-		public String GET_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates >= ? ";
-		public String GET_REPORT_DETAIL_QUERY ="select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates BETWEEN ? AND ? ";
-
+		public String GET_REPORT_DETAIL_WITH_ONLY_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Action = ?";
+		public String GET_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? ";
+		public String GET_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where Dates >= ? ";
+		public String GET_REPORT_DETAIL_QUERY = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates BETWEEN ? AND ? ";
+		public String GET_REPORT_DETAIL_QUERY_WITH_ACTION = "select ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp from ModuleReport where ModuleName = ? AND Dates BETWEEN ? AND ? AND Action=? ";
+		
 		
 		public String TEAM_REPORT = "select * from TeamReport";
 		public String GET_TEAM_NAME_FOR_REPORT = "teamName";
