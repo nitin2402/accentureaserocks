@@ -8,7 +8,7 @@ public class ModuleReportDTO {
 	private String moduleName;
 	private Date startDate;
 	private Date endDate;
-	
+	private String action;
 	public String getModuleName() {
 		return moduleName;
 	}
@@ -29,6 +29,12 @@ public class ModuleReportDTO {
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
 	}
 	
 	
