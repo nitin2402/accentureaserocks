@@ -45,18 +45,12 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		TeamReportController fetch = new TeamReportController();
-		List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
-		teamReportList = fetch.teamReportDAO();
-		request.setAttribute("TeamReportList", teamReportList);
-		request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
-		*/
 		
 		String teamName = request.getParameter("Team");
 		String startDate = request.getParameter(CONSTANTS.GET_START_DATE_FOR_TEAM_REPORT);
 		String endDate = request.getParameter(CONSTANTS.GET_END_DATE_FOR_TEAM_REPORT);
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+		String action = request.getParameter("action");
 		// SimpleDateFormat df1 = new SimpleDateFormat("MM/dd/yyyy");
 		 Date startDate1 = null;
 	     
@@ -82,8 +76,54 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 			 teamReportDTO.setTeamName(teamName);
 			 teamReportDTO.setStartDate(sqlStart);
 			 teamReportDTO.setEndDate(sqlEnd);
+			 teamReportDTO.setAction(action);
 			 
-			 if((teamName == null || teamName == "") && (startDate1 == null )){
+			 if((teamName == null || teamName == "") && (startDate1 == null )&& (endDate1 == null)
+						&& (action==null || action =="")){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithoutAnything(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 
+			 else if( (startDate1 == null )&& (endDate1 == null)
+						&& (action==null || action =="")){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithOnlyTeamName(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 
+			 else if((teamName == null || teamName == "") && (endDate1 == null)
+						&& (action==null || action =="")){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithOnlyStartDate(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if((teamName == null || teamName == "") && (startDate1 == null )
+						&& (action==null || action =="")){
 					TeamReportController fetch = new TeamReportController();
 					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
 					
@@ -95,97 +135,172 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
 					}
-			  }
-			 
-			else if((startDate1 == null ) && (endDate1 == null )){
+			  } 
+			 else if((teamName == null || teamName == "") && (startDate1 == null )&& (endDate1 == null)
+						){
 					TeamReportController fetch = new TeamReportController();
 					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
-					teamReportList = fetch.teamReportWithOnlyTeamName(teamReportDTO);
-					request.setAttribute("TeamReportList", teamReportList);
 					
+					teamReportList = fetch.teamReportWithOnlyaction(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
 					}
-				}
-			 
-				else if((teamName == null || teamName == "") && (endDate1 == null )){
+			  } 
+			 else if((endDate1 == null)
+						&& (action==null || action =="")){
 					TeamReportController fetch = new TeamReportController();
 					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
-					teamReportList = fetch.teamReportWithOnlyStartDate(teamReportDTO);
-					request.setAttribute("TeamReportList", teamReportList);
 					
-					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
-					}
-					else{
-					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
-					}
-
-			}
-				else if(teamName == null || teamName == ""){	
-					TeamReportController fetch = new TeamReportController();
-					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
-					teamReportList = fetch.teamReportWithoutTeamName(teamReportDTO);
-					request.setAttribute("TeamReportList", teamReportList);
-					
-					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
-					}
-					else{
-					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
-					}
-				}
-			 
-				else if(startDate1 == null ){
-					TeamReportController fetch = new TeamReportController();
-					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
-					teamReportList = fetch.teamReportWithoutStartDate(teamReportDTO);
-					request.setAttribute("TeamReportList", teamReportList);
-					
-					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
-					}
-					else{
-					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
-					}
-					
-				}
-				else if(endDate1 == null){
-					TeamReportController fetch = new TeamReportController();
-					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
 					teamReportList = fetch.teamReportWithoutEndDate(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
-					
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
 					}
-					
-					
-				}
-			 
-				else{
-					
+			  }
+			 else if((startDate1 == null )
+						&& (action==null || action =="")){
 					TeamReportController fetch = new TeamReportController();
 					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
-					teamReportList = fetch.teamReport(teamReportDTO);
-					request.setAttribute("TeamReportList", teamReportList);
 					
+					teamReportList = fetch.teamReportWithoutStartDate(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
 					}
-				}
-
-			 
-			 
+			  }
+			 else if( (startDate1 == null )&& (endDate1 == null)
+						){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithOnlyTeamName_with_action(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if((teamName == null || teamName == "") 
+						&& (action==null || action =="")){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithoutTeamName(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if((teamName == null || teamName == "") &&  (endDate1 == null)
+						){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithOnlyStartDate_with_action(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if((teamName == null || teamName == "") && (startDate1 == null )){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithOnlyEndDate_with_action(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if( (action==null || action =="")){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReport(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if( (startDate1 == null )
+						){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithoutStartDate_with_action(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if((endDate1 == null)
+						){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithoutEndDate_with_action(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else if((teamName == null || teamName == "") ){
+					TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReportWithoutTeamName_with_action(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+			  }
+			 else{
+				 TeamReportController fetch = new TeamReportController();
+					List<TeamReportFlatDTO> teamReportList = new ArrayList<TeamReportFlatDTO>();
+					
+					teamReportList = fetch.teamReport_with_action(teamReportDTO);
+					request.setAttribute("TeamReportList", teamReportList);
+					if(teamReportList.isEmpty()){
+						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+					}
+					else{
+					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
+					}
+				 
+			 }
 	}
 }
 	
