@@ -15,8 +15,6 @@
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<meta charset="utf-8" />
-  <title>jQuery UI Datepicker - Default functionality </title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -67,6 +65,7 @@
 						
 							<tbody>
 							<jstlcore:forEach items="${TeamReportList}" var="item">
+							<tr class="table_align">
 								<tr>
 									<td><jstlcore:out value="${item.teamId}" /></td>
 									<td><jstlcore:out value="${item.teamName}" /></td>
@@ -75,6 +74,7 @@
 									<td><jstlcore:out value="${item.username}" /></td>
 									<td><jstlcore:out value="${item.action}" /></td>
 									<td><jstlcore:out value="${item.timestamp}" /></td>
+								</tr>
 								</tr>
 							</jstlcore:forEach></tbody></table>
 							<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
