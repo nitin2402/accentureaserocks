@@ -122,16 +122,27 @@
 
 									</select></td>
 								</tr>
+								<tr>
+								<td>ACTION :</td>
+								<td>
+								<select  id="action" name="action">
+										<option ></option>
+										<option >added</option>
+										<option >edited</option>
+										<option >deleted</option>
+										<option >added by excel</option>
+										
+								</select></td>
+							</tr>
+								
 			    <tr>
-				<td><p> START DATE:</td>
-				<td> <input type="text" id="calendar" name="startDate" /></p><td>
-				</tr>
-				<tr>
-				<td><p>END DATE:</td>
-				 <td><input type="text" id="calendar1" name="endDate" /></p></td>
-				
-				</tr>
-				<br />
+								<td>START DATE :</td>
+								<td><input type="text" id="calendar" name="startDate" /></td>
+							</tr>
+							<tr>
+								<td>END DATE :</td>
+								<td><input type="text" id="calendar1" name="endDate" /></td>
+							</tr>
 					
 				</table>
 				<button type="submit" value="Submit">Generate Report</button>
