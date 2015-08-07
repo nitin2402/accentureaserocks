@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+
 import com.accenture.tmt.dao.TeamDAO;
 import com.accenture.tmt.dao.WorkplanDAO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
@@ -18,14 +20,15 @@ public class TeamController {
 	}
 	public int addTeamManual(TeamDetailsFlatDTO detailsDO)
 	{
-		String ModuleId = null;
+		//String ModuleId = null;
 		WorkplanDAO workplanDao = new WorkplanDAO();
-		ModuleId = workplanDao.fetchModuleId(detailsDO.getModuleName());
-		int lastCount = teamDAO.countRows();
-		String newReqId = "TE -"+ (lastCount + 1);
+		//ModuleId = workplanDao.fetchModuleId(detailsDO.getModuleName());
+		/*int lastCount = teamDAO.countRows();
+		String newReqId = "TE -"+ (lastCount + 1);*/
 		TeamDetailsFlatDTO detailsFD = new TeamDetailsFlatDTO();
 		detailsFD.setTeamName(detailsDO.getTeamName());
-		detailsFD.setTeamId(newReqId);
+		/*detailsFD.setTeamId(newReqId);*/
+		detailsFD.setTeamId(detailsDO.getTeamId());
 		detailsFD.setModuleId(detailsDO.getModuleId());
 		detailsFD.setTeamDescription(detailsDO.getTeamDescription());
 		
@@ -41,6 +44,7 @@ public class TeamController {
 
 	}
 
+	
 	public String fetchTeamid(String team , String mid){
 		String status=teamDAO.fetchTeam(team, mid);
 		return status;
@@ -86,4 +90,5 @@ public class TeamController {
 		//teamList=teamDAO.teamFetch();
 		return teamList;
 	}
+	
 }
