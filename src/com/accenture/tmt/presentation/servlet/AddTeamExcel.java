@@ -92,9 +92,11 @@ public class AddTeamExcel extends HttpServlet {
 		ServletFileUpload upload = new ServletFileUpload(factory);
 
 		upload.setSizeMax(maxFileSize);
-
-
-			try {
+		
+		
+		
+		
+	        try {
 				 List fileItems = upload.parseRequest(request);
 
 		
@@ -146,7 +148,7 @@ public class AddTeamExcel extends HttpServlet {
 			int sno =Integer.parseInt(sheetno);
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
-			List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
+	List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
 			
 			TeamFormDTO teamFormDto = null;
 			boolean headerRow = true;
@@ -183,44 +185,37 @@ public class AddTeamExcel extends HttpServlet {
 			}
 		}
 	        
-			/*code for Teamreports (TeamReports will get updated)*/
-			HttpSession session1 = request.getSession();
-			TeamReportUpdateDTO reportUpdateDTO = new TeamReportUpdateDTO();
-			TeamReportController teamReportController = new TeamReportController();
-			
-			java.sql.Date sqlDate=null;
+           java.sql.Date sqlDate=null;
 			
 			SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			Date date = new Date();
-			String timestamp= df.format(date);
-			sqlDate= new java.sql.Date(date.getTime());
-			 
-			/*TeamReports code ends here*/
-			
+			 String timestamp= df.format(date);
+			 sqlDate= new java.sql.Date(date.getTime());
+			 TeamReportUpdateDTO reportupdatedto=new TeamReportUpdateDTO();
+			 TeamReportController teamreportcontroller=new TeamReportController();
 			int c=0;
 			
 			ExcelController add = new ExcelController();
-			c=add.addFromExcel1(listOfTeams);
+			HttpSession session1 = request.getSession();
+			
+				c=add.addFromExcel1(listOfTeams	);
 		 
 				if(c !=0){
 					request.setAttribute("message","Record Inserted");
+					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
 					if(session1!= null){
 						for(int i =0;i<listOfTeams.size();i++){
-						reportUpdateDTO.setTeamName(listOfTeams.get(i).getTeamName());
-						reportUpdateDTO.setTeamId(listOfTeams.get(i).getTeamId());
-						reportUpdateDTO.setModuleId(listOfTeams.get(i).getModuleId());
-						reportUpdateDTO.setTeamDescription(listOfTeams.get(i).getTeamDescription());
-						reportUpdateDTO.setUsername((String)session1.getAttribute("user"));
-						reportUpdateDTO.setAction("added by excel");
-						reportUpdateDTO.setTimestamp(timestamp);
-						reportUpdateDTO.setDate(sqlDate);
-					
-						teamReportController.updateTeamReport(reportUpdateDTO);
-						}
+						reportupdatedto.setModuleId(listOfTeams.get(i).getModuleId());
+						reportupdatedto.setTeamName(listOfTeams.get(i).getTeamName());
+						reportupdatedto.setTeamId(listOfTeams.get(i).getTeamId());
+						reportupdatedto.setTeamDescription(listOfTeams.get(i).getTeamDescription());
+						reportupdatedto.setUsername((String)session1.getAttribute("user"));
+						reportupdatedto.setAction("added by excel");
+						reportupdatedto.setTimestamp(timestamp);
+						reportupdatedto.setDate(sqlDate);
+						teamreportcontroller.updateTeamReport(reportupdatedto);
 					}
-					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
-				}
-				
+						}}
 				if(c ==0){
 					request.setAttribute("message","Record insertion failed");
 					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);}
