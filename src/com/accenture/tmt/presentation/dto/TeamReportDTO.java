@@ -8,7 +8,7 @@ public class TeamReportDTO {
 	private String teamName;
 	private Date startDate;
 	private Date endDate;
-	
+	private String action;
 	public String getTeamName() {
 		return teamName;
 	}
@@ -27,6 +27,13 @@ public class TeamReportDTO {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
+	
 	
 	
 }
