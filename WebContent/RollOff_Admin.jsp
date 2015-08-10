@@ -52,6 +52,32 @@ $(document).ready(function(){
 
 	});
 </script>
+<script>
+function validateform(){
+	var checked = $("#div1 :radio:checked");
+    var groups = [];
+    $("#div1 :radio").each(function() {
+        if (groups.indexOf(this.name) < 0) {
+            groups.push(this.name);
+        }
+    });
+    if (groups.length == checked.length) {
+        alert('All are checked! Now you can download the Checklist Form');
+        return true;
+    }
+   
+    else {
+        var total = groups.length - checked.length;
+        var a = total>1?' groups are ':' group is ';
+
+        alert(total + a + 'not selected');
+        return false;
+    }
+   
+ 
+}
+
+</script>
 <script type='text/javascript' src='searchAdmin.js'></script>
 </head>
 
@@ -87,6 +113,7 @@ $(document).ready(function(){
 
 				<div id="search">
 				<div class="text_size">
+				<div id="div1">
 				<table>
 	<tr>
 		<td>1) Has user been allocated a laptop?</td>
@@ -187,22 +214,33 @@ $(document).ready(function(){
 		<label for="q8_na">NA</label>
 		</td>
 	</tr>
-</table>	
+</table>
+</div>	
 	</div>
 	</br> 
 				
 	<!-- <button type="submit" value="Generate">Generate PDF</button>	 -->	
+	<div>
+
+<a href="template/ARISTOS-IT Exit Checklist-Bang6 doc.doc" style="font-size: 14px" onclick="return validateform();"> Download Exit Checklist Form
+
+ </a> <br /> <br /> <br />
+
+</div>
+
+	
 
 					
 				
 				
 				</div>
 				<div id="ajaxResponse"></div>
-				<p class="error" style="font-size: 14px; color: red;">${message}</p>
+				<p class="error message">${message}</p>
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
-			<%@ include file="footer.jsp"%>
 			</div>
+			<%@ include file="footer.jsp"%>
+			
 		</div></body>
 </html>
