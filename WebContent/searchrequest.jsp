@@ -62,16 +62,17 @@
 								<tr class="table_align">
 									<td><input type="radio" name="select" value="${item.reqId}" <jstlcore:if test="${item.statusName == 'Rejected'}">disabled</jstlcore:if>	/></td>
 									<td><jstlcore:out value="${item.reqId}" /></td>
-									<td><jstlcore:out value="${item.teamName}" /></td>
+									<td><jstlcore:out value="${item.teamName}"  /></td>
 									<td><jstlcore:out value="${item.nASE}" /></td>
 									<td><jstlcore:out value="${item.nSE}" /></td>
 									<td><jstlcore:out value="${item.nSSE}" /></td>
 									<td><jstlcore:out value="${item.comment}" /></td>
 									<td><jstlcore:out value="${item.statusName}" /></td> 
 								</tr>
-									<input type="hidden" name="teamName" value="${item.teamName }"/>
+							
 							</jstlcore:forEach></tbody></table>
 							</div>
+							
 							<br />
 						<div>
 						Reason &nbsp; <textarea rows="3" cols="25" id="reason" name="reason"></textarea>

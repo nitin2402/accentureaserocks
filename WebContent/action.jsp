@@ -39,7 +39,7 @@
 
 			
 				<div class="header_01" >Assign Resources </div>
-				<h2 style="color:white;">Request - <font color="#00FFFF">${reqId}</font> &nbsp; for Team - <font color="#00FFFF">${teamName}</font> </h2>
+				<h2 style="color:white;">Request - <font color="#00FFFF">${reqId}</font> &nbsp; for Team - <font color="#00FFFF">${workplanAdminDTO.teamName}</font> </h2>
 			<font size="3" color="#00FFFF">	[ASE - ${workplanAdminDTO.aseRequested}, SE - ${workplanAdminDTO.seRequested}, SSE -${workplanAdminDTO.sseRequested}]</font>
 					<br/>
 				<form name="calculateForm" action="AcceptRequestServlet"  onsubmit="return validateForm()"  method="post">
