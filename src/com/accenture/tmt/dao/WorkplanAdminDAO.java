@@ -73,6 +73,7 @@ public class WorkplanAdminDAO {
 					 workplanAdminFlatDTO.setAseRequested(rs.getInt("No_Of_ASE")); 
 					 workplanAdminFlatDTO.setSeRequested(rs.getInt("No_Of_SE")); 
 					 workplanAdminFlatDTO.setSseRequested(rs.getInt("No_Of_SSE")); 
+					 workplanAdminFlatDTO.setTeamName(rs.getString("TeamName")); 
 			 }
 				 
 				 rs = null ;
@@ -101,6 +102,7 @@ public class WorkplanAdminDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return workplanAdminFlatDTO;
 		
 	}

@@ -138,7 +138,7 @@ public interface CONSTANTS {
 		public String ONHOLD_REQUEST_QUERY = "UPDATE RequestTable SET Status_ID = 2, Reason = ? WHERE ReqId = ?";
 		
 		public String BUDGET_DETAILS_QUERY = "SELECT EmployeeDesignation, Currency, Amount FROM BillabilityTable";
-		public String BUDGET_REQUEST_DETAILS_QUERY = "SELECT No_Of_ASE, No_Of_SE, No_Of_SSE FROM RequestTable WHERE ReqId = ? ";
+		public String BUDGET_REQUEST_DETAILS_QUERY = "SELECT R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, T.TeamName FROM RequestTable R, Team T WHERE R.TeamId = T.TeamId AND ReqId = ? ";
 		public String COUNT_ASE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_ASE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Associate Software Engineer'";
 		public String COUNT_SE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Software Engineer'";
 		public String COUNT_SSE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SSE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Senior Software Engineer'";

@@ -14,6 +14,7 @@ public class WorkplanAdminFlatDTO {
 	private float currentAvg ;
 	private float total ;
 	private int numberOfEmployee ;
+	private String teamName ;
 	
 	public int getAseRequested() {
 		return aseRequested;
@@ -68,6 +69,12 @@ public class WorkplanAdminFlatDTO {
 	}
 	public void setNumberOfEmployee(int numberOfEmployee) {
 		this.numberOfEmployee = numberOfEmployee;
+	}
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 	
 }

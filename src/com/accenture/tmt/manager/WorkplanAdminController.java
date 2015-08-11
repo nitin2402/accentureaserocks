@@ -21,6 +21,7 @@ public class WorkplanAdminController {
 		float currentAvg = 0;
 		float total = 0;
 		int numberOfEmployee = 0;
+		String teamName = null ;
 		
 		WorkplanAdminDAO workplanAdminDAO = new WorkplanAdminDAO();
 		WorkplanAdminFlatDTO workplanAdminFlatDTO = workplanAdminDAO.fetchData(actiondto);
@@ -35,6 +36,7 @@ public class WorkplanAdminController {
 		sseRequested = workplanAdminFlatDTO.getSseRequested();
 		total = workplanAdminFlatDTO.getTotal();
 		numberOfEmployee = workplanAdminFlatDTO.getNumberOfEmployee();
+		teamName = workplanAdminFlatDTO.getTeamName();
 		
 		workplanAdminDTO.setAseRequested(aseRequested);
 		workplanAdminDTO.setSeRequested(seRequested);
@@ -45,6 +47,7 @@ public class WorkplanAdminController {
 		workplanAdminDTO.setCurrentAvg(currentAvg);
 		workplanAdminDTO.setTotal(total);
 		workplanAdminDTO.setNumberOfEmployee(numberOfEmployee);
+		workplanAdminDTO.setTeamName(teamName);
 		
 		return workplanAdminDTO;
 		}
