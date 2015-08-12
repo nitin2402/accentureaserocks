@@ -2,11 +2,11 @@ package com.accenture.tmt.dao.dto;
 
 public class RequestStatusFlatDTO {
 	private String reqId;
-	private String teamId;
+	private String teamName;
 	private String noOfASE;
 	private String noOfSE; 
 	private String noOfSSE; 
-	private String comments;
+	private String reason;
 	private String statusName;
 	
 	public String getReqId() {
@@ -14,12 +14,6 @@ public class RequestStatusFlatDTO {
 	}
 	public void setReqId(String reqId) {
 		this.reqId = reqId;
-	}
-	public String getTeamId() {
-		return teamId;
-	}
-	public void setTeamId(String teamId) {
-		this.teamId = teamId;
 	}
 	public String getNoOfASE() {
 		return noOfASE;
@@ -39,17 +33,23 @@ public class RequestStatusFlatDTO {
 	public void setNoOfSSE(String noOfSSE) {
 		this.noOfSSE = noOfSSE;
 	}
-	public String getComments() {
-		return comments;
-	}
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
 	public String getStatusName() {
 		return statusName;
 	}
 	public void setStatusName(String statusName) {
 		this.statusName = statusName;
+	}
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 	
 }

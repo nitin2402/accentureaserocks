@@ -51,12 +51,12 @@
 							<thead style="font-weight: bold; position:">
 								<tr class="one table_align" style="font-weight: bold;">
 									<td>ReqId</td>
-									<td>TeamId</td>
+									<td>TeamName</td>
 									<td>No_Of_ASE</td>
 									<td>No_of_SE</td>
 									<td>No_of_SSE</td>
-									<td>comment</td>
 									<td>Status</td>
+									<td>Reason</td>
 								</tr>
 							</thead>
 
@@ -64,12 +64,12 @@
 								<jstlcore:forEach items="${StatusList}" var="item">
 									<tr class="table_align">
 										<td><jstlcore:out value="${item.reqId}" /></td>
-										<td><jstlcore:out value="${item.teamId}" /></td>
+										<td><jstlcore:out value="${item.teamName}" /></td>
 										<td><jstlcore:out value="${item.noOfASE}" /></td>
 										<td><jstlcore:out value="${item.noOfSE}" /></td>
 										<td><jstlcore:out value="${item.noOfSSE}" /></td>
-										<td><jstlcore:out value="${item.comments}" /></td>
 										<td><jstlcore:out value="${item.statusName}" /></td>
+										<td><jstlcore:out value="${item.reason}" /></td>
 									</tr>
 								</jstlcore:forEach>
 							</tbody>

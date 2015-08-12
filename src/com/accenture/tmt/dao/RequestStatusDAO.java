@@ -33,11 +33,11 @@ public class RequestStatusDAO {
 			{
 				status = new RequestStatusFlatDTO();
 				status.setReqId(rs.getString("ReqId"));
-				status.setTeamId(rs.getString("TeamId"));
+				status.setTeamName(rs.getString("TeamName"));
 				status.setNoOfASE(rs.getString("No_Of_ASE"));
 				status.setNoOfSE(rs.getString("No_Of_SE"));
 				status.setNoOfSSE(rs.getString("No_Of_SSE"));
-				status.setComments(rs.getString("Comments"));
+				status.setReason(rs.getString("reason"));
 				status.setStatusName(rs.getString("StatusName"));
 				
 				requestStatus.add(status);
