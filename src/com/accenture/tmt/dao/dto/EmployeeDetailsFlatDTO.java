@@ -6,7 +6,6 @@ public class EmployeeDetailsFlatDTO {
 	private String empId;
 	private String empName;
 	private String designation;
-
 	private String expertise;
 	private String level;
 	private String clientId;
@@ -20,6 +19,29 @@ public class EmployeeDetailsFlatDTO {
 	private String isBillable;
 	private String isActive;
 	private String cost;
+	private String userName;
+	private String action;
+	private String timeStamp;
+	private Date date;
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
+	public String getTimeStamp() {
+		return timeStamp;
+	}
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+	
 	public String getEmpId() {
 		return empId;
 	}
@@ -119,6 +141,12 @@ public class EmployeeDetailsFlatDTO {
 	}
 	public void setCost(String cost) {
 		this.cost = cost;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }
