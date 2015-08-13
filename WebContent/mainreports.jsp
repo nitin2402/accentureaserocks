@@ -10,7 +10,7 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type='text/javascript' src='searchAdmin.js'></script>
-
+<script type='text/javascript' src='search.js'></script>
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>
@@ -34,7 +34,7 @@
 						</br>
 						<li><a href="generateempreports.jsp">Reports Generated for Requests</a></li>
 						</br>
-						<li><a href="#">Reports Generated for Employee</a></li>
+						<li><a href="generateempreports.jsp">Reports Generated for Employee</a></li>
 						</br>
 						<li><a href="teamreport.jsp">Reports Generated for Team</a></li>
 						</br>
