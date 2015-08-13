@@ -744,4 +744,14 @@
     <servlet-name>EmployeeReportServlet_bill</servlet-name>
     <url-pattern>/EmployeeReportServlet_bill</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestReportServlet</display-name>
+    <servlet-name>RequestReportServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.RequestReportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestReportServlet</servlet-name>
+    <url-pattern>/RequestReportServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
