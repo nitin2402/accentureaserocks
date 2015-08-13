@@ -13,7 +13,28 @@
 <body>
 
 <div id="content_left">
+
+
 <%
+		HttpSession session1 = request.getSession(false);
+
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null) {
+	%><jsp:forward page="login.jsp?msg=Please Login " />
+
+	<%
+		}
+	%>
+
+
+
+
+
+
+
+<%
+
 				 if( ((String) session.getAttribute("admin") == "user")|| ((String) session.getAttribute("admin") == "admin")){ 
 			%>
 			<div class="content_left_section">
