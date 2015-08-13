@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pyramid Optimization</title>
+<title></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -48,6 +48,21 @@
 
 </head>
 <body><%@ include file="header_admin.jsp" %> 
+
+
+	<%
+		HttpSession session1 = request.getSession(false);
+
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
+	<%
+		}
+	%>
 <%-- <jsp:include page="/fetchmodule.jsp" /> --%>
 	 
    
@@ -115,19 +130,19 @@ if (session1 == null  ||  (String)session1.getAttribute("user") == null || (Stri
 			
 			<tr>
 				<td>TEAM NAME:</td>
-				<td><input type="text" name="ProficiencyCams" value="${list.teamName}" disabled="disabled" style="width:200px;"/></td>
-
+				<td><input type="text" name="TeamName" value="${list.teamName}" disabled="disabled" style="width:200px;"/></td>
+                       <td><input type="hidden" name="TeamName" value="${list.teamName}" /></td>
 			</tr>
 			
 			<tr>
 				<td>PROFICIENCY CAMS:</td>
-				<td><input type="text" name="ProficiencyProject" value="${list.profCamps}" style="width:200px;"/></td>
+				<td><input type="text" name="ProficiencyCams" value="${list.profCamps}" style="width:200px;"/></td>
 
 			</tr>
 			
 			<tr>
 				<td>PROFICIENCY PROJECT:</td>
-				<td><input type="text" name="TeamName" value="${list.profProject}" style="width:200px;"/></td>
+				<td><input type="text" name="ProficiencyProject" value="${list.profProject}" style="width:200px;"/></td>
 
 			</tr>
 			
