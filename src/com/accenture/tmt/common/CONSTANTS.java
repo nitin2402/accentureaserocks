@@ -146,7 +146,8 @@ public interface CONSTANTS {
 		public String COUNT_SSE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SSE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Senior Software Engineer'";
 		public String COUNT_TL_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_TL FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Team Lead'";
 		public String GET_REQUEST_TEAMID_QUERY = "SELECT TeamID from RequestTable where ReqId = ?";
-				
+		
+		
 	public String MODULE_INSERT = "insert into ModuleDetail (ModuleName,ProjectId,ModuleId,ModuleDescription,Status) values(?,?,?,?,?)";
 	public String INSERT_MODULE_REPORT_QUERY = "insert into ModuleReport(ModuleName,ProjectId,ModuleId,ModuleDescription,Username,Action,Timestamp,Dates) values(?,?,?,?,?,?,?,?)";
 	public String GET_MODULE_DETAIL_QUERY = "select ModuleName,ProjectId,ModuleDescription from ModuleDetail where ModuleId = ?";
@@ -222,10 +223,10 @@ public interface CONSTANTS {
 		public String GET_EMPLOYEE_REPORT_QUERY_ALL="select EmployeeReport.*, Team.TeamName  from EmployeeReport  LEFT JOIN Team ON EmployeeReport.TeamId=Team.TeamId where Billable =? AND EmployeeDesignation =? AND Date BETWEEN ? AND ? AND Action =? ";
 		public String GET_EMPLOYEE_REPORT_QUERY_BILL_desg="select EmployeeReport.*, Team.TeamName  from EmployeeReport  LEFT JOIN Team ON EmployeeReport.TeamId=Team.TeamId where Billable =? AND EmployeeDesignation =? AND Date BETWEEN ? AND ? ";
 		
-		/*		public String GET_EMPLOYEE_REPORT_QUERY_NULL_EMP_NAME="select * from EmployeeReport where EmployeeName LIKE '*' AND Date BETWEEN ? AND ? AND Action=?";
+				public String GET_EMPLOYEE_REPORT_QUERY_NULL_EMP_NAME="select * from EmployeeReport where EmployeeName LIKE '*' AND Date BETWEEN ? AND ? AND Action=?";
 		public String GET_EMPLOYEE_REPORT_QUERY_NULL_ACTION="select * from EmployeeReport where EmployeeName =? AND Date BETWEEN ? AND ? AND Action LIKE '*'";
-		public String GET_EMPLOYEE_REPORT_QUERY_NULL_BOTH_NAME_ACTION="select * from EmployeeReport where EmployeeName LIKE ? AND Date BETWEEN ? AND ? AND Action LIKE ?";*/
-		/*public String EMPLOYEE_REPORT = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID ";
+		public String GET_EMPLOYEE_REPORT_QUERY_NULL_BOTH_NAME_ACTION="select * from EmployeeReport where EmployeeName LIKE ? AND Date BETWEEN ? AND ? AND Action LIKE ?";
+		public String EMPLOYEE_REPORT = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID ";
 		public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_START_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ? AND E.Dates <= ? ";
 		public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_TEAM_NAME_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND E.Dates BETWEEN ? AND ? ";
 		public String GET_EMPLOYEE_REPORT_DETAIL_WITHOUT_END_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ? AND E.Dates >= ?";
@@ -233,7 +234,7 @@ public interface CONSTANTS {
 		public String GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_MODULE_NAME_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ?";
 		public String GET_EMPLOYEE_REPORT_DETAIL_WITH_ONLY_START_DATE_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND E.Dates >= ?";
 		public String GET_EMPLOYEE_LIST_QUERY = "SELECT TeamName FROM Team ";
-		public String GET_EMPLOYEE_REPORT_DETAIL_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ? AND E.Dates BETWEEN ? AND ? ";*/
+		public String GET_EMPLOYEE_REPORT_DETAIL_QUERY = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID AND S.StatusName = ? AND E.Dates BETWEEN ? AND ? ";
 		public String GET_MODULEID_QUERY = "select ModuleId from ModuleDetail WHERE ModuleName = ?";
 		
 		public String ASSIGN_RESOURCE_QUERY = "UPDATE EMPLOYEE SET TeamId = ? WHERE EmployeeId = ?";
