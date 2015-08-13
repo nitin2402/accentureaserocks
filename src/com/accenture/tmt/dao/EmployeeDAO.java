@@ -175,6 +175,7 @@ public class EmployeeDAO {
 				emp.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
 				emp.setClientId(rs.getString(CONSTANTS.EMPLOYEE_CLIENTID));
 				emp.setEmail(rs.getString(CONSTANTS.EMPLOYEE_EMAIL));
+				emp.setTeamId(rs.getString(CONSTANTS.TEAM_ID));
 				emp.setTeamName(rs.getString(CONSTANTS.TEAM_NAME));
 				emp.setProfCamps(rs.getString(CONSTANTS.PROFICIENCY_CAMPS));
 				emp.setProfProject(rs.getString(CONSTANTS.PROFICIENCY_PROJECT));
