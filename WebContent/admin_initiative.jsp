@@ -25,7 +25,8 @@
 	<%
 		}
 	%>
-
+	
+	
 	<%@ include file="header_admin.jsp"%>
 
 	<div id="templatemo_content">
@@ -39,7 +40,7 @@
 					<div class="header_01">Initiatives</div>
 					<div>
 					<form method="post" name="upload" action="InitiativeUploadServlet"
-						onsubmit="return Validate(this);" enctype="multipart/form-data">
+						onsubmit="return Validate(this);" enctype="multipart/form-data"  >
 						Select file to upload: <input type="file" name="dataFile"
 							id="fileUpload" /><br /> <br /> <input type="submit"
 							id="upload" value="Upload" />
@@ -47,9 +48,27 @@
 					</div>
 					<br />
 					<div>
-						<p class="error message">${message}</p>
+						<p id="error" class="error message">${message}</p>
 					</div>
+					<div style="height: 350px">
+				<object data='Docs/Sample3.pdf#' 
+       					 type='application/pdf' 
+       					 width='100%' 
+      					  height='100%'>
+
+						<p>It appears your Web browser is not configured to display PDF files. 
+						No worries, just <a href='Docs/Sample3.pdf'>click here to download the PDF file.</a></p>
+
+				</object>
+				<!-- <script>
+				location.reload();
+				location.reload();
+				location.reload();
+				location.reload();
+				</script> -->
 				</div>
+				</div>
+			
 				<div id="ajaxResponse"></div>
 				<div class="cleaner">&nbsp;</div>
 			</div>
@@ -58,5 +77,28 @@
 
 		<%@ include file="footer.jsp"%>
 	</div>
+		<%
+					if (session1.getAttribute("reload") != null) {
+						Object a = session1.getAttribute("reload");
+						{
+							int b = (Integer) (a);
+							
+							if (b > (0)) {
+								b--;
+								session1.setAttribute("reload", b);
+				%>
+				<script>
+				document.getElementById("error").innerHTML = "File Uploading....";
+				setTimeout(function(){
+					location.reload();
+				},6000);
+					
+				</script>
+				<%
+					}
+						}
+					}
+				%>
 </body>
+
 </html>
