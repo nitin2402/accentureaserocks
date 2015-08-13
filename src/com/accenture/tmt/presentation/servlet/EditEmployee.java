@@ -3,13 +3,20 @@ package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.accenture.tmt.dao.WorkplanDAO;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.manager.EmployeeController;
+import com.accenture.tmt.manager.ReportController;
+import com.accenture.tmt.presentation.dto.EmployeeReportUpdateDTO;
 
 
 
@@ -69,13 +76,46 @@ public class EditEmployee extends HttpServlet {
 		detailsDO.setTeamName(teamName);
 		detailsDO.setDoj(dateofJoining);
 		detailsDO.setIsBillable(billable);
-		
-		
+		java.sql.Date sqlDate=null;
+		HttpSession session1 = request.getSession();
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Date date = new Date();
+		 String timestamp= df.format(date);
+		 sqlDate= new java.sql.Date(date.getTime());
 		EmployeeController employeeManager = new EmployeeController();
-		
+		EmployeeReportUpdateDTO reportupdatedto = new EmployeeReportUpdateDTO();
+		ReportController update=new ReportController();
 		int b=employeeManager.EditEmployee(detailsDO);
+		String teamId = null ;
+		WorkplanDAO workplanDao = new WorkplanDAO();
+		teamId = workplanDao.fetchTeamId(teamName);
 		if(b!=0)
 		{
+			
+                 if(session1!= null){
+				
+                	 reportupdatedto.setEmpId(employeeId);
+     				reportupdatedto.setEmpName(employeeName);
+     				reportupdatedto.setLevel(level);
+     				reportupdatedto.setDesignation(designation);
+     				reportupdatedto.setExpertise(employeeExpertise);
+     				reportupdatedto.setClientId(employeeClientId);
+     				reportupdatedto.setEmail(employeeEmail);
+     				reportupdatedto.setTeamId(teamId);
+     				reportupdatedto.setTeamName(teamName);
+     				reportupdatedto.setProfCamps(proficiencyCams);
+     				reportupdatedto.setProfProject(proficiencyProject);
+     				reportupdatedto.setDoj(dateofJoining);
+     				//reportupdatedto.setLastWD(lwd);
+     				reportupdatedto.setIsBillable(billable);
+     				//reportupdatedto.setIsActive(active);
+     				//reportupdatedto.setCost(cost);
+				reportupdatedto.setUserName((String)session1.getAttribute("user"));
+				reportupdatedto.setAction("edited");
+				reportupdatedto.setTimeStamp(timestamp);
+				reportupdatedto.setDate(sqlDate);
+				update.updateEmpreport(reportupdatedto);
+				}
 		request.setAttribute("message", "Record updated");
 		
 		request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
