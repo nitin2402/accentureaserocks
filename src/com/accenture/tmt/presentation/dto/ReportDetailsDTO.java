@@ -1,11 +1,37 @@
 package com.accenture.tmt.presentation.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ReportDetailsDTO {
 	private Date StartDate;
 	private Date EndDate;
-	private String status;
+	private String empname;
+	private String action;
+	private String designation;
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public String getBill() {
+		return bill;
+	}
+	public void setBill(String bill) {
+		this.bill = bill;
+	}
+	private String bill;
+	
+
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
+	
+	
+	
 	public Date getStartDate() {
 		return StartDate;
 	}
@@ -18,11 +44,12 @@ public class ReportDetailsDTO {
 	public void setEndDate(Date endDate) {
 		EndDate = endDate;
 	}
-	public String getStatus() {
-		return status;
+	
+	public String getEmpname() {
+		return empname;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setEmpname(String empname) {
+		this.empname = empname;
 	}
 	
 }
