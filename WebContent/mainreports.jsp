@@ -32,7 +32,7 @@
 				    <div>
 					<ul>
 						</br>
-						<li><a href="generateempreports.jsp">Reports Generated for Requests</a></li>
+						<li><a href="request_reports.jsp">Reports Generated for Requests</a></li>
 						</br>
 						<li><a href="generateempreports.jsp">Reports Generated for Employee</a></li>
 						</br>
