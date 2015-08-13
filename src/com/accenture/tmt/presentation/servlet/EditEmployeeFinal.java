@@ -89,27 +89,7 @@ public class EditEmployeeFinal extends HttpServlet {
 						if(session1!= null){
 							List<EmployeeDetailsFlatDTO> li = new ArrayList<EmployeeDetailsFlatDTO>();
 							li=controller.FetchEmployeeList(employeeDetails);
-							/*reportupdatedto.getEmpId();
-		     				reportupdatedto.getEmpName();
-		     				reportupdatedto.getLevel();
-		     				reportupdatedto.getDesignation();
-		     				reportupdatedto.getExpertise();
-		     				reportupdatedto.getClientId();
-		     				reportupdatedto.getEmail();
-		     				reportupdatedto.getTeamId();
-		     				reportupdatedto.getProfCamps();
-		     				reportupdatedto.getProfProject();
-		     				reportupdatedto.getDoj();
-		     				
-		     				reportupdatedto.getLastWD();
-		     				reportupdatedto.getIsBillable();
-		     				reportupdatedto.getIsActive();
-		     				reportupdatedto.getCost();
-						reportupdatedto.setUserName((String)session1.getAttribute("user"));
-						reportupdatedto.setAction("updated");
-						reportupdatedto.setTimeStamp(timestamp);
-						reportupdatedto.setDate(sqlDate);
-						update.updateEmpreport(reportupdatedto);*/
+						
 							for(int i =0;i<li.size();i++){
 								
 								reportupdatedto.setEmpId(li.get(i).getEmpId());
