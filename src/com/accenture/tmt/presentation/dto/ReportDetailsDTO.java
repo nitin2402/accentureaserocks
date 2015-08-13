@@ -8,6 +8,13 @@ public class ReportDetailsDTO {
 	private String empname;
 	private String action;
 	private String designation;
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getDesignation() {
 		return designation;
 	}
