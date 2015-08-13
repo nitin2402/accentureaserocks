@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -17,7 +18,12 @@ import org.apache.commons.fileupload.FileUploadBase.SizeLimitExceededException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+
 
 /**
  * Servlet implementation class UploadServlet
@@ -47,7 +53,6 @@ public class InitiativeUploadServlet extends HttpServlet {
         File file = new File(filePath);
         FileUtils.cleanDirectory(file);
 
-
         // Create a factory for disk-based file items
         DiskFileItemFactory factory = new DiskFileItemFactory();
 
@@ -68,6 +73,9 @@ public class InitiativeUploadServlet extends HttpServlet {
         // Set overall request size constraint
         upload.setSizeMax(MAX_REQUEST_SIZE);
 
+
+
+        	
         try {
             // Parse the request
             List items = upload.parseRequest(request);
@@ -76,24 +84,26 @@ public class InitiativeUploadServlet extends HttpServlet {
             	FileItem item = (FileItem)iter.next();
                 if (!item.isFormField()) {
                 	String fileName = item.getName();
+             
+                    
                 	File uploadedFile = new File( filePath + File.separator +
                             fileName.substring(fileName.lastIndexOf("\\")+1) );
+             
                     item.write(uploadedFile);
                     File renameFile = new File( filePath + File.separator +
                             "Sample3.pdf" );
-                    uploadedFile.renameTo(renameFile);
+                   	uploadedFile.renameTo(renameFile);
                 }
             }
-
-            // displays done.jsp page after upload finished
-            request.setAttribute("message", "File Successfully Uploaded");
-            getServletContext().getRequestDispatcher("/admin_initiative.jsp").forward(
-                    request, response);
+          
+            HttpSession Session = request.getSession(true);
+            Session.setAttribute("reload", 1);
+            response.sendRedirect("admin_initiative.jsp");
 
         } catch (SizeLimitExceededException e){
         	request.setAttribute("message", "File size should not exceed 1 MB. Upload Unsuccessful.");
-            getServletContext().getRequestDispatcher("/admin_initiative.jsp").forward(
-                    request, response);
+        	request.getRequestDispatcher("admin_initiative.jsp").forward(request, response);
+            
         } catch (FileUploadException ex) {
             throw new ServletException(ex);
         } catch (Exception ex) {
