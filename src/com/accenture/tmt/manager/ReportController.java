@@ -3,72 +3,39 @@ package com.accenture.tmt.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.accenture.tmt.dao.ModuleReportDAO;
 import com.accenture.tmt.dao.EmlpoyeeReportDAO;
-import com.accenture.tmt.dao.dto.ReportsDetailsFlatDTO;
+import com.accenture.tmt.dao.ModuleReportDAO;
+import com.accenture.tmt.dao.dto.EmployeeReportDetailsFlatDTO;
+import com.accenture.tmt.presentation.dto.EmployeeReportUpdateDTO;
 import com.accenture.tmt.presentation.dto.ReportDetailsDTO;
 
 public class ReportController {
 	
-		public List<ReportsDetailsFlatDTO> reportTeamWithoutTeamName(ReportDetailsDTO teamreportdto){
-		EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-		List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-		teamreportflatdto = teamreportdao.getDetailsWithoutTeamNameDAO(teamreportdto);
-		return teamreportflatdto ;
-		}
-		public List<ReportsDetailsFlatDTO> reportTeamWithoutStartDate(ReportDetailsDTO teamreportdto){
-		EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-		List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-		teamreportflatdto = teamreportdao.getDetailsWithoutStartDateDAO(teamreportdto);
-		return teamreportflatdto ;
-		}
-		public List<ReportsDetailsFlatDTO> reportTeamWithoutEndDate(ReportDetailsDTO teamreportdto){
-			EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-			List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-			teamreportflatdto = teamreportdao.getDetailsWithoutEndDateDAO(teamreportdto);
-			return teamreportflatdto ;
-			}
-		public List<ReportsDetailsFlatDTO> reportTeamWithOnlyEndDate(ReportDetailsDTO teamreportdto){
-			EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-			List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-			teamreportflatdto = teamreportdao.getDetailsWithOnlyEndDateDAO(teamreportdto);
-			return teamreportflatdto ;
-			}
-		public List<ReportsDetailsFlatDTO>reportTeamWithOnlyTeamName(ReportDetailsDTO teamreportdto){
-			EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-			List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-			teamreportflatdto = teamreportdao.getDetailsWithOnlyTeamNameDAO(teamreportdto);
-			return teamreportflatdto ;
-			}
-				
-		public List<ReportsDetailsFlatDTO>reportTeamWithOnlyStartDate(ReportDetailsDTO teamreportdto){
-			EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-			List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-			teamreportflatdto = teamreportdao.getDetailsWithOnlyStartDateDAO(teamreportdto);
-			return teamreportflatdto ;
-			}
-		public List<ReportsDetailsFlatDTO>reportModuleWithOnlyTeamName(ReportDetailsDTO teamreportdto){
-			EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-			List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-			teamreportflatdto = teamreportdao.getDetailsWithOnlyStartDateDAO(teamreportdto);
-			return teamreportflatdto ;
-			}
-		public List<ReportsDetailsFlatDTO>reportTeam(ReportDetailsDTO teamreportdto){
-			EmlpoyeeReportDAO teamreportdao = new EmlpoyeeReportDAO();
-			List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
-			teamreportflatdto = teamreportdao.getDetailsReportDAO(teamreportdto);
-			return teamreportflatdto ;
-			}
-		
-		
-		public  List<String> fetchTeamList(){
-			
-			EmlpoyeeReportDAO teamreportDao = new EmlpoyeeReportDAO();
-			return teamreportDao.getTeamList();
-			 
+	
+	public List<EmployeeReportDetailsFlatDTO> employeeReport(ReportDetailsDTO empreports){
+		EmlpoyeeReportDAO empreprtdto = new EmlpoyeeReportDAO();
+		List<EmployeeReportDetailsFlatDTO> empreprtflatdto = new ArrayList<EmployeeReportDetailsFlatDTO>();
+		empreprtflatdto = empreprtdto.getEmployeeDetailsReportDAO(empreports);
+		return empreprtflatdto ;
 		}
 
+	public void updateEmpreport(EmployeeReportUpdateDTO reportupdatedto) {
+		// TODO Auto-generated method stub
+		EmlpoyeeReportDAO modulerepempreportsortdao = new EmlpoyeeReportDAO();
+		modulerepempreportsortdao.insertEmpreoptrs(reportupdatedto);
+	}
+
+
+	public List<EmployeeReportDetailsFlatDTO> employeeReports_ALLpresent(ReportDetailsDTO empreports) {
+		// TODO Auto-generated method stub
+		EmlpoyeeReportDAO empreprtdto = new EmlpoyeeReportDAO();
+		List<EmployeeReportDetailsFlatDTO> empreprtflatdto = new ArrayList<EmployeeReportDetailsFlatDTO>();
+		empreprtflatdto = empreprtdto.getEmployeeDetailsReportDAO_allpresent(empreports);
+		return empreprtflatdto ;
+	}
 	
+	
+
 
 
 }
