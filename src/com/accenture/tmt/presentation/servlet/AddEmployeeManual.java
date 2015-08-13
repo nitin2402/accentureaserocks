@@ -1,20 +1,21 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
-import java.sql.Date;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
-
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.accenture.tmt.manager.EmployeeController;
+import com.accenture.tmt.manager.ReportController;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
-
+import com.accenture.tmt.presentation.dto.EmployeeReportUpdateDTO;
 
 
 /**
@@ -61,6 +62,12 @@ public class AddEmployeeManual extends HttpServlet {
 		
 		String cost = request.getParameter("cost");
 
+		java.sql.Date sqlDate=null;
+		
+		HttpSession session1 = request.getSession();
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Date date = new Date();
+		 String timestamp= df.format(date);
 		
 		EmployeeDetailsDTO detailsDO = new EmployeeDetailsDTO();
 		detailsDO.setEmpId(empId);
@@ -78,11 +85,36 @@ public class AddEmployeeManual extends HttpServlet {
 		detailsDO.setIsBillable(bill);
 		detailsDO.setIsActive(active);
 		detailsDO.setCost(cost);
+	EmployeeReportUpdateDTO reportupdatedto=new EmployeeReportUpdateDTO();
+	ReportController update=new ReportController();
 		EmployeeController employeeManager = new EmployeeController();
 		
 		int c=employeeManager.addEmployee(detailsDO);
 		if(c !=0){
 			request.setAttribute("message","Record Inserted");
+			if(session1!= null){
+				
+				reportupdatedto.setEmpId(empId);
+				reportupdatedto.setEmpName(empName);
+				reportupdatedto.setLevel(level);
+				reportupdatedto.setDesignation(designation);
+				reportupdatedto.setExpertise(expertise);
+				reportupdatedto.setClientId(clientId);
+				reportupdatedto.setEmail(email);
+				reportupdatedto.setTeamId(team);
+				reportupdatedto.setProfCamps(camps);
+				reportupdatedto.setProfProject(proj);
+				reportupdatedto.setDoj(doj);
+				reportupdatedto.setLastWD(lwd);
+				reportupdatedto.setIsBillable(bill);
+				reportupdatedto.setIsActive(active);
+				reportupdatedto.setCost(cost);
+				reportupdatedto.setUserName((String)session1.getAttribute("user"));
+				reportupdatedto.setAction("added");
+				reportupdatedto.setTimeStamp(timestamp);;
+				reportupdatedto.setDate(sqlDate);
+				update.updateEmpreport(reportupdatedto);
+				}
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		if(c ==0){
 			request.setAttribute("message","Record insertion failed");
