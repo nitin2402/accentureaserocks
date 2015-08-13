@@ -20,7 +20,7 @@
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
-		/* || (String) session1.getAttribute("admin") != "admin" */) {
+		|| (String) session1.getAttribute("admin") != "admin" ) {
 	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 	<%
 		}
@@ -82,7 +82,6 @@
 						Object a = session1.getAttribute("reload");
 						{
 							int b = (Integer) (a);
-							
 							if (b > (0)) {
 								b--;
 								session1.setAttribute("reload", b);
