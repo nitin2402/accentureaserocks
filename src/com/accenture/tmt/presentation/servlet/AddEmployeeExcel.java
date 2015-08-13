@@ -3,7 +3,9 @@ package com.accenture.tmt.presentation.servlet;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -26,7 +29,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.manager.ExcelController;
+import com.accenture.tmt.manager.ReportController;
+import com.accenture.tmt.manager.TeamReportController;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.presentation.dto.EmployeeReportUpdateDTO;
+import com.accenture.tmt.presentation.dto.TeamReportUpdateDTO;
 
 
 
@@ -242,13 +249,46 @@ public class AddEmployeeExcel extends HttpServlet {
 		
 			ExcelController add = new ExcelController();
 			
-			
+			HttpSession session1 = request.getSession();
 				c=add.addFromExcel(listOfEmps);
-		 
+				  java.sql.Date sqlDate=null;
+					
+					SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+					Date date = new Date();
+					 String timestamp= df.format(date);
+					 sqlDate= new java.sql.Date(date.getTime());
+					 EmployeeReportUpdateDTO reportupdatedto=new EmployeeReportUpdateDTO();
+					ReportController reportcontroller=new ReportController();
 
 		if(c !=0){
 			request.setAttribute("message","Record Inserted");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
+			
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			if(session1!= null){
+				for(int i =0;i<listOfEmps.size();i++){
+					reportupdatedto.setEmpId(listOfEmps.get(i).getEmpId());
+					reportupdatedto.setEmpName(listOfEmps.get(i).getEmpName());
+					reportupdatedto.setDesignation(listOfEmps.get(i).getDesignation());
+					reportupdatedto.setLevel(listOfEmps.get(i).getLevel());
+					reportupdatedto.setExpertise(listOfEmps.get(i).getExpertise());
+					reportupdatedto.setClientId(listOfEmps.get(i).getClientId());
+					reportupdatedto.setEmail(listOfEmps.get(i).getEmail());
+					 reportupdatedto.setTeamId(listOfEmps.get(i).getTeamId());
+					reportupdatedto.setProfCamps(listOfEmps.get(i).getProfCamps());
+					reportupdatedto.setProfProject(listOfEmps.get(i).getProfProject());
+					reportupdatedto.setDoj(listOfEmps.get(i).getDoj());
+					reportupdatedto.setLastWD(listOfEmps.get(i).getLastWD());
+					reportupdatedto.setIsBillable(listOfEmps.get(i).getIsBillable());
+					reportupdatedto.setIsActive(listOfEmps.get(i).getIsActive());
+					reportupdatedto.setCost(listOfEmps.get(i).getCost());
+				reportupdatedto.setUserName((String)session1.getAttribute("user"));
+				reportupdatedto.setAction("added by excel");
+				reportupdatedto.setTimeStamp(timestamp);
+				reportupdatedto.setDate(sqlDate);
+				reportcontroller.updateEmpreport(reportupdatedto);
+			}
+				}
+			}
 		if(c ==0){
 			request.setAttribute("message","Record insertion failed"+"\n"+"Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
@@ -259,7 +299,7 @@ public class AddEmployeeExcel extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
+		}
 		
 	}
 		
@@ -273,4 +313,4 @@ public class AddEmployeeExcel extends HttpServlet {
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		
 		}*/
-	}
+	
