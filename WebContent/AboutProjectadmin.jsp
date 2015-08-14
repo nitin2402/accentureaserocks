@@ -16,58 +16,31 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- <script>
-$(document).ready(function(){
-    
-        $("#current").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    
-        $("#release").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    $("#current1").click(function(){
-        $("#current").toggle();
-         
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-    $("#release1").click(function(){
-        $("#release").toggle();
-         
-    });
-});
-</script> -->
+	
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
 
 	});
 </script>
-<script type='text/javascript' src='search.js'></script>
+<script type='text/javascript' src='searchAdmin.js'></script>
 </head>
 
 
 <body>
- <%-- <% 
+ <%
 		HttpSession session1 = request.getSession(false);
- %>
-		<%-- if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				/*  || (String) session1.getAttribute("admin") != "admin" */ ) {
-	%><jsp:forward page="login.jsp?msg=Please Login " />
+
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
 	<%
-		} 
-	    
-	< --%>
+		}
+	%>
 <%@ include file="header_admin.jsp" %>  
 
 	<div id="templatemo_content">
@@ -85,6 +58,7 @@ $(document).ready(function(){
 			<a href="ProjectAdmin.jsp">Back</a>
 		</div>
 				</div>
+				<div id="search">
 			<div style="font-size: 14px;">
 				<p>Following projects have been taken under ARISTOS:</p>
 				<ul><li><b><u>E-Strategy</u></b></li>
@@ -111,7 +85,6 @@ $(document).ready(function(){
 		
 				
 
-				<div id="search">
 
 					
 				</div>
