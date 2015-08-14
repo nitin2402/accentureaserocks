@@ -32,43 +32,7 @@
 					
 	}
 	</script>
-	<!-- <script>
-$(document).ready(function(){
-    
-        $("#current").hide();
-        $("#button").hide();
-        
-    });
-</script>
-<script>
-$(document).ready(function(){
-    
-        $("#release").hide();
-        $("#button2").hide();
-        
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    $("#current1").click(function(){
-        $("#current").toggle();
-        $("#button").toggle();
-        
-         
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-    $("#release1").click(function(){
-        $("#release").toggle();
-        $("#button2").toggle();
-      
-         
-    });
-});
-</script> -->
+
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -83,17 +47,22 @@ $(document).ready(function(){
 	<%@ include file="header_admin.jsp" %>  
 	<jsp:include page="/ProjectCurrent"/>
 	<jsp:include page="/ProjectRelease"/>
- <%-- <% 
-		HttpSession session1 = request.getSession(false);
- %>
-		<%-- if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				/*  || (String) session1.getAttribute("admin") != "admin" */ ) {
-	%><jsp:forward page="login.jsp?msg=Please Login " />
+	
 	<%
-		} 
-	    
-	< --%>
+		HttpSession session1 = request.getSession(false);
+
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
+	<%
+		}
+	%>
+
+
 
 
 	<div id="templatemo_content">
