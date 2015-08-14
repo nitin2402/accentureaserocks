@@ -15,219 +15,28 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="jquery.chained.js"></script>
-	<script>
-	$(function(){$("#mdl").chained("#prj");
-	$("#tem").chained("#mdl")});
-	
-	
-	</script>
-	<script >$(document).ready(function(){
+<script src="jquery.chained.js"></script>
 
-        $("#empCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
-
-	</script>
-	
-
-	
-
-<!-- <script>
-	$(document).ready(function() {
-		$(".header_09").hide();
-		
-	
-	});
-	
-	
-
-</script> -->
-
-
-
-<script>
-
-	function validateform()
-	{
-	
-	var name=document.forms["add"]["name"].value;
-	var id=document.forms["add"]["idno"].value;
-	var level=document.forms["add"]["level"].value;
-	var designation=document.forms["add"]["desig"].value;
-	var expertise=document.forms["add"]["area"].value;
-
-	var email=document.forms["add"]["email"].value;
-
-	var cams=document.forms["add"]["camps"].value;
-	var cost=document.forms["add"]["cost"].value;
-	var from = $("#calendar").val(); 
-	var to = $("#calendar1").val();
-	
-  if (name==null || name=="")
-	  {
-	  alert("Please provide Name");
-	  return false;
-	  }
-		if (id==null || id=="")
-	  {
-	  alert("Please provide Employee ID");
-	  return false;
-	  }
-	if (level==null || level=="")
-	  {
-	  alert("Please provide level");s
-	  return false;
-	  }
-	if (designation==null || designation=="")
-	  {
-	  alert("Please provide designation");
-	  return false;
-	  }
-	if (expertise==null || expertise=="")
-	  {
-	  alert("Please provide Expertise");
-	  return false;	
-	  }
-	if (email==null || email=="")
-	  {
-	  alert("Please provide Email");
-	  return false;
-	  } 
-	if (cams==null || cams=="")
-	  {
-	  alert("Please provide Proficiency in CAMS");
-	  return false;
-	  }  
-	if (cost==null || cost=="")
-	  {
-	  alert("Please provide cost of the employee");
-	  return false;
-	  }  
-	if (from == "" || from == null){
-		alert("Please enter Date Of joining");
-		return false;
-	}
-
-	if(Date.parse(from) > Date.parse(to)){
-	   alert("Last Date Of Working must be after Date Of Joining");
-	   return false;
-	}
-	 
-	
-	    var filter = /^[a-zA-Z0-9._-]+@accenture.com$/;
-	    var filter2 = /^[0-9]{8}$/;
-	    var filter3 = /^[0-9]{1,2}$/;
-	if (filter.test(email)) {
-	       
-	    }
-	    else {
-	    	alert("Enter Valid Email");
-	        return false;
-	    }
-	    if (client.length == 6) {
-	        
-	    }
-	    else {
-	    	alert("Enter Valid Client Id ");
-	        return false;
-	    }
-	    if (filter2.test(id)) {
-	      
-	    }
-	    else {
-	    	alert("Enter Valid Employee Id");
-	        return false;
-	    }
-	    if (filter3.test(level)) {
-		       
-	    }
-	    else {
-	    	alert("Enter Valid Level");
-	        return false;
-	    } 
-
-	    
-	/* var from = $("#calendar").val(); 
-	var to = $("#calendar1").val(); */
-	
-	/* if (from == "" || from == null){
-		alert("Please enter Date Of joining");
-		return false;
-	}
-
-	if(Date.parse(from) > Date.parse(to)){
-	   alert("Last Date Of Working must be after Date Of Joining");
-	   return false;
-	} */
-	
-	}
-	
-</script>
-
-<!-- <script>
-function isNumeric(value) {
-	  if (value=="" || value == null || !value.toString().match(/^[-]?\d*\.?\d*$/))
-	  { return false;
-	  }
-	  return true;
-	}		
-	
-	function validate(str){
-		var pattern=/^[a-zA-Z0-9@.-()#_]{2,50}$/;
-		if(str != pattern)
-			{
-			alert("Enter valid Characters(@, . , -, (, ), #, _)");
-			}
-		return Pattern.test(str); 
-		
-	}
-</script> -->
-
-<script type="text/javascript">
-
-        var specialKeys = new Array();
-
-        specialKeys.push(8); //Backspace
-
-        function IsNumeric1(e) {
-
-            var keyCode = e.which ? e.which : e.keyCode
-
-            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
-
-            document.getElementById("error").style.display = ret ? "none" : "inline";
-
-            return ret;
-
-        }
-
-    </script>
 
 <link rel='stylesheet' type='text/css'
 	href='http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css' />
 <script
 	src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-
-
-
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-
+<script type='text/javascript' src='addempmanually.js'></script>
 
 <script type="text/javascript" src="js/jquery.validate.js"></script>
 <script type='text/javascript' src='date.js'></script>
-<script type="text/javascript" src="js/jquery.ui.datepicker.validation.js"></script>
+<script type="text/javascript"
+	src="js/jquery.ui.datepicker.validation.js"></script>
 <link href="calendar.css" rel="stylesheet" />
 <script type='text/javascript' src='search.js'></script>
 </head>
-<body> 
-<jsp:include page="/DropDownDetails" />  
-	
-	<%@ include file="header_admin.jsp" %>
+<body>
+	<jsp:include page="/DropDownDetails" />
+
+	<%@ include file="header_admin.jsp"%>
 	<%
 		HttpSession session1 = request.getSession(false);
 
@@ -241,22 +50,23 @@ function isNumeric(value) {
 	<%
 		}
 	%>
-	
+
 
 	<div id="templatemo_content">
 
-			<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left_admintool.jsp"%>
 
 		<div id="content_right">
 
-			<div class="right_col_section_w650" id="scrollable" style="height: 440px">
+			<div class="right_col_section_w650" id="scrollable"
+				style="height: 440px">
 
 				<div class="header_01">Employee Addition</div>
 
 
 				<div id="search">
 
-					<div  style="font-size: 14px;">
+					<div style="font-size: 14px;">
 
 						<form name="add" action="AddEmployeeManual" method="post"
 							onsubmit="return validateform()">
@@ -283,7 +93,8 @@ function isNumeric(value) {
 
 								</tr>
 								<tr>
-									<td><span style="color: Red;">* </span>EMPLOYEE DESIGNATION:</td>
+									<td><span style="color: Red;">* </span>EMPLOYEE
+										DESIGNATION:</td>
 									<td><input type="text" name="desig"></input></td>
 								</tr>
 								<tr>
@@ -299,9 +110,10 @@ function isNumeric(value) {
 									<td><span style="color: Red;">* </span>EMAIL:</td>
 									<td><input type="text" name="email"></input></td>
 								</tr>
-								 <tr>
+								<tr>
 									<td>&nbsp PROJECT</td>
-									<td><select id="prj" class="chain" name="project" style="width: 143px">
+									<td><select id="prj" class="chain" name="project"
+										style="width: 143px">
 											<jstlcore:forEach items="${project}" var="prj_item">
 
 												<option value="${prj_item.projectId}">
@@ -311,24 +123,27 @@ function isNumeric(value) {
 											</jstlcore:forEach>
 
 									</select></td>
-								</tr> 
+								</tr>
 
-                           <tr>
+								<tr>
 									<td>&nbsp MODULE</td>
-									<td><select id="mdl" class="chain" name="module" style="width: 143px">
+									<td><select id="mdl" class="chain" name="module"
+										style="width: 143px">
 											<jstlcore:forEach items="${module}" var="mod_item">
 
-												<option value="${mod_item.moduleId}" class="${mod_item.projectId}">
+												<option value="${mod_item.moduleId}"
+													class="${mod_item.projectId}">
 													<jstlcore:out value="${mod_item.moduleName}"></jstlcore:out></option>
 
 
 											</jstlcore:forEach>
 
 									</select></td>
-								</tr> 
+								</tr>
 								<tr>
 									<td>&nbsp TEAM</td>
-									<td><select name="Team" style="width: 143px" class="chain" id="tem">
+									<td><select name="Team" style="width: 143px" class="chain"
+										id="tem">
 											<jstlcore:forEach items="${team}" var="item">
 
 												<option value="${item.teamId}" class="${item.moduleId}">
@@ -372,9 +187,9 @@ function isNumeric(value) {
 									<td><input type="text" name="active" value="YES"></input></td>
 								</tr>
 
-<tr>
+								<tr>
 									<td><span style="color: Red;">* </span>LCR:</td>
-									<td><input type="text" name="cost" ></input></td>
+									<td><input type="text" name="cost"></input></td>
 								</tr>
 
 							</table>
@@ -384,26 +199,26 @@ function isNumeric(value) {
 					.getParameter("msg") : ""%> --%></span><br />
 
 						</form>
-						<div style="color: Red;"> * Mandatory Fields</div>
-						
+						<div style="color: Red;">* Mandatory Fields</div>
+
 					</div>
 
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
 
-					<div id="ajaxResponse"></div>
-					<p class="error message">${message}</p>
+				<div id="ajaxResponse"></div>
+				<p class="error message">${message}</p>
 				<div class="cleaner">&nbsp;</div>
-				</div>
-
-				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
-			<div class="cleaner">&nbsp;</div>
+			<div class="margin_bottom_20">&nbsp;</div>
 		</div>
-		<%@ include file="footer.jsp" %>     
-		</div>
+
+		<div class="cleaner">&nbsp;</div>
+	</div>
+	<%@ include file="footer.jsp"%>
+	</div>
 	</div>
 </body>
 </html>
