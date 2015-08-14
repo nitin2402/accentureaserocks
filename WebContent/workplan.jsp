@@ -17,11 +17,18 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script type="text/javascript" src='search.js'></script>
+	<script src="jquery.chained.js"></script>
+	<script>
+	$(function(){$("#mdl").chained("#prj");
+	$("#tem").chained("#mdl")});
+	
+	
+	</script>
 <script type="text/javascript" src="workplan.js"></script>
 </head>
 
 <body>
-	<jsp:include page="/TeamListServlet" />
+	<jsp:include page="/DropDownDetails" />  
 	<input type="hidden" id="backup" name="backup" value="0"></input>
 
 	<%
@@ -62,22 +69,47 @@
 													<td></td>
 												</tr>
 
+								
 												<tr>
+									<td>&nbsp; PROJECT</td>
+									<td><select id="prj" class="chain" name="project" style="width: 210px">
+											<jstlcore:forEach items="${project}" var="prj_item">
 
-													<td>*Please Select A Team</td>
-													<td><select name="teamName" style="width: 210px;">
-															<jstlcore:forEach items="${teamList}" var="item">
-
-																<option value="${item}">
-																	<jstlcore:out value="${item}">
-																	</jstlcore:out>
-																</option>
+												<option value="${prj_item.projectId}">
+													<jstlcore:out value="${prj_item.projectName}"></jstlcore:out></option>
 
 
-															</jstlcore:forEach>
+											</jstlcore:forEach>
 
-													</select></td>
-												</tr>
+									</select></td>
+								</tr> 
+
+                           <tr>
+									<td>&nbsp; MODULE</td>
+									<td><select id="mdl" class="chain" name="module" style="width: 210px">
+											<jstlcore:forEach items="${module}" var="mod_item">
+
+												<option value="${mod_item.moduleId}" class="${mod_item.projectId}">
+													<jstlcore:out value="${mod_item.moduleName}"></jstlcore:out></option>
+
+
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr> 
+								<tr>
+									<td>&nbsp; TEAM</td>
+									<td><select name="teamName" style="width: 210px" class="chain" id="tem">
+											<jstlcore:forEach items="${team}" var="item">
+
+												<option value="${item.teamName}" class="${item.moduleId}">
+													<jstlcore:out value="${item.teamName}"></jstlcore:out></option>
+
+
+											</jstlcore:forEach>
+
+									</select></td>
+								</tr>
 												<tr>
 													<td>*No. of ASE Required &nbsp;</td>
 													<td><input type="text" id="NASE" name="NASE" value="0"
