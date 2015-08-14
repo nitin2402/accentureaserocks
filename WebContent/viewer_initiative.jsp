@@ -50,8 +50,7 @@
        					 width='100%' 
       					  height='100%'>
 
-						<p>It appears your Web browser is not configured to display PDF files. 
-						No worries, just <a href='Docs/Sample3.pdf'>click here to download the PDF file.</a></p>
+						<p>No File Uploaded.</p>
 
 				</object>
 				</div>
