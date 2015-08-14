@@ -53,17 +53,20 @@
 <body>
 
        
-<%-- <% 
-              HttpSession session1 = request.getSession(false);
-%>
-              <%-- if (session1 == null
-                           || (String) session1.getAttribute("user") == null
-                           /*  || (String) session1.getAttribute("admin") != "admin" */ ) {
-       %><jsp:forward page="login.jsp?msg=Please Login " />
-       <%
-              } 
-           
-       < --%>
+<%
+		HttpSession session1 = request.getSession(false);
+
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+
+	<%
+		}
+	%>
+	
 <%@ include file="header_admin.jsp" %>  
 
        <div id="templatemo_content">
