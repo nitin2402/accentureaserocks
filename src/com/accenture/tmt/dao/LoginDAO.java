@@ -53,34 +53,5 @@ public class LoginDAO {
 
 	}
 	 
-	public boolean UserRegistration(String name, String username, String password) {
 	
-		try {
-			Connection con = DBConnection.getConnection();
-
-			String sqlCheck = "INSERT INTO Admin (AdminName,username,Password) VALUES (?,?,?)";
-			PreparedStatement st = con.prepareStatement(sqlCheck);
-
-			st.setString(1, name);
-			st.setString(2, username);
-			st.setString(3, password);
-
-			int a= st.executeUpdate();
-			
-		if(a>0)
-		{
-			return true;
-			}
-		con.close();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return false;
-	}
-
 }
