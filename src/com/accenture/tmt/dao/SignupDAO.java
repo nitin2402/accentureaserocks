@@ -4,16 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
+
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
-import com.accenture.tmt.common.ValidateObjects;
+
 import com.accenture.tmt.dao.dto.SignupFlatDTO;
 
 public class SignupDAO {
 	public int RegisterInDatabase(SignupFlatDTO signupflatDTO){
-		//SignupFlatDTO registerflatDTO = new SignupFlatDTO();
+		
 		ResultSet b = null;
 		ResultSet c = null;
 		ResultSet d = null;
@@ -35,15 +35,14 @@ public class SignupDAO {
 					 d = st3.executeQuery();
 					 if(b.next()== true)
 					 {	if(c.next()== true)
-					 {
-						 //System.out.print("User is already signed up..Please Login");
+					  {
 						 return 1;
 						
 					 }
 					 else
 						 {
 						 if(d.next()== true){
-							// System.out.println("already existing username");
+							
 							 return 2;
 						 }
 						 else{
@@ -59,7 +58,7 @@ public class SignupDAO {
 						 }
 					 }
 					 else{
-						// System.out.println("Employeeid does not exist");
+						
 						 return 3;
 					 }
 			}	
