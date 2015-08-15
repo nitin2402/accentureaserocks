@@ -31,10 +31,5 @@ public class LoginController {
     		  return loginDTO;
       }	
       
-      public boolean UserRegistration(String name, String username, String password){
-		LoginDAO loginDAO=new LoginDAO();
-		boolean status=loginDAO.UserRegistration(name, username, password);
-		return status;
-    	  
-      }
+     
 }
