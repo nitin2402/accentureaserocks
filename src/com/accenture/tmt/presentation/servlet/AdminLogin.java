@@ -90,27 +90,7 @@ public class AdminLogin extends HttpServlet {
 			response.sendRedirect("login.jsp?msg=Please Register First to access this Application");
 		}
 		
-		/*
-		LoginManager login = new LoginManager();
-		check = login.CheckLogin(userName, password);*/
-
-		/*if (check==1) {
-			HttpSession session1 = request.getSession(true);
-			session1.setAttribute("user", userName);
-			session1.setAttribute("admin", true);
-			response.sendRedirect("adminhome.jsp");
-			
-		} else if(check==2){
-			HttpSession session1 = request.getSession(true);
-			session1.setAttribute("user", userName);
-			session1.setAttribute("admin", false);
-			response.sendRedirect("userhome.jsp");
-			
-		}
-		else if(check==0)
-		{
-			response.sendRedirect("home.jsp?msg=Enter valid Username and Password");
-		}*/
+		
 	}
 
 }
