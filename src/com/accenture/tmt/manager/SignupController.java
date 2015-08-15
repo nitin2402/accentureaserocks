@@ -1,7 +1,6 @@
 package com.accenture.tmt.manager;
 
 import com.accenture.tmt.dao.SignupDAO;
-import com.accenture.tmt.dao.dto.LoginFlatDTO;
 import com.accenture.tmt.dao.dto.SignupFlatDTO;
 import com.accenture.tmt.presentation.dto.RegistrationDTO;
 
