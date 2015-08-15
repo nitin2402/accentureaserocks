@@ -11,46 +11,23 @@
 	content="Bird Store Online - Download Free CSS Template" />
 	<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 	<script src="login.js"></script> 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script type="text/javascript">
-	$(function() {
-		$('.last').click(
-				function(event) {
-					var email = 'chinu.mohanty@accenture.com';
-					var subject = 'Feedback';
-					var emailBody = 'Hi Chinu,';
-					window.location = 'mailto:' + email + '?subject=' + subject
-							+ '&body=' + emailBody;
-				});
-	});
-</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
+
+
 <body>
-<div id="templatemo_container">
-		<div id="templatemo_header">
-			<div id="site_title_section">
-				<div id="site_title">Talent Management Tool</div>
-				<div id="slogan">Plan, Organize, Budget, Schedule</div>
-				<div class="cleaner">&nbsp;</div>
-			</div>
-		<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
-	</div>
-		<!-- end of header -->
-		<div id="templatemo_menu">
-			<ul>
 
-
-				<li><a href="about_us_common.jsp">About Us</a></li>
-				<li><a href="#" class="last" onclick="myfunction()">Contact
-						Us</a></li>
-			</ul>
-		</div>
-		<!-- end of menu -->
+    <!-- HEADER OF THE LOGIN PAGE -->
+    
+    <div id="templatemo_container">
+	<%@ include file="header_login.jsp"%>
+	
+	<!-- CONTENT OF THE LOGIN PAGE -->
 		<div id="templatemo_content">
-
+		
+		<!-- content left -->
 			<div id="content_left">
-
-				<div class="content_left_section">
+    			<div class="content_left_section">
 					<div class="content_left_section_title">Login</div>
 					<div class="content_left_section_content">
 						<form name="login" 
@@ -71,7 +48,8 @@
 				<div class="margin_bottom_10">&nbsp;</div>
 
 			</div>
-			<!-- end of content left -->
+			<!-- end of content left-->
+			<!-- content right -->
 			<div id="content_right">
 
 				<div class="right_col_section_w650">
@@ -89,15 +67,15 @@
 			<!-- end of content right -->
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<!-- end of container -->
+		
+		
+		<!-- FOOTER OF THE LOGIN PAGE -->
+		
 		<div id="templatemo_content_bottom">&nbsp;</div>
 
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="http://www.accenture.com">Accenture</a>
-		</div>
-		<!-- end of footer -->
+		<%@ include file="footer.jsp"%>
 	</div>
-	<!-- end of container -->
+	
 
 </body>
 </html>
