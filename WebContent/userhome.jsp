@@ -18,18 +18,7 @@
 		$(".header_09").hide();
 	});
 </script>
-<script type="text/javascript">
-	$(function() {
-		$('.last').click(
-				function(event) {
-					var email = 'chinu.mohanty@accenture.com';
-					var subject = 'Feedback';
-					var emailBody = 'Hi Chinu,';
-					window.location = 'mailto:' + email + '?subject=' + subject
-							+ '&body=' + emailBody;
-				});
-	});
-</script>
+
 </head>
 <body>
 	<%
@@ -115,15 +104,7 @@
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
-					<%-- <form action="#">
-						<input type="text" id="search_field" name="search_field" /> <input
-							type="submit" value="Search" id="search_button" />
-						<div>
-							<span id="msg1">${msg1}</span>
-						</div>
-
-					</form> --%>
-
+					
 					<ul>
 						<li><a href="viewemployee_user.jsp">View Employee</a></li>
 						<li><a href="viewteam_user.jsp">View Team</a></li>
