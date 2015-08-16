@@ -15,13 +15,13 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="addmodule.js"></script> 
+<script type="text/javascript" src="addmodule.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
 	});
 </script>
-<script >
+<script>
 $(document).ready(function(){
 
         $("#modCss").css({
@@ -39,19 +39,20 @@ $(document).ready(function(){
 <body>
 
 
-<%@ include file="header_admin.jsp" %>
+	<%@ include file="header_admin.jsp"%>
 	<%
 
 HttpSession session1 = request.getSession(false);
 if (session1 == null || (String)session1.getAttribute("user") == null || (String)session1.getAttribute("admin") != "admin" ){
-    %><jsp:forward page="login.jsp?msg=Please Login as an Admin" /><%
+    %><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+	<%
 }
 %>
-	
+
 
 	<div id="templatemo_content">
 
-		<%@ include file="common_left_admintool.jsp" %>
+		<%@ include file="common_left_admintool.jsp"%>
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
@@ -64,10 +65,11 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 
 					<div style="font-size: 14px;">
 						<jsp:include page="/fetchproject.jsp" />
-						<form name="add" action="AddModule" onsubmit="return validateform1()" >						 
+						<form name="add" action="AddModule"
+							onsubmit="return validateform1()">
 							<table>
-					
-									
+
+
 								<tr>
 									<td>MODULE NAME:</td>
 									<td><input type="text" name="modulename" id="module_name"></input></td>
@@ -78,46 +80,45 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 								</tr>
 								<tr>
 									<td>PROJECT:</td>
-									<td> <select name="project1">
-															<jstlcore:forEach var="proj" items="${project}">
+									<td><select name="project1">
+											<jstlcore:forEach var="proj" items="${project}">
 
-												<option value="${proj}"> ${proj} </option>
+												<option value="${proj}">${proj}</option>
 
-									</jstlcore:forEach>
-									</select>
-									</td>
-			</tr> 
-								<tr>
-									<td><input type="submit" value="SUBMIT" ></input></td>
-								
-									 <td><input type="reset" value="RESET" name="clear" ></input></td>
+											</jstlcore:forEach>
+									</select></td>
 								</tr>
-									 
+								<tr>
+									<td><input type="submit" value="SUBMIT"></input></td>
 
-									
+									<td><input type="reset" value="RESET" name="clear"></input></td>
+								</tr>
+
+
+
 							</table>
-							
-					
+
+
 						</form>
 
-						<br /> <br /> <!-- <a href="editmodule.jsp" style="font-weight: normal;margin-left:500px">Edit module</a> -->
+						<br /> <br />
 					</div>
-					
-								
-  <p class = "message"><%=request.getParameter("message") != null ? request
+
+
+					<p class="message"><%=request.getParameter("message") != null ? request
 					.getParameter("message") : ""%>${message}</p>
 
 
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
-<div id="ajaxResponse"></div>
+				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<%@ include file="footer.jsp" %>
+		<%@ include file="footer.jsp"%>
 	</div>
 
 

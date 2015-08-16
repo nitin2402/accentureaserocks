@@ -22,7 +22,7 @@
 	});
 </script>
 <script type='text/javascript' src='addmoduleexcel.js'></script>
-<script >
+<script>
 $(document).ready(function(){
 
         $("#modCss").css({
@@ -40,21 +40,11 @@ $(document).ready(function(){
 
 </head>
 <body>
-<%@ include file="header_admin.jsp"%>
-
-<%-- 	 <jsp:include page="/fetchmodule.jsp" />  --%>
-
-	<%-- <%
-
-HttpSession session1 = request.getSession(false);
-if (session1 == null  || (String)session1.getAttribute("user") == null || (Boolean)session1.getAttribute("admin") != true ){
-    %><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
-	<%
-}
-%> --%><div id="templatemo_content">
+	<%@ include file="header_admin.jsp"%>
+	<div id="templatemo_content">
 
 		<%@ include file="common_left_admintool.jsp"%>
-	
+
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
@@ -66,21 +56,20 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 
 
 					<div id="search" style="font-size: 14px;">
-					<div>
-							<a href="template/ModuleExcel.xlsx"> This link will open
-								the Excel Sheet Template </a> <br /> <br /> <br />
+						<div>
+							<a href="template/ModuleExcel.xlsx"> This link will open the
+								Excel Sheet Template </a> <br /> <br /> <br />
 						</div>
-					
+
 						<form action="AddModuleExcel" method="post"
 							onsubmit="return Validate(this); " enctype="multipart/form-data">
-							<input type="file" name="file1"
-								size="50"
+							<input type="file" name="file1" size="50"
 								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
 
 							<input type="hidden" id="sheetno" name="sheetno" />
 							<!-- <form action="UploadServlet" method="post" enctype="multipart/form-data"> -->
-							 <div>
-							<input type="submit" value="Submit" />
+							<div>
+								<input type="submit" value="Submit" />
 							</div>
 						</form>
 
@@ -88,7 +77,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 						<!-- <a href="editteam.jsp">Edit Team</a> -->
 					</div>
 
-<div id="ajaxResponse"></div>
+					<div id="ajaxResponse"></div>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
@@ -98,7 +87,7 @@ if (session1 == null  || (String)session1.getAttribute("user") == null || (Boole
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-	
+
 		<%@ include file="footer.jsp"%>
 	</div>
 

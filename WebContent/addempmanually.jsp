@@ -172,15 +172,12 @@
 								</tr>
 								<tr>
 									<td>&nbsp BILLABLE:</td>
-									<td>
-										<!-- <input type="text" name="bill"></input> --> <select
-										type="text" name="bill" style="width: 143px">
+									<td><select type="text" name="bill" style="width: 143px">
 											<option value="" disabled="disabled" selected="selected">Select</option>
 											<option value="YES">YES</option>
 											<option value="NO">NO</option>
 											<option value="NA">NA</option>
-									</select>
-									</td>
+									</select></td>
 								</tr>
 								<tr>
 									<td>&nbsp ACITVE USER:</td>
@@ -218,7 +215,7 @@
 		<div class="cleaner">&nbsp;</div>
 	</div>
 	<%@ include file="footer.jsp"%>
-	</div>
-	</div>
+
+
 </body>
 </html>

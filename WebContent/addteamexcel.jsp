@@ -22,7 +22,7 @@
 	});
 </script>
 <script type='text/javascript' src='addteamexcel.js'></script>
-<script >
+<script>
 $(document).ready(function(){
 
         $("#teamCss").css({
@@ -41,8 +41,8 @@ $(document).ready(function(){
 
 </head>
 <body>
-<%@ include file="header_admin.jsp" %>  
-	
+	<%@ include file="header_admin.jsp"%>
+
 	<%
 		HttpSession session1 = request.getSession(false);
 
@@ -59,7 +59,7 @@ $(document).ready(function(){
 	<div id="templatemo_content">
 
 		<%@ include file="common_left_admintool.jsp"%>
-		
+
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
@@ -69,39 +69,38 @@ $(document).ready(function(){
 				<div>
 
 
-				<div id="search" style="font-size: 14px;">
-			
-<a href="template/TeamExcel.xlsx"> This link will open
-								the Excel Sheet Template </a>
-								<br /> <br /> <br /> 
-					
-						<form action=" AddTeamExcel" method="post" onsubmit="return Validate(this);" enctype="multipart/form-data">
-						
-						Choose the Excel File to Upload:-
-						<input type="file" name="file1"
-								size="50" style="border: solid 1px #D7C89D;background-color:  #D7C89D; width: 50% ;color: #8D5B13;" /> 
-							 <br /> <br /> <br />
-						<input type="hidden" id="sheetno" name="sheetno" />
-						<br /> <input type="submit" value="Submit" />
+					<div id="search" style="font-size: 14px;">
+
+						<a href="template/TeamExcel.xlsx"> This link will open the
+							Excel Sheet Template </a> <br /> <br /> <br />
+
+						<form action=" AddTeamExcel" method="post"
+							onsubmit="return Validate(this);" enctype="multipart/form-data">
+
+							Choose the Excel File to Upload:- <input type="file" name="file1"
+								size="50"
+								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
+							<br /> <br /> <br /> <input type="hidden" id="sheetno"
+								name="sheetno" /> <br /> <input type="submit" value="Submit" />
 						</form>
 						<br />
-							</div>
 					</div>
-					<div id="ajaxResponse"></div>
-
-<p class="error message">${message}</p>
-
-
-					<div class="cleaner">&nbsp;</div>
 				</div>
+				<div id="ajaxResponse"></div>
 
-				<div class="margin_bottom_20">&nbsp;</div>
+				<p class="error message">${message}</p>
+
+
+				<div class="cleaner">&nbsp;</div>
 			</div>
 
-			<div class="cleaner">&nbsp;</div>
+			<div class="margin_bottom_20">&nbsp;</div>
 		</div>
-		<%@ include file="footer.jsp"%>
+
+		<div class="cleaner">&nbsp;</div>
 	</div>
+	<%@ include file="footer.jsp"%>
+
 
 
 </body>
