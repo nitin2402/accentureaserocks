@@ -44,15 +44,13 @@ public class FetchModuleDetails extends HttpServlet {
 		List<ModuleFormDTO> li = new ArrayList<ModuleFormDTO>();
 		ModuleController fetch = new ModuleController();
 		li = fetch.fetchModuleDetails();
-		//System.out.println(li);
-		//System.out.println(li.getItem(0));	
+			
 	String	exp = " <form action=\"EditModule\"><div id=\"scrollable\"><table class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\"><td></td><td>Module Name</td><td>Project Name</td><td>Module Description</td></tr>";
 
 		for (int i = 0; i < li.size(); i++) {
 			exp += "<tr><td><input type=\"radio\" name=\"moduleedit\" value=\""+li.get(i).getModuleId()+"\"></td><td>" + li.get(i).getModuleName()
 					+ "</td>";
-			exp += "<td>" + li.get(i).getProjectId() + "</td>" /*+ "<td>"
-					+ li.get(i).getModuleId() + "</td>" */+ "<td>"
+			exp += "<td>" + li.get(i).getProjectId() + "</td>" + "<td>"
 					+ li.get(i).getModuleDescription() + "</td>";
 			
 			exp += "</tr>";

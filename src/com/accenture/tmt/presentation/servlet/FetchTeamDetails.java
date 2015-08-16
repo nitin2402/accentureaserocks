@@ -45,8 +45,7 @@ public class FetchTeamDetails extends HttpServlet {
 		List<TeamFormDTO> li = new ArrayList<TeamFormDTO>();
 		TeamController fetch = new TeamController();
 		li = fetch.fetchTeamDetails();
-		// System.out.println(li);
-		// System.out.println(li.getItem(0));
+		
 		String exp = "<form action=\"EditTeam\"><div id=\"scrollable\"> <table class= \"table1\" border=\"1\" >"
 				+ "<tr style=\"font-weight:bold\"><td></td><td>Team Name</td><td>Module Name </td><td>Project Name</td><td>Team Description</td></tr>";
 

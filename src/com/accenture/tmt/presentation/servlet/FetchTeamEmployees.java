@@ -82,10 +82,7 @@ public class FetchTeamEmployees extends HttpServlet {
 						+ "	<input type=\"hidden\"  name=\"teamnam\" value=\""+tid+"\">"
 						+ "<input type=\"submit\" value=\"Show Employees\"></form><br<br>");
 
-		/*
-		 * request.setAttribute("ASE", noOfASE); request.setAttribute("SE",
-		 * noOfSE); request.setAttribute("SSE", noOfSSE);
-		 */
+		
 
 	}
 

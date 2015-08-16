@@ -45,12 +45,6 @@ public class FetchModuleForUser extends HttpServlet {
 		ModuleController fetch = new ModuleController();
 		li = fetch.fetchModuleDetails();
 		request.setAttribute("ModuleList", li);
-		//System.out.println(li);
-		//System.out.println(li.getItem(0));	
-	
-		
-		/*exp += "</table></div><input type=\"submit\" name=\"submit1\" value=\"Edit\"><input type=\"submit\" name=\"submit2\" value=\"Delete\">";
-		request.setAttribute("module", exp);*/
-	}
+		}
 
 }
