@@ -11,12 +11,11 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://www.google.com/jsapi"></script>
+<script src="https://www.google.com/jsapi"></script>
 <script src="piechart.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
-
 	});
 </script>
 <script type="text/javascript">
@@ -31,227 +30,17 @@
 				});
 	});
 </script>
-
-<!--
-<script src="https://www.google.com/jsapi"></script>
-<script>
-	$("#ajaxResponse").hide();
-	$("#header_02").hide();
-	google.setOnLoadCallback(initialize);
-	google.load("visualization", "1", {
-		packages : [ "corechart" ]
-	});
-	function myfunction() {
-
-		var myFunctionObj = new Object();
-
-		var count = 0;
-		var data = [];
-		var options = [];
-
-		var nASE = 10;
-		var nSE = 7;
-		var nSSE = 5;
-
-		/* var nASE =parseInt(ASE);
-		 var nSE = parseInt(SE);
-		 var nSSE = parseInt(SSE); */
-		var nTL = 3;
-		var nAM = 2;
-		var nM = 1;
-
-		var rASE = 310;
-		var rSE = 30;
-		var rSSE = 30;
-
-		/* var nASE =parseInt(ASE);
-		 var nSE = parseInt(SE);
-		 var nSSE = parseInt(SSE); */
-		var rTL = 13;
-		var rAM = 02;
-		var rM = 1;
-
-		var pASE = 110;
-		var pSE = 17;
-		var pSSE = 15;
-
-		/* var nASE =parseInt(ASE);
-		 var nSE = parseInt(SE);
-		 var nSSE = parseInt(SSE); */
-		var pTL = 13;
-		var pAM = 12;
-		var pM = 11;
-
-		data[0] = google.visualization.arrayToDataTable([
-				[ 'Designation', 'number' ], [ 'ASE', nASE ], [ 'SE', nSE ],
-				[ 'SSE', nSSE ], [ 'TL', nTL ], [ 'AM', nAM ], [ 'M', nM ] ]);
-
-		data[1] = google.visualization.arrayToDataTable([
-				[ 'Designation', 'number' ], [ 'ASE', rASE ], [ 'SE', rSE ],
-				[ 'SSE', rSSE ], [ 'TL', rTL ], [ 'AM', rAM ], [ 'M', rM ] ]);
-
-		data[2] = google.visualization.arrayToDataTable([
-				[ 'Designation', 'number' ], [ 'ASE', pASE ], [ 'SE', pSE ],
-				[ 'SSE', pSSE ], [ 'TL', pTL ], [ 'AM', pAM ], [ 'M', pM ] ]);
-
-		options[0] = {
-			is3D : true,
-			backgroundColor : '#647a2f',
-			title : 'E-Strategy',
-			chartArea : {
-				left : 100,
-				top : 50
-			}
-		};
-		options[1] = {
-			is3D : true,
-			backgroundColor : '#647a2f',
-			title : 'R3',
-			chartArea : {
-				left : 100,
-				top : 50
-			}
-		};
-		options[2] = {
-			is3D : true,
-			backgroundColor : '#647a2f',
-			title : 'Primier',
-			chartArea : {
-				left : 100,
-				top : 50
-			}
-		};
-		var chart = new google.visualization.PieChart(document
-				.getElementById('piechart'));
-
-		var change = setInterval(next, 3000);
-		function stop() {
-			clearInterval(change);
-		}
-		function next() {
-			if (count == 3)
-				count = 0;
-
-			var chart = new google.visualization.PieChart(document
-					.getElementById('piechart'));
-			chart.draw(data[count], options[count]);
-			count++;
-		}
-
-		myFunctionObj.next = next;
-		myFunctionObj.stop = stop;
-
-	}
-
-	function initialize() {
-
-		myfunction();
-		/*  	
-		setInterval(next, 3000); */
-
-	}
-
-	Multi = new myfunction();
-
-	function clickToStop() {
-		Multi.stop();
-	}
-
-	/*  function next()
-	 {
-		 alert(data[0]);
-	 
-		 if (count==2)
-			
-			{count=0;}
-		
-		 chart.draw(data[count],options);
-	 } */
-</script>
-
-<script>
-	function validate(form) {
-		var regExp = /^[a-zA-Z]{1,100}$/;
-
-		var msg1 = document.getElementById("msg1");
-
-		msg1.innerHTML = "";
-
-		if (!regExp.test(form.search_field.value)) {
-			msg1.innerHTML = "Name should be in alpha !";
-			return false;
-		}
-
-	}
-</script>
- -->
-
-
-
-<script>
-	$(document).ready(
-			function() {
-
-				$('#search_field').keyup(
-						function(event) {
-							var searchvalue = $("#search_field").val();
-							$(".error").hide();
-							$.ajax({
-								url : "/TMT/SearchEmployee",
-								type : "POST",
-								data : 'searchName=' + searchvalue,
-
-								success : function(data) {
-
-									$(".header_01").hide();
-									$(".header_09").show();
-									$(".header_09").text(
-											'Search results for \"'
-													+ searchvalue + '\"');
-									if (data != "") {
-										count=4;
-										if(data=="Please Login"){
-											alert("Session Expired..Please Login");
-											window.location = "login.jsp";
-										}else{
-											$("#search").hide();
-											 $("#ajaxResponse").show();
-											$("#ajaxResponse").html(data); 
-										}
-									} else {
-
-										$("#ajaxResponse").hide();
-
-										$("#search").show();
-										count=0;
-										$(".header_09").hide();
-										$(".header_01").show();
-
-									}
-
-								},
-								error : function() {
-
-								}
-							});
-
-						});
-			});
-</script>
-
-
 </head>
 <body>
-<%
-
-   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
-   response.addHeader("Pragma", "no-cache"); 
-   response.addDateHeader ("Expires", 0);
-   %>
+	<%
+		response.addHeader("Cache-Control",
+				"no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+		response.addHeader("Pragma", "no-cache");
+		response.addDateHeader("Expires", 0);
+	%>
 	<%
 		HttpSession session1 = request.getSession(false);
-		if (session1 == null
-				|| (String) session1.getAttribute("user") == null
+		if (session1 == null || (String) session1.getAttribute("user") == null
 				|| (String) session1.getAttribute("admin") != "user") {
 	%><jsp:forward page="login.jsp?msg=Please Login " />
 	<%
@@ -264,12 +53,16 @@
 			<div id="slogan">Plan, Organize, Budget, Schedule</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
-<div id="welcome_msg" style="color: yellow;float: right;
-font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
+		<div id="welcome_msg"
+			style="color: yellow; float: right; font-size: 12px;">
+			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
+		</div>
 
-		<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
-</div>
-	
+		<div id="header_section_code">"The talent management tool is an
+			integrated software tool that addresses the four pillars of talent
+			management: plan, organize, budget and schedule talents"</div>
+	</div>
+
 
 	<div id="templatemo_menu">
 		<ul>
@@ -318,8 +111,8 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
 			</div>
-	
-			<div class="content_left_section" style="font-size:14px">
+
+			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
 					<%-- <form action="#">
@@ -330,11 +123,11 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 						</div>
 
 					</form> --%>
-					
+
 					<ul>
-						<li><a href="viewemployee_user.jsp" >View Employee</a></li>
+						<li><a href="viewemployee_user.jsp">View Employee</a></li>
 						<li><a href="viewteam_user.jsp">View Team</a></li>
-						<li><a href="viewmodule_user.jsp" >View Module</a></li>
+						<li><a href="viewmodule_user.jsp">View Module</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
@@ -351,19 +144,20 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 				<div class="header_09"></div>
 
 				<div>
-<div id="search">
-					<div id="piechart"
-						style="background-colour: red; height: 300px; width: 600px"
-						onclick="clickToStop()"></div>
-						<div class="filter" ><span style="color: brown;font-size: 16px">Filter by</span><br/>
-					<a onclick="filter('billability')">Billability</a> /
-					<a onclick="filter('proficiency')">Proficiency</a> /
-					<a onclick="filter('expertise')">Expertise</a>
-					</div>
+					<div id="search">
+						<div id="piechart"
+							style="background-colour: red; height: 300px; width: 600px"
+							onclick="clickToStop()"></div>
+						<div class="filter">
+							<span style="color: brown; font-size: 16px">Filter by</span><br />
+							<a onclick="filter('billability')">Billability</a> / <a
+								onclick="filter('proficiency')">Proficiency</a> / <a
+								onclick="filter('expertise')">Expertise</a>
+						</div>
 					</div>
 					<div id="ajaxResponse"></div>
 					<p class="error message">${message}</p>
-	<p class="error" style="font-size: 14px; color: red;">${reqId}</p>
+					<p class="error" style="font-size: 14px; color: red;">${reqId}</p>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
@@ -373,7 +167,7 @@ font-size: 12px;">Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a></div>
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		
+
 		<div id="templatemo_footer">
 			Copyright © 2015 <a href="www.accenture.com">Accenture</a>
 		</div>
