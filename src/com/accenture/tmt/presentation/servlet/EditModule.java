@@ -68,27 +68,12 @@ public class EditModule extends HttpServlet {
 		List<ModuleDetailsDTO> li = new ArrayList<ModuleDetailsDTO>();
 	
 		
-	/*	String newModule = request.getParameter("newmodule");
-		String project = request.getParameter("project1");
-*/
+	
 		
 		li=editModule.fetchModuleDetails(module);
 		
 		
-/*	if(newModule==null || newModule=="")
-		{
-		newModule=module;
-		}*/
-		
-		/*String id = editModule.fetchModuleid(module);*/
-	
-		
-		
-		/*String projectId = editModule.FetchProjectId(project);*/
-		
-		/*int a =editModule.EditModule(newModule,id,projectId);
-		if(a>0)
-		{*/
+
 		request.setAttribute("module", li);
 		request.getRequestDispatcher("editmodule.jsp").forward(request, response);
 		}
@@ -125,15 +110,6 @@ public class EditModule extends HttpServlet {
 			}
 			
 		}
-	/*	}
-		else
-		{
-			
-				response.sendRedirect("editmodule.jsp?msg1=Failed to save changes !!");
-						
-		}
-		
-	}
-*/
+	
 }
 }
