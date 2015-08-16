@@ -15,36 +15,11 @@
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-<!-- <script>
-	$(document).ready(function() {
-		$(".header_09").hide();
-	});
-</script> -->
-
 <script type='text/javascript' src='search.js'></script>
-
 </head>
-
 <body>
 	
 	<jsp:include page="/FetchTeam"/>
-	
-	<%-- <%
-		HttpSession session1 = request.getSession(false);
-		if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				|| (String) session1.getAttribute("admin") != "user") {
-	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
-	<%
-		}
-	%>  --%>
-	
-	
-	
-
-	
-
 		<%
               HttpSession session1 = request.getSession(false);
               if (session1 == null

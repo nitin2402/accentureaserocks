@@ -14,24 +14,6 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type='text/javascript' src='search.js'></script>
-<!-- <script>
-	$(document).ready(function() {
-		$(".header_09").hide();
-	});
-</script> -->
-<!-- <script type="text/javascript">
-	$(function() {
-		$('.last').click(
-				function(event) {
-					var email = 'chinu.mohanty@accenture.com';
-					var subject = 'Feedback';
-					var emailBody = 'Hi Chinu,';
-					window.location = 'mailto:' + email + '?subject=' + subject
-							+ '&body=' + emailBody;
-				});
-	});
-</script> -->
-
 <script>
 	$(document).ready(
 			function() {
@@ -39,7 +21,7 @@
 
 				$('#s_module').change(
 						function(event) {
-							
+
 							var dropDownValue = $("#s_module").children(
 									"option").filter(":selected").text();
 
@@ -49,8 +31,8 @@
 								data : 'moduleName=' + dropDownValue,
 
 								success : function(data) {
-$("#hide1").hide();
-$("#show1").show();
+									$("#hide1").hide();
+									$("#show1").show();
 									$("#ajaxResponse").html(data);
 
 								},
@@ -64,43 +46,41 @@ $("#show1").show();
 </script>
 
 <script type="text/javascript">
-function validate(e){
-	var teamname=document.forms["edit"]["teamname"].value;
-	var teamdesc=document.forms["edit"]["teamdesc"].value;
-	if (teamname == null || teamname == "" || teamdesc==null || teamdesc=="" ){
-		alert("Please enter the required fields!");
-		return false;
+	function validate(e) {
+		var teamname = document.forms["edit"]["teamname"].value;
+		var teamdesc = document.forms["edit"]["teamdesc"].value;
+		if (teamname == null || teamname == "" || teamdesc == null
+				|| teamdesc == "") {
+			alert("Please enter the required fields!");
+			return false;
+		}
 	}
-}
-
-
 </script>
-<script >
-$(document).ready(function(){
+<script>
+	$(document).ready(function() {
 
-        $("#ViewteamCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
+		$("#ViewteamCss").css({
 
-	</script>
+			"font-weight" : "bold",
+			"text-decoration" : "underline"
+		});
+	});
+</script>
 
 </head>
 <body>
-<%@ include file="header_admin.jsp" %>  
+	<%@ include file="header_admin.jsp"%>
 	<%
-
-HttpSession session1 = request.getSession(false);
-if (session1 == null  /* || (String)session1.getAttribute("user") == null || (Boolean)session1.getAttribute("admin") != true */ ){
-    %><jsp:forward page="home.jsp?msg=Please Login as an Admin" /><%
-}
-%>
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null /* || (String)session1.getAttribute("user") == null || (Boolean)session1.getAttribute("admin") != true */) {
+	%><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
+	<%
+		}
+	%>
 	<div id="templatemo_content">
 
 		<%@ include file="common_left_admintool.jsp"%>
-	
+
 
 		<div id="content_right">
 
@@ -113,71 +93,47 @@ if (session1 == null  /* || (String)session1.getAttribute("user") == null || (Bo
 
 
 					<div id="search" style="font-size: 14px;">
-						<form name="edit" action="EditTeamFinal" method="post" onsubmit="return validate()">
-							<%-- <table>
-								<tr>
-									<td>Module:</td>
-									<td><select id="s_module" name="s_module"><jstlcore:forEach
-												var="aff" items="${modu}">
+						<form name="edit" action="EditTeamFinal" method="post"
+							onsubmit="return validate()">
 
-												<option value="${aff}">${aff}</option>
+							<jstlcore:forEach items="${team}" var="list">
+								<table>
 
-											</jstlcore:forEach></select></td>
-								</tr>
-													
-
-								<tr id="hide1">
-								<td >Team:</td><td><select><option value="Select Module">Select Module</option></select></td>
+									<tr>
+										<td>Team Name :</td>
+										<td><input type="text" name="teamname"
+											value="${list.teamName}"></input></td>
 									</tr>
 									<tr>
-										<td id="show1">Team:</td><td id="ajaxResponse"></td>
-									
-									</tr><tr>
-									<td>New Team Name:</td>
-									<td><input type="text" name="newteam" id="newteam" />(leave
-										this field blank for no change in Name)</td>
-								</tr>
-								<tr>
-									<td>New Module:</td>
-									<td><select name="newmodule" id="newmodule"><jstlcore:forEach
-												var="aff" items="${modu}">
-
-												<option value="${aff}">${aff}</option>
-
-											</jstlcore:forEach></select></td>
-								</tr>
-							</table>
- --%>
- <jstlcore:forEach items="${team}" var="list">
-							<table>
-							
-								<tr>
-									<td>Team Name : </td><td><input type="text" name="teamname" value="${list.teamName}"></input></td>
-								</tr>
-								<tr>
-									<td>Module:</td><td><input type="text" value="${list.moduleName}" disabled="disabled"></input></td>
-								</tr>
+										<td>Module:</td>
+										<td><input type="text" value="${list.moduleName}"
+											disabled="disabled"></input></td>
+									</tr>
 									<tr>
-									<td>New Module:</td><td><select name="module" id="module"><jstlcore:forEach
-							var="aff" items="${modu}">
+										<td>New Module:</td>
+										<td><select name="module" id="module"><jstlcore:forEach
+													var="aff" items="${modu}">
 
-							<option value="${aff}">${aff}</option>
-						</jstlcore:forEach></select></td>
-								</tr>
-								<tr>
-									<td>Team Description : </td><td><input type="text" name="teamdesc" value="${list.teamDescription}"></input>
-									<input type="hidden" name="teamid" value ="${list.teamId}"></input></td>
-								</tr>
-</table></jstlcore:forEach>
- 
+													<option value="${aff}">${aff}</option>
+												</jstlcore:forEach></select></td>
+									</tr>
+									<tr>
+										<td>Team Description :</td>
+										<td><input type="text" name="teamdesc"
+											value="${list.teamDescription}"></input> <input type="hidden"
+											name="teamid" value="${list.teamId}"></input></td>
+									</tr>
+								</table>
+							</jstlcore:forEach>
+
 
 							<input type="submit" value="Change" style="margin-left: 123px" />
-							
+
 
 							<br />
 						</form>
 					</div>
-					
+
 
 					<div id="ajaxResponse"></div>
 					<p class="error" style="font-size: 14px; color: red;">${message}</p>
@@ -190,7 +146,7 @@ if (session1 == null  /* || (String)session1.getAttribute("user") == null || (Bo
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-			<%@ include file="footer.jsp"%>
+		<%@ include file="footer.jsp"%>
 	</div>
 
 

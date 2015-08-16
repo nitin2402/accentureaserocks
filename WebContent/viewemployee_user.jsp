@@ -18,11 +18,7 @@
 
 
 
-<!-- <script>
-       $(document).ready(function() {
-              $(".header_09").hide();
-       });
-</script> -->
+
 <script>
 	function validateForm() {
 
@@ -163,9 +159,7 @@
 
                            <div>
                            
-                          <!--  <input type="submit" id="editEmployee" name="editEmployee" onclick="return validateForm()" value="Edit" ></input>
-                           <input type="submit" id="deleteEmployee" name="deleteEmployee" onclick="return validateForm()" value="Delete" ></input> -->
-                         <!--  <input type="submit" id="deleteEmployee" onclick="return validateForm()" value="Delete"></input> -->
+                          
                            </div>
 
                                  <br/> <div>${msg1}</div>
@@ -182,7 +176,7 @@
                      <div class="cleaner">&nbsp;</div>
               </div>
               <%@ include file="footer.jsp" %>   
-</div>
+
 
   
 

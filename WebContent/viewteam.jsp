@@ -20,60 +20,48 @@
 	});
 </script>
 <script type='text/javascript' src='searchAdmin.js'></script>
-<script >$(document).ready(function(){
+<script>
+	$(document).ready(function() {
 
-        $("#ViewteamCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
+		$("#ViewteamCss").css({
 
-	</script>
+			"font-weight" : "bold",
+			"text-decoration" : "underline"
+		});
+	});
+</script>
 
 </head>
 <body>
-<%@ include file="header_admin.jsp" %> 
+	<%@ include file="header_admin.jsp"%>
 	<jsp:include page="/FetchTeamDetails" />
 
 	<%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
-				/* || (String) session1.getAttribute("user") == null
-				|| (Boolean) session1.getAttribute("admin") != true */) {
+		/* || (String) session1.getAttribute("user") == null
+		|| (Boolean) session1.getAttribute("admin") != true */) {
 	%><jsp:forward page="home.jsp?msg=Please Login as an Admin" />
 	<%
 		}
 	%>
-	
+
 	<div id="templatemo_content">
-	<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left_admintool.jsp"%>
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: auto">
-<div id="search">
-				<div class="header_01" >View Team</div>
-			<div >	${team}</div>
+				<div id="search">
+					<div class="header_01">View Team</div>
+					<div>${team}</div>
 
-				<div>
-<br/><br/>
-<div style="color: red;font-size: 12px">${message}</div>
+					<div>
+						<br />
+						<br />
+						<div style="color: red; font-size: 12px">${message}</div>
 
-					<div style="font-size: 14px;">
-						<%-- <table>
-			<tr>
-				<td>PROJECT:</td>
-				<td><select name="project" id="project"><jstlcore:forEach
-							var="aff" items="${project}">
-
-							<option value="${aff}">${aff}</option>
-						</jstlcore:forEach></select>]</td>
-			</tr>
-		</table>
-		 --%>
+						<div style="font-size: 14px;"></div>
 					</div>
-</div>
-					<%-- <div>${msg1}</div> --%>
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
@@ -84,8 +72,8 @@
 
 			<div class="cleaner">&nbsp;</div>
 		</div>
-		<%@ include file="footer.jsp" %> 
-		</div>
+		<%@ include file="footer.jsp"%>
+	</div>
 
 
 
