@@ -16,36 +16,7 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- <script>
-$(document).ready(function(){
-    
-        $("#current").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    
-        $("#release").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    $("#current1").click(function(){
-        $("#current").toggle();
-         
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-    $("#release1").click(function(){
-        $("#release").toggle();
-         
-    });
-});
-</script> -->
+	
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -62,17 +33,14 @@ table, th, td {
 
 
 <body>
- <%-- <% 
-		HttpSession session1 = request.getSession(false);
- %>
-		<%-- if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				/*  || (String) session1.getAttribute("admin") != "admin" */ ) {
+ <%
+		HttpSession session1 = request.getSession();
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null) {
 	%><jsp:forward page="login.jsp?msg=Please Login " />
 	<%
-		} 
-	    
-	< --%>
+		}
+	%>
 <%@ include file="header_users.jsp" %>  
 
 	<div id="templatemo_content">
