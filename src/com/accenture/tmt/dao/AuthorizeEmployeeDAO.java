@@ -28,12 +28,12 @@ public class AuthorizeEmployeeDAO {
 				rs = st.executeQuery();
 				while(rs.next()){
 					LoginFlatDTO dto = new LoginFlatDTO();
-				    dto.setLoginId(rs.getString("L_ID"));
-					dto.setUserName(rs.getString("Username"));
-					dto.setTypeOfUser(rs.getString("TypeOfUser"));
-					dto.setEmployeeId(rs.getString("EmployeeId"));
-					dto.setActiveUser(rs.getString("ActiveUser"));
-					dto.setEmployeedesignation(rs.getString("EmployeeDesignation"));
+				    dto.setLoginId(rs.getString(CONSTANTS.LOGIN_ID));
+					dto.setUserName(rs.getString(CONSTANTS.GET_USER_NAME));
+					dto.setTypeOfUser(rs.getString(CONSTANTS.USERTYPE));
+					dto.setEmployeeId(rs.getString(CONSTANTS.EMPLOYEE_ID));
+					dto.setActiveUser(rs.getString(CONSTANTS.ACTIVE_USER));
+					dto.setEmployeedesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
 					list.add(dto);
 				}
 				
