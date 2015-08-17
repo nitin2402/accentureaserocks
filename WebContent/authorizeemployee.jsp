@@ -10,45 +10,34 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type='text/javascript' src='searchAdmin.js'></script>
+<script type='text/javascript' src='search.js'></script>
   <script type='text/javascript' src='authorizeemployee.js'></script> 
-  <script >
-$(document).ready(function(){
-
-        $("#authCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
-
-	</script>
 </head>
+
 <body>
 
+
+                          <!-- HEADER OF AUTHORISE EMPLOYEE -->
+                          
 <jsp:include page="/AuthorizeEmployeeServlet" />
 	<%@ include file="header_admin.jsp" %>
 	<%
 		HttpSession session1 = request.getSession(false);
-
-		if (session1 == null
-
-		|| (String) session1.getAttribute("user") == null
-
-		|| (String) session1.getAttribute("admin") != "admin") {
+		if (session1 == null|| (String) session1.getAttribute("user") == null
+				|| (String) session1.getAttribute("admin") != "admin") {
 	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
-
 	<%
-		}
+	}
 	%>
 
 
-
+                        <!--CONTENT OF AUTHORISE EMPLOYEE  -->
 
 	<div id="templatemo_content">
 
-	
+	<!-- content left -->
 <%@ include file="common_left_admintool.jsp" %>
+         <!-- content right -->
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
@@ -59,7 +48,7 @@ $(document).ready(function(){
 				<form name="authorizeForm" method="post" action="TypeOfUserServlet" >
 				<div id="scrollable"   style="font-size: 14px; height:165px;">
 						
-						
+			
 						<table class="table2" > 
 							<thead style="font-weight:bold;position: ">
 							<tr  class="one" style="font-weight:bold;">
@@ -102,10 +91,12 @@ $(document).ready(function(){
 
 				<div class="cleaner">&nbsp;</div>
 			</div>
+			
+			<!-- FOOTER OF THE AUTHORISE EMPLOYEE -->
 			<div class="margin_bottom_20">&nbsp;</div>
 		</div>
-			</div>
+		
 			<%@ include file="footer.jsp" %> 
-			 
+			 	</div>
 			</body>  
 </html>
