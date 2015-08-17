@@ -78,7 +78,7 @@
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
-				<div align="center"><a href="modulereport.jsp" style="color : yellow ;">BACK</a></div>
+				<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
 			
 		</div>
 			<div class="cleaner">&nbsp;</div>
