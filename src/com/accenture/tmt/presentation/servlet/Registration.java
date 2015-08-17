@@ -1,6 +1,7 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.manager.SignupController;
+import com.accenture.tmt.presentation.dto.LoginDTO;
 import com.accenture.tmt.presentation.dto.RegistrationDTO;
 
 /**
@@ -44,7 +46,7 @@ public class Registration extends HttpServlet {
 		LoginDTO registerCred = new LoginDTO();
 	registerCred.setUsername(userName);
 	registerCred.setPassword(password);
-	registerCred.setEmployeeid(employeeid);
+	registerCred.setEmployeeId(employeeid);
 	SignupController registerCtrl = new SignupController();
 	 int returnuserregistered = registerCtrl.UserRegistration(registerCred);
 	 if(returnuserregistered==0)
