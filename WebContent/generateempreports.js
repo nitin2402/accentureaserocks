@@ -54,7 +54,7 @@
 			$("#div1").hide();
 		}
 	}
-	function validateform()
+	/*function validateform()
 	{
 	
 	
@@ -66,4 +66,4 @@
 	   alert("Last Date Of Working must be after Date Of Joining");
 	   return false;
 	}
-	}
+	}*/
