@@ -12,6 +12,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="admintool.js"></script> 
   <script type='text/javascript' src='search.js'></script>
+  <script type='text/javascript' src='searchAdmin.js'></script>
 <meta charset="utf-8">
  
 </head>
@@ -30,14 +31,9 @@
 
 	<div id="templatemo_content">
 		<%@ include file="common_left.jsp" %>
-		
 		<div id="content_right">
 			<div class="right_col_section_w650" style="height: 300px">
-				<script>
- 					 $(function() {
- 					 $( "#datepicker1" ).datepicker();
- 					 });
-  				</script>
+				
   				<div id = "search">
   				<div id="scrollable"   style="font-size: 14px;">
   				<table class="table2" > 
@@ -70,13 +66,24 @@
 									<td><jstlcore:out value="${item.timestamp}" /></td> 
 								</tr>
 				</jstlcore:forEach></tbody></table>
+				</div>
 				<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
+				<div>
+				<br />
+				<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<div class="notification">${message}</div>
+
+					<div class="cleaner">&nbsp;</div>
 				</div>
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
-				<div align="center"><a href="request_reports.jsp" style="color : yellow ;">BACK</a></div>
+					<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
 			</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
