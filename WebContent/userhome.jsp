@@ -56,12 +56,12 @@
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="userhome.jsp" class="current">Home</a></li>
-			<!--  <li><a href="addempvia.jsp">Admin Tools</a></li> -->
+			
 			<li><a href="workplanvia.jsp">Workplan</a></li>
 			<li><a href="ProjectUser.jsp">Projects</a></li>
 			<li><a href="user_initiative.jsp">Initiatives</a></li>
-			<li><a href="about_us_users.jsp">About Us</a></li>
-			<!-- <li><a href="logout.jsp">Logout</a></li>-->
+			<li><a href="aboutus.jsp">About Us</a></li>
+		
 			<li><a href="#" class="last">Contact Us</a></li>
 		</ul>
 	</div>
@@ -75,8 +75,7 @@
 				<div class="content_left_section_content">
 					<form action="#">
 						Name<input type="text" id="search_field" name="search_field" />
-						<!--  <input
-							type="submit" value="Search" id="search_button" /> -->
+						
 						<div>
 							<span id="msg1">${param.msg1}</span>
 						</div>
