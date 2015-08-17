@@ -27,8 +27,7 @@ public class ProjectDAO {
 				
 				PreparedStatement st = con.prepareStatement(sqlFetch);
 				ResultSet rs = st.executeQuery();
-			//	ResultSetMetaData metaData = rs.getMetaData();
-			//	int count = metaData.getColumnCount();
+			
 				while(rs.next())
 				{
 						
@@ -88,37 +87,6 @@ private List<String> projectNames = new ArrayList<String>();
 				current.setCurrentRelease(rs.getString("CurrentRelease"));
 				current.setReleaseDate(rs.getString("ReleaseDate"));
 				
-				list.add(current);
-			}
-			
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-	public List<ProjectDTO> releaseDate(){
-		List<ProjectDTO> list = new ArrayList<ProjectDTO>();
-		try {
-			
-			Connection con = DBConnection.getConnection();
-			PreparedStatement st = con.prepareStatement(CONSTANTS.Release);
-			
-			
-			ResultSet rs = st.executeQuery();
-			
-			while(rs.next())
-			{
-				ProjectDTO current = new ProjectDTO();
-				/*current.setProjectName(rs.getString("ProjectName"));*/
-				current.setCurrentRelease(rs.getString("CurrentRelease"));
-				current.setReleaseDate(rs.getString("ReleaseDate"));
-		
 				list.add(current);
 			}
 			
