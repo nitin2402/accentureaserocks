@@ -9,7 +9,6 @@
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type='text/javascript' src='searchAdmin.js'></script>
 <script type='text/javascript' src='search.js'></script>
 </head>
 <body>
@@ -24,22 +23,24 @@
 		}
 	%> 
 <div id="templatemo_content">
+
 <%@ include file="common_left.jsp" %>
+
 			<div id="content_right">
 			<div class="right_col_section_w650" style="height: auto;">
 				<div class="header_01">Reports</div>
                  <div id="search" style="font-size:13px">
-				    <div>
+				    <div style="font-size:14px">
 					<ul>
-						</br>
+						<br/>
 						<li><a href="request_reports.jsp">Reports Generated for Requests</a></li>
-						</br>
+						<br/>
 						<li><a href="generateempreports.jsp">Reports Generated for Employee</a></li>
-						</br>
+						<br/>
 						<li><a href="teamreport.jsp">Reports Generated for Team</a></li>
-						</br>
+						<br/>
 						<li><a href="modulereport.jsp">Reports Generated for Module</a></li>
-						</br>
+						<br/>
 					</ul>
 					</div>
 				</div>
