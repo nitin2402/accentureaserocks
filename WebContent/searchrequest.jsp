@@ -11,7 +11,7 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="searchrequest.js"></script> 
-<script type='text/javascript' src='searchAdmin.js'></script>
+<script type='text/javascript' src='search.js'></script>
 </head>
 <body>
 <jsp:include page="/SearchRequestServlet" />
