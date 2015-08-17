@@ -20,8 +20,7 @@
 </script>
 <script src="https://www.google.com/jsapi"></script>
 <script src="piechart.js"></script>
-<script src="searchAdmin.js"></script>
-
+<script src="search.js"></script>
 </head>
 <body>
 	
