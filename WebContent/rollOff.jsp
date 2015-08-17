@@ -16,36 +16,7 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- <script>
-$(document).ready(function(){
-    
-        $("#current").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    
-        $("#release").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    $("#current1").click(function(){
-        $("#current").toggle();
-         
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-    $("#release1").click(function(){
-        $("#release").toggle();
-         
-    });
-});
-</script> -->
+
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -85,19 +56,33 @@ function validateform(){
 <body>
 	<jsp:include page="/ProjectCurrent"/>
 
- <%-- <% 
+ 	<%
 		HttpSession session1 = request.getSession(false);
- %>
-		<%-- if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				/*  || (String) session1.getAttribute("admin") != "admin" */ ) {
-	%><jsp:forward page="login.jsp?msg=Please Login " />
-	<%
-		} 
-	    
-	< --%>
-<%@ include file="header_users.jsp" %>  
 
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") == "viewer") {
+	%><jsp:forward page="login.jsp?msg=Please Login " />
+
+	<%
+		}
+	%>
+	<%
+	if ((String) session1.getAttribute("admin") == "admin") {
+%>
+<%@ include file="header_admin.jsp" %>  
+<%
+	}
+%>
+<%
+	if ((String) session1.getAttribute("admin") == "user") {
+%>
+<%@ include file="header_users.jsp" %> 
+<%
+	}
+%>
 	<div id="templatemo_content">
 	
 	<%@ include file="common_left.jsp"%>
@@ -114,6 +99,11 @@ function validateform(){
 				<div id="search">
 				<div class="text_size">
 				<div id="div1">
+				
+
+
+
+				
 				<table>
 	<tr>
 		<td>1) Has user been allocated a laptop?</td>
@@ -215,25 +205,20 @@ function validateform(){
 		</td>
 	</tr>
 </table>
+<form  action="PDFServlet"  method="post">
+<input type="hidden" name="userName" value="${user}" />
+<br /> <br /> <br />
+<a > <input type="submit" value= "Download Exit Checklist Form" href="template/ExitCheckList.pdf" style="font-size: 14px" onclick="return validateform();">
+</a>
+
+ <br /> <br /> <br />
+</form>
 </div>	
 	</div>
 	</br> 
 				
-	<!-- <button type="submit" value="Generate">Generate PDF</button>	 -->	
-	<div>
-
-<a href="template/ARISTOS-IT Exit Checklist-Bang6 doc.doc" style="font-size: 14px" onclick="return validateform();"> Download Exit Checklist Form
-
- </a> <br /> <br /> <br />
-
-</div>
-
 	
-
-					
-				
-				
-				</div>
+	</div>
 				<div id="ajaxResponse"></div>
 				<p class="error message">${message}</p>
 
