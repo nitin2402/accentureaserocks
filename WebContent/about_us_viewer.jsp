@@ -27,23 +27,23 @@ table, th, td {
 	%><jsp:forward page="login.jsp?msg=Please Login " />
 	<%
 		}
-		if((String) session1.getAttribute("admin") != "admin")){
+		if((String) session1.getAttribute("admin") != "admin"){
 			%>
 			<%@ include file="header_admin.jsp" %>
 			<%
 		}
 	%>
 	<%
-		}
-		if((String) session1.getAttribute("admin") != "user")){
+		
+		if((String) session1.getAttribute("admin") != "user"){
 			%>
 				<%@ include file="header_users.jsp" %>
 			<%
 		}
 	%>
 	<%
-		}
-		if((String) session1.getAttribute("admin") != "viewer")){
+		
+		if((String) session1.getAttribute("admin") != "viewer"){
 			%>
 			<%@ include file="header_viewer.jsp" %>
 			<%
