@@ -87,7 +87,7 @@ public interface CONSTANTS {
 		public String TEAM_DESCRIPTION = "TeamDescription";
 		public String UPDATE_BUDGET = "UPDATE BudgetDetail SET BudgetValue=? WHERE Designation=?";
 		public String FETCH_MODULE = "SELECT * FROM BudgetDetail ORDER BY Level";
-		
+		public String MODULEID_QUERY = "SELECT ModuleName FROM ModuleDetail WHERE ProjectId=?";
 		public String TYPE_OF_USER = "typeOfUser";
 		public String ADMIN = "ADMIN";
 		public String USER = "USER";
