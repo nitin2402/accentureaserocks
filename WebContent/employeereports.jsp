@@ -15,16 +15,9 @@
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css"/>
+ 
   
-  <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
+ 
 </head>
 <body>
 <%@ include file="header_admin.jsp" %>
@@ -48,11 +41,7 @@
 		<%@ include file="common_left.jsp" %>
 		<div id="content_right">
 			<div class="right_col_section_w650" style="height: 500px">
-				<script>
- 					 $(function() {
- 					 $( "#datepicker1" ).datepicker();
- 					 });
-  				</script>
+				
   				<div id = "search">
   				<div id="scrollable"   style="font-size: 14px;height: 450px;">
   				<table class="table2 table_align" > 
@@ -104,7 +93,9 @@
 									
 								</tr>
 				</jstlcore:forEach></tbody></table>
+					
 				</div>
+				<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
 				<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
 				<div>
@@ -118,9 +109,11 @@
 
 					<div class="cleaner">&nbsp;</div>
 				</div>
+			
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
+				
 			</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
