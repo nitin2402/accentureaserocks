@@ -124,7 +124,7 @@
 				
 			<div id="welcome_msg"
 			style="color: yellow; float: right; font-size: 12px;">
-			<a href="AboutProjectadmin.jsp">About Project</a>
+			<a href="aboutProject.jsp">About Project</a>
 		</div>
 		<div class="margin_bottom_20">&nbsp;</div>
 		</div>
