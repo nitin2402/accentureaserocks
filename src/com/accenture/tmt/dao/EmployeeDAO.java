@@ -43,11 +43,10 @@ public class EmployeeDAO {
 			con.commit();
 			con.close();
 		} catch (SQLException | ClassNotFoundException exception) {
-			// TODO Auto-generated catch block
+
 			exception.printStackTrace();
 		} finally {
 
-			// TODO: release connection
 		}
 		return a;
 	}
@@ -75,9 +74,7 @@ public class EmployeeDAO {
 						.getString(CONSTANTS.EMPLOYEE_CLIENTID));
 				searchDetailsDTO.setEmail(rs
 						.getString(CONSTANTS.EMPLOYEE_EMAIL));
-				// searchDetailsDTO.setTeamId(teamId);rs.getString(CONSTANTS.TEAM_NAME));
-				// searchDetailsDTO.setModule(rs.getString(CONSTANTS.MODULE_NAME));
-				// searchDetailsDTO.setProject(rs.getString(CONSTANTS.PROJECT));
+
 				employeeList.add(searchDetailsDTO);
 
 			}
@@ -107,10 +104,10 @@ public class EmployeeDAO {
 			empCount = list.size();
 			con.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		return empCount;
@@ -122,11 +119,12 @@ public class EmployeeDAO {
 		EmployeeDetailsFlatDTO details = null;
 		try {
 			Connection con = DBConnection.getConnection();
-			PreparedStatement st = con.prepareStatement(CONSTANTS.VIEW_EMPLOYEE_QUERY);
+			PreparedStatement st = con
+					.prepareStatement(CONSTANTS.VIEW_EMPLOYEE_QUERY);
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
-			
+
 				details = new EmployeeDetailsFlatDTO();
 				details.setEmpId(rs.getString("EmployeeId"));
 				details.setEmpName(rs.getString("EmployeeName"));
@@ -139,17 +137,16 @@ public class EmployeeDAO {
 				details.setProfCamps(rs.getString("ProficiencyCams"));
 				details.setProfProject(rs.getString("ProficiencyProject"));
 				details.setDoj(rs.getString("DateofJoining"));
-				/* details.setLastWD(rs.getString("LastWorkingDay")); */
+
 				details.setIsBillable(rs.getString("Billable"));
-				/* details.setIsActive(rs.getNString("ActiveUser")); */
 
 				empList.add(details);
 			}
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -183,14 +180,14 @@ public class EmployeeDAO {
 				emp.setIsBillable(rs.getString(CONSTANTS.BILLABLE));
 				employeeList.add(emp);
 			}
-		
+
 			con.close();
 
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -205,9 +202,8 @@ public class EmployeeDAO {
 			PreparedStatement st = con.prepareStatement(CONSTANTS.UPDATE_QUERY);
 			st.setString(1, employeeDetailsDTO.getEmpName());
 
-			
 			st.setString(2, employeeDetailsDTO.getLevel());
-		
+
 			st.setString(3, employeeDetailsDTO.getDesignation());
 			st.setString(4, employeeDetailsDTO.getExpertise());
 			st.setString(5, employeeDetailsDTO.getClientId());
@@ -216,16 +212,16 @@ public class EmployeeDAO {
 			st.setString(8, employeeDetailsDTO.getProfProject());
 			st.setString(9, employeeDetailsDTO.getDoj());
 			st.setString(10, employeeDetailsDTO.getIsBillable());
-			st.setString(11, employeeDetailsDTO.getEmpId() );
+			st.setString(11, employeeDetailsDTO.getEmpId());
 
 			status = st.executeUpdate();
 			con.commit();
 			con.close();
 		} catch (SQLException | ClassNotFoundException exception) {
-			// TODO Auto-generated catch block
+
 			exception.printStackTrace();
 		} finally {
-			// TODO: release connection
+
 		}
 		return status;
 	}
@@ -240,8 +236,6 @@ public class EmployeeDAO {
 
 			PreparedStatement st = con
 					.prepareStatement(CONSTANTS.SEARCH_EMPLOYEE);
-
-			
 
 			st.setString(1, "%" + name + "%");
 
@@ -271,10 +265,10 @@ public class EmployeeDAO {
 			}
 			con.close();
 		} catch (ClassNotFoundException e) {
-			
+
 			e.printStackTrace();
 		} catch (SQLException e) {
-		
+
 			e.printStackTrace();
 		}
 
@@ -282,28 +276,27 @@ public class EmployeeDAO {
 
 	}
 
-	
-	public int deleteEmployee(String empId) throws ClassNotFoundException, SQLException{
+	public int deleteEmployee(String empId) throws ClassNotFoundException,
+			SQLException {
 		Connection con = DBConnection.getConnection();
-		int status=0;
-		try{
+		int status = 0;
+		try {
 			String sqlemp = "UPDATE Employee SET ActiveUser = 'No' WHERE EmployeeId = ?";
 
-			PreparedStatement stemp=con.prepareStatement(sqlemp);
+			PreparedStatement stemp = con.prepareStatement(sqlemp);
 			stemp.setString(1, empId);
-			
+
 			stemp.executeUpdate();
-			
-		}
-		finally{
+
+		} finally {
 			con.commit();
 			con.close();
-			
+
 		}
 		return status;
-		
+
 	}
-	
+
 	public List<EmployeeDetailsFlatDTO> getToAssign(String employee) {
 
 		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
@@ -316,7 +309,6 @@ public class EmployeeDAO {
 			PreparedStatement st = con
 					.prepareStatement("SELECT * FROM Employee WHERE EmployeeId = ?");
 
-			// System.out.println("%"+name+"%");
 			System.out.println(employee);
 			st.setString(1, employee);
 
@@ -338,10 +330,10 @@ public class EmployeeDAO {
 			}
 			con.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -352,24 +344,12 @@ public class EmployeeDAO {
 	public int addEmployeeFinal(String s_empId, String s_team) {
 		int status = 0;
 
-		// ModuleManager moduleId = new ModuleManager();
-
-		// TeamManager teamId = new TeamManager();
-
 		try {
 			Connection con = DBConnection.getConnection();
 
 			String sqlInsert = "UPDATE Employee SET TeamId=? WHERE EmployeeId=?; ";
 
 			PreparedStatement st = con.prepareStatement(sqlInsert);
-			/*
-			 * st.setString(1, s_empName);
-			 * 
-			 * // System.out.println(empDetailDo.getEmpId()); st.setString(3,
-			 * s_level); // System.out.println(empDetailDo.getLevel());
-			 * st.setString(4, s_designation); st.setString(5, s_experience);
-			 * st.setString(6, s_expertise);
-			 */
 
 			st.setString(1, s_team);
 			st.setString(2, s_empId);
@@ -377,119 +357,120 @@ public class EmployeeDAO {
 			con.commit();
 			con.close();
 		} catch (SQLException | ClassNotFoundException exception) {
-			// TODO Auto-generated catch block
+
 			exception.printStackTrace();
 		} finally {
-			// TODO: release connection
+
 		}
 		return status;
 
 	}
+
 	public static List<pieCount> fetchPieDetails(PieChartDTO pieDTO) {
-		List<pieCount> piechartlist= new ArrayList<pieCount>();
+		List<pieCount> piechartlist = new ArrayList<pieCount>();
 		pieCount pieCount = new pieCount();
 		String name = "";
 		int count = 0;
-		int billable=0;
-		int ASE=0;
-		int SE=0;
-		int SSE=0;
-		int TL=0;
-		int AM=0;
-		int M=0;
-		int angularJS=0;
-		int AT=0;
-		int C_UNIX=0;
-		int FST=0;
-		int HTML=0;
-		int java=0;
-		int JSP=0;
-		int QA=0;
-		int TBD=0;
-		int p0=0;
-		int p1=0;
-		int p2=0;
-		int p3=0;
-		int p4=0;
-		
+		int billable = 0;
+		int ASE = 0;
+		int SE = 0;
+		int SSE = 0;
+		int TL = 0;
+		int AM = 0;
+		int M = 0;
+		int angularJS = 0;
+		int AT = 0;
+		int C_UNIX = 0;
+		int FST = 0;
+		int HTML = 0;
+		int java = 0;
+		int JSP = 0;
+		int QA = 0;
+		int TBD = 0;
+		int p0 = 0;
+		int p1 = 0;
+		int p2 = 0;
+		int p3 = 0;
+		int p4 = 0;
 
-		// TODO Auto-generated method stub
 		try {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con
 					.prepareStatement(CONSTANTS.GET_PIECHART_DETAILS);
 			st.setString(1, pieDTO.getProject());
 			ResultSet rs = st.executeQuery();
-		
+
 			while (rs.next()) {
 				name = rs.getString("ProjectName");
 				++count;
 				if (rs.getString("Billable").equals("yes")) {
 					++billable;
 				}
-				if(rs.getString("EmployeeDesignation") .equals( "ASE")){
+				if (rs.getString("EmployeeDesignation").equals("ASE")) {
 					++ASE;
 				}
-				if(rs.getString("EmployeeDesignation") .equals( "SE")){
+				if (rs.getString("EmployeeDesignation").equals("SE")) {
 					++SE;
 				}
-				if(rs.getString("EmployeeDesignation") .equals( "SSE")){
+				if (rs.getString("EmployeeDesignation").equals("SSE")) {
 					++SSE;
 				}
-				if(rs.getString("EmployeeDesignation") .equals( "TL")){
+				if (rs.getString("EmployeeDesignation").equals("TL")) {
 					++TL;
 				}
-				if(rs.getString("EmployeeDesignation") .equals( "AM")){
+				if (rs.getString("EmployeeDesignation").equals("AM")) {
 					++AM;
 				}
-				if(rs.getString("EmployeeDesignation") .equals( "M")){
+				if (rs.getString("EmployeeDesignation").equals("M")) {
 					++M;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "Angular JS")){
+				if (rs.getString("EmployeeExpertise").equals("Angular JS")) {
 					++angularJS;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "AT")){
+				if (rs.getString("EmployeeExpertise").equals("AT")) {
 					++AT;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "C++/Unix")){
+				if (rs.getString("EmployeeExpertise").equals("C++/Unix")) {
 					++C_UNIX;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "FST")){
+				if (rs.getString("EmployeeExpertise").equals("FST")) {
 					++FST;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "HTML")){
+				if (rs.getString("EmployeeExpertise").equals("HTML")) {
 					++HTML;
 				}
-				if(rs.getString("EmployeeExpertise") .equals ("Java") || rs.getString("EmployeeExpertise") .equals("JAVA") || rs.getString("EmployeeExpertise") .equals("java")){
+				if (rs.getString("EmployeeExpertise").equals("Java")
+						|| rs.getString("EmployeeExpertise").equals("JAVA")
+						|| rs.getString("EmployeeExpertise").equals("java")) {
 					++java;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "JSP")){
+				if (rs.getString("EmployeeExpertise").equals("JSP")) {
 					++JSP;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "QA")){
+				if (rs.getString("EmployeeExpertise").equals("QA")) {
 					++QA;
 				}
-				if(rs.getString("EmployeeExpertise") .equals( "TBD")){
+				if (rs.getString("EmployeeExpertise").equals("TBD")) {
 					++TBD;
 				}
-				if(rs.getString("ProficiencyCams") .equals( "P0")){
+				if (rs.getString("ProficiencyCams").equals("P0")) {
 					++p0;
 				}
-				if(rs.getString("ProficiencyCams") .equals( "P1")){
+				if (rs.getString("ProficiencyCams").equals("P1")) {
 					++p1;
 				}
-				if(rs.getString("ProficiencyCams") .equals( "P2")){
+				if (rs.getString("ProficiencyCams").equals("P2")) {
 					++p2;
 				}
-				if(rs.getString("ProficiencyCams") .equals( "P3")){
+				if (rs.getString("ProficiencyCams").equals("P3")) {
 					++p3;
 				}
-				if(rs.getString("ProficiencyCams") .equals( "P4")){
-					++p4;				}
-				
-				
+				if (rs.getString("ProficiencyCams").equals("P4")) {
+					++p4;
+				}
+
 			}
-			
+
 			pieCount.setCount(count);
 			pieCount.setBillable(billable);
 			pieCount.setASE(ASE);
@@ -503,7 +484,7 @@ public class EmployeeDAO {
 			pieCount.setP2(p2);
 			pieCount.setP3(p3);
 			pieCount.setP4(p4);
-			
+
 			pieCount.setAngularJS(angularJS);
 			pieCount.setAT(AT);
 			pieCount.setC_UNIX(C_UNIX);
@@ -513,23 +494,22 @@ public class EmployeeDAO {
 			pieCount.setJSP(JSP);
 			pieCount.setQA(QA);
 			pieCount.setTBD(TBD);
-			
+
 			pieCount.setName(name);
-			
+
 			piechartlist.add(pieCount);
-			
-			
-			
+
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		return piechartlist;
 
 	}
+
 	public List<EmployeeDetailsFlatDTO> fetchEmployeeListForTeam(String teamID) {
 		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
 
@@ -552,16 +532,15 @@ public class EmployeeDAO {
 			con.close();
 
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
 		return employeeList;
 
 	}
-
 
 }
