@@ -11,7 +11,7 @@
     <description>Location to store uploaded file</description>
     <param-name>file-upload</param-name>
     <param-value>
-         C:\Users\sachin.a.bhardwaj\workspace\TMT1\WebContent\Docs
+         C:\Users\chinu.mohanty\workspace\TMT\WebContent\Docs
      </param-value>
   </context-param>
   <servlet>
