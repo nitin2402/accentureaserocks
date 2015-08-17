@@ -12,7 +12,7 @@ import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.dto.SignupFlatDTO;
 
 public class SignupDAO {
-	public int RegisterInDatabase(SignupFlatDTO signupflatDTO){
+	public int RegisterInDatabase(LoginFlatDTO signupflatDTO){
 		
 		ResultSet b = null;
 		ResultSet c = null;
@@ -63,12 +63,12 @@ public class SignupDAO {
 					 }
 			}	
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 	
 		} 
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			System.out.println(e.toString());
 		}
 		
