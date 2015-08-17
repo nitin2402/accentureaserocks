@@ -16,36 +16,7 @@
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- <script>
-$(document).ready(function(){
-    
-        $("#current").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    
-        $("#release").hide();
-         
-    });
-</script>
-<script>
-$(document).ready(function(){
-    $("#current1").click(function(){
-        $("#current").toggle();
-         
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-    $("#release1").click(function(){
-        $("#release").toggle();
-         
-    });
-});
-</script> -->
+	
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
@@ -58,20 +29,33 @@ $(document).ready(function(){
 
 <body>
 	<jsp:include page="/ProjectCurrent"/>
-
- <%-- <% 
-		HttpSession session1 = request.getSession(false);
- %>
-		<%-- if (session1 == null
-				|| (String) session1.getAttribute("user") == null
-				/*  || (String) session1.getAttribute("admin") != "admin" */ ) {
-	%><jsp:forward page="login.jsp?msg=Please Login " />
 	<%
-		} 
-	    
-	< --%>
-<%@ include file="header_users.jsp" %>  
+		HttpSession session1 = request.getSession(false);
 
+		if (session1 == null
+
+		|| (String) session1.getAttribute("user") == null
+
+		|| (String) session1.getAttribute("admin") == "viewer") {
+	%><jsp:forward page="login.jsp?msg=Please Login " />
+
+	<%
+		}
+	%>
+	<%
+	if ((String) session1.getAttribute("admin") == "admin") {
+%>
+<%@ include file="header_admin.jsp" %>  
+<%
+	}
+%>
+<%
+	if ((String) session1.getAttribute("admin") == "user") {
+%>
+<%@ include file="header_users.jsp" %> 
+<%
+	}
+%>
 	<div id="templatemo_content">
 	
 	<%@ include file="common_left.jsp"%>
@@ -105,9 +89,7 @@ $(document).ready(function(){
 				<h3><u class="tooltip" title="You should receive a 'Welcome to Rally' email in about a week">Request Rally Access</u></h3>
 				<a href="https://operations.web.att.com/sites/Agile-COE/Agile%20COE%20Library/Tools/Rally%20Dev/Ordering%20Rally%20Dev%20Licenses%20Job%20Aid.docx"><u>https://operations.web.att.com/sites/Agile-COE/Agile%20COE%20Library/Tools/Rally%20Dev/Ordering%20Rally%20Dev%20Licenses%20Job%20Aid.docx</u></a>
 				</br>
-				<h3><u class="tooltip" title="To get the Admin rights, we need Approval from OOT/OCE team (like for java David bates(DB3434) and JSP scott p Abernathy (sa7972)- 
-
-">Getting the Admin Rights</u></h3>
+				<h3><u class="tooltip" title="To get the Admin rights, we need Approval from OOT/OCE team (like for java David bates(DB3434) and JSP scott p Abernathy (sa7972)- ">Getting the Admin Rights</u></h3>
 				<a href="http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush"><u>http://ushportal.it.att.com/step2.cfm?proc_id=578054&app=681&home=ush</u></a>
 				</br>
 				<h3><u class="tooltip" title="Kindly follow same process for HVD/Remote machine related issue by changing drop down to HVD connection error (Single User)">New software installation process - RAISE THE TICKET</u></h3>
