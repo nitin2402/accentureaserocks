@@ -21,14 +21,14 @@ public class Registration extends HttpServlet {
      */
     public Registration() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doPost(request, response);
 	}
 
@@ -36,7 +36,7 @@ public class Registration extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		String userName = request.getParameter(CONSTANTS.NEW_USER);
 		String password = request.getParameter(CONSTANTS.NEW_USER_PASS_WORD);
 		String employeeid =request.getParameter(CONSTANTS.NEW_EMPLOYEE_ID);
