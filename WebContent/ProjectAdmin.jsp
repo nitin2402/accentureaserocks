@@ -48,20 +48,20 @@
 	<jsp:include page="/ProjectCurrent"/>
 
 	
-	<%
+		<%
 		HttpSession session1 = request.getSession(false);
 
 		if (session1 == null
 
 		|| (String) session1.getAttribute("user") == null
 
-		|| (String) session1.getAttribute("admin") != "admin") {
-	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+		|| (String) session1.getAttribute("admin") == "viewer") {
+	%><jsp:forward page="login.jsp?msg=Please Login " />
 
 	<%
 		}
 	%>
-
+	
 
 
 
@@ -117,7 +117,7 @@
 					
 					<br/>
 					<ul>
-				<li><a href="onboarding.jsp" style = "font-size: 14px">On Boarding</a>  </li>
+				<li><a href="onBoarding.jsp" style = "font-size: 14px">On Boarding</a>  </li>
 				
 				<li> <a href="rollOff.jsp" style = "font-size: 14px"> Roll off </a></li>
 				</ul>
