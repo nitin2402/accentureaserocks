@@ -23,12 +23,7 @@ public class ProjectController {
 		return list;
 		
 	}
-	public List<ProjectDTO> releaseDate(){
-		List<ProjectDTO> list= new ArrayList<ProjectDTO>();
-		list = projectDAO.releaseDate();
-		return list;
-		
-	}
+
 	public int EditCurrent(String currentRelease, String projectName, String releaseDate){
 		int curr=projectDAO.editCurrent(currentRelease, projectName, releaseDate);
 		return curr;
