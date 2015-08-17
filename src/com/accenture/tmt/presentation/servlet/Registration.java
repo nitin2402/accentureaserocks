@@ -41,7 +41,7 @@ public class Registration extends HttpServlet {
 		String password = request.getParameter(CONSTANTS.NEW_USER_PASS_WORD);
 		String employeeid =request.getParameter(CONSTANTS.NEW_EMPLOYEE_ID);
 		
-	RegistrationDTO registerCred = new RegistrationDTO();
+		LoginDTO registerCred = new LoginDTO();
 	registerCred.setUsername(userName);
 	registerCred.setPassword(password);
 	registerCred.setEmployeeid(employeeid);
