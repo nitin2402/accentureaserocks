@@ -94,7 +94,7 @@
 				</ul>
 				<div id="welcome_msg"
 					style="color: yellow; float: right; font-size: 12px;">
-					<a href="AboutProjectuser.jsp">About Project</a>
+					<a href="aboutProject.jsp">About Project</a>
 				</div>
 				</div>
 				<div id="ajaxResponse"></div>
