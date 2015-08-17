@@ -30,16 +30,16 @@
 			<div class="right_col_section_w650" style="height: auto;">
 				<div class="header_01">Reports</div>
                  <div id="search" style="font-size:13px">
-				    <div style="font-size:14px">
+				    <div style="font-size:13px">
 					<ul>
 						<br/>
-						<li><a href="request_reports.jsp">Reports Generated for Requests</a></li>
+						<li><a href="request_reports.jsp">Generate Report for Requests</a></li>
 						<br/>
-						<li><a href="generateempreports.jsp">Reports Generated for Employee</a></li>
+						<li><a href="generateempreports.jsp">Generate Report for Employees</a></li>
 						<br/>
-						<li><a href="teamreport.jsp">Reports Generated for Team</a></li>
+						<li><a href="teamreport.jsp">Generate Report for Teams</a></li>
 						<br/>
-						<li><a href="modulereport.jsp">Reports Generated for Module</a></li>
+						<li><a href="modulereport.jsp">Generate Report for Modules</a></li>
 						<br/>
 					</ul>
 					</div>
