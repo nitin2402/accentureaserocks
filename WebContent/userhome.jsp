@@ -129,7 +129,7 @@
 					<div id="search">
 						<div id="piechart"
 							style="background-colour: red; height: 300px; width: 600px"
-							onclick="clickToStop()"></div>
+							onclick="clickk()"></div>
 						<div class="filter">
 							<span style="color: brown; font-size: 16px">Filter by</span><br />
 							<a onclick="filter('billability')">Billability</a> / <a
