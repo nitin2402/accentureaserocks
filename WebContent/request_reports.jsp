@@ -11,13 +11,14 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="admintool.js"></script> 
+<script src="request_reports.js"></script>
+
 <meta charset="utf-8" />
   <title>jQuery UI Datepicker - Default functionality</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
-  <script type='text/javascript' src='searchAdmin.js'></script>
   <script type='text/javascript' src='search.js'></script>
   <!-- <script>
   $(function() {
@@ -29,24 +30,21 @@
 <script type="text/javascript"
 	src="js/jquery.ui.datepicker.validation.js"></script>
 <link href="calendar.css" rel="stylesheet" />
-  <script>
-  function validateform(){
-		var status = document.forms["request"]["status"].value;
-		var startdate = document.forms["request"]["startdate"].value;
-		var enddate = document.forms["request"]["enddate"].value;
-		if((status == null || status =="")&& (startdate == null|| startdate == "")&& (enddate == null || enddate == "")){
-			alert("Fields cannot be empty");
-			return false;
-		}
-		if ((Date.parse(startdate) > Date.parse(enddate))) {
-	        alert("End date should be greater than Start date");
-	        return false;
-	    }
-	}
-  </script>
+
 </head>
 <body>
-<%@ include file="header_admin.jsp" %>
+	<%@ include file="header_admin.jsp" %>
+    
+    <%
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null
+				|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+	<%
+		}
+	%> 
+	
 	<div id="templatemo_content">
 	<%@ include file="common_left.jsp" %>
 		<div id="content_right">
@@ -89,6 +87,7 @@
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
+				<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
 			</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
