@@ -67,6 +67,7 @@
 								</tr>
 				</jstlcore:forEach></tbody></table>
 				</div>
+				<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
 				<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
 				<div>
@@ -83,7 +84,7 @@
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
-					<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
+					
 			</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
