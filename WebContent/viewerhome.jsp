@@ -43,13 +43,8 @@
 		<div id="content_right">
 
 			<div class="right_col_section_w650">
-				<div class="header_09">
-					<div class="header_01" align="center">Welcome to Viewer Page</div>
+					<div class="header_09" align="center">Welcome to Viewer Page</div>
 
-
-
-
-				</div>
 				<div>
 					<div>
 
