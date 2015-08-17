@@ -86,7 +86,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithoutAnything(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -101,7 +101,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithOnlyTeamName(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -116,7 +116,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithOnlyStartDate(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -130,7 +130,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithOnlyEndDate(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -144,7 +144,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithOnlyaction(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -158,7 +158,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithoutEndDate(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -172,7 +172,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithoutStartDate(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -186,7 +186,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithOnlyTeamName_with_action(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -200,7 +200,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithoutTeamName(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -214,7 +214,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithOnlyStartDate_with_action(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -227,7 +227,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithOnlyEndDate_with_action(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -240,7 +240,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReport(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -254,7 +254,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithoutStartDate_with_action(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -268,7 +268,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithoutEndDate_with_action(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -281,7 +281,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReportWithoutTeamName_with_action(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
@@ -294,7 +294,7 @@ import com.accenture.tmt.presentation.dto.TeamReportDTO;
 					teamReportList = fetch.teamReport_with_action(teamReportDTO);
 					request.setAttribute("TeamReportList", teamReportList);
 					if(teamReportList.isEmpty()){
-						response.sendRedirect("teamreportdisplay.jsp? msg=Details are not found.");
+						response.sendRedirect("teamreportdisplay.jsp?msg=Details are not found.");
 					}
 					else{
 					request.getRequestDispatcher("teamreportdisplay.jsp").forward(request, response);
