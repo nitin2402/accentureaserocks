@@ -258,6 +258,7 @@ public interface CONSTANTS {
 		 public String REQUEST_STATUS_QUERY = "SELECT R.ReqId, T.TeamName, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Reason, S.StatusName FROM RequestTable R, StatusTable S,Login L, Team T WHERE R.Status_ID = S.Status_ID AND R.EmployeeId = L.EmployeeId AND R.TeamId = T.TeamId AND L.Username = ?";
 		 public String MODULEDETAILS="SELECT ModuleDetail.ProjectId,ModuleDetail.ModuleId,ModuleDetail.ModuleName FROM (ProjectDetail INNER JOIN ModuleDetail ON ProjectDetail.ProjectId=ModuleDetail.ProjectId)where ModuleDetail.Status='Y'";
 		 public String TEAMDETAILS="SELECT Team.ModuleId,Team.TeamId,Team.TeamName FROM (ModuleDetail INNER JOIN Team ON ModuleDetail.ModuleId=Team.ModuleId)where ModuleDetail.Status='Y'";
-
+         public String USERTYPE ="TypeOfUser";
+         public String LOGIN_ID ="L_ID";
 }
 
