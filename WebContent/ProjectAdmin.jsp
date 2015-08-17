@@ -46,7 +46,7 @@
 <body>
 	<%@ include file="header_admin.jsp" %>  
 	<jsp:include page="/ProjectCurrent"/>
-	<jsp:include page="/ProjectRelease"/>
+
 	
 	<%
 		HttpSession session1 = request.getSession(false);
@@ -98,7 +98,7 @@
 								<tbody>
 									<jstlcore:forEach items="${current}" var="item">
 										<tr class="table_align">
-											<!-- <td><input type="text" name="currentRelease" value=""></input></td> -->
+											
 
 											<td><input type="radio" name="select"
 												value="${item.projectName}" /></td>
@@ -117,9 +117,9 @@
 					
 					<br/>
 					<ul>
-				<li><a href="Onboarding_admin.jsp">On Boarding</a>  </li>
+				<li><a href="Onboarding_admin.jsp" style = "font-size: 14px">On Boarding</a>  </li>
 				
-				<li> <a href="RollOff_Admin.jsp"> Roll off </a></li>
+				<li> <a href="RollOff_Admin.jsp" style = "font-size: 14px"> Roll off </a></li>
 				</ul>
 				
 			<div id="welcome_msg"
