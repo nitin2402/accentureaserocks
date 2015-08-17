@@ -20,7 +20,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
 
-
 /**
  * Servlet implementation class UploadServlet
  * This is to upload a PDF file from Initiatives.jsp file
@@ -69,9 +68,6 @@ public class InitiativeUploadServlet extends HttpServlet {
         // Set overall request size constraint
         upload.setSizeMax(MAX_REQUEST_SIZE);
 
-
-
-        	
         try {
             // Parse the request
             List items = upload.parseRequest(request);
@@ -97,8 +93,10 @@ public class InitiativeUploadServlet extends HttpServlet {
             response.sendRedirect("admin_initiative.jsp");
 
         } catch (SizeLimitExceededException e){
-        	request.setAttribute("message", "File size should not exceed 1 MB. Upload Unsuccessful.");
-        	request.getRequestDispatcher("admin_initiative.jsp").forward(request, response);
+        	HttpSession session = request.getSession(false);
+        	//save message in session
+        	session.setAttribute("message", "File size should not exceed 1 MB. Upload Unsuccessful.");
+        	response.sendRedirect("admin_initiative.jsp");
             
         } catch (FileUploadException ex) {
             throw new ServletException(ex);
