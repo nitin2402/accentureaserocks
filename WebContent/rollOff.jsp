@@ -208,7 +208,7 @@ function validateform(){
 <form  action="PDFServlet"  method="post">
 <input type="hidden" name="userName" value="${user}" />
 <br /> <br /> <br />
-<a > <input type="submit" value= "Download Exit Checklist Form" href="template/ExitCheckList.pdf" style="font-size: 14px" onclick="return validateform();">
+<a > <input type="submit" value= "Generate Exit Checklist Form" href="template/ExitCheckList.pdf" style="font-size: 14px" onclick="return validateform();">
 </a>
 
  <br /> <br /> <br />
