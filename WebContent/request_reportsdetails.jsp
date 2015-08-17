@@ -12,15 +12,25 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="admintool.js"></script> 
   <script type='text/javascript' src='search.js'></script>
-  <script type='text/javascript' src='searchAdmin.js'></script>
 <meta charset="utf-8">
  
 </head>
 <body>
-<%@ include file="header_admin.jsp" %>
-<div id="templatemo_container" />
+	<%@ include file="header_admin.jsp" %>
+	
+   <%
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null
+				|| (String) session1.getAttribute("admin") != "admin") {
+	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+	<%
+		}
+	%> 
+
 	<div id="templatemo_content">
 		<%@ include file="common_left.jsp" %>
+		
 		<div id="content_right">
 			<div class="right_col_section_w650" style="height: 300px">
 				<script>
@@ -60,23 +70,13 @@
 									<td><jstlcore:out value="${item.timestamp}" /></td> 
 								</tr>
 				</jstlcore:forEach></tbody></table>
-				</div>
 				<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
-				<div>
-				<br />
-				<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<div class="notification">${message}</div>
-
-					<div class="cleaner">&nbsp;</div>
 				</div>
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
+				<div align="center"><a href="request_reports.jsp" style="color : yellow ;">BACK</a></div>
 			</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
