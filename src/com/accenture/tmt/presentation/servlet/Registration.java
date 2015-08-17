@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.manager.SignupController;
 import com.accenture.tmt.presentation.dto.LoginDTO;
-import com.accenture.tmt.presentation.dto.RegistrationDTO;
+
 
 /**
  * Servlet implementation class Registration
