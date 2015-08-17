@@ -754,4 +754,14 @@
     <servlet-name>RequestReportServlet</servlet-name>
     <url-pattern>/RequestReportServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>PDFServlet</display-name>
+    <servlet-name>PDFServlet</servlet-name>
+    <servlet-class>com.accenture.tmt.presentation.servlet.PDFServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PDFServlet</servlet-name>
+    <url-pattern>/PDFServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
