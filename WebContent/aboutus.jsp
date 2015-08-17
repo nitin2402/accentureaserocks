@@ -58,7 +58,8 @@ table, th, td {
 
 		 <div id="content_right">
 
-			<div id="search" class="right_col_section_w650">
+			<div  class="right_col_section_w650">
+			<div id="search">
 
 				<div class="header_01">ABOUT US</div>
 					<div style="font-size: 14px;">
@@ -102,8 +103,9 @@ table, th, td {
 				<div class="margin_bottom_20">&nbsp;</div>
 							</div>
 			</div>
+			<div id="ajaxResponse"></div>
 			
-		
+		</div>
 
 		</div>
 	<%@ include file="footer.jsp" %> 
