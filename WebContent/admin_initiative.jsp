@@ -59,12 +59,6 @@
 						<p>No file uploaded.</p>
 
 				</object>
-				<!-- <script>
-				location.reload();
-				location.reload();
-				location.reload();
-				location.reload();
-				</script> -->
 				</div>
 				</div>
 			
