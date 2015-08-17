@@ -1,6 +1,6 @@
 function validateAdmin(){
 	
-	/*var id = $('#select').val();*/
+
 	 if ($("input[name=select]").is(":checked")) {
 		 
 		var id = $("input[name=select]:checked").val();
@@ -82,5 +82,16 @@ function validateViewer(){
 		 
 	
 }
+
+$(document).ready(function(){
+
+        $("#authCss").css({
+           
+            	"font-weight": "bold",
+            	"text-decoration": "underline"
+        });
+    });
+
+	
 	
 
