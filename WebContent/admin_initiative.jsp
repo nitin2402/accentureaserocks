@@ -14,6 +14,7 @@
 <script type="text/javascript" src="searchrequest.js"></script>
 <script type='text/javascript' src='searchAdmin.js'></script>
 <script type='text/javascript' src='admin_initiative.js'></script>
+
 </head>
 <body>
 	<%
@@ -48,18 +49,22 @@
 					</div>
 					<br />
 					<div>
-						<p id="error" class="error message">${message}</p>
+						<p id="error" class="error message">${sessionScope.message}</p>
+						
 					</div>
+					
 					<div style="height: 350px">
+					<% if( session.getAttribute("message") == null) { %>
 				<object data='Docs/Sample3.pdf#' 
        					 type='application/pdf' 
        					 width='100%' 
       					  height='100%'>
-
-						<p>No file uploaded.</p>
-
 				</object>
+				<% } else { %>
+				<p>No file uploaded.</p>
+				<% } %>
 				</div>
+				<% session.removeAttribute("message"); %>
 				</div>
 			
 				<div id="ajaxResponse"></div>
