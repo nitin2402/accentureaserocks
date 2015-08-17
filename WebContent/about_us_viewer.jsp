@@ -19,9 +19,38 @@ table, th, td {
 
 </head>
 <body>
- 
+ 	<%
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null
+				|| (String) session1.getAttribute("admin") != "user") {
+	%><jsp:forward page="login.jsp?msg=Please Login " />
+	<%
+		}
+		if((String) session1.getAttribute("admin") != "admin")){
+			%>
+			<%@ include file="header_admin.jsp" %>
+			<%
+		}
+	%>
+	<%
+		}
+		if((String) session1.getAttribute("admin") != "user")){
+			%>
+				<%@ include file="header_users.jsp" %>
+			<%
+		}
+	%>
+	<%
+		}
+		if((String) session1.getAttribute("admin") != "viewer")){
+			%>
+			<%@ include file="header_viewer.jsp" %>
+			<%
+		}
+	%>
 	
-	<%@ include file="header_viewer.jsp" %>
+	
 
 	<div id="templatemo_content">
 
