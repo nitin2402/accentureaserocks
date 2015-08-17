@@ -5,7 +5,7 @@ import com.accenture.tmt.dao.dto.SignupFlatDTO;
 import com.accenture.tmt.presentation.dto.RegistrationDTO;
 
 public class SignupController {
-	public int UserRegistration(RegistrationDTO registerCred){
+	public int UserRegistration(LoginDTO registerCred){
 		 SignupFlatDTO signupFlatDto = new SignupFlatDTO();
    	     signupFlatDto.setPassword(registerCred.getPassword());
    	     signupFlatDto.setUsername(registerCred.getUsername());
