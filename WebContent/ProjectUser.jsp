@@ -88,9 +88,9 @@
 						
 					</div>
 				<ul>
-				<li><a href="onBoarding.jsp">On Boarding</a>  </li>
+				<li><a href="onBoarding.jsp" style = "font-size: 14px">On Boarding</a>  </li>
 				
-				<li> <a href="rollOff.jsp"> Roll off </a></li>
+				<li> <a href="rollOff.jsp" style = "font-size: 14px"> Roll off </a></li>
 				</ul>
 				<div id="welcome_msg"
 					style="color: yellow; float: right; font-size: 12px;">
