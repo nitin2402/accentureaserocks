@@ -6,10 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
+
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
+import com.accenture.tmt.dao.dto.LoginFlatDTO;
 
-import com.accenture.tmt.dao.dto.SignupFlatDTO;
 
 public class SignupDAO {
 	public int RegisterInDatabase(LoginFlatDTO signupflatDTO){
@@ -24,12 +25,12 @@ public class SignupDAO {
                 PreparedStatement st2 = con.prepareStatement(CONSTANTS.CHECK_ALREADY_EXIST_USER_QUERY);
 				PreparedStatement st3 = con.prepareStatement(CONSTANTS.CHECK_ALREADY_EXIST_USERNAME_QUERY);
 				PreparedStatement st = con.prepareStatement(CONSTANTS.SIGN_UP_CHECK_QUERY);
-				    st1. setString(1,signupflatDTO.getEmployeeid());
-					st2.setString(1, signupflatDTO.getEmployeeid());
-					st3.setString(1, signupflatDTO.getUsername());
-					st.setString(1, signupflatDTO.getUsername());
-					st.setString(2, signupflatDTO.getPassword());
-					st.setString(3, signupflatDTO.getEmployeeid());
+				    st1. setString(1,signupflatDTO.getEmployeeId());
+					st2.setString(1, signupflatDTO.getEmployeeId());
+					st3.setString(1, signupflatDTO.getUserName());
+					st.setString(1, signupflatDTO.getUserName());
+					st.setString(2, signupflatDTO.getPassWord());
+					st.setString(3, signupflatDTO.getEmployeeId());
 					 b = st1.executeQuery();
 					 c = st2.executeQuery();
 					 d = st3.executeQuery();
