@@ -19,13 +19,42 @@ table, th, td {
 
 </head>
 <body>
- > 
+ 	<%
+		HttpSession session1 = request.getSession(false);
+		if (session1 == null
+				|| (String) session1.getAttribute("user") == null
+				|| (String) session1.getAttribute("admin") != "user") {
+	%><jsp:forward page="login.jsp?msg=Please Login " />
+	<%
+		}
+		if((String) session1.getAttribute("admin") != "admin"){
+			%>
+			<%@ include file="header_admin.jsp" %>
+			<%
+		}
+	%>
+	<%
+		
+		if((String) session1.getAttribute("admin") != "user"){
+			%>
+				<%@ include file="header_users.jsp" %>
+			<%
+		}
+	%>
+	<%
+		
+		if((String) session1.getAttribute("admin") != "viewer"){
+			%>
+			<%@ include file="header_viewer.jsp" %>
+			<%
+		}
+	%>
 	
-	<%@ include file="header_admin.jsp" %>
+	
 
 	<div id="templatemo_content">
 
-		<%@ include file="common_left.jsp" %>  
+		<%@ include file="common_left.jsp" %>
 
 		 <div id="content_right">
 
@@ -46,35 +75,35 @@ table, th, td {
     <th style="width:60%"></th>
   </tr>
   <tr>
-    <td>Deril PBS</td>
-    <td>Pranjal Jain</td>
-  </tr>
-  <tr>
-    <td>Vipul Mangla</td>
-    <td>Nitin Saini</td>
-  </tr>
-     <tr>
-    <td>Sachin Bhardwaj</td>
+    <td>Devraj Bisi</td>
     <td>Gunveen Kaur Gulati</td>
   </tr>
   <tr>
-    <td>Rekha Tresa Mathew</td>
-    <td>Suchismita Singh</td>
+    <td>Jerin Petson Jacob</td>
+    <td>Nitin Saini</td>
   </tr>
-  <tr>
-    <td>Simlee Das</td>
-    <td>Devraj Bisi</td>
+   <tr>
+    <td>PBS Deril</td>
+    <td>Pranjal Jain</td>
   </tr>
   <tr>
     <td>Priyam Kanungo</td>
-    <td>Jerin Petson Jacob</td>
+    <td>Rekha Tresa Mathew</td>
+  </tr>
+  <tr>
+    <td>Sachin Bhardwaj</td>
+    <td>Simlee Das</td>
+  </tr>
+  <tr>
+    <td>Suchismita Singh</td>
+    <td>Vipul Mangla</td>
   </tr>
 </table>		
 				<div class="margin_bottom_20">&nbsp;</div>
 							</div>
 			</div>
 			
-		 <div id="ajaxResponse"></div>
+		
 
 		</div>
 	<%@ include file="footer.jsp" %> 
