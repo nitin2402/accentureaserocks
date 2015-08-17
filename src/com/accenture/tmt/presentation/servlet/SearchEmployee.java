@@ -33,8 +33,8 @@ public class SearchEmployee extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
@@ -43,12 +43,12 @@ public class SearchEmployee extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 		String name = request.getParameter("searchName");
-		
+
 		List<SearchFormDTO> li = new ArrayList<SearchFormDTO>();
 		EmployeeController search = new EmployeeController();
 		li = search.searchEmployee(name);
@@ -57,33 +57,29 @@ public class SearchEmployee extends HttpServlet {
 			if (name != "" && li.size() != 0) {
 
 				String exp = null;
-				
-if ((String) session.getAttribute("admin") == "admin") {
-					
+
+				if ((String) session.getAttribute("admin") == "admin") {
+
 					exp = "<form action =\"Searchedit\" method=\"post\"><div id=\"scrollable\"> <table  class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\"><td></td>";
 				}
-if ((String) session.getAttribute("admin") == "user") {
-	
-	exp = "<form action =\"Searchedit\" method=\"post\"><div id=\"scrollable\"> <table  class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\">";
-}
+				if ((String) session.getAttribute("admin") == "user") {
 
-			
-						exp+= "<td>Employee ID</td><td>Employee Name </td><td>Designation</td><td>Level</td><td>Expertise</td><td>Client Id</td><td>Email</td><td>Team ID</td><td>Proficiency Cams</td><td>Proficiency Project</td><td>Date of Joining</td><td>Last Working Day</td><td>Billable</td><td>Active User</td></tr>";
+					exp = "<form action =\"Searchedit\" method=\"post\"><div id=\"scrollable\"> <table  class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\">";
+				}
+
+				exp += "<td>Employee ID</td><td>Employee Name </td><td>Designation</td><td>Level</td><td>Expertise</td><td>Client Id</td><td>Email</td><td>Team ID</td><td>Proficiency Cams</td><td>Proficiency Project</td><td>Date of Joining</td><td>Last Working Day</td><td>Billable</td><td>Active User</td></tr>";
 
 				for (int i = 0; i < li.size(); i++) {
-					
-					
-					exp += "<tr class=\"table_align\">";
-					
-					if ((String) session.getAttribute("admin") == "admin") {
-					
-						exp+="<td><input type=\"radio\" name=\"employee\" value= \""
 
-							+ li.get(i).getEmpId() + "\"></td>";	
+					exp += "<tr class=\"table_align\">";
+
+					if ((String) session.getAttribute("admin") == "admin") {
+
+						exp += "<td><input type=\"radio\" name=\"employee\" value= \""
+
+						+ li.get(i).getEmpId() + "\"></td>";
 					}
-					
-					
-					
+
 					exp += "<td>" + li.get(i).getEmpId() + "</td>";
 					exp += "<td>" + li.get(i).getEmpName() + "</td>";
 
