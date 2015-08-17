@@ -241,7 +241,7 @@ public class EmployeeDAO {
 			PreparedStatement st = con
 					.prepareStatement(CONSTANTS.SEARCH_EMPLOYEE);
 
-			// System.out.println("%"+name+"%");
+			
 
 			st.setString(1, "%" + name + "%");
 
@@ -271,10 +271,10 @@ public class EmployeeDAO {
 			}
 			con.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 
@@ -288,13 +288,12 @@ public class EmployeeDAO {
 		int status=0;
 		try{
 			String sqlemp = "UPDATE Employee SET ActiveUser = 'No' WHERE EmployeeId = ?";
-			/*String sqlUpdate = "UPDATE Employee SET Status = 'N' WHERE EmployeeId = ?";*/
+
 			PreparedStatement stemp=con.prepareStatement(sqlemp);
 			stemp.setString(1, empId);
-			/*PreparedStatement st = con.prepareStatement(sqlUpdate);
-			st.setString(1, empId);*/
+			
 			stemp.executeUpdate();
-			/*status=st.executeUpdate();*/
+			
 		}
 		finally{
 			con.commit();
