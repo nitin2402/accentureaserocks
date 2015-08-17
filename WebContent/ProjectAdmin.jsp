@@ -117,9 +117,9 @@
 					
 					<br/>
 					<ul>
-				<li><a href="Onboarding_admin.jsp" style = "font-size: 14px">On Boarding</a>  </li>
+				<li><a href="Onboarding.jsp" style = "font-size: 14px">On Boarding</a>  </li>
 				
-				<li> <a href="RollOff_Admin.jsp" style = "font-size: 14px"> Roll off </a></li>
+				<li> <a href="RollOff.jsp" style = "font-size: 14px"> Roll off </a></li>
 				</ul>
 				
 			<div id="welcome_msg"
