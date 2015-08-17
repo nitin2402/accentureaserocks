@@ -65,7 +65,7 @@ public class PDFServlet extends HttpServlet {
 		    out.println("</script>");
 		    out.println("</head>");
 		    out.println("<body bgcolor=\"white\">");
-		    out.println("<a onclick=\"openTab(this)\" href='#' name=\"template/ExitCheckList.pdf\">Download Pdf</a>");
+		    out.println("<a onclick=\"openTab(this)\" href='#' name=\"template/ExitCheckList.pdf\">Download Check List Form</a>");
 		    out.println("</body>");
 		    out.println("</html>");
 	}
