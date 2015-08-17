@@ -226,50 +226,29 @@ con.close();
 		String projectId = null;
 		try {
 			Connection con = DBConnection.getConnection();
-
-			String sqlFetch = "SELECT ProjectId FROM ProjectDetail WHERE ProjectName=? ";
-
-			PreparedStatement st = con.prepareStatement(sqlFetch);
+			PreparedStatement st = con.prepareStatement(CONSTANTS.Get_ProjectId_QUERY);
 
 			st.setString(1, project);
 
 			ResultSet rs = st.executeQuery();
-			// ResultSetMetaData metaData = rs.getMetaData();
-			// int count = metaData.getColumnCount();
-
-			// System.out.println();
-			// System.out.println(rs.getString("ModuleName"));
 			while (rs.next()) {
 				projectId = rs.getString("ProjectId");
-				// System.out.println(rs.getString("ModuleName"));
 			}
-
-			String sql = "SELECT ModuleName FROM ModuleDetail WHERE ProjectId=? ";
-
-			PreparedStatement st1 = con.prepareStatement(sql);
+			PreparedStatement st1 = con.prepareStatement(CONSTANTS.MODULEID_QUERY);
 
 			st1.setString(1, projectId);
 
 			ResultSet rs1 = st1.executeQuery();
-			// ResultSetMetaData metaData = rs.getMetaData();
-			// int count = metaData.getColumnCount();
-
-			// System.out.println();
-			// System.out.println(rs.getString("ModuleName"));
 			while (rs1.next()) {
 				list.add(rs1.getString("ModuleName"));
-				// System.out.println(rs.getString("ModuleName"));
 			}
 			con.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
-
 	}
 	public List<ModuleDetailsDTO> viewModule(){
 		
