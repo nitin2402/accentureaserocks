@@ -9,41 +9,18 @@ $(document).ready(function() {
         changeMonth: true,
         changeYear: true
         });
+    $( ".datepicker" ).each(function(){
+        $(this).datepicker({
+        	yearRange: '2000:2030',
+            changeMonth: true,
+            changeYear: true
+        });
+    })
     $("button").click(function() {
         var calendar = $("#calendar").val();
         var calendar1 = $("#calendar1").val();
+        var calendar2 = $(".datepicker").val();
+        
     });
 });
-
-
-
-/*$('#validateForm').validate({ 
-    errorPlacement: $.datepicker.errorPlacement, 
-    rules: { 
-        validDefaultDatepicker: { 
-            required: true, 
-            dpDate: true 
-        }, 
-        validBeforeDatepicker: { 
-            dpCompareDate: ['before', '#calandar'] 
-        }, 
-        validAfterDatepicker: { 
-            dpCompareDate: {after: '#calandar1'} 
-        }
-    }, 
-    messages: { 
-         
-        validAfterDatepicker: 'Please enter a date after the date of joining' 
-    }});
-
-
-
-$(form).validate({ 
-    rules: { 
-        startDate: { 
-            required: true, 
-            dpDate: true 
-        } 
-    }     
-});*/
 
