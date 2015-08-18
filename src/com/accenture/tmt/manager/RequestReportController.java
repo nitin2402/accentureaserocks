@@ -60,6 +60,13 @@ public class RequestReportController {
 			return teamreportflatdto ;
 			}
 		
+		public List<ReportsDetailsFlatDTO> requestReportWithoutAnythng(ReportDetailsDTO teamreportdto) {
+			
+			ReportRequestDAO requestReportDAO = new ReportRequestDAO();
+			List<ReportsDetailsFlatDTO> requestReportFlatDTO = new ArrayList<ReportsDetailsFlatDTO>();
+			requestReportFlatDTO  = requestReportDAO.getRequestReportDAO(teamreportdto);
+			return requestReportFlatDTO  ;
+		}
 		
 		public  List<String> fetchTeamList(){
 			
@@ -67,6 +74,5 @@ public class RequestReportController {
 			return teamreportDao.getTeamList();
 			 
 		}
-
 
 }
