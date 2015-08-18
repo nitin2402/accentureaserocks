@@ -51,10 +51,8 @@ public class Searchedit extends HttpServlet {
 		String submit1 = request.getParameter("submit1");
 		String submit2 = request.getParameter("submit2");
 		EmployeeController search = new EmployeeController();
-		
+		if(newEmp!=null){
 		if(submit2!=null){
-			
-			
 			try {
 				 search.deleteEmployee(newEmp);
 			} catch (ClassNotFoundException e) {
@@ -80,5 +78,10 @@ public class Searchedit extends HttpServlet {
 		}
 
 	}
+		else{
+			request.setAttribute("message","Please Select an Employee");
+			request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
+		}
 
+}
 }
