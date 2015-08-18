@@ -19,7 +19,7 @@
 		$(".header_09").hide();
 	});
 </script>
-<script type='text/javascript' src='searchAdmin.js'></script>
+<script type='text/javascript' src='search.js'></script>
 <script>
 	$(document).ready(function() {
 
