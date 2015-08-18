@@ -16,7 +16,7 @@
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<script type='text/javascript' src='searchAdmin.js'></script>
+<script type='text/javascript' src='search.js'></script>
 <script>$(document).ready(function(){
 
         $("#ViewmodCss").css({
