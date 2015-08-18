@@ -16,7 +16,7 @@ import com.accenture.tmt.dao.dto.ModuleReportFlatDTO;
 import com.accenture.tmt.dao.dto.ReportsDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.ModuleReportDTO;
 import com.accenture.tmt.presentation.dto.ReportDetailsDTO;
-import com.sun.jmx.snmp.Timestamp;
+
 public class ReportRequestDAO {
 
 public List<String> getTeamList(){
@@ -310,12 +310,39 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 	    	}
 	        return teamreportflatdto;
 	    }
+		public List<ReportsDetailsFlatDTO> getRequestReportDAO(ReportDetailsDTO requestReportDAO) {
+			List<ReportsDetailsFlatDTO> teamreportflatdto = new ArrayList<ReportsDetailsFlatDTO>();
+	    	ReportsDetailsFlatDTO teamList = null;
+	        try {
+	    		ResultSet rs = null;
+	    		 Connection con = DBConnection.getConnection();
+	    			if(con != null){
+	    			    PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_ALL_REQUEST_REPORT);
+	    			 
+	    			    rs = st1.executeQuery();
+	    			    while (rs.next() == true) {
+	    			    	teamList = new ReportsDetailsFlatDTO(); 
+					    	teamList.setReqId(rs.getString("ReqId"));
+					    	teamList.setTeamName(rs.getString("teamName"));
+							teamList.setnASE(rs.getInt("No_Of_ASE"));
+							teamList.setnSE(rs.getInt("No_Of_SE"));
+							teamList.setnSSE(rs.getInt("No_Of_SSE"));
+							teamList.setComment(rs.getString("Comments"));
+							teamList.setStatusName(rs.getString("StatusName"));
+							teamList.setEmpId(rs.getString("EmployeeId"));
+							teamList.setEmpName(rs.getString("EmployeeName"));
+							teamList.setTimestamp(rs.getTimestamp("TimeStamp").toString());
+							teamreportflatdto.add(teamList);
+	    			    }
+	    			    con.close();
+	    				}
+	    	} catch (ClassNotFoundException | SQLException e) {
+	    		// TODO Auto-generated catch block
+	    		e.printStackTrace();
+	    	}
+	        return teamreportflatdto;
 	    }
+		
+}
+
 	 
-
-
-
-
-	
-	
-
