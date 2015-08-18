@@ -118,9 +118,9 @@ public class EditEmployeeFinal extends HttpServlet {
 						}
 
 				 
-			} catch (ClassNotFoundException e) {
+			} catch (ClassNotFoundException |IllegalStateException il) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				il.printStackTrace();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
