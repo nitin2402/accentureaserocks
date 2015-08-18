@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.accenture.tmt.dao.dto.ReportsDetailsFlatDTO;
-import com.accenture.tmt.manager.ReportController;
 import com.accenture.tmt.manager.RequestReportController;
 import com.accenture.tmt.presentation.dto.ReportDetailsDTO;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
@@ -46,13 +45,13 @@ public class RequestReportServlet extends HttpServlet {
 		String S3 = request.getParameter("status");
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
 		 Date startDate1 = null;
-	     
 		 Date endDate1 = null;
 		 java.sql.Date sqlStart=null;
 		 java.sql.Date sqlEnd = null;
-		 if(S1 != null ||  S1 != ""){
-			 try {
-					startDate1 =   df.parse(S1);
+		 
+		 if(!S1.isEmpty()&& S1 !=null && S1 !=""){	
+		 try {
+			 startDate1 = df.parse(S1);
 					 sqlStart= new java.sql.Date(startDate1.getTime());
 				 } catch (ParseException e) {
 					 //TODO Auto-generated catch block
@@ -60,12 +59,12 @@ public class RequestReportServlet extends HttpServlet {
 				} catch (java.text.ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} 
+			} 
 		 }
 		 
-		 if(S2 != null ||  S2 != ""){
-		 try {
-				endDate1 =  df.parse(S2);
+		 if(!S2.isEmpty()&& S2 !=null && S2 !=""){		
+		 try {	
+			 endDate1 =  df.parse(S2);
 				 sqlEnd= new java.sql.Date(endDate1.getTime());
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -73,13 +72,28 @@ public class RequestReportServlet extends HttpServlet {
 			} catch (java.text.ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}}
+			}
+		 }
+		 
 		ReportDetailsDTO teamreportdto = new ReportDetailsDTO();
 		teamreportdto.setStatus(S3);
 		teamreportdto.setStartDate(sqlStart);
 		teamreportdto.setEndDate(sqlEnd);
 		
-		if((S3 == null || S3 == "") && (startDate1 == null )){
+		if((S3 == null || S3 == "") && (startDate1 == null ) && (endDate1 == null )) {
+			RequestReportController fetch = new RequestReportController();
+			List<ReportsDetailsFlatDTO> requestReportList = new ArrayList<ReportsDetailsFlatDTO>();
+			requestReportList = fetch.requestReportWithoutAnythng(teamreportdto);
+			request.setAttribute("ReportList", requestReportList);
+			if(requestReportList.isEmpty()){
+			response.sendRedirect("request_reportsdetails.jsp?msg=Details are not found.");
+			}
+			else{
+			request.getRequestDispatcher("request_reportsdetails.jsp").forward(request, response);
+			}
+		}
+		
+		else if((S3 == null || S3 == "") && (startDate1 == null )){
 			RequestReportController fetch = new RequestReportController();
 			List<ReportsDetailsFlatDTO> teamreportlist = new ArrayList<ReportsDetailsFlatDTO>();
 			teamreportlist = fetch.reportTeamWithOnlyEndDate(teamreportdto);
@@ -92,6 +106,7 @@ public class RequestReportServlet extends HttpServlet {
 				}
 		
 		}
+			
 		else if((startDate1 == null ) && (endDate1 == null )){
 			RequestReportController fetch = new RequestReportController();
 			List<ReportsDetailsFlatDTO> teamreportlist = new ArrayList<ReportsDetailsFlatDTO>();
@@ -104,6 +119,7 @@ public class RequestReportServlet extends HttpServlet {
 			request.getRequestDispatcher("request_reportsdetails.jsp").forward(request, response);
 		}
 		}
+		
 		else if((S3 == null || S3 == "") && (endDate1 == null )){
 			RequestReportController fetch = new RequestReportController();
 			List<ReportsDetailsFlatDTO> teamreportlist = new ArrayList<ReportsDetailsFlatDTO>();
@@ -115,8 +131,8 @@ public class RequestReportServlet extends HttpServlet {
 			else{
 				request.getRequestDispatcher("request_reportsdetails.jsp").forward(request, response);
 			}
-
-	}
+		}
+		
 		else if(S3 == null || S3 == ""){	
 			RequestReportController fetch = new RequestReportController();
 			List<ReportsDetailsFlatDTO> teamreportlist = new ArrayList<ReportsDetailsFlatDTO>();
@@ -128,7 +144,8 @@ public class RequestReportServlet extends HttpServlet {
 			else{
 				request.getRequestDispatcher("request_reportsdetails.jsp").forward(request, response);
 			}
-			}
+		}
+		
 		else if(startDate1 == null ){
 			RequestReportController fetch = new RequestReportController();
 			List<ReportsDetailsFlatDTO> teamreportlist = new ArrayList<ReportsDetailsFlatDTO>();
@@ -155,7 +172,6 @@ public class RequestReportServlet extends HttpServlet {
 			}
 		}
 		else{
-			
 			RequestReportController fetch = new RequestReportController();
 			List<ReportsDetailsFlatDTO> teamreportlist = new ArrayList<ReportsDetailsFlatDTO>();
 			teamreportlist = fetch.reportTeam(teamreportdto);
