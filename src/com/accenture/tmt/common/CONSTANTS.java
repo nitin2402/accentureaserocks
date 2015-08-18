@@ -261,5 +261,6 @@ public interface CONSTANTS {
 		 public String TEAMDETAILS="SELECT Team.ModuleId,Team.TeamId,Team.TeamName FROM (ModuleDetail INNER JOIN Team ON ModuleDetail.ModuleId=Team.ModuleId)where ModuleDetail.Status='Y'";
          public String USERTYPE ="TypeOfUser";
          public String LOGIN_ID ="L_ID";
+		public String GET_ALL_REQUEST_REPORT = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeRequestReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID";
 }
 
