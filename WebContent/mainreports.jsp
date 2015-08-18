@@ -49,15 +49,15 @@
 				<div class="header_01">Reports</div>
                  <div id="search" style="font-size:13px">
 				 
-					<div id="accordion">
+					<div id="accordion" class="accordion_bg">
 						<h3>Reports Generated for Requests</h3>
 						<div>
 							<form name="request" action="RequestReportServlet" method="post"
 								onsubmit="return validateform()">
 								<table>
-									<tr>
+									<tr >
 										<td>PLEASE SELECT THE STATUS &nbsp;&nbsp;</td>
-										<td><select name="status">
+										<td><select name="status" class="dropbox_size">
 												<option value="">--Please select--</option>
 												<option value="pending">Pending</option>
 												<option value="onhold">OnHold</option>
@@ -67,15 +67,15 @@
 									</tr>
 									<tr>
 										<td>START DATE:
-																					</td>
-																					<td><input type="text" id="calendar" name="startdate" /></td>
+									 		</td>
+												<td><input type="text" class="datepicker textbox_size" id="calendar" name="startdate" /></td>
 																					
 									</tr>
 									<tr>
 										<td>END DATE:
 											
 										</td>
-										<td><input type="text" id="calendar1" name="enddate" /></td>
+										<td><input type="text" class="datepicker textbox_size" id="calendar1" name="enddate" /></td>
 									</tr>
 								</table>
 								<br /> <br />
@@ -83,98 +83,16 @@
 									Report</button>
 							</form>
 						</div>
-					 
-					<h3>Reports Generated for Team</h3>
+					 	<h3>Reports Generated for Module</h3>
 						<div>
-							
-							<form name="teamreport" action="TeamReport" method="post"
-								onsubmit="return validateform()">
-								
-								<table>
-									<tr>
-										<td>&nbsp; PROJECT</td>
-										<td><select id="prj" class="chain" name="project"
-											style="width: 143px">
-												<option value="">--Please select--</option>
-												<jstlcore:forEach items="${project}" var="prj_item">
-
-													<option value="${prj_item.projectId}">
-														<jstlcore:out value="${prj_item.projectName}"></jstlcore:out></option>
-
-
-												</jstlcore:forEach>
-
-										</select></td>
-									</tr>
-
-									<tr>
-										<td>&nbsp; MODULE</td>
-										<td><select id="mdl" class="chain" name="module"
-											style="width: 143px">
-												<option value="">--Please select--</option>
-												<jstlcore:forEach items="${module}" var="mod_item">
-
-													<option value="${mod_item.moduleId}"
-														class="${mod_item.projectId}">
-														<jstlcore:out value="${mod_item.moduleName}"></jstlcore:out></option>
-
-
-												</jstlcore:forEach>
-
-										</select></td>
-									</tr>
-									<tr>
-										<td>&nbsp; TEAM</td>
-										<td><select name="Team" style="width: 143px"
-											class="chain" id="tem">
-												<option value="">--Please select--</option>
-												<jstlcore:forEach items="${team}" var="item">
-
-													<option value="${item.teamName}" class="${item.moduleId}">
-														<jstlcore:out value="${item.teamName}"></jstlcore:out></option>
-
-
-												</jstlcore:forEach>
-
-										</select></td>
-									</tr>
-									<tr>
-										<td>ACTION :</td>
-										<td><select id="action" name="action">
-												<option></option>
-												<option>added</option>
-												<option>edited</option>
-												<option>deleted</option>
-												<option>added by excel</option>
-
-										</select></td>
-									</tr>
-
-									<tr>
-										<td>START DATE :</td>
-										<td><input type="text" id="calendar" name="startDate" /></td>
-									</tr>
-									<tr>
-										<td>END DATE :</td>
-										<td><input type="text" id="calendar1" name="endDate" /></td>
-									</tr>
-
-								</table>
-								<button type="submit" value="Submit">Generate Report</button>
-
-
-							</form>
-						</div>
-						<h3>Reports Generated for Module</h3>
-						<div>
-							<%-- <jsp:include page="/DropDownDetails" /> --%>
+						
 							<form name="modulereport" action="ModuleReportServlet"
 								method="post" onsubmit="return validateform()">
 								<table>
 									<tr>
 										<td>PROJECT :</td>
-										<td><select id="prj" class="chain" name="project"
-											style="width: 143px">
+										<td><select id="prj" class="chain dropbox_size" name="project"
+											>
 												<option value="">--Please select--</option>
 												<jstlcore:forEach items="${project}" var="prj_item">
 
@@ -189,8 +107,8 @@
 
 									<tr>
 										<td>MODULE :</td>
-										<td><select id="mdl" class="chain" name="module"
-											style="width: 143px">
+										<td><select id="mdl" class="chain dropbox_size" name="module"
+											>
 												<option value="">--Please select--</option>
 												<jstlcore:forEach items="${module}" var="mod_item">
 
@@ -205,7 +123,7 @@
 									</tr>
 									<tr>
 										<td>ACTION :</td>
-										<td><select id="action" name="action">
+										<td><select id="action" name="action" class="dropbox_size">
 												<option></option>
 												<option>added</option>
 												<option>edited</option>
@@ -217,11 +135,11 @@
 
 									<tr>
 										<td>START DATE :</td>
-										<td><input type="text" id="calendar" name="startDate" /></td>
+										<td><input type="text" class="datepicker textbox_size" id="calendar4" name="startDate" /></td>
 									</tr>
 									<tr>
 										<td>END DATE :</td>
-										<td><input type="text" id="calendar1" name="endDate" /></td>
+										<td><input type="text" class="datepicker textbox_size" id="calendar5" name="endDate" /></td>
 									</tr>
 								</table>
 								<br />
@@ -231,6 +149,88 @@
 
 							</form>
 						</div>
+					<h3>Reports Generated for Team</h3>
+						<div>
+							
+							<form name="teamreport" action="TeamReport" method="post"
+								onsubmit="return validateform()">
+								
+								<table>
+									<tr>
+										<td>&nbsp; PROJECT</td>
+										<td><select id="prj" class="chain dropbox_size" name="project"
+											>
+												<option value="">--Please select--</option>
+												<jstlcore:forEach items="${project}" var="prj_item">
+
+													<option value="${prj_item.projectId}">
+														<jstlcore:out value="${prj_item.projectName}"></jstlcore:out></option>
+
+
+												</jstlcore:forEach>
+
+										</select></td>
+									</tr>
+
+									<tr>
+										<td>&nbsp; MODULE</td>
+										<td><select id="mdl" class="chain dropbox_size" name="module"
+											>
+												<option value="">--Please select--</option>
+												<jstlcore:forEach items="${module}" var="mod_item">
+
+													<option value="${mod_item.moduleId}"
+														class="${mod_item.projectId}">
+														<jstlcore:out value="${mod_item.moduleName}"></jstlcore:out></option>
+
+
+												</jstlcore:forEach>
+
+										</select></td>
+									</tr>
+									<tr>
+										<td>&nbsp; TEAM</td>
+										<td><select name="Team" 
+											class="chain dropbox_size" id="tem">
+												<option value="">--Please select--</option>
+												<jstlcore:forEach items="${team}" var="item">
+
+													<option value="${item.teamName}" class="${item.moduleId}">
+														<jstlcore:out value="${item.teamName}"></jstlcore:out></option>
+
+
+												</jstlcore:forEach>
+
+										</select></td>
+									</tr>
+									<tr>
+										<td>ACTION :</td>
+										<td><select id="action" name="action" class="dropbox_size">
+												<option></option>
+												<option>added</option>
+												<option>edited</option>
+												<option>deleted</option>
+												<option>added by excel</option>
+
+										</select></td>
+									</tr>
+
+									<tr>
+										<td>START DATE :</td>
+										<td><input type="text" class="datepicker textbox_size" id="calendar2" name="startDate"  /></td>
+									</tr>
+									<tr>
+										<td>END DATE :</td>
+										<td><input type="text" class="datepicker textbox_size" id="calendar3" name="endDate" /></td>
+									</tr>
+
+								</table>
+								<button type="submit" value="Submit">Generate Report</button>
+
+
+							</form>
+						</div>
+					
 						<h3>Reports Generated for Employee</h3>
 						<div>					
 							<select id="select" name="select" onChange="changeTextBox();">
@@ -242,7 +242,7 @@
 									Designation/Billability</option>
 							</select>
 								<div id="div1">							
-								<form action="EmployeeReportServlet" method="post">
+								<form action="EmployeeReportServlet" method="post" onsubmit="return validateform()">
 								
 										<table >
 											<tr>
@@ -273,13 +273,13 @@
 
 											<tr>
 												<td>START DATE:</td>
-												<td><input class="textbox_size" type="text"
-													name="startdate" id="calendar"></input></td>
+												<td><input  type="text"
+													name="startdate" class="datepicker textbox_size" id="calendar6"></input></td>
 											</tr>
 											<tr>
 												<td>END DATE:</td>
-												<td><input class="textbox_size" type="text"
-													name="enddate" id="calendar1"></input></td>
+												<td><input  type="text"
+													name="enddate" class="datepicker textbox_size" id="calendar7"></input></td>
 											</tr>
 										</table>
 										<br /> <br />
@@ -288,7 +288,7 @@
 										
 									</form>					
 											</div>				
-									<form action="EmployeeReportServlet_bill" method="post">
+									<form action="EmployeeReportServlet_bill" method="post" onsubmit="return validateform()">
 										<div id="div2">
 										<table >
 											<tr>
@@ -332,13 +332,13 @@
 
 											<tr>
 												<td>START DATE:</td>
-												<td><input class="textbox_size" type="text"
-													name="startdate" id="calendar"></input></td>
+												<td><input  type="text"
+													name="startdate" class="datepicker textbox_size" id="calendar8"></input></td>
 											</tr>
 											<tr>
 												<td>END DATE:</td>
-												<td><input class="textbox_size" type="text"
-													name="enddate" id="calendar1"></input></td>
+												<td><input  type="text"
+													name="enddate" class="datepicker textbox_size" id="calendar9"></input></td>
 											</tr>
 										</table>
 										<br /> <br />
