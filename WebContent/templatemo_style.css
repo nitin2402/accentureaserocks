@@ -582,4 +582,24 @@ table.table2 td {
 	color: black;
 	font-size:16px;
 }
+
+
+
+
+
+.ui-accordion .ui-accordion-content{
+	background-color: #DECFA4;
+}
+.ui-widget-content {
+	background: none;
+}
+.ui-accordion .ui-accordion-header {
+   background-color: #8C5A11;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    background: none;
+}
+/* .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: none;
+} */
 /* end of footer */
