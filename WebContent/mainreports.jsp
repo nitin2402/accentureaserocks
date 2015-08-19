@@ -40,6 +40,7 @@
 	<%
 		}
 	%> 
+	
 <div id="templatemo_content">
  <jsp:include page="/DropDownDetails" />
 	<jsp:include page="/ViewEmployee" />
@@ -55,10 +56,10 @@
 							<form name="request" action="RequestReportServlet" method="post"
 								onsubmit="return validateform()">
 								<table>
-									<tr >
+									<tr>
 										<td>PLEASE SELECT THE STATUS &nbsp;&nbsp;</td>
 										<td><select name="status" class="dropbox_size">
-												<option value="">--Please select--</option>
+												<option value=""> --Please select-- </option>
 												<option value="pending">Pending</option>
 												<option value="onhold">OnHold</option>
 												<option value="accepted">Accepted</option>
@@ -174,8 +175,7 @@
 
 									<tr>
 										<td>&nbsp; MODULE</td>
-										<td><select id="mdl" class="chain dropbox_size" name="module"
-											>
+										<td><select id="mdl" class="chain dropbox_size" name="module">
 												<option value="">--Please select--</option>
 												<jstlcore:forEach items="${module}" var="mod_item">
 
@@ -234,8 +234,8 @@
 						<h3>Reports Generated for Employee</h3>
 						<div>					
 							<select id="select" name="select" onChange="changeTextBox();">
-								<option value="default" selected>Select to generate
-									reports on employee</option>
+								<option value="default" selected> --Select to generate
+									reports on employee-- </option>
 								<option value="employee">Generate report by Employee
 									Name</option>
 								<option value="designation">Generate report by
@@ -268,6 +268,7 @@
 														<option>edited</option>
 														<option>deleted</option>
 														<option>added by excel</option>
+														<option value="authorized">Authorized</option>
 												</select></td>
 											</tr>
 
@@ -327,6 +328,7 @@
 														<option>edited</option>
 														<option>deleted</option>
 														<option>added by excel</option>
+														<option value="authorized">Authorized</option>
 												</select></td>
 											</tr>
 
