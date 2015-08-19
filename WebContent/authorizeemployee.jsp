@@ -16,8 +16,7 @@
 
 <body>
 
-
-                          <!-- HEADER OF AUTHORISE EMPLOYEE -->
+               <!-- HEADER OF AUTHORISE EMPLOYEE -->
                           
 <jsp:include page="/AuthorizeEmployeeServlet" />
 	<%@ include file="header_admin.jsp" %>
@@ -68,19 +67,20 @@
 									 
 									<td><jstlcore:out  value="${item.username}" /></td>
 									<td><jstlcore:out  value="${item.userType}" /></td>
-									<td><jstlcore:out  value="${item.employeeId}" /></td>
-									<td><jstlcore:out value="${item.employeedesignation}"/></td>
+									<td ><jstlcore:out  value="${item.employeeId}" /></td>
+									<td><jstlcore:out  value="${item.employeedesignation}"/></td>
 									</tr>
 									<input type="hidden" name="employeeid" value="${item.loginid}"/> 
 									<input type="hidden" id="${item.loginid}" value="${item.employeedesignation}" />
+									<input type="hidden" name="empid" value="${item.employeeId}"/>
 										
 							</jstlcore:forEach></tbody></table>
 							</div>
 							<input type="submit"  name="action" value="Admin" onclick="return validateAdmin()"/>
 							<input type="submit" name="action" value="User" onclick="return validateUser()" />
 							<input type="submit" name="action" value="Viewer" onclick="return validateViewer()" />
-							 <a href="admintool.jsp"style="font-size:14px;border: medium none;background-color: transparent;padding-top: 0px;position: relative;top: 7px;
-    text-decoration: underline;font-weight:normal;" >Cancel</a>
+							<a href="admintool.jsp" style="font-size: 14px;border: medium none;background-color: transparent;padding-top: 0px;position: relative;top: 7px;
+    text-decoration: underline;font-weight: normal;" >Cancel</a>
 							
 						
 				</form>
