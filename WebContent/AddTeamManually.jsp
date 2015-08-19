@@ -12,7 +12,7 @@
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type='text/javascript' src='searchAdmin.js'></script>
+<script type='text/javascript' src='search.js'></script>
 <script src="jquery.chained.js"></script>
 <script>
 	$(function(){$("#mdl").chained("#prj");
