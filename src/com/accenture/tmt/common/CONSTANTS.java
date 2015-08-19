@@ -102,7 +102,7 @@ public interface CONSTANTS {
 		public String TEAM_UPDATE_QUERY = "UPDATE Team SET TeamName=?,TeamId=?,ModuleId=?,TeamDescription=?";
 		
 		
-		public String LOGIN_CHECK_QUERY = "select * from Login where userName=? AND password=? AND ActiveUser='y'";
+		public String LOGIN_CHECK_QUERY = "select * from Login where userName=? AND ActiveUser='y'";
 	    public String SIGN_UP_CHECK_QUERY = "INSERT INTO Login (username,password,EmployeeId,typeofUser,ActiveUser) VALUES (?,?,?,'UNAUTHORISED','n')";
 	    public String SELECT_EMPLOYEE_ID_QUERY = "select * from Employee where EmployeeId=?";
 	    public String CHECK_ALREADY_EXIST_USER_QUERY = "select * from Login where EmployeeId=?";
