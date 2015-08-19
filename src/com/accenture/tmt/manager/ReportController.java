@@ -25,6 +25,11 @@ public class ReportController {
 		modulerepempreportsortdao.insertEmpreoptrs(reportupdatedto);
 	}
 
+	public void updateEmpReport_Aurthorized(EmployeeReportUpdateDTO reportUpdateDTO) {
+		// TODO Auto-generated method stub
+		EmlpoyeeReportDAO modulerepempreportsortdao = new EmlpoyeeReportDAO();
+		modulerepempreportsortdao.insertintoEmpReoptr_Authorized(reportUpdateDTO);
+	}
 
 	public List<EmployeeReportDetailsFlatDTO> employeeReports_ALLpresent(ReportDetailsDTO empreports) {
 		// TODO Auto-generated method stub
