@@ -20,7 +20,7 @@
 				<div class="content_left_section_title">Search Employee</div>
 				<div class="content_left_section_content">
 					<form action="#">
-						Name<input type="text" id="search_field" name="search_field" />
+						<span style="font-size: 14px">Name</span><input type="text" id="search_field" name="search_field" />
 						<!--  <input
 							type="submit" value="Search" id="search_button" /> -->
 						<div>
