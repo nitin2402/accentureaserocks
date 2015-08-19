@@ -12,6 +12,9 @@ $(document).ready(function(){
 $(function(){$("#mdl").chained("#prj");
 $("#tem").chained("#mdl")});
 
+$(function(){$("#desig").chained("#level");
+$("#tem12").chained("#desig");
+});
 
 var specialKeys = new Array();
 
