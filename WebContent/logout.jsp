@@ -28,25 +28,7 @@
 <body>
 <jsp:include page = "/Logout"/>
 <div id="templatemo_container">
-		<div id="templatemo_header">
-			<div id="site_title_section">
-				<div id="site_title">Talent Management Tool</div>
-				<div id="slogan">Plan, Organize, Budget, Schedule</div>
-				<div class="cleaner">&nbsp;</div>
-			</div>
-		<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
-	</div>
-		<!-- end of header -->
-		<div id="templatemo_menu">
-			<ul>
-
-
-				<li><a href="about_us_common.jsp">About Us</a></li>
-				<li><a href="#" class="last" onclick="myfunction()">Contact
-						Us</a></li>
-			</ul>
-		</div>
-		<!-- end of menu -->
+			<%@ include file="header_login.jsp"%>
 		<div id="templatemo_content">
 
 			<div id="content_left">
@@ -93,9 +75,7 @@
 		<!-- end of container -->
 		<div id="templatemo_content_bottom">&nbsp;</div>
 
-		<div id="templatemo_footer">
-			Copyright © 2015 <a href="http://www.accenture.com">Accenture</a>
-		</div>
+		<%@ include file="footer.jsp"%>
 		<!-- end of footer -->
 	</div>
 	<!-- end of container -->
