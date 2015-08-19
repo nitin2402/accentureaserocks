@@ -57,7 +57,10 @@ public class AdminLogin extends HttpServlet {
 		LoginDTO loggedInDto = ctrl.checkLogin(loginCred);
 		
 		String userType = loggedInDto.getUserType();
+		
 
+		if (password.equals(loggedInDto.getPassword())){
+		
 		if( CONSTANTS.ADMIN .equals(userType)){
 			HttpSession session1 = request.getSession();
 			
@@ -85,12 +88,21 @@ public class AdminLogin extends HttpServlet {
 			session1.setAttribute("userType", userType);
 			session1.setAttribute("admin", "viewer");
 			 response.sendRedirect("viewerhome.jsp?name="+username);
-					}
-		if(CONSTANTS.NOT_A_USER .equals(userType) ){
+		}
+		
+		}
+		else if(CONSTANTS.NOT_A_USER .equals(userType) ){
 			response.sendRedirect("login.jsp?msg=Please Register First to access this Application");
 		}
+		
+		else{
+			response.sendRedirect("login.jsp?msg=Password is incorrect");
+		}
+		
+		}
+		
 		
 		
 	}
 
-}
+
