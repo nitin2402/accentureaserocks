@@ -78,27 +78,44 @@
 								</tr>
 								<tr>
 									<td><span style="color: Red;">* </span>EMPLOYEE ID:</td>
-									<td><input type="text" name="idno"
-										onkeypress="return IsNumeric1(event);"></input></td>
+									<td><input type="text" name="idno"onkeypress="return IsNumeric1(event);"></input></td>
 									<span id="error" style="color: Black; display: none">
 										*Input digits (0 - 9)</span>
 
 								</tr>
+								
 								<tr>
 									<td><span style="color: Red;">* </span>EMPLOYEE LEVEL:</td>
-									<td><input type="text" name="level"
-										onkeypress="return IsNumeric1(event);"></input></td>
-									<span id="error" style="color: Black; display: none">
-										*Input digits (0 - 9)</span>
-
+									<td><select type="text" name="level" id="level">
+										  <option value="13">13</option>
+										  <option value="12">12</option>
+										  <option value="11">11</option>
+										  <option value="10">10</option>
+										  <option value="09">09</option>
+										  <option value="08">08</option>
+										  <option value="07">07</option>
+										  <option value="06">06</option>
+										  <option value="Leadership">Leadership</option>
+										</select></td>
+								</tr>
+								
+								<tr>
+									<td><span style="color: Red;">* </span>EMPLOYEE	DESIGNATION:</td>
+									<td><select type="text" name="desig" id="desig">
+										  <option value="Junior ASE" class="13">Junior ASE</option>
+										  <option value="ASE" class="12">ASE</option>
+										  <option value="SE" class="11">SE</option>
+										  <option value="SSE" class="10">SSE</option>
+										  <option value="TL" class="09">TL</option>
+										  <option value="AM" class="08">AM</option>
+										  <option value="Manager" class="07">Manager</option>
+										  <option value="Senior Manager" class="06">Senior Manager</option>
+										  <option value="Leadership" class="Leadership">Leadership</option>
+										</select></td>
 								</tr>
 								<tr>
-									<td><span style="color: Red;">* </span>EMPLOYEE
-										DESIGNATION:</td>
-									<td><input type="text" name="desig"></input></td>
-								</tr>
-								<tr>
-									<td>&nbsp EMPLOYEE EXPERTISE:</td>
+													
+									<td><span style="color: Red;">* </span>EMPLOYEE EXPERTISE:</td>
 
 									<td><input type="text" name="area"></input></td>
 								</tr>
@@ -192,8 +209,7 @@
 							</table>
 							<input class="submit" type="submit" value="Submit"></input> <input
 								type="reset" value="Reset" id="clear" name="clear"></input><br />
-							<br /> <span style="color: green"> <%-- <%=request.getParameter("msg") != null ? request
-					.getParameter("msg") : ""%> --%></span><br />
+							<br /> <span style="color: green"></span><br />
 
 						</form>
 						<div style="color: Red;">* Mandatory Fields</div>
