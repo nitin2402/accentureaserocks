@@ -68,16 +68,14 @@ public class EmlpoyeeReportDAO {
 				    st1.setDate(3, (Date)empreportdto.getEndDate());
 				    st1.setString(4, empreportdto.getAction());
 				    rs = st1.executeQuery();
-				 
 				    }
-				
-				   
-					
+	
 					 resultSet(rs,(ArrayList<EmployeeReportDetailsFlatDTO>) empreportflatdto);
 
 				    //System.out.println("bye");
 				    con.close();
 					}
+				
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,8 +94,6 @@ public class EmlpoyeeReportDAO {
 				if(con != null){
 		//bill null
 					
-					
-						
 					//all are null
 						 if((empreportdto.getBill() ==null||empreportdto.getBill() =="") &&(empreportdto.getAction() =="" || empreportdto.getAction() ==null) && (empreportdto.getDesignation() ==""||empreportdto.getDesignation() ==null))
 							{
@@ -111,10 +107,6 @@ public class EmlpoyeeReportDAO {
 								+ " AND  Date BETWEEN #" +start+ 
 								"# AND #" +end+"# AND Action LIKE '*'";
 							    rs = st1.executeQuery(query);
-							 
-							 
-							
-							 
 							}
 						 
 						 //bill&action null--only desg
@@ -231,9 +223,7 @@ public class EmlpoyeeReportDAO {
 	}
 	
 	
-	 private void resultSet(ResultSet rs,ArrayList<EmployeeReportDetailsFlatDTO> empreportflatdto) {
-			
-		 
+	 private void resultSet(ResultSet rs, ArrayList<EmployeeReportDetailsFlatDTO> empreportflatdto) {	 
 		 try {
 			 EmployeeReportDetailsFlatDTO emplist = null;
 			 
@@ -260,21 +250,15 @@ public class EmlpoyeeReportDAO {
 					emplist.setTimeStamp(rs.getString("Timestamp"));
 				
 					empreportflatdto.add(emplist);     
-	 }
-			   
-		
+			   }  
+		 	}
 		 
-		 
-		 
-		 
-		 
-		 
-		 }
-		 catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	 }
+		 	catch (SQLException e) {
+		 		// TODO Auto-generated catch block
+		 		e.printStackTrace();
+		 	}
+	 	}
+	 
 		public void insertEmpreoptrs(EmployeeReportUpdateDTO reportupdatedto) {
 			
 			// TODO Auto-generated method stub
@@ -302,9 +286,34 @@ public class EmlpoyeeReportDAO {
 					    st1.setString(17, reportupdatedto.getAction());
 					    st1.setString(18, reportupdatedto.getTimeStamp());
 					    st1.setDate(19, reportupdatedto.getDate());
-					    
-					    
-						  st1.executeUpdate();
+					 
+						st1.executeUpdate();
+				}
+				
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+			public void insertintoEmpReoptr_Authorized(EmployeeReportUpdateDTO reportUpdateDTO) {
+			
+			// TODO Auto-generated method stub
+			try {
+				Connection con = DBConnection.getConnection();
+				if(con != null){
+					
+				    PreparedStatement st1 = con.prepareStatement(CONSTANTS.INSERT_EMPLOYEE_REPORT_AUTHORIZED_QUERY);
+					 
+					    st1.setString(1, reportUpdateDTO.getUserName());
+					    st1.setString(2, reportUpdateDTO.getAction());
+					    st1.setString(3, reportUpdateDTO.getTimeStamp());
+					    st1.setDate(4, reportUpdateDTO.getDate());
+					 	st1.setString(5, reportUpdateDTO.getEmpId());
+					 
+						st1.executeUpdate();
 				}
 				
 			} catch (ClassNotFoundException | SQLException e) {
