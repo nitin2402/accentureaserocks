@@ -37,8 +37,8 @@
 			<div class="cleaner">&nbsp;</div>
 		</div>
 		<div id="welcome_msg"
-			style="color: yellow; float: right; font-size: 12px;">
-			Welcome ${user}&nbsp;<a href="logout.jsp">Logout</a>
+			style="color: yellow; float: right; font-size: 12px;margin-right:20px;">
+			Welcome ${user}&nbsp;|<a href="logout.jsp">&nbsp;Logout</a>
 		</div>
 		<div id="header_section_code">"The talent management tool is an integrated software tool that addresses the four pillars of talent management: plan, organize, budget and schedule talents"</div>
 	</div>
