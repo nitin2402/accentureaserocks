@@ -4,14 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
 import java.sql.SQLException;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.common.ValidateObjects;
 import com.accenture.tmt.dao.dto.LoginFlatDTO;
-
 
 public class LoginDAO {
 
@@ -23,26 +21,28 @@ public class LoginDAO {
 			if (con != null) {
 				PreparedStatement st = con
 						.prepareStatement(CONSTANTS.LOGIN_CHECK_QUERY);
-				
-				if (!ValidateObjects.isStringEmpty(loginFlatDto.getPassWord()) && !ValidateObjects.isStringEmpty(loginFlatDto.getUserName())) {
+
+				if (!ValidateObjects.isStringEmpty(loginFlatDto.getPassWord())
+						&& !ValidateObjects.isStringEmpty(loginFlatDto
+								.getUserName())) {
 					st.setString(1, loginFlatDto.getUserName());
-					st.setString(2, loginFlatDto.getPassWord());
+					
 					rs = st.executeQuery();
 					if (rs.next() == true) {
 						flatDTO.setPassWord(rs.getString(CONSTANTS.PASSWORD));
-						flatDTO.setTypeOfUser(rs.getString(CONSTANTS.TYPE_OF_USER));
+						flatDTO.setTypeOfUser(rs
+								.getString(CONSTANTS.TYPE_OF_USER));
 						flatDTO.setUserName(rs.getString(CONSTANTS.USERNAME));
-					}
-					else {
+											
+
+					} else {
 						flatDTO.setTypeOfUser(CONSTANTS.NOT_A_USER);
-					return flatDTO;
+						return flatDTO;
 					}
-				}
-				else{
+				} else {
 					flatDTO.setTypeOfUser(CONSTANTS.NOT_A_USER);
 				}
-				
-				 
+
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -52,6 +52,5 @@ public class LoginDAO {
 		return flatDTO;
 
 	}
-	 
-	
+
 }
