@@ -51,7 +51,7 @@ public class Registration extends HttpServlet {
 	 int returnuserregistered = registerCtrl.UserRegistration(registerCred);
 	 if(returnuserregistered==0)
 		{
-			response.sendRedirect("login.jsp?msg=User added ! Login to continue");
+			response.sendRedirect("login.jsp?msg=Request raised for portal access");
 		}
 	 else if(returnuserregistered==1)
 		{
