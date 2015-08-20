@@ -23,7 +23,7 @@
 <link href="calendar.css" rel="stylesheet" />
 
 
-<script src="searchAdmin.js"></script>
+<script src="search.js"></script>
 <script src="generateempreports.js"></script>
 
 <script src="jquery.chained.js"></script>
