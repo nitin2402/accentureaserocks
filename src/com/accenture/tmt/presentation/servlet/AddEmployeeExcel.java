@@ -1,8 +1,10 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,13 +29,12 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.ReportController;
-import com.accenture.tmt.manager.TeamReportController;
+
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
 import com.accenture.tmt.presentation.dto.EmployeeReportUpdateDTO;
-import com.accenture.tmt.presentation.dto.TeamReportUpdateDTO;
+
 
 
 
@@ -54,7 +55,7 @@ public class AddEmployeeExcel extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
@@ -64,7 +65,7 @@ public class AddEmployeeExcel extends HttpServlet {
 	 */
 	
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException ,IllegalStateException{
 		
 		response.setContentType("text/html");
 		int maxFileSize = 5000 * 1024;
@@ -110,13 +111,13 @@ public class AddEmployeeExcel extends HttpServlet {
 				    FileItem filename = (FileItem)iterator.next();
 				    
 				    
-				    if ( filename.isFormField () )
+				  /*  if ( filename.isFormField () )
 				    
 				    {
 				    sheetno=filename.getString();
 				    }	
 				    else          	
-				    {
+				    {*/
 		
 				    String fieldName = filename.getFieldName();
 				    String fileName = filename.getName();
@@ -132,7 +133,7 @@ public class AddEmployeeExcel extends HttpServlet {
 				    }
 				    filename.write( file ) ;
 				   
-				    }
+				    /*}*/
 				 }
 			} catch (FileUploadException e1) {
 				// TODO Auto-generated catch block
@@ -149,16 +150,15 @@ public class AddEmployeeExcel extends HttpServlet {
 			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
 			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
 			//FileInputStream file = new FileInputStream(file1);
-			int sno =Integer.parseInt(sheetno);
+			//int sno =Integer.parseInt(sheetno);
+			int sheetnum=1;
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
-			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
+			XSSFSheet projectDetails = workbook.getSheetAt(sheetnum-1);
 			List<EmployeeDetailsDTO> listOfEmps = new ArrayList<EmployeeDetailsDTO>();
 			
 			EmployeeDetailsDTO empDetailsDto = null;
 			
-			/*workbook.*/
 			
-			//projectDetail
 			boolean headerRow = true;
 			for (Row rowOfEmployee1 : projectDetails) {
 				
@@ -250,7 +250,10 @@ public class AddEmployeeExcel extends HttpServlet {
 			ExcelController add = new ExcelController();
 			
 			HttpSession session1 = request.getSession();
-				c=add.addFromExcel(listOfEmps);
+			
+					c=add.addFromExcel(listOfEmps);
+
+
 				  java.sql.Date sqlDate=null;
 					
 					SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
@@ -294,23 +297,43 @@ public class AddEmployeeExcel extends HttpServlet {
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		workbook.close();
 			//file.close();
-		}catch (ClassNotFoundException | InvalidFormatException e) {
+		}
+		catch (java.lang.IllegalArgumentException |IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		}
 		
-		}
-		
-	}
-		
-		
-		
-		/*catch (Exception e) {
+		catch (ClassNotFoundException | InvalidFormatException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error in parsing XLS : ");
+			e.printStackTrace();
+			request.setAttribute("message","Error :- Please ensure that the uploaded file is in correct format ");
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			request.setAttribute("message",e.getMessage());
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error in parsing XLS :Please choose a excel file with correct template ");
 			e.printStackTrace();
 			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
 		
-		}*/
+		}
+		
+		}
+
+	
+		
+		
+		
 	
