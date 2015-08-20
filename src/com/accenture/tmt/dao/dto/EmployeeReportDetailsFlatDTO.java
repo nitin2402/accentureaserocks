@@ -20,6 +20,14 @@ public class EmployeeReportDetailsFlatDTO {
 	private String cost;
 	private String userName;
 	private String action;
+	private String authorizedAs;
+	
+	public String getAuthorizedAs() {
+		return authorizedAs;
+	}
+	public void setAuthorizedAs(String authorizedAs) {
+		this.authorizedAs = authorizedAs;
+	}
 	private String timeStamp;
 	public String getUserName() {
 		return userName;
