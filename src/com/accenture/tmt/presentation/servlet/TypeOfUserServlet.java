@@ -103,7 +103,8 @@ public class TypeOfUserServlet extends HttpServlet {
 						reportUpdateDTO.setCost(cost);*/
 						reportUpdateDTO.setEmpId(empId);
 						reportUpdateDTO.setUserName((String)session1.getAttribute("user"));
-						reportUpdateDTO.setAction("authorized");
+						reportUpdateDTO.setAction("Authorized");
+						reportUpdateDTO.setAuthorizedAs("Viewer");
 						reportUpdateDTO.setTimeStamp(timestamp);
 						reportUpdateDTO.setDate(sqlDate);
 						
@@ -122,7 +123,8 @@ public class TypeOfUserServlet extends HttpServlet {
 					
 						reportUpdateDTO.setEmpId(empId);
 						reportUpdateDTO.setUserName((String)session1.getAttribute("user"));
-						reportUpdateDTO.setAction("authorized");
+						reportUpdateDTO.setAction("Authorized");
+						reportUpdateDTO.setAuthorizedAs("User");
 						reportUpdateDTO.setTimeStamp(timestamp);
 						reportUpdateDTO.setDate(sqlDate);
 						
@@ -140,7 +142,8 @@ public class TypeOfUserServlet extends HttpServlet {
 					 if(session1!= null) {
 							reportUpdateDTO.setEmpId(empId);
 							reportUpdateDTO.setUserName((String)session1.getAttribute("user"));
-							reportUpdateDTO.setAction("authorized");
+							reportUpdateDTO.setAction("Authorized");
+							reportUpdateDTO.setAuthorizedAs("Admin");
 							reportUpdateDTO.setTimeStamp(timestamp);
 							reportUpdateDTO.setDate(sqlDate);
 							
