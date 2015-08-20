@@ -30,7 +30,7 @@ public class TeamController {
 		detailsFD.setTeamId(detailsDO.getTeamId());
 		detailsFD.setModuleId(detailsDO.getModuleId());
 		detailsFD.setTeamDescription(detailsDO.getTeamDescription());
-
+		detailsFD.setStatus(detailsDO.getStatus());
 		int b = teamDAO.addTeamManually(detailsFD);
 
 		if (b != 0) {
