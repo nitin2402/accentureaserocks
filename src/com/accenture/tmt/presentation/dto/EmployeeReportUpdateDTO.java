@@ -3,6 +3,28 @@ package com.accenture.tmt.presentation.dto;
 import java.sql.Date;
 
 public class EmployeeReportUpdateDTO {
+	private String empId;
+	private String empName;
+	private String designation;
+	private String expertise;
+	private String level;
+	private String clientId;
+	private String email;
+	private String teamId;
+	private String teamName;
+	private String profCamps;
+	private String profProject;
+	private String doj;
+	private String lastWD;
+	private String isBillable;
+	private String isActive;
+	private String cost;
+	private String userName;
+	private String action;
+	private String AuthorizedAs;
+	private String timeStamp;
+	private Date date;
+	
 	public String getEmpId() {
 		return empId;
 	}
@@ -111,6 +133,12 @@ public class EmployeeReportUpdateDTO {
 	public void setAction(String action) {
 		this.action = action;
 	}
+	public String getAuthorizedAs() {
+		return AuthorizedAs;
+	}
+	public void setAuthorizedAs(String authorizedAs) {
+		AuthorizedAs = authorizedAs;
+	}
 	public String getTimeStamp() {
 		return timeStamp;
 	}
@@ -123,25 +151,5 @@ public class EmployeeReportUpdateDTO {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	private String empId;
-	private String empName;
-	private String designation;
-
-	private String expertise;
-	private String level;
-	private String clientId;
-	private String email;
-	private String teamId;
-	private String teamName;
-	private String profCamps;
-	private String profProject;
-	private String doj;
-	private String lastWD;
-	private String isBillable;
-	private String isActive;
-	private String cost;
-	private String userName;
-	private String action;
-	private String timeStamp;
-	private Date date;
+	
 }
