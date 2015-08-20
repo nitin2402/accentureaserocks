@@ -22,17 +22,7 @@
 	});
 </script>
 <script type='text/javascript' src='addmoduleexcel.js'></script>
-<script>
-$(document).ready(function(){
 
-        $("#modCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
-
-	</script>
 
 
 
@@ -66,15 +56,15 @@ $(document).ready(function(){
 							<input type="file" name="file1" size="50"
 								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
 
-							<input type="hidden" id="sheetno" name="sheetno" />
-							<!-- <form action="UploadServlet" method="post" enctype="multipart/form-data"> -->
+						<!-- 	<input type="hidden" id="sheetno" name="sheetno" /> -->
+							
 							<div>
 								<input type="submit" value="Submit" />
 							</div>
 						</form>
 
 						<br />
-						<!-- <a href="editteam.jsp">Edit Team</a> -->
+						
 					</div>
 
 					<div id="ajaxResponse"></div>
