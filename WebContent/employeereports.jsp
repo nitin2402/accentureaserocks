@@ -11,17 +11,16 @@
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="admintool.js"></script> 
-  <script type='text/javascript' src='search.js'></script>
+
+ <script type='text/javascript' src='search.js'></script>
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
- 
-  
- 
 </head>
-<body>
-<%@ include file="header_admin.jsp" %>
 
+<body>
+
+<%@ include file="header_admin.jsp" %>
 
 	<%
 		HttpSession session1 = request.getSession(false);
@@ -36,15 +35,17 @@
 	<%
 		}
 	%>
-<div id="templatemo_container" />
-	<div id="templatemo_content">
-		<%@ include file="common_left.jsp" %>
-		<div id="content_right">
-			<div class="right_col_section_w650" style="height: 500px">
+	
+		<div id="templatemo_content">
+			
+			<%@ include file="common_left.jsp" %>
+			
+			<div id="content_right">
+				<div class="right_col_section_w650" style="height: 500px">
 				
-  				<div id = "search">
-  				<div id="scrollable"   style="font-size: 14px;height: 450px;">
-  				<table class="table2 table_align" > 
+  					<div id = "search">
+  					<div id="scrollable" style="font-size: 14px;height: 450px;">
+  					<table class="table2 table_align" > 
 							<thead style="font-weight:bold;position: ">
 							<tr class="one" style="font-weight:bold;">
 								<td>EMPLOYEE ID</td>
@@ -65,6 +66,7 @@
 								<td>LCR</td>
 								<td>USERNAME</td>
 								<td>ACTION</td>
+								<td>AUTHORIZED AS</td>
 								<td>TIMESTAMP</td>
 							</tr>
 							</thead>
@@ -89,6 +91,7 @@
 									<td><jstlcore:out value="${item.cost}" /></td>
 									<td><jstlcore:out value="${item.userName}" /></td> 
 									<td><jstlcore:out value="${item.action}" /></td> 
+									<td><jstlcore:out value="${item.authorizedAs}" /></td> 
 									<td><jstlcore:out value="${item.timeStamp}" /></td> 
 									
 								</tr>
