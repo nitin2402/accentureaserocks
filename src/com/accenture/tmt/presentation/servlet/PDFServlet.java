@@ -2,6 +2,7 @@ package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.accenture.tmt.common.RolloffPdf;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
@@ -44,8 +46,11 @@ public class PDFServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		PDFcontroller controller =new PDFcontroller();
 		String userName = request.getParameter("userName");
+		HttpSession session=request.getSession();  
+		session.invalidate();  
+
+		
 		EmployeeDetailsFlatDTO emp = controller.FetchEmployeeList(userName);
-		System.out.println(emp.getEmpName());
 		RolloffPdf rolloffPdf = new RolloffPdf(emp.getEmpName(), emp.getDesignation(), emp.getLevel(), emp.getEmail(), emp.getLastWD(), emp.getEmpId(), emp.getClientId());
 		try {
 			rolloffPdf.enter();
@@ -57,6 +62,7 @@ public class PDFServlet extends HttpServlet {
 		    response.setContentType("text/html");
 		   out.println("<html>");
 		    out.println("<head>");
+		    out.println("<meta http-equiv=\"Cache-control\" content=\"no-cache\">");
 		    out.println("<title>Download</title>");
 		    out.println("<script type=\"text/javascript\"> function openTab(th) ");
 		    out.println("{");
