@@ -16,3 +16,18 @@ function validateform1() {
 		}
 	}
 
+
+$(document).ready(function() {
+	$(".header_09").hide();
+});
+
+
+$(document).ready(function(){
+
+    $("#modCss").css({
+       
+        	"font-weight": "bold",
+        	"text-decoration": "underline"
+    });
+});
+
