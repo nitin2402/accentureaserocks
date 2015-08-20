@@ -3,6 +3,8 @@ package com.accenture.tmt.manager;
 import static java.lang.System.out;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,17 +30,16 @@ public class ExcelController {
 
 	}
 
-	public int addFromExcel(List<EmployeeDetailsDTO> listOfEmps) throws IOException, ClassNotFoundException {
+	public int addFromExcel(List<EmployeeDetailsDTO> listOfEmps) throws IOException, ClassNotFoundException ,SQLException{
 
 		EmployeeDetailsFlatDTO excel = null;
 
 		List<EmployeeDetailsFlatDTO> li = new ArrayList<EmployeeDetailsFlatDTO>();
-		String teamId = null;
-		ExcelDAO excelDetails = new ExcelDAO();
+		
 
 		for (int i = 0; i < listOfEmps.size(); i++) {
 			excel = new EmployeeDetailsFlatDTO();
-		//	excel.setTeamId(excelDetails.fetchTeamIdForExcel(listOfEmps.get(i).getTeamId()));
+		
 			excel.setEmpId(listOfEmps.get(i).getEmpId());
 			excel.setEmpName(listOfEmps.get(i).getEmpName());
 			excel.setDesignation(listOfEmps.get(i).getDesignation());
@@ -71,8 +72,14 @@ public class ExcelController {
 		return b;
 
 	}
+	
+	
+	
+	
+	
+	
 
-	public int addFromExcel1(List<TeamFormDTO> listOfTeams) throws IOException, ClassNotFoundException {
+	public int addFromExcel1(List<TeamFormDTO> listOfTeams) throws IOException, ClassNotFoundException, SQLException {
 
 		TeamDetailsFlatDTO excel = null;
 
@@ -102,7 +109,7 @@ public class ExcelController {
 
 	}
 
-	public int addModuleFromExcel(List<ModuleFormDTO> listOfModule) throws IOException, ClassNotFoundException {
+	public int addModuleFromExcel(List<ModuleFormDTO> listOfModule) throws IOException, ClassNotFoundException, SQLException {
 
 		ModuleDetailsFlatDTO moduleExcel = null;
 		List<ModuleDetailsFlatDTO> moduleList = new ArrayList<ModuleDetailsFlatDTO>();
