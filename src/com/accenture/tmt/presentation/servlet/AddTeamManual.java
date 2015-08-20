@@ -49,6 +49,7 @@ public class AddTeamManual extends HttpServlet {
 		//String Teamid = request.getParameter("project1");
 		String ModuleId = request.getParameter("module");
 		String TeamDesc = request.getParameter("desc");
+		String status = request.getParameter("status");
 		
 		TeamDAO teamDAO= new TeamDAO();
 		int lastCount = teamDAO.countRows();
@@ -59,7 +60,7 @@ public class AddTeamManual extends HttpServlet {
 		detailsDO.setTeamId(Teamid);
 		detailsDO.setModuleId(ModuleId);
 		detailsDO.setTeamDescription(TeamDesc);
-		
+		detailsDO.setStatus(status); 
 		java.sql.Date sqlDate=null;
 		
 		HttpSession session1 = request.getSession();
