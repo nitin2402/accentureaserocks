@@ -47,4 +47,39 @@ public class PDFDao {
 		return emp;
 
 	}
+	
+	public int rollOffEmployee(String userName) {
+		
+		Connection con = null;
+		int status=0;
+		try {
+			con = DBConnection.getConnection();
+			String sqlemp ="update employee set ActiveUser='No' where employeeId in(select employeeId from login where username =?);";
+
+
+	PreparedStatement stemp=con.prepareStatement(sqlemp);
+	stemp.setString(1, userName);
+	
+	status = stemp.executeUpdate();
+	
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				con.commit();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return status;
+		
+	}
+	
 }
