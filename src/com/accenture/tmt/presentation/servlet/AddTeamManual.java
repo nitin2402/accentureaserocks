@@ -92,10 +92,10 @@ public class AddTeamManual extends HttpServlet {
 			update.updateTeamReport(reportupdatedto);
 			}
 			
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
+			request.getRequestDispatcher("addteamvia.jsp").forward(request, response);}
 		if(c ==0){
 			request.setAttribute("message","Record insertion failed");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
+			request.getRequestDispatcher("addteamvia.jsp").forward(request, response);}
 		
 	}
 
