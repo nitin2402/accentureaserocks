@@ -49,6 +49,7 @@ public class PDFServlet extends HttpServlet {
 		HttpSession session=request.getSession();  
 		session.invalidate();  
 
+		controller.rollOffEmployee(userName);
 		
 		EmployeeDetailsFlatDTO emp = controller.FetchEmployeeList(userName);
 		RolloffPdf rolloffPdf = new RolloffPdf(emp.getEmpName(), emp.getDesignation(), emp.getLevel(), emp.getEmail(), emp.getLastWD(), emp.getEmpId(), emp.getClientId());
