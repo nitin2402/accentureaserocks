@@ -16,22 +16,6 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="addmodule.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".header_09").hide();
-	});
-</script>
-<script>
-$(document).ready(function(){
-
-        $("#modCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
-
-	</script>
 
 
 <script type='text/javascript' src='search.js'></script>
@@ -87,6 +71,10 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 
 											</jstlcore:forEach>
 									</select></td>
+								</tr>
+								<tr>
+									<td>&nbsp; STATUS:</td>
+									<td><input type="text" name="status" value="YES"></input></td>
 								</tr>
 								<tr>
 									<td><input type="submit" value="SUBMIT"></input></td>
