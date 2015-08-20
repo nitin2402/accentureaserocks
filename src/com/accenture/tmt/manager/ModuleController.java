@@ -66,28 +66,25 @@ public  List<String> fetchProjects() {
 		
 	}
 	
-	public JSONObject addModule1(ModuleFormDTO moduleformdto){
-		
-	
-		ModuleDetailsDTO moduledetailsdto = new ModuleDetailsDTO();
-		
-		ModuleDAO moduledao = new ModuleDAO();
-int lastCount = moduledao.countRows1();
-		
-		String ModuleId = "MOD_"+ (lastCount + 1);
-		
-		moduledetailsdto.setModuleName(moduleformdto.getModuleName());
-		moduledetailsdto.setProject(moduleformdto.getProject());
-		moduledetailsdto.setModuleId(ModuleId);
-		moduledetailsdto.setModuleDescription(moduleformdto.getModuleDescription());
-		
-		
-		
-		
-		JSONObject obj = moduledao.insertModule(moduledetailsdto);
-		return obj;
-		
-	}
+public JSONObject addModule1(ModuleFormDTO moduleformdto) {
+
+	ModuleDetailsDTO moduledetailsdto = new ModuleDetailsDTO();
+
+	ModuleDAO moduledao = new ModuleDAO();
+	int lastCount = moduledao.countRows1();
+
+	String ModuleId = "MOD_" + (lastCount + 1);
+
+	moduledetailsdto.setModuleName(moduleformdto.getModuleName());
+	moduledetailsdto.setProject(moduleformdto.getProject());
+	moduledetailsdto.setModuleId(ModuleId);
+	moduledetailsdto.setModuleDescription(moduleformdto.getModuleDescription());
+	moduledetailsdto.setStatus(moduleformdto.getStatus());
+
+	JSONObject obj = moduledao.insertModule(moduledetailsdto);
+	return obj;
+
+}
 	public  List<ModuleFormDTO> fetchModuleDetails() {
 		List<ModuleFormDTO> list=moduleDAO.fetchModuleDetails();
 		return list;
