@@ -1,13 +1,12 @@
 package com.accenture.tmt.dao;
 
-import static java.lang.System.out;
-
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 
@@ -18,25 +17,27 @@ import com.accenture.tmt.common.PROPERTY;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
-import com.accenture.tmt.manager.ExcelController;
+
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
 
 
 public class ExcelDAO {
 	
-	public int addFromExcel(List<EmployeeDetailsFlatDTO> excel){
+	public int addFromExcel(List<EmployeeDetailsFlatDTO> excel) throws SQLException{
 		Connection con;
-		int a = 0;
+		int update = 0;
 		
 		try {
 			con = DBConnection.getConnection();
 			for(int i=0;i<excel.size();i++){
 			PreparedStatement st = con.prepareStatement(CONSTANTS.EMPLOYEE_INSERT);
-					if (excel.get(i).getEmpId() != null) {
+	
+					if (excel.get(i).getEmpId() != null && excel.get(i).getEmpId() != "" && !excel.get(i).getEmpId().isEmpty()) {
 						st.setString(1, excel.get(i).getEmpId());
-					} else {
-						throw new SQLException("primary key cannot be null");
-					}
+					} 
+					else {
+					throw new SQLException("Primary key cannot be null");
+				}
 
 					if (excel.get(i).getEmpName() != null) {
 						st.setString(2, excel.get(i).getEmpName());
@@ -121,33 +122,42 @@ public class ExcelDAO {
 				st.setString(15, "");
 			}	
 					
-			a = st.executeUpdate();
+			update = st.executeUpdate();
 			}
-			if(a!=0){
+			if(update!=0){
 				System.out.println("Record Inserted221213`3");
 			}
-			if(a ==0){
+			if(update ==0){
 				
 			System.out.println("Record insertion failed321141`4");
+			
 		}
 		
 			
 			con.commit();
 			con.close();
 			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} 
+		 catch (ClassNotFoundException e) {
+
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
+			if (e.getMessage().equals("integrity constraint violation: "
+					+ "unique constraint or "
+					+ "index violation; SYS_PK_10189 table: EMPLOYEE")){
+				
+				throw new SQLException("Employee Id Exists");	
+			}
+			throw new SQLException(e.getMessage());
 		}
-		return a;
+		return update;
 	}
 
-	public int addFromExcel1(List<TeamDetailsFlatDTO> excel){
+	public int addFromExcel1(List<TeamDetailsFlatDTO> excel) throws SQLException{
 		Connection con;
-		int a = 0;
+		int update = 0;
 		
 		try {
 			con = DBConnection.getConnection();
@@ -182,12 +192,12 @@ public class ExcelDAO {
 						st.setString(5, "");
 					}
 					
-					a = st.executeUpdate();
+					update = st.executeUpdate();
 			}
-			if(a!=0){
+			if(update!=0){
 				System.out.println("Record Inserted");
 			}
-			if(a ==0){
+			if(update ==0){
 				
 			System.out.println("Record insertion Failed");
 		}
@@ -196,20 +206,30 @@ public class ExcelDAO {
 			con.commit();
 			con.close();
 			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			
+		} 
+		 catch (ClassNotFoundException e) {
+
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
+			if (e.getMessage().equals("integrity constraint violation: "
+					+ "unique constraint or "
+					+ "index violation; SYS_PK_10189 table: EMPLOYEE")){
+				
+				throw new SQLException("Team Id Exists");	
+			}
+			throw new SQLException(e.getMessage());
 		}
-		return a;
-}
+		return update;
+	}
+
 
 	
-	public int addModuleFromExcel(List<ModuleDetailsFlatDTO> moduleList) {
+	public int addModuleFromExcel(List<ModuleDetailsFlatDTO> moduleList) throws SQLException {
 		Connection con;
-		int b = 0;
+		int update = 0;
 		
 		try {
 			con = DBConnection.getConnection();
@@ -246,35 +266,45 @@ public class ExcelDAO {
 					rs.setString(5,"");
 				}
 				
-				b = rs.executeUpdate();
+			
+					update = rs.executeUpdate();
+			
 			}
-			if(b!=0){
+			if(update!=0){
 				System.out.println("Record Inserted");
 			}
 			
-			if(b == 0){	
+			if(update == 0){	
 				System.out.println("Record insertion failed");
 			}
 
 			con.commit();
 			con.close();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			
+		} 
+		 catch (ClassNotFoundException e) {
+
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
+		if (e.getMessage().equals("integrity constraint violation: "
+					+ "unique constraint or "
+					+ "index violation;")){
+				
+				throw new SQLException("Module Id Exists");	
+			}
+			throw new SQLException(e.getMessage());
 		}
-		
-		return b; 	
+		return update;
 	}
+
 	
 	public String fetchTeamIdForExcel(EmployeeDetailsDTO listOfEmps ) {
-		// TODO Auto-generated method stub
-		//ExcelController prjDetails =new ExcelController();
+	
 		 String teamId=null;
 	
-		//List<EmployeeDetailsFlatDTO> li=new ArrayList<EmployeeDetailsFlatDTO>();
+	
         ResultSet rs = null ;
 		try {
 			Connection con = DBConnection.getConnection();
@@ -295,7 +325,7 @@ public class ExcelDAO {
 				 }
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return teamId;
