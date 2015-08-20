@@ -14,47 +14,7 @@
 <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type='text/javascript' src='search.js'></script>
 <script src="jquery.chained.js"></script>
-<script>
-	$(function(){$("#mdl").chained("#prj");
-	$("#tem").chained("#mdl")});
-</script>
-<script >
-$(document).ready(function(){
-        $("#teamCss").css({
-	           	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
-</script>
-<script>
-	function validateform()
-	{
-	var name=document.forms["add"]["tname"].value;
-	var id=document.forms["add"]["project"].value;
-	var level=document.forms["add"]["module"].value;
-	var designation=document.forms["add"]["desc"].value;
-	if (name == null || name=="")
-	  {
-	  alert("Please provide Team Name");
-	  return false;
-	  }
-	if (id == null || id=="")
-	  {
-	  alert("Please provide Team ID");
-	  return false;
-	  }
-	if (level == null || level=="")
-	  {
-	  alert("Please provide Module Name");s
-	  return false;
-	  }
-	if (designation == null || designation=="")
-	  {
-	  alert("Please provide Team Description");
-	  return false;
-	  }
-}
-</script>
+<script src="addteamvia.js"></script>
 </head>
 <body>
 <jsp:include page="/DropDownDetails" />
@@ -73,7 +33,7 @@ $(document).ready(function(){
 									<td><input type="text" name="tname"></input></td>
 								</tr>
 								<tr>
-									<td>&nbsp PROJECT:</td>
+									<td>&nbsp; PROJECT:</td>
 									<td><select id="prj" class="chain" name="project" style="width: 143px">
 											<jstlcore:forEach items="${project}" var="prj_item">
 												<option value="${prj_item.projectId}">
@@ -82,7 +42,7 @@ $(document).ready(function(){
 									</select></td>
 								</tr> 
                           		<tr>
-									<td>&nbsp MODULE:</td>
+									<td>&nbsp; MODULE:</td>
 									<td><select id="mdl" class="chain" name="module" style="width: 143px">
 											<jstlcore:forEach items="${module}" var="mod_item">
 												<option value="${mod_item.moduleId}" class="${mod_item.projectId}">
@@ -92,6 +52,10 @@ $(document).ready(function(){
 								</tr> 
 								<td><span style="color: Red;">* </span>TEAM DESCRIPTION:</td>
 									<td><input type="text" name="desc"></input></td>
+								</tr>
+								<tr>
+									<td>&nbsp; STATUS:</td>
+									<td><input type="text" name="status" value="YES"></input></td>
 								</tr>
 								</table>
 							<input class="submit" type="submit" value="Submit"></input> <input
