@@ -44,6 +44,7 @@ public class EmlpoyeeReportDAO {
 								"# AND #" +end+"# AND Action LIKE '*'";
 					    rs = st1.executeQuery(query);
 					}
+					
 					else if((empreportdto.getEmpname()==""||empreportdto.getEmpname()==null)&&(empreportdto.getAction()!=""||empreportdto.getAction()!=null))
 					{
 						
@@ -53,7 +54,9 @@ public class EmlpoyeeReportDAO {
 					    st1.setDate(2, (Date)empreportdto.getEndDate());
 					    st1.setString(3, empreportdto.getAction());
 					    rs = st1.executeQuery();
-					}else if((empreportdto.getAction()==""||empreportdto.getAction()==null)&& (empreportdto.getEmpname()!=""||empreportdto.getEmpname()!=null))
+					}
+					
+					else if((empreportdto.getAction()==""||empreportdto.getAction()==null)&& (empreportdto.getEmpname()!=""||empreportdto.getEmpname()!=null))
 					{
 						
 						PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_QUERY_emp);
@@ -62,7 +65,9 @@ public class EmlpoyeeReportDAO {
 					    st1.setDate(3, (Date)empreportdto.getEndDate());
 					    //st1.setString(3, empreportdto.getAction());
 					    rs = st1.executeQuery();
-					}else{PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_QUERY);
+					}
+					
+					else{PreparedStatement st1 = con.prepareStatement(CONSTANTS.GET_EMPLOYEE_REPORT_QUERY);
 				    st1.setString(1, empreportdto.getEmpname());
 				    st1.setDate(2, (Date)empreportdto.getStartDate());
 				    st1.setDate(3, (Date)empreportdto.getEndDate());
@@ -76,13 +81,14 @@ public class EmlpoyeeReportDAO {
 				    con.close();
 					}
 				
-		} catch (ClassNotFoundException | SQLException e) {
+			} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+				e.printStackTrace();
+			}
+	    	return empreportflatdto;
 		}
-	    return empreportflatdto;
-	}
 
+	
 	public List<EmployeeReportDetailsFlatDTO> getEmployeeDetailsReportDAO_allpresent(ReportDetailsDTO empreportdto) {
 		// TODO Auto-generated method stub
 		List<EmployeeReportDetailsFlatDTO> empreportflatdto = new ArrayList<EmployeeReportDetailsFlatDTO>();
@@ -215,15 +221,15 @@ public class EmlpoyeeReportDAO {
 				    //System.out.println("bye");
 				    con.close();
 					}
-		} catch (ClassNotFoundException | SQLException e) {
+			} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+				e.printStackTrace();
+			}
+	    	return empreportflatdto;
 		}
-	    return empreportflatdto;
-	}
 	
 	
-	 private void resultSet(ResultSet rs, ArrayList<EmployeeReportDetailsFlatDTO> empreportflatdto) {	 
+	private void resultSet(ResultSet rs, ArrayList<EmployeeReportDetailsFlatDTO> empreportflatdto) {	 
 		 try {
 			 EmployeeReportDetailsFlatDTO emplist = null;
 			 
@@ -247,6 +253,7 @@ public class EmlpoyeeReportDAO {
 					emplist.setIsActive(rs.getString("ActiveUser")); 
 					emplist.setUserName(rs.getString("Username"));
 					emplist.setAction(rs.getString("Action"));
+					emplist.setAuthorizedAs(rs.getString("AuthorizedAs"));
 					emplist.setTimeStamp(rs.getString("Timestamp"));
 				
 					empreportflatdto.add(emplist);     
@@ -259,7 +266,8 @@ public class EmlpoyeeReportDAO {
 		 	}
 	 	}
 	 
-		public void insertEmpreoptrs(EmployeeReportUpdateDTO reportupdatedto) {
+	
+	public void insertEmpreoptrs(EmployeeReportUpdateDTO reportupdatedto) {
 			
 			// TODO Auto-generated method stub
 			try {
@@ -298,7 +306,7 @@ public class EmlpoyeeReportDAO {
 			
 		}
 		
-			public void insertintoEmpReoptr_Authorized(EmployeeReportUpdateDTO reportUpdateDTO) {
+			public void insertIntoEmpReport_Authorized(EmployeeReportUpdateDTO reportUpdateDTO) {
 			
 			// TODO Auto-generated method stub
 			try {
@@ -309,9 +317,10 @@ public class EmlpoyeeReportDAO {
 					 
 					    st1.setString(1, reportUpdateDTO.getUserName());
 					    st1.setString(2, reportUpdateDTO.getAction());
-					    st1.setString(3, reportUpdateDTO.getTimeStamp());
-					    st1.setDate(4, reportUpdateDTO.getDate());
-					 	st1.setString(5, reportUpdateDTO.getEmpId());
+					    st1.setString(3, reportUpdateDTO.getAuthorizedAs());
+					    st1.setString(4, reportUpdateDTO.getTimeStamp());
+					    st1.setDate(5, reportUpdateDTO.getDate());
+					 	st1.setString(6, reportUpdateDTO.getEmpId());
 					 
 						st1.executeUpdate();
 				}
