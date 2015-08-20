@@ -100,22 +100,9 @@ if (session1 == null
 }
 %>
 
-<%
-	if ((String) session1.getAttribute("admin") == "admin") {
-%>
 
-<script type='text/javascript' src='searchAdmin.js'></script>
-<%
-	}
-%>
-
-<%
-	if ((String) session1.getAttribute("admin") == "user") {
-%>
 <script type='text/javascript' src='search.js'></script>
-<%
-	}
-%>
+
 </head>
 <body>
 	<%
