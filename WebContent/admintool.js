@@ -8,10 +8,6 @@ $(document).ready(function(){
         });
     });
 
-
-
-
-
 	$(document).ready(function() {
 		$(".header_09").hide();
 	});
