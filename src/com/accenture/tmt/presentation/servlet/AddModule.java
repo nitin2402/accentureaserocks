@@ -1,7 +1,7 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.IOException;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -13,8 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
-import com.accenture.tmt.dao.dto.ModuleDetailsDTO;
-import com.accenture.tmt.dao.dto.ModuleReportFlatDTO;
+
 import com.accenture.tmt.manager.ModuleController;
 import com.accenture.tmt.manager.ModuleReportController;
 import com.accenture.tmt.presentation.dto.ModuleFormDTO;
@@ -53,46 +52,45 @@ public class AddModule extends HttpServlet {
 		ModuleController modulecontroller = new ModuleController();
 		ModuleReportUpdateDTO reportupdatedto = new ModuleReportUpdateDTO();
 		ModuleReportController modulereportcontroller = new ModuleReportController();
-		ModuleDetailsDTO moduledetailsdto = new ModuleDetailsDTO();
-	
-		java.sql.Date sqlDate=null;
-	
+
+		java.sql.Date sqlDate = null;
+
 		HttpSession session1 = request.getSession();
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Date date = new Date();
-		 String timestamp= df.format(date);
-		 sqlDate= new java.sql.Date(date.getTime());
+		String timestamp = df.format(date);
+		sqlDate = new java.sql.Date(date.getTime());
 		String moduleName = request.getParameter("modulename");
 		String projectName = request.getParameter("project1");
 		String moduleDescription = request.getParameter("moduledesc");
-	/*	String moduleId = request.getParameter("moduleid");*/
-		
+		String status = request.getParameter("status");
+
 		moduleformdto.setModuleName(moduleName);
-	/*	moduleformdto.setModuleId(moduleId);*/
+
 		moduleformdto.setModuleDescription(moduleDescription);
 		moduleformdto.setProject(projectName);
-		
+		moduleformdto.setStatus(status);
 		JSONObject obj = modulecontroller.addModule1(moduleformdto);
-		if(obj.get("status").toString().equals("1")){
+		if (obj.get("status").toString().equals("1")) {
 			request.setAttribute("message", "Module Inserted Successfully");
-			if(session1!= null){
+			if (session1 != null) {
 				reportupdatedto.setModuleId(obj.get("moduleId").toString());
 				reportupdatedto.setModuleName(moduleName);
 				reportupdatedto.setProjectId(obj.get("projectId").toString());
 				reportupdatedto.setModuleDescription(moduleDescription);
-				reportupdatedto.setUserName((String)session1.getAttribute("user"));
+				reportupdatedto.setUserName((String) session1.getAttribute("user"));
 				reportupdatedto.setAction("added");
 				reportupdatedto.setTimeStamp(timestamp);
 				reportupdatedto.setDates(sqlDate);
-			modulereportcontroller.updateModuleReport(reportupdatedto);
+				modulereportcontroller.updateModuleReport(reportupdatedto);
 			}
-			
-		} else if( obj.get("status").toString() == "0"){
+
+		} else if (obj.get("status").toString() == "0") {
 			request.setAttribute("message", "No Module Inserted	");
 		}
-		
+
 		request.getRequestDispatcher("addmodule.jsp").forward(request, response);
-		
+
 	}
-	}
+}
 
