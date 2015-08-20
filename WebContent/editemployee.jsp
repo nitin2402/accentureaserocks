@@ -69,11 +69,11 @@
 
 		<div id="content_right">
 
-			<div id="search" class="right_col_section_w650">
+			<div  class="right_col_section_w650">
 
 				<div class="header_01">Edit Employee</div>
 
-
+<div id ="search">
 
 
 				<form action="EditEmployee" method="post">
@@ -177,7 +177,8 @@
 
 				<div class="cleaner">&nbsp;</div>
 
-
+					</div>
+				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
 			</div>
 
