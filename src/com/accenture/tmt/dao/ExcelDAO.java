@@ -216,7 +216,7 @@ public class ExcelDAO {
 			e.printStackTrace();
 			if (e.getMessage().equals("integrity constraint violation: "
 					+ "unique constraint or "
-					+ "index violation; SYS_PK_10189 table: EMPLOYEE")){
+					+ "index violation; SYS_PK_10198 table: TEAM")){
 				
 				throw new SQLException("Team Id Exists");	
 			}
@@ -290,8 +290,8 @@ public class ExcelDAO {
 			e.printStackTrace();
 		if (e.getMessage().equals("integrity constraint violation: "
 					+ "unique constraint or "
-					+ "index violation;")){
-				
+					+ "index violation; SYS_PK_10193 table: MODULEDETAIL")){
+			
 				throw new SQLException("Module Id Exists");	
 			}
 			throw new SQLException(e.getMessage());
