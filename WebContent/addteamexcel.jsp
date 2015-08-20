@@ -80,8 +80,8 @@ $(document).ready(function(){
 							Choose the Excel File to Upload:- <input type="file" name="file1"
 								size="50"
 								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
-							<br /> <br /> <br /> <input type="hidden" id="sheetno"
-								name="sheetno" /> <br /> <input type="submit" value="Submit" />
+							<!-- <br /> <br /> <br /> <input type="hidden" id="sheetno"
+								name="sheetno" /> --> <br /> <input type="submit" value="Submit" />
 						</form>
 						<br />
 					</div>
