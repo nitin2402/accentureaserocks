@@ -1,6 +1,6 @@
 
 
-	function SelectSheetNo(e) {
+	/*function SelectSheetNo(e) {
 		var sheet = prompt("please enter sheet number", "1");
 
 		$("#sheetno").val(sheet);
@@ -12,9 +12,9 @@
 
 			return true;
 		}
-	}
+	}*/
 	
-	var validFileExtensions = [".xlsx", ".xls"];    
+	var validFileExtensions = [".xlsx"];    
 	function Validate(vaildateObj) {
 	    var getFileName = vaildateObj.getElementsByTagName("input");
 	  
@@ -38,7 +38,10 @@
 	                    if (fileName.substr(fileName.length - extensions.length, extensions.length).toLowerCase() == extensions.toLowerCase()) {
 	                        isValid = true;
 	                       /*  alert("success"); */
-	                        return SelectSheetNo();
+	                        /*return SelectSheetNo();*/
+	                        alert("PLEASE ENSURE THAT THE PROJECT,MODULE names are correct.YOU MAY REFER TO SHEET 2,3 OF THE ABOVE LINK.");
+							// return SelectSheetNo();
+							return true;
 	                    }
 	                }  
 	                if (!isValid) {
