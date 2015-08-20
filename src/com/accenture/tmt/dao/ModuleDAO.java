@@ -319,7 +319,7 @@ public class ModuleDAO {
 			st1.setString(3, moduledetailsdto.getModuleId());
 			obj.put("moduleId", moduledetailsdto.getModuleId());
 			st1.setString(4, moduledetailsdto.getModuleDescription());
-			st1.setString(5, "Y");
+			st1.setString(5, moduledetailsdto.getStatus());
 
 			status = st1.executeUpdate();
 		} catch (Exception e) {
