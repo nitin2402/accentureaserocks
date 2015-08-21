@@ -1,7 +1,7 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -18,18 +24,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.accenture.tmt.common.CONSTANTS;
+
+
 import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.TeamReportController;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
@@ -69,7 +68,6 @@ public class AddTeamExcel extends HttpServlet {
 		int maxFileSize = 5000 * 1024;
 		   int maxMemSize = 5000 * 1024;
 
-
 		File file=null;
 		//String sheetno = null;
 		 boolean isMultipart = ServletFileUpload.isMultipartContent(request);
@@ -85,7 +83,8 @@ public class AddTeamExcel extends HttpServlet {
 		FileUtils.cleanDirectory(file);
 
 		DiskFileItemFactory factory = new DiskFileItemFactory();
-
+		XSSFWorkbook workbook = null;
+		 try {
 		factory.setSizeThreshold(maxMemSize);
 
 		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
@@ -141,13 +140,13 @@ public class AddTeamExcel extends HttpServlet {
 				e1.printStackTrace();
 			}
 		
-	        try {
+	       
 					
 			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
 			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
 			//FileInputStream file = new FileInputStream(file1);
 			int sno =1;
-			XSSFWorkbook workbook = new XSSFWorkbook(file);
+		 workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
 	List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
 			
@@ -250,9 +249,14 @@ public class AddTeamExcel extends HttpServlet {
 			System.out.println("Error in parsing XLS : ");
 			e.printStackTrace();
 			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
-		
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			}
+		 finally {
+				workbook.close();
+			}
+
 		}
+	
 }
 		
 		
