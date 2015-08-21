@@ -11,7 +11,7 @@
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-<script type='text/javascript' src='search.js'></script>
+
  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/> 
  <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
@@ -22,16 +22,18 @@
 	src="js/jquery.ui.datepicker.validation.js"></script>
 <link href="calendar.css" rel="stylesheet" />
 
-
-<script src="search.js"></script>
+<script type='text/javascript' src='search.js'></script>
 <script src="generateempreports.js"></script>
-
 <script src="jquery.chained.js"></script>
 
 </head>
 <body>
-<%@ include file="header_admin.jsp" %>
- <%
+
+		<jsp:include page="/DropDownDetails" />
+		<jsp:include page="/ViewEmployee" />
+		
+		<%@ include file="header_admin.jsp" %>
+ 	<%
 		HttpSession session1 = request.getSession(false);
 		if (session1 == null
 				|| (String) session1.getAttribute("user") == null
@@ -41,22 +43,22 @@
 		}
 	%> 
 	
-<div id="templatemo_content">
- <jsp:include page="/DropDownDetails" />
-	<jsp:include page="/ViewEmployee" />
-<%@ include file="common_left.jsp" %>
-			<div id="content_right">
-			<div class="right_col_section_w650" style="height: auto;">
-				<div class="header_01">Reports</div>
-                 <div id="search" style="font-size:13px">
+	<div id="templatemo_content">
+ 
+				<%@ include file="common_left.jsp" %>
+				
+				<div id="content_right">
+					<div class="right_col_section_w650" style="height: auto;">
+					<div class="header_01">Reports</div>
+               		<div id="search" style="font-size:13px">
 				 
-					<div id="accordion" class="accordion_bg">
-						<h3>Reports Generated for Requests</h3>
-						<div>
-							<form name="request" action="RequestReportServlet" method="post"
-								onsubmit="return validateform()">
-								<table>
-									<tr>
+						<div id="accordion" class="accordion_bg">
+							<h3>Reports Generated for Requests</h3>
+							<div>
+								<form name="request" action="RequestReportServlet" method="post"
+									onsubmit="return validateform()">
+									<table>
+										<tr>
 										<td>PLEASE SELECT THE STATUS &nbsp;&nbsp;</td>
 										<td><select name="status" class="dropbox_size">
 												<option value=""> --Please select-- </option>
@@ -225,24 +227,28 @@
 									</tr>
 
 								</table>
-								<button type="submit" value="Submit">Generate Report</button>
+								<br/>
+								
+								<button type="submit" value="Submit" style="margin-left: 100px">Generate Report</button>
 
 
 							</form>
 						</div>
 					
 						<h3>Reports Generated for Employee</h3>
-						<div>					
-							<select id="select" name="select" onChange="changeTextBox();">
-								<option value="default" selected> --Select to generate
-									reports on employee-- </option>
-								<option value="employee">Generate report by Employee
-									Name</option>
-								<option value="designation">Generate report by
-									Designation/Billability</option>
-							</select>
-								<div id="div1">							
-								<form action="EmployeeReportServlet" method="post" onsubmit="return validateform()">
+							<div>					
+								<select id="select" name="select" onchange="changeTextBox();">
+									<option value="default" selected> --Select to generate
+										reports on employee-- </option>
+									<option value="employee">Generate report by Employee
+										Name</option>
+									<option value="designation">Generate report by
+										Designation/Billability</option>
+								</select>
+						
+							<div id="div1">							
+						
+					        <form action="EmployeeReportServlet" method="post" onsubmit="return validateform()">
 								
 										<table >
 											<tr>
@@ -268,7 +274,7 @@
 														<option>edited</option>
 														<option>deleted</option>
 														<option>added by excel</option>
-														<option value="authorized">Authorized</option>
+														<option>Authorized</option>
 												</select></td>
 											</tr>
 
@@ -288,7 +294,8 @@
 											style="margin-left: 100px">Generate Report</button>
 										
 									</form>					
-											</div>				
+								</div>				
+							
 									<form action="EmployeeReportServlet_bill" method="post" onsubmit="return validateform()">
 										<div id="div2">
 										<table >
@@ -362,6 +369,7 @@
 			</div>
 			<div class="cleaner">&nbsp;</div>
 		</div>
+		
 	<%@ include file="footer.jsp" %> 
 	</div>
 </body>
