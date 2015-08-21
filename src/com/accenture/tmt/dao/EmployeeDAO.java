@@ -403,68 +403,89 @@ public class EmployeeDAO {
 			while (rs.next()) {
 				name = rs.getString("ProjectName");
 				++count;
+				if(rs.getString("Billable") != null)
 				if (rs.getString("Billable").equals("yes")) {
 					++billable;
 				}
+				if(rs.getString("EmployeeDesignation") != null)
 				if (rs.getString("EmployeeDesignation").equals("ASE")) {
 					++ASE;
 				}
+				if(rs.getString("EmployeeDesignation") != null)
 				if (rs.getString("EmployeeDesignation").equals("SE")) {
 					++SE;
 				}
+				if(rs.getString("EmployeeDesignation") != null)
 				if (rs.getString("EmployeeDesignation").equals("SSE")) {
 					++SSE;
 				}
+				if(rs.getString("EmployeeDesignation") != null)
 				if (rs.getString("EmployeeDesignation").equals("TL")) {
 					++TL;
 				}
+				if(rs.getString("EmployeeDesignation") != null)
 				if (rs.getString("EmployeeDesignation").equals("AM")) {
 					++AM;
 				}
+				if(rs.getString("EmployeeDesignation") != null)
 				if (rs.getString("EmployeeDesignation").equals("M")) {
 					++M;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("Angular JS")) {
 					++angularJS;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("AT")) {
 					++AT;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("C++/Unix")) {
 					++C_UNIX;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("FST")) {
 					++FST;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("HTML")) {
 					++HTML;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("Java")
 						|| rs.getString("EmployeeExpertise").equals("JAVA")
 						|| rs.getString("EmployeeExpertise").equals("java")) {
 					++java;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("JSP")) {
 					++JSP;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("QA")) {
 					++QA;
 				}
+				if(rs.getString("EmployeeExpertise") != null)
 				if (rs.getString("EmployeeExpertise").equals("TBD")) {
 					++TBD;
 				}
+				if(rs.getString("ProficiencyCams") != null)
 				if (rs.getString("ProficiencyCams").equals("P0")) {
 					++p0;
 				}
+				if(rs.getString("ProficiencyCams") != null)
 				if (rs.getString("ProficiencyCams").equals("P1")) {
 					++p1;
 				}
+				if(rs.getString("ProficiencyCams") != null)
 				if (rs.getString("ProficiencyCams").equals("P2")) {
 					++p2;
 				}
+				if(rs.getString("ProficiencyCams") != null)
 				if (rs.getString("ProficiencyCams").equals("P3")) {
 					++p3;
 				}
+				if(rs.getString("ProficiencyCams") != null)
 				if (rs.getString("ProficiencyCams").equals("P4")) {
 					++p4;
 				}
@@ -507,6 +528,39 @@ public class EmployeeDAO {
 			e.printStackTrace();
 		}
 		return piechartlist;
+
+	}
+
+	public List<EmployeeDetailsFlatDTO> fetchEmployeeListForTeam(String teamID) {
+		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
+
+		try {
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con
+					.prepareStatement("SELECT * FROM Employee WHERE TeamId=? ");
+			st.setString(1, teamID);
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				EmployeeDetailsFlatDTO emp = new EmployeeDetailsFlatDTO();
+				emp.setEmpName(rs.getString(CONSTANTS.EMPLOYEE_NAME));
+				emp.setEmpId(rs.getString(CONSTANTS.EMPLOYEE_ID));
+				emp.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
+				emp.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
+				emp.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
+				employeeList.add(emp);
+			}
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return employeeList;
 
 	}
 
