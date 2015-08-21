@@ -135,5 +135,11 @@ public class EmployeeController {
 		return employeeList;
 
 	}
+	
+	public List<EmployeeDetailsFlatDTO> FetchEmployeeListForModule(String moduleid) {
+		List<EmployeeDetailsFlatDTO> employeeList = employeeDAO
+				.fetchEmployeeListForModule(moduleid);
+		return employeeList;
+	}
 
 }
