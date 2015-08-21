@@ -20,22 +20,18 @@
 
 <body>
 
-<%@ include file="header_admin.jsp" %>
-
-	<%
-		HttpSession session1 = request.getSession(false);
-
-		if (session1 == null
-
-		|| (String) session1.getAttribute("user") == null
-
-		|| (String) session1.getAttribute("admin") != "admin") {
-	%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
+	<%@ include file="header_admin.jsp" %>
+  
+		<%
+			HttpSession session1 = request.getSession(false);
+			if (session1 == null || (String) session1.getAttribute("user") == null || (String) session1.getAttribute("admin") != "admin") {
+		%><jsp:forward page="login.jsp?msg=Please Login as an Admin" />
 
 	<%
 		}
 	%>
 	
+	<!-- <div id="templatemo_container" /> -->
 		<div id="templatemo_content">
 			
 			<%@ include file="common_left.jsp" %>
@@ -96,26 +92,14 @@
 									
 								</tr>
 				</jstlcore:forEach></tbody></table>
-					
-				</div>
-				<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
 				<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
 					.getParameter("msg") : ""%></p>
-				<div>
-				<br />
-				<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<div class="notification">${message}</div>
-
-					<div class="cleaner">&nbsp;</div>
 				</div>
-			
 				</div>
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
+				<br/>
+				<div align="center"><a href="mainreports.jsp" style="color: yellow;">BACK</a></div>
 				
 			</div>
 			<div class="cleaner">&nbsp;</div>
