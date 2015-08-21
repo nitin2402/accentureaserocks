@@ -264,5 +264,7 @@ public interface CONSTANTS {
          public String USERTYPE ="TypeOfUser";
          public String LOGIN_ID ="L_ID";
 		public String GET_ALL_REQUEST_REPORT = "select E.ReqId, T.TeamName, E.No_Of_ASE, E.No_Of_SE, E.No_Of_SSE, E.Comments, S.StatusName, E.EmployeeId, E.EmployeeName, E.TimeStamp from EmployeeRequestReportTable as E, StatusTable as S, Team as T WHERE E.TeamId = T.TeamId AND E.Status_ID = S.Status_ID";
+		
+		public String GET_EMP_LIST_ON_MODULE_CLICK = "select * from Employee INNER JOIN Team ON Team.TeamId=Employee.TeamId INNER JOIN  ModuleDetail ON ModuleDetail.ModuleId=Team.ModuleId WHERE ModuleDetail.ModuleId=?";
 }
 
