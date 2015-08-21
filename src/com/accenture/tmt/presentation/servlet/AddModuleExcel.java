@@ -83,7 +83,7 @@ public class AddModuleExcel extends HttpServlet {
 		FileUtils.cleanDirectory(file);
 
 		DiskFileItemFactory factory = new DiskFileItemFactory();
-
+		XSSFWorkbook workbook = null;
 		factory.setSizeThreshold(maxMemSize);
 
 		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
@@ -145,7 +145,7 @@ public class AddModuleExcel extends HttpServlet {
 			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
 			//FileInputStream file = new FileInputStream(file1);
 			int sno =1;
-			XSSFWorkbook workbook = new XSSFWorkbook(file);
+			 workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
 			List<ModuleFormDTO> listOfModule = new ArrayList<ModuleFormDTO>();
 			
@@ -220,36 +220,39 @@ public class AddModuleExcel extends HttpServlet {
 				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);}
 				
 			workbook.close();
-				//file.close();
+				
 			} catch (java.lang.IllegalArgumentException |IllegalStateException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
 				request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			}
 			
 			catch (ClassNotFoundException | InvalidFormatException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 				request.setAttribute("message","Error :- Please ensure that the uploaded file is in correct format ");
 				request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			}
 			catch (IOException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
 				request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 				request.setAttribute("message",e.getMessage());
 				request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+			
 				System.out.println("Error in parsing XLS : ");
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);}
+				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				}finally {
+					workbook.close();
+				}
 			
 			}
 			
