@@ -107,9 +107,9 @@
 				<div class="content_left_section_content">
 					
 					<ul>
-						<li><a href="viewemployee_user.jsp">View Employee</a></li>
+					<li><a href="viewmodule_user.jsp">View Module</a></li>
 						<li><a href="viewteam_user.jsp">View Team</a></li>
-						<li><a href="viewmodule_user.jsp">View Module</a></li>
+						<li><a href="viewemployee_user.jsp">View Employee</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
