@@ -12,8 +12,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="admintool.js"></script> 
   <script type='text/javascript' src='search.js'></script>
-  <script type='text/javascript' src='searchAdmin.js'></script>
-<meta charset="utf-8">
+<meta charset="utf-8" />
  
 </head>
 <body>
@@ -30,13 +29,15 @@
 	%> 
 
 	<div id="templatemo_content">
+		
 		<%@ include file="common_left.jsp" %>
+		
 		<div id="content_right">
 			<div class="right_col_section_w650" style="height: 300px">
 				
   				<div id = "search">
   				<div id="scrollable"   style="font-size: 14px;">
-  				<table class="table2" > 
+  					<table class="table2" > 
 							<thead style="font-weight:bold;position: ">
 							<tr class="one" style="font-weight:bold;">
 								<td>ReqId</td>
@@ -51,8 +52,9 @@
 								<td>TimeStamp</td>
 							</tr>
 							</thead>
-							<tbody  >
-				<jstlcore:forEach items="${ReportList}" var="item">
+						
+							<tbody>
+							<jstlcore:forEach items="${ReportList}" var="item">
 								<tr>
 									<td><jstlcore:out value="${item.reqId}" /></td>
 									<td><jstlcore:out value="${item.teamName}" /></td>
@@ -65,25 +67,17 @@
 									<td><jstlcore:out value="${item.empName}" /></td> 
 									<td><jstlcore:out value="${item.timestamp}" /></td> 
 								</tr>
-				</jstlcore:forEach></tbody></table>
+							</jstlcore:forEach></tbody></table>
+			
+							<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
+							.getParameter("msg") : ""%></p>
+				</div>	
 				</div>
-				<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
-				<p style="font-size: 14px; color: white; margin:22px"><%=request.getParameter("msg") != null ? request
-					.getParameter("msg") : ""%></p>
-				<div>
-				<br />
-				<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<div class="notification">${message}</div>
-
-					<div class="cleaner">&nbsp;</div>
-				</div>
-				</div>
+				
 				<div id="ajaxResponse"></div>
 				<div class="margin_bottom_20">&nbsp;</div>
+				<br/><br/><br/><br/>
+				<div align="center"><a href="mainreports.jsp" style="color : yellow ;">BACK</a></div>
 					
 			</div>
 			<div class="cleaner">&nbsp;</div>
