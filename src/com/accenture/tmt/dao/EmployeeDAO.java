@@ -542,5 +542,32 @@ public class EmployeeDAO {
 		return employeeList;
 
 	}
+	
+	
+	public List<EmployeeDetailsFlatDTO> fetchEmployeeListForModule(String moduleID){
+		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
+		try {
+			Connection con = DBConnection.getConnection();
+			PreparedStatement st = con
+					.prepareStatement(CONSTANTS.GET_EMP_LIST_ON_MODULE_CLICK);
+			st.setString(1, moduleID);
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				EmployeeDetailsFlatDTO emp = new EmployeeDetailsFlatDTO();
+				emp.setEmpName(rs.getString(CONSTANTS.EMPLOYEE_NAME));
+				emp.setEmpId(rs.getString(CONSTANTS.EMPLOYEE_ID));
+				emp.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
+				emp.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
+				emp.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
+				employeeList.add(emp);
+			}
+			con.close();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return employeeList;
+		
+	}
 
 }
