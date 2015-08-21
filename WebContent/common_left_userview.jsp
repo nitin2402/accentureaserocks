@@ -58,9 +58,9 @@
 					</form> --%>
 					
 					<ul>
-							<li><a href="viewmodule.jsp"id="ViewmodCss">View Module</a></li>
-					<li><a href="viewteam.jsp"id="ViewteamCss">View Team</a></li>
-					<li><a href="viewemployee.jsp" id="ViewempCss">View Employee</a></li>
+							<li><a href="viewmodule_user.jsp"id="ViewmodCss">View Module</a></li>
+					<li><a href="viewteam_user.jsp"id="ViewteamCss">View Team</a></li>
+					<li><a href="viewemployee_user.jsp" id="ViewempCss">View Employee</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
