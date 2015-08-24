@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.ExcelDAO;
+import com.accenture.tmt.dao.TeamDAO;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
@@ -79,6 +80,15 @@ public class ExcelController {
 	
 	
 
+	public String mod_detailsForExcel(TeamFormDTO teamFormDto) {
+
+		ExcelDAO fetchmodId = new ExcelDAO();
+		String modId = fetchmodId.fetchModIdForExcel(teamFormDto);
+
+		return modId;
+
+	}
+
 	public int addFromExcel1(List<TeamFormDTO> listOfTeams) throws IOException, ClassNotFoundException, SQLException {
 
 		TeamDetailsFlatDTO excel = null;
@@ -86,10 +96,13 @@ public class ExcelController {
 		List<TeamDetailsFlatDTO> li = new ArrayList<TeamDetailsFlatDTO>();
 
 		for (int i = 0; i < listOfTeams.size(); i++) {
-
+			TeamDAO teamDAO= new TeamDAO();
+			int lastCount = teamDAO.countRows();
+			String Teamid = "TE -"+ (lastCount + 1);
+			
 			excel = new TeamDetailsFlatDTO();
 			excel.setTeamName(listOfTeams.get(i).getTeamName());
-			excel.setTeamId(listOfTeams.get(i).getTeamId());
+			excel.setTeamId(Teamid);
 			excel.setModuleId(listOfTeams.get(i).getModuleId());
 			excel.setTeamDescription(listOfTeams.get(i).getTeamDescription());
 			excel.setStatus(listOfTeams.get(i).getStatus());
