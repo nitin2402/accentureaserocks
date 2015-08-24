@@ -60,7 +60,7 @@ public class AddTeamExcel extends HttpServlet {
    	/**
    	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
    	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException ,IllegalStateException{
 		// TODO Auto-generated method stub
 		
 		
@@ -108,14 +108,7 @@ public class AddTeamExcel extends HttpServlet {
 				    FileItem filename = (FileItem)iterator.next();
 				    
 				    
-				    /*if ( filename.isFormField () )
-				    
-				    {
-				    sheetno=filename.getString();
-				    }	
-				    else          	
-				    {
-		*/
+				  
 				    String fieldName = filename.getFieldName();
 				    String fileName = filename.getName();
 				    boolean isInMemory = filename.isInMemory();
@@ -130,21 +123,18 @@ public class AddTeamExcel extends HttpServlet {
 				    }
 				    filename.write( file ) ;
 				   
-				   /* }*/
+				 
 				 }
 			} catch (FileUploadException e1) {
-				// TODO Auto-generated catch block
+			
 				e1.printStackTrace();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
+		
 				e1.printStackTrace();
 			}
 		
 	       
-					
-			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
-			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
-			//FileInputStream file = new FileInputStream(file1);
+		
 			int sno =1;
 		 workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
@@ -164,9 +154,9 @@ public class AddTeamExcel extends HttpServlet {
 					if (cellCount == 0 &&  cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamName")) {
 						teamFormDto.setTeamName(cellForTeam.getStringCellValue());
 					} else if (cellCount == 1 && cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamId")) {
-						teamFormDto.setTeamId(cellForTeam.getStringCellValue());
+						teamFormDto.setProjectName(cellForTeam.getStringCellValue());
 					} else if (cellCount == 2 && cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("ModuleId")) {
-						teamFormDto.setModuleId(cellForTeam
+						teamFormDto.setModuleName(cellForTeam
 								.getStringCellValue());
 					} else if (cellCount == 3 && cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamDescription")) {
 						teamFormDto.setTeamDescription(cellForTeam
@@ -178,6 +168,9 @@ public class AddTeamExcel extends HttpServlet {
 
 					cellCount++;
 			}
+				ExcelController fetchmoduleId = new ExcelController();
+				teamFormDto.setModuleId(fetchmoduleId.mod_detailsForExcel(teamFormDto));
+				
 			listOfTeams.add(teamFormDto);
 			
 			}else{
@@ -216,36 +209,36 @@ public class AddTeamExcel extends HttpServlet {
 						teamreportcontroller.updateTeamReport(reportupdatedto);
 					}
 						}}
-				if(c ==0){
+				if(c ==0)
+				{
 					request.setAttribute("message","Record insertion failed");
-					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);}
+					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
+					}
 		workbook.close();
-			//file.close();
+	
 		}catch (java.lang.IllegalArgumentException |IllegalStateException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		}
 		
 		catch (ClassNotFoundException | InvalidFormatException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 			request.setAttribute("message","Error :- Please ensure that the uploaded file is in correct format ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		}
 		catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.setAttribute("message",e.getMessage());
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error in parsing XLS : ");
 			e.printStackTrace();
 			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
