@@ -92,14 +92,14 @@ public class EmployeeDAO {
 		try {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement st = con
-					.prepareStatement("SELECT EmployeeName FROM Employee WHERE TeamId=? AND EmployeeDesignation = ? ");
+					.prepareStatement(CONSTANTS.FETCH_COUNT_DESIG);
 			st.setString(1, team);
 			st.setString(2, desig);
 
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
-				list.add(rs.getString("EmployeeName"));
+				list.add(rs.getString(CONSTANTS.EMPLOYEE_NAME));
 			}
 			empCount = list.size();
 			con.close();
