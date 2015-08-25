@@ -531,38 +531,6 @@ public class EmployeeDAO {
 
 	}
 
-	public List<EmployeeDetailsFlatDTO> fetchEmployeeListForTeam(String teamID) {
-		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
-
-		try {
-			Connection con = DBConnection.getConnection();
-			PreparedStatement st = con
-					.prepareStatement("SELECT * FROM Employee WHERE TeamId=? ");
-			st.setString(1, teamID);
-			ResultSet rs = st.executeQuery();
-
-			while (rs.next()) {
-				EmployeeDetailsFlatDTO emp = new EmployeeDetailsFlatDTO();
-				emp.setEmpName(rs.getString(CONSTANTS.EMPLOYEE_NAME));
-				emp.setEmpId(rs.getString(CONSTANTS.EMPLOYEE_ID));
-				emp.setDesignation(rs.getString(CONSTANTS.EMPLOYEE_DESIGNATION));
-				emp.setLevel(rs.getString(CONSTANTS.EMPLOYEE_LEVEL));
-				emp.setExpertise(rs.getString(CONSTANTS.EMPLOYEE_EXPERTISE));
-				employeeList.add(emp);
-			}
-			con.close();
-
-		} catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-
-		return employeeList;
-
-	}
 
 	public List<EmployeeDetailsFlatDTO> fetchEmployeeListForTeam(String teamID) {
 		List<EmployeeDetailsFlatDTO> employeeList = new ArrayList<EmployeeDetailsFlatDTO>();
