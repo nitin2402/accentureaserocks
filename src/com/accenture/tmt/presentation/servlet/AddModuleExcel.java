@@ -1,7 +1,7 @@
 package com.accenture.tmt.presentation.servlet;
 
 import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -28,12 +28,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.accenture.tmt.common.CONSTANTS;
+
+import com.accenture.tmt.dao.ModuleDAO;
 import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.ModuleReportController;
 import com.accenture.tmt.presentation.dto.ModuleFormDTO;
 import com.accenture.tmt.presentation.dto.ModuleReportUpdateDTO;
-import com.accenture.tmt.presentation.dto.TeamFormDTO;
+
 
 /**
  * Servlet implementation class AddModuleExcel
@@ -47,14 +48,12 @@ public class AddModuleExcel extends HttpServlet {
      */
     public AddModuleExcel() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -62,20 +61,18 @@ public class AddModuleExcel extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		int maxFileSize = 5000 * 1024;
 		   int maxMemSize = 5000 * 1024;
 
+		File file = null;
+		
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
-		File file=null;
-		//String sheetno = null;
-		 boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		if (!isMultipart) {
+			return;
+		}
 
-	        if (!isMultipart) {
-	            return;
-	        }
-	        
 		ServletContext context = getServletContext();
 		String filePath = context.getInitParameter("file-upload");
 
@@ -91,59 +88,38 @@ public class AddModuleExcel extends HttpServlet {
 		ServletFileUpload upload = new ServletFileUpload(factory);
 
 		upload.setSizeMax(maxFileSize);
-		
-		
-		
-		
-	        try {
-				 List fileItems = upload.parseRequest(request);
 
-		
-				 Iterator iterator = fileItems.iterator();
+		try {
+			List fileItems = upload.parseRequest(request);
 
-  
-				 while ( iterator.hasNext () ) 
-				 {
-				    FileItem filename = (FileItem)iterator.next();
-				    
-				    
-				    /*if ( filename.isFormField () )
-				    
-				    {
-				    sheetno=filename.getString();
-				    }	
-				    else          	
-				    {*/
-		
-				    String fieldName = filename.getFieldName();
-				    String fileName = filename.getName();
-				    boolean isInMemory = filename.isInMemory();
-				    long sizeInBytes = filename.getSize();
-				
-				    if( fileName.lastIndexOf("\\") >= 0 ){
-				    file = new File( filePath + 
-				    fileName.substring( fileName.lastIndexOf("\\"))) ;
-				    }else{
-				    file = new File( filePath + 
-				    fileName.substring(fileName.lastIndexOf("\\")+1)) ;
-				    }
-				    filename.write( file ) ;
-				   
-				   /* }*/
-				 }
-			} catch (FileUploadException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			Iterator iterator = fileItems.iterator();
+
+			while (iterator.hasNext()) {
+				FileItem filename = (FileItem) iterator.next();
+
+				String fieldName = filename.getFieldName();
+				String fileName = filename.getName();
+				boolean isInMemory = filename.isInMemory();
+				long sizeInBytes = filename.getSize();
+
+				if (fileName.lastIndexOf("\\") >= 0) {
+					file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
+				} else {
+					file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\") + 1));
+				}
+				filename.write(file);
+
 			}
-		
+		} catch (FileUploadException e1) {
+
+			e1.printStackTrace();
+		} catch (Exception e1) {
+
+			e1.printStackTrace();
+		}
+
 	        try {
-					
-			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
-			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
-			//FileInputStream file = new FileInputStream(file1);
+
 			int sno =1;
 			 workbook = new XSSFWorkbook(file);
 			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
@@ -158,34 +134,49 @@ public class AddModuleExcel extends HttpServlet {
 			
 			SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			Date date = new Date();
-			 String timestamp= df.format(date);
-			 sqlDate= new java.sql.Date(date.getTime());
-				boolean headerRow = true;
-				for (Row rowOfModule : projectDetails) {
-					
-					if(headerRow != true){
-						
+			String timestamp = df.format(date);
+			sqlDate = new java.sql.Date(date.getTime());
+			int lastCount;
+			ModuleDAO moduledao = new ModuleDAO();
+			lastCount = moduledao.countRows1();
+			boolean headerRow = true;
+			for (Row rowOfModule : projectDetails) {
+				String ModuleId = null;
+				if (headerRow != true) {
+
 					moduleFormDTO = new ModuleFormDTO();
 					int cellCount = 0;
 					for (Cell cellForModule : rowOfModule) {
-						
-							if (cellCount == 0 &&  cellForModule.getStringCellValue() != null && !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleName")) {
+						if (cellForModule.getStringCellValue() != null || cellForModule.getStringCellValue() != null
+								|| !cellForModule.getStringCellValue().isEmpty()) {
+
+							if (cellCount == 0 && cellForModule.getStringCellValue() != null
+									&& !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleName")) {
 								moduleFormDTO.setModuleName(cellForModule.getStringCellValue());
-							} else if (cellCount == 1 && cellForModule.getStringCellValue() != null && !cellForModule.getStringCellValue().equalsIgnoreCase("ProjectId")) {
-								moduleFormDTO.setProjectId(cellForModule.getStringCellValue());
-							} else if (cellCount == 2 && cellForModule.getStringCellValue() != null && !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleId")){
-								moduleFormDTO.setModuleId(cellForModule.getStringCellValue());
-							} else if (cellCount == 3 && cellForModule.getStringCellValue() != null && !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleDescription")) {
+							} else if (cellCount == 1 && cellForModule.getStringCellValue() != null
+									&& !cellForModule.getStringCellValue().equalsIgnoreCase("ProjectName")) {
+								moduleFormDTO.setProject(cellForModule.getStringCellValue());
+							} else if (cellCount == 2 && cellForModule.getStringCellValue() != null
+									&& !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleDescription")) {
 								moduleFormDTO.setModuleDescription(cellForModule.getStringCellValue());
-							}
-							else if (cellCount == 4 && cellForModule.getStringCellValue() != null && !cellForModule.getStringCellValue().equalsIgnoreCase("Status")) {
+							} else if (cellCount == 3 && cellForModule.getStringCellValue() != null
+									&& !cellForModule.getStringCellValue().equalsIgnoreCase("Status")) {
 								moduleFormDTO.setStatus(cellForModule.getStringCellValue());
 							}
-							
+
 							cellCount++;
+
+						}
 					}
 					
+
+				      ModuleId = "MOD_" + (lastCount + 1);
+					moduleFormDTO.setModuleId(ModuleId);
+					ExcelController fetchPrjctId = new ExcelController();
+					moduleFormDTO.setProjectId(fetchPrjctId.prj_detailsForExcel(moduleFormDTO));
+
 					listOfModule.add(moduleFormDTO);
+					lastCount=lastCount + 1;
 					
 					}
 					else{
