@@ -21,16 +21,7 @@
 		$(".header_09").hide();
 	});
 </script>
-<script>
-$(document).ready(function(){
 
-    $("#empCss").css({
-       
-        	"font-weight": "bold",
-        	"text-decoration": "underline"
-    });
-});
-</script>
 
 
 <script type='text/javascript' src='search.js'></script>
