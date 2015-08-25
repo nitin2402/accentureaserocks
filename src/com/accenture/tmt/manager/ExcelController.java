@@ -1,14 +1,15 @@
 package com.accenture.tmt.manager;
 
-import static java.lang.System.out;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.tmt.dao.ExcelDAO;
+
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
@@ -19,7 +20,7 @@ import com.accenture.tmt.presentation.dto.TeamFormDTO;
 public class ExcelController {
 	public String detailsFromExcel(EmployeeDetailsDTO listOfEmps) {
 
-		EmployeeDetailsFlatDTO details = null;
+
 
 		ExcelDAO fetchTeamId = new ExcelDAO();
 		String teamId = fetchTeamId.fetchTeamIdForExcel(listOfEmps);
@@ -60,19 +61,21 @@ public class ExcelController {
 		}
 
 		ExcelDAO dao = new ExcelDAO();
-		int b = dao.addFromExcel(li);
-		if (b != 0) {
-
-			out.println("Record Inserted");
-		}
-		if (b == 0) {
-			out.println("Record insertion failed");
-
-		}
-		return b;
+		int empcntl = dao.addFromExcel(li);
+		
+		return empcntl;
 
 	}
 	
+	
+	public String mod_detailsForExcel(TeamFormDTO teamFormDto) {
+
+		ExcelDAO fetchmodId = new ExcelDAO();
+		String modId = fetchmodId.fetchModIdForExcel(teamFormDto);
+
+		return modId;
+
+	}
 
 	public int addFromExcel1(List<TeamFormDTO> listOfTeams) throws IOException, ClassNotFoundException, SQLException {
 
@@ -80,8 +83,7 @@ public class ExcelController {
 
 		List<TeamDetailsFlatDTO> li = new ArrayList<TeamDetailsFlatDTO>();
 
-		for (int i = 0; i < listOfTeams.size(); i++) {
-
+		for (int i = 0; i < listOfTeams.size(); i++) {	
 			excel = new TeamDetailsFlatDTO();
 			excel.setTeamName(listOfTeams.get(i).getTeamName());
 			excel.setTeamId(listOfTeams.get(i).getTeamId());
@@ -91,16 +93,16 @@ public class ExcelController {
 			li.add(excel);
 		}
 		ExcelDAO dao = new ExcelDAO();
-		int b = dao.addFromExcel1(li);
-		if (b != 0) {
+		int teamcntrl = dao.addFromExcel1(li);
+		return teamcntrl;
 
-			out.println("Record Inserted Successfully");
-		}
-		if (b == 0) {
-			out.println("Record insertion failed");
+	}
+	public String prj_detailsForExcel(ModuleFormDTO moduleFormDTO) {
 
-		}
-		return b;
+		ExcelDAO fetchmodId = new ExcelDAO();
+		String prjId = fetchmodId.fetchprojIdForExcel(moduleFormDTO);
+
+		return prjId;
 
 	}
 
@@ -121,16 +123,11 @@ public class ExcelController {
 		}
 
 		ExcelDAO moduleDAO = new ExcelDAO();
-		int list = moduleDAO.addModuleFromExcel(moduleList);
+		int mdl = moduleDAO.addModuleFromExcel(moduleList);
 
-		if (list != 0) {
-			out.println("Record Inserted");
-		}
-		if (list == 0) {
-			out.println("Record insertion failed");
-		}
+		
 
-		return list;
+		return mdl;
 
 	}
 
