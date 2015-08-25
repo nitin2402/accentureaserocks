@@ -12,7 +12,7 @@
 </head>
 <body>
 	
-		<div id="content_left">
+		<div id="content_left" style="overflow-y: auto;height: 320px;">
 
 			<div class="content_left_section">
 				<div class="content_left_section_title">Search Employee</div>
@@ -27,14 +27,14 @@
 
 					</form>
 					<div class="cleaner">&nbsp;</div>
+					<br/>
 				</div>
 				<div class="cleaner">&nbsp;</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
 			</div>
 
+
 			<div class="margin_bottom_20">&nbsp;</div>
-			
-			
 			
 			
 			<div class="content_left_section" style="font-size: 14px">
