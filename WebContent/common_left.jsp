@@ -12,10 +12,11 @@
 </head>
 <body>
 
-<div id="content_left">
-<%
+	<div id="content_left">
+	<%
 				 if( ((String) session.getAttribute("admin") == "user")|| ((String) session.getAttribute("admin") == "admin")){ 
 			%>
+			
 			<div class="content_left_section">
 				<div class="content_left_section_title">Search Employee</div>
 				<div class="content_left_section_content">
@@ -29,12 +30,14 @@
 
 					</form>
 					<div class="cleaner">&nbsp;</div>
+					<br/>
 				</div>
 				<div class="cleaner">&nbsp;</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
-			
+			</div>
 
 			<div class="margin_bottom_20">&nbsp;</div>
+			
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Projects</div>
 				<div class="content_left_section_content">
@@ -48,7 +51,7 @@
 			</div>
 
 			<div class="margin_bottom_20">&nbsp;</div>
-			</div>
+			
 <%
 				 } 
 			%>
