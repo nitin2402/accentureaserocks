@@ -19,6 +19,8 @@ import com.accenture.tmt.dao.dto.ModuleDetailsFlatDTO;
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 
 import com.accenture.tmt.presentation.dto.EmployeeDetailsDTO;
+import com.accenture.tmt.presentation.dto.ModuleFormDTO;
+import com.accenture.tmt.presentation.dto.TeamFormDTO;
 
 
 public class ExcelDAO {
@@ -124,14 +126,7 @@ public class ExcelDAO {
 					
 			update = st.executeUpdate();
 			}
-			if(update!=0){
-				System.out.println("Record Inserted221213`3");
-			}
-			if(update ==0){
-				
-			System.out.println("Record insertion failed321141`4");
 			
-		}
 		
 			
 			con.commit();
@@ -194,13 +189,7 @@ public class ExcelDAO {
 					
 					update = st.executeUpdate();
 			}
-			if(update!=0){
-				System.out.println("Record Inserted");
-			}
-			if(update ==0){
-				
-			System.out.println("Record insertion Failed");
-		}
+			
 		
 			
 			con.commit();
@@ -270,14 +259,7 @@ public class ExcelDAO {
 					update = rs.executeUpdate();
 			
 			}
-			if(update!=0){
-				System.out.println("Record Inserted");
-			}
 			
-			if(update == 0){	
-				System.out.println("Record insertion failed");
-			}
-
 			con.commit();
 			con.close();
 			
@@ -329,6 +311,62 @@ public class ExcelDAO {
 			e.printStackTrace();
 		}
 		return teamId;
+	}
+	public String fetchModIdForExcel(TeamFormDTO teamFormDto) {
+		
+		 String modlId=null;
+	
+	
+       ResultSet rs = null ;
+		try {
+			Connection con = DBConnection.getConnection();
+			if (con != null) {
+				PreparedStatement st = con.prepareStatement(PROPERTY.MODULEDETAILS);
+		
+					
+		
+					st.setString(1, teamFormDto.getProjectName());
+					st.setString(2, teamFormDto.getModuleName());
+					rs = st.executeQuery();
+				
+				
+				while(rs.next()){
+				
+						  
+						 modlId = rs.getString("ModuleId");
+				 }
+			}
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return modlId;
+	}
+
+	public String fetchprojIdForExcel(ModuleFormDTO moduleFormDTO) {
+
+		String prjId = null;
+
+		ResultSet rs = null;
+		try {
+			Connection con = DBConnection.getConnection();
+			if (con != null) {
+				PreparedStatement st = con.prepareStatement(PROPERTY.PROJECTDETAILS);
+
+				st.setString(1, moduleFormDTO.getProject());
+
+				rs = st.executeQuery();
+
+				while (rs.next()) {
+
+					prjId = rs.getString("ProjectId");
+				}
+			}
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		return prjId;
 	}
 	
 }
