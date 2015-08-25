@@ -27,8 +27,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
-
+import com.accenture.tmt.dao.TeamDAO;
 import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.TeamReportController;
 import com.accenture.tmt.presentation.dto.TeamFormDTO;
@@ -39,43 +38,42 @@ import com.accenture.tmt.presentation.dto.TeamReportUpdateDTO;
  */
 public class AddTeamExcel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddTeamExcel() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-   
-   	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-   		// TODO Auto-generated method stub
-   		doPost(request, response);
-   	}
+	public AddTeamExcel() {
+		super();
+	}
 
-   	/**
-   	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-   	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, IllegalStateException {
+
 		response.setContentType("text/html");
 		int maxFileSize = 5000 * 1024;
-		   int maxMemSize = 5000 * 1024;
+		int maxMemSize = 5000 * 1024;
 
-		File file=null;
-		//String sheetno = null;
-		 boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		File file = null;
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
-	        if (!isMultipart) {
-	            return;
-	        }
-	        
+		if (!isMultipart) {
+			return;
+		}
+
 		ServletContext context = getServletContext();
 		String filePath = context.getInitParameter("file-upload");
 
@@ -84,187 +82,172 @@ public class AddTeamExcel extends HttpServlet {
 
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		XSSFWorkbook workbook = null;
-		 try {
-		factory.setSizeThreshold(maxMemSize);
+		try {
+			factory.setSizeThreshold(maxMemSize);
 
-		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+			factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
 
-		ServletFileUpload upload = new ServletFileUpload(factory);
+			ServletFileUpload upload = new ServletFileUpload(factory);
 
-		upload.setSizeMax(maxFileSize);
-		
-		
-		
-		
-	        try {
-				 List fileItems = upload.parseRequest(request);
+			upload.setSizeMax(maxFileSize);
 
-		
-				 Iterator iterator = fileItems.iterator();
+			try {
+				List fileItems = upload.parseRequest(request);
 
-     
-				 while ( iterator.hasNext () ) 
-				 {
-				    FileItem filename = (FileItem)iterator.next();
-				    
-				    
-				    /*if ( filename.isFormField () )
-				    
-				    {
-				    sheetno=filename.getString();
-				    }	
-				    else          	
-				    {
-		*/
-				    String fieldName = filename.getFieldName();
-				    String fileName = filename.getName();
-				    boolean isInMemory = filename.isInMemory();
-				    long sizeInBytes = filename.getSize();
-				
-				    if( fileName.lastIndexOf("\\") >= 0 ){
-				    file = new File( filePath + 
-				    fileName.substring( fileName.lastIndexOf("\\"))) ;
-				    }else{
-				    file = new File( filePath + 
-				    fileName.substring(fileName.lastIndexOf("\\")+1)) ;
-				    }
-				    filename.write( file ) ;
-				   
-				   /* }*/
-				 }
+				Iterator iterator = fileItems.iterator();
+
+				while (iterator.hasNext()) {
+					FileItem filename = (FileItem) iterator.next();
+
+					String fieldName = filename.getFieldName();
+					String fileName = filename.getName();
+					boolean isInMemory = filename.isInMemory();
+					long sizeInBytes = filename.getSize();
+
+					if (fileName.lastIndexOf("\\") >= 0) {
+						file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
+					} else {
+						file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\") + 1));
+					}
+					filename.write(file);
+
+				}
 			} catch (FileUploadException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			}
-		
-	       
-					
-			//String file1 = request.getParameter(CONSTANTS.FILE_NAME);
-			//String sheetno = request.getParameter(CONSTANTS.SHEET_NO); 
-			//FileInputStream file = new FileInputStream(file1);
-			int sno =1;
-		 workbook = new XSSFWorkbook(file);
-			XSSFSheet projectDetails = workbook.getSheetAt(sno-1);
-	List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
-			
+
+			int sno = 1;
+			workbook = new XSSFWorkbook(file);
+			XSSFSheet projectDetails = workbook.getSheetAt(sno - 1);
+			List<TeamFormDTO> listOfTeams = new ArrayList<TeamFormDTO>();
+			TeamDAO teamDAO= new TeamDAO();
+			int lastCount ;
+			lastCount=teamDAO.countRows();
 			TeamFormDTO teamFormDto = null;
 			boolean headerRow = true;
 			for (Row rowOfTeam1 : projectDetails) {
-				
-				if(headerRow != true){
-					
-				
-				teamFormDto = new TeamFormDTO();
-				int cellCount = 0;
-				for (Cell cellForTeam : rowOfTeam1){
-					
-					if (cellCount == 0 &&  cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamName")) {
-						teamFormDto.setTeamName(cellForTeam.getStringCellValue());
-					} else if (cellCount == 1 && cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamId")) {
-						teamFormDto.setTeamId(cellForTeam.getStringCellValue());
-					} else if (cellCount == 2 && cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("ModuleId")) {
-						teamFormDto.setModuleId(cellForTeam
-								.getStringCellValue());
-					} else if (cellCount == 3 && cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamDescription")) {
-						teamFormDto.setTeamDescription(cellForTeam
-								.getStringCellValue());
-					} else if (cellCount == 4 && cellForTeam.getStringCellValue() != null && !cellForTeam.getStringCellValue().equalsIgnoreCase("Status")) {
-						teamFormDto.setStatus(cellForTeam
-								.getStringCellValue());
-					}
+			
+				String Teamid=null;
+				if (headerRow != true) {
 
-					cellCount++;
-			}
-			listOfTeams.add(teamFormDto);
+					teamFormDto = new TeamFormDTO();
+					int cellCount = 0;
+				
 			
-			}else{
-				headerRow = false;
+					for (Cell cellForTeam : rowOfTeam1) {
+						
+						
+						if(cellForTeam.getStringCellValue() != null ||cellForTeam.getStringCellValue() !=""
+								|| !cellForTeam.getStringCellValue().isEmpty()){
+
+							if (cellCount == 0 && cellForTeam.getStringCellValue() != null
+									&& !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamName")) {
+								teamFormDto.setTeamName(cellForTeam.getStringCellValue());
+							} else if (cellCount == 1 && cellForTeam.getStringCellValue() != null
+									&& !cellForTeam.getStringCellValue().equalsIgnoreCase("Project")) {
+								teamFormDto.setProjectName(cellForTeam.getStringCellValue());
+							} else if (cellCount == 2 && cellForTeam.getStringCellValue() != null
+									&& !cellForTeam.getStringCellValue().equalsIgnoreCase("Module")) {
+								teamFormDto.setModuleName(cellForTeam.getStringCellValue());
+							} else if (cellCount == 3 && cellForTeam.getStringCellValue() != null
+									&& !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamDescription")) {
+								teamFormDto.setTeamDescription(cellForTeam.getStringCellValue());
+							} else if (cellCount == 4 && cellForTeam.getStringCellValue() != null
+									&& !cellForTeam.getStringCellValue().equalsIgnoreCase("Status")) {
+								teamFormDto.setStatus(cellForTeam.getStringCellValue());
+							}
+
+							cellCount++;
+						}
+						}
+						Teamid = "TE -"+ (lastCount + 1);
+						teamFormDto.setTeamId(Teamid);;
+						ExcelController fetchmoduleId = new ExcelController();
+						teamFormDto.setModuleId(fetchmoduleId.mod_detailsForExcel(teamFormDto));
+
+
+						listOfTeams.add(teamFormDto);
+						lastCount=lastCount+1;
+
+						
+					} else {
+					headerRow = false;
+				}
 			}
-		}
-	        
-           java.sql.Date sqlDate=null;
-			
+
+			java.sql.Date sqlDate = null;
+
 			SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			Date date = new Date();
-			 String timestamp= df.format(date);
-			 sqlDate= new java.sql.Date(date.getTime());
-			 TeamReportUpdateDTO reportupdatedto=new TeamReportUpdateDTO();
-			 TeamReportController teamreportcontroller=new TeamReportController();
-			int c=0;
-			
+			String timestamp = df.format(date);
+			sqlDate = new java.sql.Date(date.getTime());
+			TeamReportUpdateDTO reportupdatedto = new TeamReportUpdateDTO();
+			TeamReportController teamreportcontroller = new TeamReportController();
+			int c = 0;
+
 			ExcelController add = new ExcelController();
 			HttpSession session1 = request.getSession();
-			
-				c=add.addFromExcel1(listOfTeams	);
-		 
-				if(c !=0){
-					request.setAttribute("message","Record Inserted");
-					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
-					if(session1!= null){
-						for(int i =0;i<listOfTeams.size();i++){
+
+			c = add.addFromExcel1(listOfTeams);
+
+			if (c != 0) {
+				request.setAttribute("message", "Record Inserted");
+				request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
+				if (session1 != null) {
+					for (int i = 0; i < listOfTeams.size(); i++) {
 						reportupdatedto.setModuleId(listOfTeams.get(i).getModuleId());
 						reportupdatedto.setTeamName(listOfTeams.get(i).getTeamName());
 						reportupdatedto.setTeamId(listOfTeams.get(i).getTeamId());
 						reportupdatedto.setTeamDescription(listOfTeams.get(i).getTeamDescription());
-						reportupdatedto.setUsername((String)session1.getAttribute("user"));
+						reportupdatedto.setUsername((String) session1.getAttribute("user"));
 						reportupdatedto.setAction("added by excel");
 						reportupdatedto.setTimestamp(timestamp);
 						reportupdatedto.setDate(sqlDate);
 						teamreportcontroller.updateTeamReport(reportupdatedto);
 					}
-						}}
-				if(c ==0){
-					request.setAttribute("message","Record insertion failed");
-					request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);}
-		workbook.close();
-			//file.close();
-		}catch (java.lang.IllegalArgumentException |IllegalStateException e) {
-			// TODO Auto-generated catch block
+				}
+			}
+			if (c == 0) {
+				request.setAttribute("message", "Record insertion failed");
+				request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
+			}
+			workbook.close();
+
+		} catch (java.lang.IllegalArgumentException | IllegalStateException e) {
+
 			e.printStackTrace();
-			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
+			request.setAttribute("message",
+					"Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		}
-		
+
 		catch (ClassNotFoundException | InvalidFormatException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
-			request.setAttribute("message","Error :- Please ensure that the uploaded file is in correct format ");
+			request.setAttribute("message", "Error :- Please ensure that the uploaded file is in correct format ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
-		}
-		catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (IOException e) {
+
 			e.printStackTrace();
-			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
+			request.setAttribute("message", "Error in parsing XLS :Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-			request.setAttribute("message",e.getMessage());
+			request.setAttribute("message", e.getMessage());
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error in parsing XLS : ");
 			e.printStackTrace();
-			request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
+			request.setAttribute("message", "Error in parsing XLS :Please choose a excel file with correct template ");
 			request.getRequestDispatcher("admintool.jsp").forward(request, response);
-			}
-		 finally {
-				workbook.close();
-			}
-
+		} finally {
+			workbook.close();
 		}
-	
+
+	}
+
 }
-		
-		
-
-
-
-
-
-
-
-
