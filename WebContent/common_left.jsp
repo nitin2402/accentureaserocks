@@ -76,9 +76,9 @@
 				<div class="content_left_section_title">Projects</div>
 				<div class="content_left_section_content">
 					<ul>
-						<li><a href="viewEStrategy.jsp">E-Strategy</a></li>
-						<li><a href="viewr3.jsp">R3</a></li>
-						<li><a href="viewprimier.jsp">Premier</a></li>
+					<li><a href="project_tree.jsp?projectId=PR01" id="EstrategyCss">E-Strategy</a></li>
+						<li><a href="project_tree.jsp?projectId=PR02" id="R3Css">R3</a></li>
+						<li><a href="project_tree.jsp?projectId=PR03" id="PrimierCss">Premier</a></li>
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
