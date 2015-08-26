@@ -33,6 +33,7 @@
 								id="search_button" /> <br /> <br /><a href="signup.jsp"
 								style="font-size: 14px; text-decoration: underline; font-weight: normal;">Sign
 								up</a>
+								<br/><br/>
 						</form>
 						<div class="cleaner">&nbsp;</div>
 					</div>
