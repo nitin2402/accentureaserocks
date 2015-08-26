@@ -1,5 +1,7 @@
 package com.accenture.tmt.manager;
 
+import java.util.List;
+
 import com.accenture.tmt.dao.WorkplanDAO;
 import com.accenture.tmt.dao.dto.WorkplanFlatDTO;
 import com.accenture.tmt.presentation.dto.WorkplanDTO;
@@ -49,6 +51,13 @@ public class WorkPlanController {
 			 return "NotInserted" ;
 		 }
 		
+	}
+	
+public List<String> fetchTeamList(){
+		
+		WorkplanDAO workplanDao = new WorkplanDAO();
+		return workplanDao.getTeamList();
+		 
 	}
 
 }
