@@ -35,6 +35,7 @@ function inputUpdateSSE(id){
 }
 
 function cal(total, numberOfEmployee){
+	
 	var checkboxes1 = document.getElementsByName('empASE[]');
 	var checkboxes2 = document.getElementsByName('empSE[]');
 	var checkboxes3 = document.getElementsByName('empSSE[]');
@@ -43,10 +44,30 @@ function cal(total, numberOfEmployee){
 	var nameOfAse = {};
 	var nameOfSe = {};
 	var nameOfSse = {};
+	
+	var vals = 0;
+	var newAverage = 0;
+	var count = 0;
+	
+	var specificReq = document.getElementById("specificReq");
+	 if (specificReq.checked) 
+	  {
+		 var specificReqDetails = (specificReq.value).split("_");
+		  if(specificReqDetails[2] == "ASE"){
+			  nameOfAse[specificReqDetails[0]] = 1 ;
+		  } else if(specificReqDetails[2] == "SE"){
+			  nameOfSe[specificReqDetails[0]] = 1 ;
+		  } else if(specificReqDetails[2] == "SSE"){
+			  nameOfSse[specificReqDetails[0]] = 1 ;
+		  }
+		  vals += parseFloat(specificReqDetails[1]);
+		  count++;
+	  }
 
 	for (var i=0, n=checkboxes1.length;i<n;i++) {
 		  if (checkboxes1[i].checked) 
 		  {
+			  
 			  var res = (checkboxes1[i].value).split("_");
 			  
 			  if(nameOfAse[res[0]] == null){
@@ -122,9 +143,6 @@ function cal(total, numberOfEmployee){
 		return false;
 	}
 	
-	var vals = 0;
-	var newAverage = 0;
-	var count = 0;
 	for (var i=0, n=checkboxes1.length;i<n;i++) {
 	  if (checkboxes1[i].checked) 
 	  {
@@ -160,6 +178,25 @@ function validateForm(){
 	var checkboxes2 = document.getElementsByName('empSE[]');
 	var checkboxes3 = document.getElementsByName('empSSE[]');
 	var count = 0;
+	var isDuplicate = false;
+	var nameOfAse = {};
+	var nameOfSe = {};
+	var nameOfSse = {};
+	
+	var specificReq = document.getElementById("specificReq");
+	 if (specificReq.checked) 
+	  {
+		 var specificReqDetails = (specificReq.value).split("_");
+		  if(specificReqDetails[2] == "ASE"){
+			  nameOfAse[specificReqDetails[0]] = 1 ;
+		  } else if(specificReqDetails[2] == "SE"){
+			  nameOfSe[specificReqDetails[0]] = 1 ;
+		  } else if(specificReqDetails[2] == "SSE"){
+			  nameOfSse[specificReqDetails[0]] = 1 ;
+		  }
+		  count++;
+	  }
+	
 	for (var i=0, n=checkboxes1.length;i<n;i++) {
 		  if (checkboxes1[i].checked) 
 		  {
@@ -178,12 +215,6 @@ function validateForm(){
 			  count++;
 		  }
 		}
-	
-	
-	var isDuplicate = false;
-	var nameOfAse = {};
-	var nameOfSe = {};
-	var nameOfSse = {};
 
 	for (var i=0, n=checkboxes1.length;i<n;i++) {
 		  if (checkboxes1[i].checked) 

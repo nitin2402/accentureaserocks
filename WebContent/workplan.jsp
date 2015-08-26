@@ -18,17 +18,19 @@
 
 <script type="text/javascript" src='search.js'></script>
 	<script src="jquery.chained.js"></script>
-	<script>
-	$(function(){$("#mdl").chained("#prj");
-	$("#tem").chained("#mdl")});
 	
-	
-	</script>
 <script type="text/javascript" src="workplan.js"></script>
+<script>
+$(function(){$("#mdl").chained("#prj");
+$("#tem").chained("#mdl");});
+ 
+$(function(){$("#emp").chained("#level");});
+</script>
 </head>
 
-<body>
+<body onload="myFunction()">
 	<jsp:include page="/DropDownDetails" />  
+	<jsp:include page="/ViewEmployee" />  
 	<input type="hidden" id="backup" name="backup" value="0"></input>
 
 	<%
@@ -47,7 +49,7 @@
 
 		<div id="content_right">
 
-			<div class="right_col_section_w650" style="height: 400px">
+			<div class="right_col_section_w650" style="height: 600px">
 
 				<div class="header_01">Work Plan</div>
 
@@ -63,7 +65,7 @@
 									<tr>
 										<td>
 
-											<table>
+											<table width="400">
 
 												<tr style="height: 10px">
 													<td></td>
@@ -71,7 +73,7 @@
 
 								
 												<tr>
-									<td>&nbsp; PROJECT</td>
+									<td width="75%">*PROJECT</td>
 									<td><select id="prj" class="chain" name="project" style="width: 210px">
 											<jstlcore:forEach items="${project}" var="prj_item">
 
@@ -85,8 +87,8 @@
 								</tr> 
 
                            <tr>
-									<td>&nbsp; MODULE</td>
-									<td><select id="mdl" class="chain" name="module" style="width: 210px">
+									<td>*MODULE</td>
+									<td><select id="mdl" class="rfgd" name="module" style="width: 210px">
 											<jstlcore:forEach items="${module}" var="mod_item">
 
 												<option value="${mod_item.moduleId}" class="${mod_item.projectId}">
@@ -98,11 +100,11 @@
 									</select></td>
 								</tr> 
 								<tr>
-									<td>&nbsp; TEAM</td>
-									<td><select name="teamName" style="width: 210px" class="chain" id="tem">
+									<td>*TEAM</td>
+									<td><select name="teamId" style="width: 210px" class="chain" id="tem">
 											<jstlcore:forEach items="${team}" var="item">
 
-												<option value="${item.teamName}" class="${item.moduleId}">
+												<option value="${item.teamId}" class="${item.moduleId}">
 													<jstlcore:out value="${item.teamName}"></jstlcore:out></option>
 
 
@@ -111,20 +113,20 @@
 									</select></td>
 								</tr>
 												<tr>
-													<td>*No. of ASE Required &nbsp;</td>
-													<td><input type="text" id="NASE" name="NASE" value="0"
+													<td style="width:250px">*No. of ASE Required &nbsp;</td>
+													<td style="width:100px"><input type="text" id="NASE" name="NASE" value="0"
 														class="dropbox_size" /></td>
 												</tr>
 
 												<tr>
-													<td>*No. of SE Required &nbsp;</td>
-													<td><input type="text" id="NSE" name="NSE" value="0"
+													<td style="width:250px">*No. of SE Required &nbsp;</td>
+													<td style="width:100px"><input type="text" id="NSE" name="NSE" value="0"
 														class="dropbox_size" /></td>
 												</tr>
 
 												<tr>
-													<td>*No. of SSE Required &nbsp;</td>
-													<td><input type="text" id="NSSE" name="NSSE" value="0"
+													<td style="width:250px">*No. of SSE Required &nbsp;</td>
+													<td style="width:100px"><input type="text" id="NSSE" name="NSSE" value="0"
 														class="dropbox_size" /></td>
 												</tr>
 
@@ -133,9 +135,51 @@
 													<td><textarea rows="5" cols="25" id="comment"
 															name="comment" class="dropbox_size"></textarea></td>
 												</tr>
+												
+												<tr><td></td></tr>
+												
+												<tr>
+													<td colspan="2">
+														<input type="checkbox" id="isSpecific" name="isSpecific" onclick="calc()"></input> Specific Requirement for particular Resource
+													</td>
+												</tr>
 
-												<tr style="height: 10px">
-													<td />
+												<tr>
+													<td>*Level</td>
+													<td><select id="level" name="level" style="width: 210px">
+															<option value="ASE">ASE</option>
+															<option value="SE">SE</option>
+															<option value="SSE">SSE</option>
+														</select>
+													</td>
+												</tr>
+												
+												<tr>
+													<td>*Employee</td>
+													<td><select id="emp" name="emp" style="width: 210px"  onchange="setTenure();setInfo();">
+															<jstlcore:forEach items="${empList}" var="emp_item">
+
+																<option value="${emp_item.empId}_${emp_item.doj}_${emp_item.isBillable}_${emp_item.teamName}" class="${emp_item.designation}">
+																		<jstlcore:out value="${emp_item.empName}"></jstlcore:out></option>
+															</jstlcore:forEach>
+														</select>
+													</td>
+												</tr>
+												
+												<tr>
+													<td>*Tenure</td>
+													<td id="tenure"></td>
+												</tr>
+												
+												<tr>
+													<td>*Detail Info</td>
+													<td id="info"></td>
+												</tr>
+												
+												<tr>
+													<td>*Specific Requirement <br /> &nbsp; Comment</td>
+													<td><textarea rows="5" cols="25" id="specificComment" name="specificComment"
+															 class="dropbox_size"></textarea></td>
 												</tr>
 
 											</table>
@@ -143,8 +187,7 @@
 										<td style="width: 60px"></td>
 										<td></td>
 									</tr>
-
-
+									
 									<tr>
 										<td><input type="hidden" name="userName" value="${user}" />
 											<input type="submit" value="Submit"></input> 
