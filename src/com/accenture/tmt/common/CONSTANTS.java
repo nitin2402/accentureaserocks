@@ -117,9 +117,10 @@ public interface CONSTANTS {
 		public String FILE_NAME = "file1";
 		public String UPDATE_QUERY = "UPDATE Employee SET EmployeeName=?,EmployeeLevel=?,EmployeeDesignation=?,EmployeeExpertise=?,EmployeeClientId=?,EmployeeEmail=?,ProficiencyCams=?,ProficiencyProject=?,DateofJoining=?,Billable=? WHERE EmployeeId=?";
 
-		/*CHANGED*/public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID, EmployeeId) values(?,?,?,?,?,?,?,?)";
-		
-	    public String GET_REQUESTID_QUERY = "select ReqId from RequestTable where TeamId = ?";
+		public String INSERT_REQUEST_QUERY = "insert into RequestTable(ReqId, TeamId, No_Of_ASE, No_Of_SE, No_Of_SSE, Comments, Status_ID, EmployeeId, SpecificReq) values(?,?,?,?,?,?,?,?,?)";
+		public String INSERT_SPECIFIC_REQUEST_QUERY = "insert into SpecificRequest(ReqId, EmployeeId, SpecificComment) values(?,?,?)";
+	    
+		public String GET_REQUESTID_QUERY = "select ReqId from RequestTable where TeamId = ?";
 	   
 	    public String GET_LASTREQID_QUERY = "SELECT COUNT(*) AS NumberOfRows FROM RequestTable";
 
@@ -131,16 +132,16 @@ public interface CONSTANTS {
 		public String GET_TEAMID_QUERY = "select TeamId from Team WHERE TeamName = ?";
 		public String GET_TEAMNAME_QUERY = "select TeamName from Team WHERE TeamId = ?";
 		public String GET_EMPLOYEEID_QUERY = "select EmployeeId from Login WHERE UserName = ?";
-		public String GET_TEAM_LIST_QUERY = "SELECT TeamName FROM TEAM";
 		
-		public String GET_APPROVED_REQUESTS_QUERY = "SELECT R.ReqId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName, T.teamname FROM RequestTable as R, StatusTable as S, Team T WHERE S.Status_ID = 3 AND S.Status_ID = R.Status_ID AND R.TeamId = T.teamId";
-		public String GET_UNAPPROVED_REQUESTS_QUERY = "SELECT R.ReqId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName, T.teamname FROM RequestTable as R, StatusTable as S, Team T WHERE S.Status_ID != 3 AND S.Status_ID = R.Status_ID AND R.TeamId = T.teamId";
+		public String GET_APPROVED_REQUESTS_QUERY = "SELECT R.ReqId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName, T.teamname, R.SpecificReq FROM RequestTable as R, StatusTable as S, Team T WHERE S.Status_ID = 3 AND S.Status_ID = R.Status_ID AND R.TeamId = T.teamId";
+		public String GET_UNAPPROVED_REQUESTS_QUERY = "SELECT R.ReqId, R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, R.Comments, S.StatusName, T.teamname, R.SpecificReq FROM RequestTable as R, StatusTable as S, Team T WHERE S.Status_ID != 3 AND S.Status_ID = R.Status_ID AND R.TeamId = T.teamId";
 		public String ACCEPT_REQUEST_QUERY = "UPDATE RequestTable SET Status_ID = 3, Reason = ? WHERE ReqId = ?";
 		public String REJECT_REQUEST_QUERY = "UPDATE RequestTable SET Status_ID = 4, Reason = ? WHERE ReqId = ?";
 		public String ONHOLD_REQUEST_QUERY = "UPDATE RequestTable SET Status_ID = 2, Reason = ? WHERE ReqId = ?";
 		
 		public String BUDGET_DETAILS_QUERY = "SELECT EmployeeDesignation, Currency, Amount FROM BillabilityTable";
 		public String BUDGET_REQUEST_DETAILS_QUERY = "SELECT R.No_Of_ASE, R.No_Of_SE, R.No_Of_SSE, T.TeamName FROM RequestTable R, Team T WHERE R.TeamId = T.TeamId AND ReqId = ? ";
+		public String SPECIFIC_REQUEST_QUERY = "SELECT S.EmployeeId, S.SpecificComment, E.EmployeeName, E.LCR, E.EmployeeDesignation FROM SpecificRequest S, Employee E WHERE S.EmployeeId = E.EmployeeId AND S.ReqId = ?";
 		public String COUNT_ASE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_ASE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Associate Software Engineer'";
 		public String COUNT_SE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Software Engineer'";
 		public String COUNT_SSE_QUERY = "SELECT COUNT(EmployeeDesignation) AS CURRENT_SSE FROM Employee WHERE TeamId = ? AND EmployeeDesignation = 'Senior Software Engineer'";
