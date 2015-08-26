@@ -10,18 +10,31 @@
 <title></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+
+
+
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script> 
+function openTab(th){
+window.open(th.name,'_blank');
+}
+</script>
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script>
 	$(document).ready(function() {
 		$(".header_09").hide();
 
 	});
+</script>
+<script>
+function openNewWin()
+{
+	window.open();
+}
 </script>
 <script>
 function validateform(){
@@ -98,6 +111,7 @@ function validateform(){
 
 				<div id="search">
 				<div class="text_size">
+				<% if( session1.getAttribute("message") == null) { %>
 				<div id="div1">
 				
 
@@ -208,12 +222,23 @@ function validateform(){
 <form  action="PDFServlet"  method="post">
 <input type="hidden" name="userName" value="${user}" />
 <br /> <br /> <br />
-<a > <input type="submit" value= "Generate Exit Checklist Form" href="template/ExitCheckList.pdf" style="font-size: 14px" onclick="return validateform();">
+<a > <input type="submit"  value= "Generate Exit Checklist Form" href="template/ExitCheckList.pdf" style="font-size: 14px" onclick="return validateform();">
 </a>
-
- <br /> <br /> <br />
-</form>
 </div>	
+<div>
+						<p id="error" class="error message">${sessionScope.message}</p>
+						
+					</div>
+ <% } else{%>
+		
+		<object>
+            <p> <a id="something" onclick='openTab(this)'  href='logout.jsp' name='pdfdoc/ExitCheckList.pdf?id=<%= (int) (Math.random() * 1000) %>' >click here to download the PDF file</a></p>
+				<span style="color:red">Note: You will be logged after clicking on the download link.</span>
+        </object>
+<% } %>
+ 
+</form>
+
 	</div>
 	</br> 
 				
@@ -227,5 +252,28 @@ function validateform(){
 			</div>
 			<%@ include file="footer.jsp"%>
 			
-		</div></body>
+		</div>
+		<%
+					if (session.getAttribute("reload") != null) {
+						Object a = session.getAttribute("reload");
+						{
+							int b = (Integer) (a);
+							if (b > (0)) {
+								b--;
+								session.setAttribute("reload", b);
+				%>
+				<script>
+				document.getElementById("error").innerHTML = "Generating....";
+				setTimeout(function(){
+					location.reload();
+				},3000);
+					
+				</script>
+				<%
+					}
+						}
+					}
+				%>
+		
+		</body>
 </html>
