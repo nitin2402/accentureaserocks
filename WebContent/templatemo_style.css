@@ -150,7 +150,7 @@ img {
 #templatemo_header #site_title_section {
 	float: left;
 	padding-top: 80px;
-	padding-left: 40px;
+	padding-left: 32px;
 	margin-right: 50px;
 	width: 290px;
 }
@@ -169,7 +169,8 @@ img {
 
 #templatemo_header #header_section_code {
 	float: left;
-	width: 300px;
+	width: 350px;
+	font-size: 12px;
 	padding-top: 70px;
 	text-align: center;
 	color: #feffb3;
@@ -586,6 +587,8 @@ table.table2 td {
 	color: black;
 	font-size:16px;
 }
+
+
 
 
 
