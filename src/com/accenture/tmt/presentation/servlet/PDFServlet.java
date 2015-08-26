@@ -1,16 +1,23 @@
 package com.accenture.tmt.presentation.servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.User;
+import org.apache.commons.io.FileUtils;
 
 import com.accenture.tmt.common.RolloffPdf;
 import com.accenture.tmt.dao.dto.EmployeeDetailsFlatDTO;
@@ -44,37 +51,32 @@ public class PDFServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+		File file = new File("C://Users/gunveen.kaur.gulati/workspace/TMT/WebContent/pdfdoc/");
+        FileUtils.cleanDirectory(file);
+       
+	
 		PDFcontroller controller =new PDFcontroller();
 		String userName = request.getParameter("userName");
-		HttpSession session=request.getSession();  
-		session.invalidate();  
-
+		
+		
 		controller.rollOffEmployee(userName);
 		
+
 		EmployeeDetailsFlatDTO emp = controller.FetchEmployeeList(userName);
 		RolloffPdf rolloffPdf = new RolloffPdf(emp.getEmpName(), emp.getDesignation(), emp.getLevel(), emp.getEmail(), emp.getLastWD(), emp.getEmpId(), emp.getClientId());
 		try {
 			rolloffPdf.enter();
-		} catch (DocumentException e) {
+		}
+		
+		catch (DocumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 PrintWriter out = response.getWriter(  );
-		    response.setContentType("text/html");
-		   out.println("<html>");
-		    out.println("<head>");
-		    out.println("<meta http-equiv=\"Cache-control\" content=\"no-cache\">");
-		    out.println("<title>Download</title>");
-		    out.println("<script type=\"text/javascript\"> function openTab(th) ");
-		    out.println("{");
-		    out.println("window.open(th.name,'_blank');");
-		    out.println("}");
-		    out.println("</script>");
-		    out.println("</head>");
-		    out.println("<body bgcolor=\"white\">");
-		    out.println("<a onclick=\"openTab(this)\" href='logout.jsp' name=\"template/ExitCheckList.pdf\">Download Check List Form</a>");
-		    out.println("</body>");
-		    out.println("</html>");
+		HttpSession session = request.getSession(false);
+		session.setAttribute("message", "");
+    	response.sendRedirect("rollOff.jsp");
 	}
 
 }
