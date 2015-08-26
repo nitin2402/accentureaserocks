@@ -3,6 +3,8 @@ package com.accenture.tmt.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
@@ -49,27 +51,6 @@ public class WorkplanDAO {
 		return flag;
 	}
 
-	/*public String fetchModuleId(String teamName) {
-		// TODO Auto-generated method stub
-		String teamId = null;
-        ResultSet rs = null ;
-		try {
-			Connection con = DBConnection.getConnection();
-			if (con != null) {
-				PreparedStatement st = con
-					  .prepareStatement(CONSTANTS.GET_MODULEID_QUERY);
-				st.setString(1, teamName);
-				rs = st.executeQuery();
-				while(rs.next()){
-						  teamId = rs.getString("ModuleId");
-				 }
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return teamId;
-	}*/
 	public String fetchEmployeeId(String userName) {
 		// TODO Auto-generated method stub
 		String employeeId = null;
@@ -114,6 +95,28 @@ public class WorkplanDAO {
 		return teamId;
 	}
 	
+public List<String> getTeamList(){
+		
+		List<String> teamList = new ArrayList<String>();
+		ResultSet rs = null ;
+		try {
+			Connection con = DBConnection.getConnection();
+			if (con != null) {
+				PreparedStatement st = con
+					  .prepareStatement(CONSTANTS.GET_TEAM_LIST_QUERY);
+				rs = st.executeQuery();
+				while(rs.next()){
+						  teamList.add(rs.getString("TeamName"));
+				 }
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return teamList;
+		
+	}
+
 	public int countRows(){
 		
 		int number_of_rows = 0 ;
