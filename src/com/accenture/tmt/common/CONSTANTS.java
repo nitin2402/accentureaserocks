@@ -108,7 +108,7 @@ public interface CONSTANTS {
 	    public String CHECK_ALREADY_EXIST_USER_QUERY = "select * from Login where EmployeeId=?";
 	    public String CHECK_ALREADY_EXIST_USERNAME_QUERY = "select * from Login where userName=?";
 	  
-	    
+	    public String GET_TEAM_LIST_QUERY = "SELECT TeamName FROM TEAM";
 	   
 	    
 
