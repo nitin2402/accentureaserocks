@@ -40,18 +40,30 @@ public class workplanServlet extends HttpServlet {
 		WorkplanDTO workplandto = new WorkplanDTO(); 
 		
 		String userName = request.getParameter("userName");
-		String teamName = request.getParameter("teamName");
+		String teamId = request.getParameter("teamId");
 		int nASE = Integer.parseInt(request.getParameter("NASE"));
 		int nSE = Integer.parseInt(request.getParameter("NSE"));
 		int nSSE = Integer.parseInt(request.getParameter("NSSE"));
 		String comment = request.getParameter("comment");
+		String isSpecific = request.getParameter("isSpecific");
+		String specificRequestEmployee = request.getParameter("emp");
+		String specificComment = request.getParameter("specificComment");
 	
 		workplandto.setUserName(userName);
-		workplandto.setTeamName(teamName);
+		workplandto.setTeamId(teamId);
 		workplandto.setnASE(nASE);
 		workplandto.setnSE(nSE);
 		workplandto.setnSSE(nSSE);
 		workplandto.setComment(comment);
+		if(isSpecific == null){
+			workplandto.setSpecificRequest("False");
+			workplandto.setSpecificComment("None");
+			workplandto.setSpecificRequestEmployee("None");
+		} else{
+			workplandto.setSpecificRequest(isSpecific);
+			workplandto.setSpecificComment(specificComment);
+			workplandto.setSpecificRequestEmployee(specificRequestEmployee);
+		}
 		
 		WorkPlanController workplanController = new WorkPlanController();
 		

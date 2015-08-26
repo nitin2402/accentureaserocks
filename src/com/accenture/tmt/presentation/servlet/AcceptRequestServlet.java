@@ -43,6 +43,7 @@ public class AcceptRequestServlet extends HttpServlet {
 		ActionController controller = new ActionController();
 		ActionDTO actiondto = new ActionDTO();
 		
+		String specificReq = request.getParameter("specificReq");
 		String [] empASE = request.getParameterValues("empASE[]");
 		String [] empSE = request.getParameterValues("empSE[]");
 		String [] empSSE = request.getParameterValues("empSSE[]");
@@ -52,7 +53,7 @@ public class AcceptRequestServlet extends HttpServlet {
 		actiondto.setReqId(reqId);
 		actiondto.setReason(reason);
 
-		flag = controller.acceptRequest(empASE, empSE, empSSE, actiondto);
+		flag = controller.acceptRequest(empASE, empSE, empSSE,specificReq, actiondto);
 		
 		if(flag == 1){
 			request.setAttribute("reqId", reqId);

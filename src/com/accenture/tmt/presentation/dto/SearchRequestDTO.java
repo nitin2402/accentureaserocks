@@ -9,6 +9,7 @@ public class SearchRequestDTO {
 	private int nSSE ;
 	private String comment ;
 	private String statusName ;
+	private String hasSpecificRequest ;
 	
 	public String getComment() {
 		return comment;
@@ -51,6 +52,12 @@ public class SearchRequestDTO {
 	}
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
+	}
+	public String getHasSpecificRequest() {
+		return hasSpecificRequest;
+	}
+	public void setHasSpecificRequest(String hasSpecificRequest) {
+		this.hasSpecificRequest = hasSpecificRequest;
 	}
 	
 }

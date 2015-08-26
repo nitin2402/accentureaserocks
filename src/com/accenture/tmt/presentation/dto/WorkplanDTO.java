@@ -3,12 +3,33 @@ package com.accenture.tmt.presentation.dto;
 public class WorkplanDTO {
 	
 	private String userName ;
-	private String teamName ;
+	private String teamId ;
 	private int nASE ;
 	private int nSE ;
 	private int nSSE ;
 	private String comment ;
+	private String isSpecificRequest ;
+	private String specificRequestEmployee ;
+	private String specificComment ;
 	
+	public String isSpecificRequest() {
+		return isSpecificRequest;
+	}
+	public void setSpecificRequest(String isSpecificRequest) {
+		this.isSpecificRequest = isSpecificRequest;
+	}
+	public String getSpecificRequestEmployee() {
+		return specificRequestEmployee;
+	}
+	public void setSpecificRequestEmployee(String specificRequestEmployee) {
+		this.specificRequestEmployee = specificRequestEmployee;
+	}
+	public String getSpecificComment() {
+		return specificComment;
+	}
+	public void setSpecificComment(String specificComment) {
+		this.specificComment = specificComment;
+	}
 	public String getComment() {
 		return comment;
 	}
@@ -39,12 +60,11 @@ public class WorkplanDTO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getTeamName() {
-		return teamName;
+	public String getTeamId() {
+		return teamId;
 	}
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
 	}
-	
 	
 }
