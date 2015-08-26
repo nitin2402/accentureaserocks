@@ -7,13 +7,6 @@
   <session-config>
     <session-timeout>5</session-timeout>
   </session-config>
-  <context-param>
-    <description>Location to store uploaded file</description>
-    <param-name>file-upload</param-name>
-    <param-value>
-         C:\Users\chinu.mohanty\workspace\TMT\WebContent\Docs
-     </param-value>
-  </context-param>
   <servlet>
     <description></description>
     <display-name>InitiativeUploadServlet</display-name>
