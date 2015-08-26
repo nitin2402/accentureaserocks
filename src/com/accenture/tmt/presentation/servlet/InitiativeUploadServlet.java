@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +18,8 @@ import org.apache.commons.fileupload.FileUploadBase.SizeLimitExceededException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
+
+import com.accenture.tmt.common.DBConnection;
 
 
 /**
@@ -42,8 +44,10 @@ public class InitiativeUploadServlet extends HttpServlet {
             return;
         }
         
-        ServletContext context = getServletContext();
-        String filePath = context.getInitParameter("file-upload");
+        Properties prop=new Properties();
+    	prop.load(DBConnection.class.getClassLoader()
+                .getResourceAsStream("config.properties"));
+    	String filePath = prop.getProperty("file-upload");
         
         File file = new File(filePath);
         FileUtils.cleanDirectory(file);
