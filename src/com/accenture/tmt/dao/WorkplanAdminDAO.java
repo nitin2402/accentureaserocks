@@ -10,101 +10,134 @@ import java.util.Map;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
+import com.accenture.tmt.dao.dto.SpecificRequestFlatDTO;
 import com.accenture.tmt.dao.dto.WorkplanAdminFlatDTO;
 import com.accenture.tmt.presentation.dto.ActionDTO;
 
 public class WorkplanAdminDAO {
-	
-	
-	public WorkplanAdminFlatDTO fetchData(ActionDTO actiondto){
-		
+
+	public WorkplanAdminFlatDTO fetchData(ActionDTO actiondto) {
+
 		WorkplanAdminFlatDTO workplanAdminFlatDTO = new WorkplanAdminFlatDTO();
 		Map<String, List<String>> freeASEList = new HashMap<String, List<String>>();
 		Map<String, List<String>> freeSEList = new HashMap<String, List<String>>();
 		Map<String, List<String>> freeSSEList = new HashMap<String, List<String>>();
-		
-		ResultSet rs = null ;
+
+		ResultSet rs = null;
 		try {
 			Connection con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st;
 				st = con.prepareStatement(CONSTANTS.FREE_ASE_LIST_QUERY);
 				rs = st.executeQuery();
-				 while(rs.next()){
-					 List<String> list = new ArrayList<String>();
-					 list.add(rs.getString("EmployeeName"));
-					 list.add(rs.getString("LCR"));
-					 freeASEList.put(rs.getString("EmployeeId"), list);
-			 }
-				
-				 workplanAdminFlatDTO.setFreeASEList(freeASEList);
-				 rs = null;
-				 
-				 st = con.prepareStatement(CONSTANTS.FREE_SE_LIST_QUERY);
-					rs = st.executeQuery();
-					
-					 while(rs.next()){
-					 List<String> list = new ArrayList<String>();
-					 list.add(rs.getString("EmployeeName"));
-					 list.add(rs.getString("LCR"));
-					 freeSEList.put(rs.getString("EmployeeId"), list);
-				 }
-					 
-					 workplanAdminFlatDTO.setFreeSEList(freeSEList);
-					 rs = null ;
-					 st = con.prepareStatement(CONSTANTS.FREE_SSE_LIST_QUERY);
-						rs = st.executeQuery();
-						
-						 while(rs.next()){
-						 List<String> list = new ArrayList<String>();
-						 list.add(rs.getString("EmployeeName"));
-						 list.add(rs.getString("LCR"));
-						 freeSSEList.put(rs.getString("EmployeeId"), list);
-					 }
-						 
-						 workplanAdminFlatDTO.setFreeSSEList(freeSSEList);
-						 
-						 rs = null ;
-				 st = con.prepareStatement(CONSTANTS.BUDGET_REQUEST_DETAILS_QUERY);
+				while (rs.next()) {
+					List<String> list = new ArrayList<String>();
+					list.add(rs.getString("EmployeeName"));
+					list.add(rs.getString("LCR"));
+					freeASEList.put(rs.getString("EmployeeId"), list);
+				}
 
-				 st.setString(1, actiondto.getReqId());
-				 rs = st.executeQuery();
-				 while(rs.next()){
-					 workplanAdminFlatDTO.setAseRequested(rs.getInt("No_Of_ASE")); 
-					 workplanAdminFlatDTO.setSeRequested(rs.getInt("No_Of_SE")); 
-					 workplanAdminFlatDTO.setSseRequested(rs.getInt("No_Of_SSE")); 
-					 workplanAdminFlatDTO.setTeamName(rs.getString("TeamName")); 
-			 }
-				 
-				 rs = null ;
-				 st = con.prepareStatement(CONSTANTS.AVERAGE_LCR_QUERY);
-				 rs = st.executeQuery();
-				 while(rs.next()){
-					 workplanAdminFlatDTO.setCurrentAvg(rs.getFloat("AVERAGE"));
-				 }
-				 
-				 rs = null ;
-				 st = con.prepareStatement(CONSTANTS.TOTAL_LCR_QUERY);
-				 rs = st.executeQuery();
-				 while(rs.next()){
-					 workplanAdminFlatDTO.setTotal(rs.getFloat("TOTAL"));
-				 }
-				 
-				 rs = null ;
-				 st = con.prepareStatement(CONSTANTS.COUNT_BILLABLE_EMPLOYEE_QUERY);
-				 rs = st.executeQuery();
-				 while(rs.next()){
-					 workplanAdminFlatDTO.setNumberOfEmployee(rs.getInt("NumberOfEmployee"));
-				 }
-				 
-				 
+				workplanAdminFlatDTO.setFreeASEList(freeASEList);
+				rs = null;
+
+				st = con.prepareStatement(CONSTANTS.FREE_SE_LIST_QUERY);
+				rs = st.executeQuery();
+
+				while (rs.next()) {
+					List<String> list = new ArrayList<String>();
+					list.add(rs.getString("EmployeeName"));
+					list.add(rs.getString("LCR"));
+					freeSEList.put(rs.getString("EmployeeId"), list);
+				}
+
+				workplanAdminFlatDTO.setFreeSEList(freeSEList);
+				rs = null;
+				st = con.prepareStatement(CONSTANTS.FREE_SSE_LIST_QUERY);
+				rs = st.executeQuery();
+
+				while (rs.next()) {
+					List<String> list = new ArrayList<String>();
+					list.add(rs.getString("EmployeeName"));
+					list.add(rs.getString("LCR"));
+					freeSSEList.put(rs.getString("EmployeeId"), list);
+				}
+
+				workplanAdminFlatDTO.setFreeSSEList(freeSSEList);
+
+				rs = null;
+				st = con.prepareStatement(CONSTANTS.BUDGET_REQUEST_DETAILS_QUERY);
+
+				st.setString(1, actiondto.getReqId());
+				rs = st.executeQuery();
+				while (rs.next()) {
+					workplanAdminFlatDTO
+							.setAseRequested(rs.getInt("No_Of_ASE"));
+					workplanAdminFlatDTO.setSeRequested(rs.getInt("No_Of_SE"));
+					workplanAdminFlatDTO
+							.setSseRequested(rs.getInt("No_Of_SSE"));
+					workplanAdminFlatDTO.setTeamName(rs.getString("TeamName"));
+				}
+
+				rs = null;
+				st = con.prepareStatement(CONSTANTS.AVERAGE_LCR_QUERY);
+				rs = st.executeQuery();
+				while (rs.next()) {
+					workplanAdminFlatDTO.setCurrentAvg(rs.getFloat("AVERAGE"));
+				}
+
+				rs = null;
+				st = con.prepareStatement(CONSTANTS.TOTAL_LCR_QUERY);
+				rs = st.executeQuery();
+				while (rs.next()) {
+					workplanAdminFlatDTO.setTotal(rs.getFloat("TOTAL"));
+				}
+
+				rs = null;
+				st = con.prepareStatement(CONSTANTS.COUNT_BILLABLE_EMPLOYEE_QUERY);
+				rs = st.executeQuery();
+				while (rs.next()) {
+					workplanAdminFlatDTO.setNumberOfEmployee(rs
+							.getInt("NumberOfEmployee"));
+				}
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return workplanAdminFlatDTO;
-		
+
 	}
 
+	public SpecificRequestFlatDTO fetchSpecificData(ActionDTO actiondto) {
+
+		ResultSet rs = null;
+		SpecificRequestFlatDTO specificRequestFlatDTO = new SpecificRequestFlatDTO();
+		try {
+			Connection con = DBConnection.getConnection();
+			if (con != null) {
+				PreparedStatement st;
+				
+					st = con.prepareStatement(CONSTANTS.SPECIFIC_REQUEST_QUERY);
+					st.setString(1, actiondto.getReqId());
+					rs = st.executeQuery();
+					while (rs.next()) {
+						specificRequestFlatDTO.setEmployeeDesignation(rs
+								.getString("employeeDesignation"));
+						specificRequestFlatDTO.setEmployeeId(rs
+								.getString("employeeId"));
+						specificRequestFlatDTO.setEmployeeName(rs
+								.getString("employeeName"));
+						specificRequestFlatDTO.setLCR(rs.getString("lCR"));
+						specificRequestFlatDTO.setReqId(actiondto.getReqId());
+						specificRequestFlatDTO.setSpecificComment(rs
+								.getString("specificComment"));
+					}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return specificRequestFlatDTO;
+	}
 }

@@ -51,7 +51,7 @@ int flag = 0;
 			}
 
 	public int accept(String[] empNamesASE, String[] empNamesSE,
-			String[] empNamesSSE, ActionFlatDTO actionflatdto) {
+			String[] empNamesSSE, String sepcificReqEmployeeId, ActionFlatDTO actionflatdto) {
 		
 		int flag1 = 0;
 		int flag2 = 0;
@@ -67,6 +67,14 @@ int flag = 0;
 				 rs = st.executeQuery() ;
 				 while(rs.next()){
 					 teamId = rs.getString("TeamId");
+				 }
+				 
+				 if(sepcificReqEmployeeId != null){
+					 st = con.prepareStatement(CONSTANTS.ASSIGN_RESOURCE_QUERY);
+					 st.setString(1, teamId);
+					 st.setString(2, sepcificReqEmployeeId);
+					 flag2 = st.executeUpdate();
+					 flag2 = flag2 & flag2 ;
 				 }
 				 
 				 if(empNamesASE != null){

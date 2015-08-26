@@ -35,6 +35,8 @@ public class SearchRequestDAO {
 					dto.setComment(rs.getString("Comments"));
 					dto.setStatusName(rs.getString("StatusName"));
 					dto.setTeamName(rs.getString("TeamName"));
+					dto.setHasSpecificRequest(rs.getBoolean("SpecificReq"));
+					
 					list.add(dto);
 					}
 				}
@@ -71,7 +73,8 @@ public class SearchRequestDAO {
 					dto.setComment(rs.getString("Comments"));
 					dto.setStatusName(rs.getString("StatusName"));
 					dto.setTeamName(rs.getString("TeamName"));
-					
+					dto.setHasSpecificRequest(rs.getBoolean("SpecificReq"));
+		
 					list.add(dto);
 					}
 				}

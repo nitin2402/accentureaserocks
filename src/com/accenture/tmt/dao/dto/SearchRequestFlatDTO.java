@@ -9,6 +9,7 @@ public class SearchRequestFlatDTO {
 	private String comment ;
 	private String statusName ;
 	private String teamName;
+	private boolean hasSpecificRequest ;
 	
 	public String getTeamName() {
 		return teamName;
@@ -51,5 +52,11 @@ public class SearchRequestFlatDTO {
 	}
 	public void setStatusName(String statusName) {
 		this.statusName = statusName;
+	}
+	public boolean isHasSpecificRequest() {
+		return hasSpecificRequest;
+	}
+	public void setHasSpecificRequest(boolean hasSpecificRequest) {
+		this.hasSpecificRequest = hasSpecificRequest;
 	}
 }

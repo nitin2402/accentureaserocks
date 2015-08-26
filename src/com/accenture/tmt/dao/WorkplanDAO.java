@@ -3,8 +3,6 @@ package com.accenture.tmt.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.accenture.tmt.common.CONSTANTS;
 import com.accenture.tmt.common.DBConnection;
@@ -29,40 +27,29 @@ public class WorkplanDAO {
 				 st.setString(6, workplanflatdto.getComment());
 				 st.setInt(7, status_id);
 				 st.setString(8, workplanflatdto.getEmployeeId());
-				 
+				 if(workplanflatdto.isSpecificRequest().equals("True")){
+					 st.setBoolean(9, true);
+				 } else{
+					 st.setBoolean(9, false);
+				 }
 				 flag = st.executeUpdate();
 				 
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return flag;
-	}
-
-	public String fetchTeamId(String teamName) {
-		// TODO Auto-generated method stub
-		String teamId = null;
-        ResultSet rs = null ;
-		try {
-			Connection con = DBConnection.getConnection();
-			if (con != null) {
-				PreparedStatement st = con
-					  .prepareStatement(CONSTANTS.GET_TEAMID_QUERY);
-				st.setString(1, teamName);
-				rs = st.executeQuery();
-				while(rs.next()){
-						  teamId = rs.getString("TeamId");
+				 if(workplanflatdto.isSpecificRequest().equals("True")){
+				 st = con.prepareStatement(CONSTANTS.INSERT_SPECIFIC_REQUEST_QUERY);
+				 st.setString(1, workplanflatdto.getReqId());
+				 st.setString(2, workplanflatdto.getSpecificRequestEmployeeId());
+				 st.setString(3, workplanflatdto.getSpecificComment());
+				 flag = flag * st.executeUpdate();
 				 }
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		return teamId;
+		} 
+		return flag;
 	}
 
-	public String fetchModuleId(String teamName) {
+	/*public String fetchModuleId(String teamName) {
 		// TODO Auto-generated method stub
 		String teamId = null;
         ResultSet rs = null ;
@@ -82,7 +69,7 @@ public class WorkplanDAO {
 			e.printStackTrace();
 		}
 		return teamId;
-	}
+	}*/
 	public String fetchEmployeeId(String userName) {
 		// TODO Auto-generated method stub
 		String employeeId = null;
@@ -105,26 +92,26 @@ public class WorkplanDAO {
 		return employeeId;
 	}
 	
-	public List<String> getTeamList(){
-		
-		List<String> teamList = new ArrayList<String>();
-		ResultSet rs = null ;
+	public String fetchTeamId(String teamName) {
+		// TODO Auto-generated method stub
+		String teamId = null;
+        ResultSet rs = null ;
 		try {
 			Connection con = DBConnection.getConnection();
 			if (con != null) {
 				PreparedStatement st = con
-					  .prepareStatement(CONSTANTS.GET_TEAM_LIST_QUERY);
+					  .prepareStatement(CONSTANTS.GET_TEAMID_QUERY);
+				st.setString(1, teamName);
 				rs = st.executeQuery();
 				while(rs.next()){
-						  teamList.add(rs.getString("TeamName"));
+						  teamId = rs.getString("TeamId");
 				 }
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return teamList;
-		
+		return teamId;
 	}
 	
 	public int countRows(){

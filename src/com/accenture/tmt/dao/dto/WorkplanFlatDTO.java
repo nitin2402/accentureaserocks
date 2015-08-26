@@ -10,7 +10,28 @@ public class WorkplanFlatDTO {
 	private String comment ;
 	private int status_id ;
 	private String employeeId ;
+	private String isSpecificRequest ;
+	private String specificRequestEmployeeId ;
+	private String specificComment ;
 	
+	public String isSpecificRequest() {
+		return isSpecificRequest;
+	}
+	public void setSpecificRequest(String isSpecificRequest) {
+		this.isSpecificRequest = isSpecificRequest;
+	}
+	public String getSpecificRequestEmployeeId() {
+		return specificRequestEmployeeId;
+	}
+	public void setSpecificRequestEmployeeId(String specificRequestEmployeeId) {
+		this.specificRequestEmployeeId = specificRequestEmployeeId;
+	}
+	public String getSpecificComment() {
+		return specificComment;
+	}
+	public void setSpecificComment(String specificComment) {
+		this.specificComment = specificComment;
+	}
 	public String getComment() {
 		return comment;
 	}
