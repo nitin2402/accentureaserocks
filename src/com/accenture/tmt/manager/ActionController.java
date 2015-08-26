@@ -11,12 +11,17 @@ public class ActionController {
 	int flag = 0;
 	
 	public int acceptRequest(String[] empASE, String[] empSE, String[] empSSE, 
-			ActionDTO actiondto){
+			String specificReq, ActionDTO actiondto){
 		
 		String[] temp = new String[2];
 		String[] empNamesASE = null ;
 		String[] empNamesSE = null ;
 		String[] empNamesSSE = null ;
+		String sepcificReqEmployeeId =null ;
+		
+		if(specificReq != null){
+			sepcificReqEmployeeId = specificReq.split("_")[0];
+		}
 		
 		if(empASE != null){
 			int aseLength = empASE.length ;
@@ -47,7 +52,7 @@ public class ActionController {
 		
 		actionflatdto.setReqId(actiondto.getReqId());
 		actionflatdto.setReason(actiondto.getReason());
-		flag = actiondao.accept(empNamesASE, empNamesSE, empNamesSSE, actionflatdto);
+		flag = actiondao.accept(empNamesASE, empNamesSE, empNamesSSE, sepcificReqEmployeeId, actionflatdto);
 		return flag ;
 	}
 

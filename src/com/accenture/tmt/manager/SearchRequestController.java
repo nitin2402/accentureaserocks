@@ -31,6 +31,12 @@ public class SearchRequestController {
 			searchrequestdto.setComment(get_approved_requests.get(i).getComment());
 			searchrequestdto.setStatusName(get_approved_requests.get(i).getStatusName());
 			
+			if(get_approved_requests.get(i).isHasSpecificRequest()){
+				searchrequestdto.setHasSpecificRequest("Yes");
+			} else{
+				searchrequestdto.setHasSpecificRequest("No");
+			}
+			
 			send_approved_requests.add(i, searchrequestdto);
 		}
 		
@@ -61,6 +67,11 @@ public List<SearchRequestDTO> searchUnpprovedRequests(){
 			searchrequestdto.setComment(get_unapproved_requests.get(i).getComment());
 			searchrequestdto.setStatusName(get_unapproved_requests.get(i).getStatusName());
 			
+			if(get_unapproved_requests.get(i).isHasSpecificRequest()){
+				searchrequestdto.setHasSpecificRequest("Yes");
+			} else{
+				searchrequestdto.setHasSpecificRequest("No");
+			}
 			send_unapproved_requests.add(i, searchrequestdto);
 		}
 		return send_unapproved_requests;

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.accenture.tmt.dao.WorkplanAdminDAO;
+import com.accenture.tmt.dao.dto.SpecificRequestFlatDTO;
+import com.accenture.tmt.presentation.dto.SpecificRequestDTO;
 import com.accenture.tmt.dao.dto.WorkplanAdminFlatDTO;
 import com.accenture.tmt.presentation.dto.ActionDTO;
 import com.accenture.tmt.presentation.dto.WorkplanAdminDTO;
@@ -50,6 +52,20 @@ public class WorkplanAdminController {
 		workplanAdminDTO.setTeamName(teamName);
 		
 		return workplanAdminDTO;
+		}
+	
+		public SpecificRequestDTO fetchSpecificDataDetails(ActionDTO actiondto){
+			
+			WorkplanAdminDAO workplanAdminDAO = new WorkplanAdminDAO();
+			SpecificRequestFlatDTO specificRequestFlatDTO = workplanAdminDAO.fetchSpecificData(actiondto);
+			SpecificRequestDTO specificRequestDTO = new SpecificRequestDTO();
+			specificRequestDTO.setEmployeeDesignation(specificRequestFlatDTO.getEmployeeDesignation());
+			specificRequestDTO.setEmployeeId(specificRequestFlatDTO.getEmployeeId());
+			specificRequestDTO.setEmployeeName(specificRequestFlatDTO.getEmployeeName());
+			specificRequestDTO.setLCR(specificRequestFlatDTO.getLCR());
+			specificRequestDTO.setReqId(specificRequestFlatDTO.getReqId());
+			specificRequestDTO.setSpecificComment(specificRequestFlatDTO.getSpecificComment());
+			return specificRequestDTO;
 		}
 		
 	}
