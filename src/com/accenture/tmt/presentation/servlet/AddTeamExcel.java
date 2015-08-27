@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +29,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.TeamDAO;
 import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.TeamReportController;
@@ -44,6 +47,7 @@ public class AddTeamExcel extends HttpServlet {
 	 */
 	public AddTeamExcel() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -53,6 +57,7 @@ public class AddTeamExcel extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -62,20 +67,29 @@ public class AddTeamExcel extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, IllegalStateException {
+		// TODO Auto-generated method stub
 
 		response.setContentType("text/html");
 		int maxFileSize = 5000 * 1024;
 		int maxMemSize = 5000 * 1024;
 
 		File file = null;
+		// String sheetno = null;
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
 		if (!isMultipart) {
 			return;
 		}
 
-		ServletContext context = getServletContext();
-		String filePath = context.getInitParameter("file-upload");
+		Properties prop=new Properties();
+
+		prop.load(DBConnection.class.getClassLoader()
+
+		.getResourceAsStream("config.properties"));
+
+		String filePath = prop.getProperty("file-upload"); 
+
+
 
 		file = new File(filePath);
 		FileUtils.cleanDirectory(file);
@@ -175,6 +189,34 @@ public class AddTeamExcel extends HttpServlet {
 
 						
 					} else {
+						int cellCount = 0;
+						
+						for (Cell cellForTeam : rowOfTeam1) {
+							
+							
+							if(cellForTeam.getStringCellValue() != null ||cellForTeam.getStringCellValue() !=""
+									|| !cellForTeam.getStringCellValue().isEmpty()){
+
+								if (cellCount == 0 && cellForTeam.getStringCellValue() != null
+										&& !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamName")) {
+									throw new SQLException("Invalid Format");
+								} else if (cellCount == 1 && cellForTeam.getStringCellValue() != null
+										&& !cellForTeam.getStringCellValue().equalsIgnoreCase("Project")) {
+									throw new SQLException("Invalid Format");
+								} else if (cellCount == 2 && cellForTeam.getStringCellValue() != null
+										&& !cellForTeam.getStringCellValue().equalsIgnoreCase("Module")) {
+									throw new SQLException("Invalid Format");
+								} else if (cellCount == 3 && cellForTeam.getStringCellValue() != null
+										&& !cellForTeam.getStringCellValue().equalsIgnoreCase("TeamDescription")) {
+									throw new SQLException("Invalid Format");
+								} else if (cellCount == 4 && cellForTeam.getStringCellValue() != null
+										&& !cellForTeam.getStringCellValue().equalsIgnoreCase("Status")) {
+									throw new SQLException("Invalid Format");
+								}
+
+								cellCount++;
+							}
+							}
 					headerRow = false;
 				}
 			}
@@ -222,28 +264,28 @@ public class AddTeamExcel extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("message",
 					"Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
 		}
 
 		catch (ClassNotFoundException | InvalidFormatException e) {
 
 			e.printStackTrace();
 			request.setAttribute("message", "Error :- Please ensure that the uploaded file is in correct format ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
 		} catch (IOException e) {
 
 			e.printStackTrace();
 			request.setAttribute("message", "Error in parsing XLS :Please choose a excel file with correct template ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			request.setAttribute("message", e.getMessage());
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
 		} catch (Exception e) {
 			System.out.println("Error in parsing XLS : ");
 			e.printStackTrace();
 			request.setAttribute("message", "Error in parsing XLS :Please choose a excel file with correct template ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addteamexcel.jsp").forward(request, response);
 		} finally {
 			workbook.close();
 		}
