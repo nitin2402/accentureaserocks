@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import javax.servlet.ServletContext;
+import java.util.Properties;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +29,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.ReportController;
 
@@ -52,7 +55,7 @@ public class AddEmployeeExcel extends HttpServlet {
 		int maxFileSize = 5000 * 1024;
 		int maxMemSize = 5000 * 1024;
 
-		ServletContext context = getServletContext();
+		
 	
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
@@ -60,7 +63,15 @@ public class AddEmployeeExcel extends HttpServlet {
 			return;
 		}
 
-		String filePath = context.getInitParameter("file-upload");
+		Properties prop=new Properties();
+
+		prop.load(DBConnection.class.getClassLoader()
+
+		.getResourceAsStream("config.properties"));
+
+		String filePath = prop.getProperty("file-upload"); 
+
+
 
 		File file = new File(filePath);
 
@@ -185,6 +196,67 @@ public class AddEmployeeExcel extends HttpServlet {
 					listOfEmps.add(empDetailsDto);
 
 				} else {
+					int cellCount = 0;
+					for (Cell cellForEmp : rowOfEmployee1) {
+
+						if (cellCount == 0 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeId")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 1 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeName")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 2 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeDesignation")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 3 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeLevel")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 4 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeExpertise")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 5 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeClientId")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 6 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("EmployeeEmail")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 7 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("ProjectName")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 8 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("ModuleNmae")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 9 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("TeamName")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 10 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("ProficiencyCamps")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 11 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("ProficiencyProject")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 12 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("DateofJoining")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 13 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("LastWorkingDay")) {
+							throw new SQLException("Invalid Format");
+						}
+
+						else if (cellCount == 14 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("Billable")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 15 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("ActiveUser")) {
+							throw new SQLException("Invalid Format");
+						} else if (cellCount == 16 && cellForEmp.getStringCellValue() != null
+								&& !cellForEmp.getStringCellValue().equalsIgnoreCase("LCR")) {
+							throw new SQLException("Invalid Format");
+						}
+
+						cellCount++;
+
+					}
 
 					headerRow = false;
 				}
@@ -210,7 +282,7 @@ public class AddEmployeeExcel extends HttpServlet {
 			if (c != 0) {
 				request.setAttribute("message", "Record Inserted");
 
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 				if (session1 != null) {
 					for (int i = 0; i < listOfEmps.size(); i++) {
 						reportupdatedto.setEmpId(listOfEmps.get(i).getEmpId());
@@ -239,7 +311,7 @@ public class AddEmployeeExcel extends HttpServlet {
 			if (c == 0) {
 				request.setAttribute("message",
 						"Record insertion failed" + "\n" + "Please choose a excel file with correct template ");
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 			}
 			workbook.close();
 
@@ -249,37 +321,37 @@ public class AddEmployeeExcel extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("message",
 					"Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 
 		}
 
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			request.setAttribute("message", "Error :- Please ensure that the uploaded file is in correct format ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 
 		} catch (InvalidFormatException e) {
 
 			e.printStackTrace();
 			request.setAttribute("message", "Error :- Please ensure that the uploaded file is in correct format ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 			request.setAttribute("message", "Error in parsing XLS :Please choose a excel file with correct template ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 
 			request.setAttribute("message", e.getMessage());
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 
 		} catch (Exception e) {
 			System.out.println("Error in parsing XLS :Please choose a excel file with correct template ");
 			e.printStackTrace();
 			request.setAttribute("message", "Error in parsing XLS :Please choose a excel file with correct template ");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);
+			request.getRequestDispatcher("addempexcel.jsp").forward(request, response);
 
 		} finally {
 			workbook.close();
