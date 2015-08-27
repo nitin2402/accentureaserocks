@@ -52,7 +52,6 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 			    st1.setDate(2, (Date)teamreportdto.getStartDate());
 			    st1.setDate(3, (Date)teamreportdto.getEndDate());
 			    rs = st1.executeQuery();
-			    System.out.println("hello");
 			    while(rs.next()) {
 			    	System.out.println(rs.getString("ReqId"));
 			    	teamList = new ReportsDetailsFlatDTO();  
@@ -68,8 +67,6 @@ public List<ReportsDetailsFlatDTO> getDetailsReportDAO(ReportDetailsDTO teamrepo
 					teamList.setTimestamp(rs.getTimestamp("TimeStamp").toString());
 					teamreportflatdto.add(teamList);
 			    }
-
-			    System.out.println("bye");
 			    con.close();
 				}
 	} catch (ClassNotFoundException | SQLException e) {
