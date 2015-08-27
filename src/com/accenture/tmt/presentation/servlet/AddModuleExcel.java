@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
-import javax.servlet.ServletContext;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
+import com.accenture.tmt.common.DBConnection;
 import com.accenture.tmt.dao.ModuleDAO;
 import com.accenture.tmt.manager.ExcelController;
 import com.accenture.tmt.manager.ModuleReportController;
@@ -48,12 +50,14 @@ public class AddModuleExcel extends HttpServlet {
      */
     public AddModuleExcel() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -73,8 +77,14 @@ public class AddModuleExcel extends HttpServlet {
 			return;
 		}
 
-		ServletContext context = getServletContext();
-		String filePath = context.getInitParameter("file-upload");
+		Properties prop=new Properties();
+
+		prop.load(DBConnection.class.getClassLoader()
+
+		.getResourceAsStream("config.properties"));
+
+		String filePath = prop.getProperty("file-upload"); 
+
 
 		file = new File(filePath);
 		FileUtils.cleanDirectory(file);
@@ -149,6 +159,7 @@ public class AddModuleExcel extends HttpServlet {
 					for (Cell cellForModule : rowOfModule) {
 						if (cellForModule.getStringCellValue() != null || cellForModule.getStringCellValue() != null
 								|| !cellForModule.getStringCellValue().isEmpty()) {
+						
 
 							if (cellCount == 0 && cellForModule.getStringCellValue() != null
 									&& !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleName")) {
@@ -166,6 +177,7 @@ public class AddModuleExcel extends HttpServlet {
 
 							cellCount++;
 
+					
 						}
 					}
 					
@@ -180,6 +192,32 @@ public class AddModuleExcel extends HttpServlet {
 					
 					}
 					else{
+						int cellCount = 0;
+						for (Cell cellForModule : rowOfModule) {
+							if (cellForModule.getStringCellValue() != null || cellForModule.getStringCellValue() != null
+									|| !cellForModule.getStringCellValue().isEmpty()) {
+							
+
+								if (cellCount == 0 && cellForModule.getStringCellValue() != null
+										&& !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleName")) {
+									throw new SQLException("Invalid Format");
+								} else if (cellCount == 1 && cellForModule.getStringCellValue() != null
+										&& !cellForModule.getStringCellValue().equalsIgnoreCase("ProjectName")) {
+									throw new SQLException("Invalid Format");
+								} else if (cellCount == 2 && cellForModule.getStringCellValue() != null
+										&& !cellForModule.getStringCellValue().equalsIgnoreCase("ModuleDescription")) {
+									throw new SQLException("Invalid Format");
+								} else if (cellCount == 3 && cellForModule.getStringCellValue() != null
+										&& !cellForModule.getStringCellValue().equalsIgnoreCase("Status")) {
+									throw new SQLException("Invalid Format");
+								}
+
+								cellCount++;
+
+						
+							}
+						}
+						
 						headerRow = false;
 					}
 					
@@ -216,31 +254,31 @@ public class AddModuleExcel extends HttpServlet {
 				
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
 			}
 			
 			catch (ClassNotFoundException | InvalidFormatException e) {
 				
 				e.printStackTrace();
 				request.setAttribute("message","Error :- Please ensure that the uploaded file is in correct format ");
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
 			}
 			catch (IOException e) {
 			
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
 				request.setAttribute("message",e.getMessage());
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
 			} catch (Exception e) {
 			
 				System.out.println("Error in parsing XLS : ");
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
-				request.getRequestDispatcher("admintool.jsp").forward(request, response);
+				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
 				}finally {
 					workbook.close();
 				}
