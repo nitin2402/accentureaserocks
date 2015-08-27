@@ -29,7 +29,7 @@ public class RolloffPdf {
 	
     /** The resulting PDF file. */
     public static final String RESULT
-        = "C:/Users/priyam.kanungo/workspace/TMT Test/WebContent/template/ExitCheckList.pdf";
+        = "C:/Users/priyam.kanungo/workspace/TMT/WebContent/pdfdoc/ExitCheckList.pdf";
     private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 9,
     	      Font.BOLD);
     private static Font catFont1 = new Font(Font.FontFamily.TIMES_ROMAN, 8,
