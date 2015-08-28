@@ -33,8 +33,41 @@ height:30px;
 </script>
 </head>
 <body onload="populate()">
-	<%@ include file="header_admin.jsp"%>
+	
+			<%
+				 if(((String) session.getAttribute("admin") == "admin")){ 
+			%>
+			
+			<%@ include file="header_admin.jsp"%>
+			
+			<%
+				 } 
+			%>
 
+			
+			<%
+				 if(((String) session.getAttribute("admin") == "user")){ 
+			%>
+			
+			<%@ include file="header_users.jsp"%>
+			
+			<%
+				 } 
+			%>
+		
+		
+			<%
+				 if(((String) session.getAttribute("admin") == "viewer")){ 
+			%>
+			
+			<%@ include file="header_viewer.jsp"%>
+			
+			<%
+				 } 
+			%>
+	
+	
+	
 	<div id="templatemo_content">
 
 		<%@ include file="common_left.jsp"%>
