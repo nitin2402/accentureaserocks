@@ -60,7 +60,7 @@
 				 if ((String) session.getAttribute("admin") == "viewer") { 
 			%>
 
-						<div class="content_left_section" style="font-size: 14px">				
+			<div class="content_left_section" style="font-size: 14px">				
 				<div class="content_left_section_title">View</div>
 				<div class="content_left_section_content">
 				
@@ -71,8 +71,6 @@
 						<li><a href="viewmodule_user.jsp" >View Module</a></li>
 					</ul>
 				</div>
-				
-					
 
 		
 			<div class="content_left_section" style="font-size: 14px">
@@ -85,11 +83,12 @@
 					</ul>
 				</div>
 				<div class="content_left_section_bottom">&nbsp;</div>
-			</div>
-
 			
-	</div>
-				<%
+				</div>		
+			</div>
+						<div class="margin_bottom_20">&nbsp;</div>
+		
+			<%
 				 } 
 			%>
 </div>
