@@ -34,16 +34,7 @@
 				});
 	});
 </script>
-<script>
-	$(document).ready(function() {
 
-		$("#ViewempCss").css({
-
-			"font-weight" : "bold",
-			"text-decoration" : "underline"
-		});
-	});
-</script>
 
 
 </head>
@@ -65,7 +56,7 @@
 	%>
 	<div id="templatemo_content">
 
-		<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left.jsp"%>
 
 		<div id="content_right">
 
