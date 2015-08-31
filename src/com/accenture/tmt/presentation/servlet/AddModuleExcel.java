@@ -243,10 +243,10 @@ public class AddModuleExcel extends HttpServlet {
 				modulereportcontroller.updateModuleReport(reportupdatedto);
 				}
 				}
-				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);}
+				request.getRequestDispatcher("addmoduleexcel.jsp").forward(request, response);}
 			if(c == 0){
 				request.setAttribute("message","Record insertion failed");
-				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);}
+				request.getRequestDispatcher("addmoduleexcel.jsp").forward(request, response);}
 				
 			workbook.close();
 				
@@ -254,31 +254,30 @@ public class AddModuleExcel extends HttpServlet {
 				
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template and proper format. ");
-				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
+				request.getRequestDispatcher("addmoduleexcel.jsp").forward(request, response);
 			}
 			
 			catch (ClassNotFoundException | InvalidFormatException e) {
 				
 				e.printStackTrace();
 				request.setAttribute("message","Error :- Please ensure that the uploaded file is in correct format ");
-				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
+				request.getRequestDispatcher("addmoduleexcel.jsp").forward(request, response);
 			}
 			catch (IOException e) {
 			
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
-				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
+				request.getRequestDispatcher("addmoduleexcel.jsp").forward(request, response);
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
 				request.setAttribute("message",e.getMessage());
-				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
+				request.getRequestDispatcher("addmodaddmoduleexcelulevia.jsp").forward(request, response);
 			} catch (Exception e) {
 			
-				System.out.println("Error in parsing XLS : ");
 				e.printStackTrace();
 				request.setAttribute("message","Error in parsing XLS :Please choose a excel file with correct template ");
-				request.getRequestDispatcher("addmodulevia.jsp").forward(request, response);
+				request.getRequestDispatcher("addmoduleexcel.jsp").forward(request, response);
 				}finally {
 					workbook.close();
 				}
