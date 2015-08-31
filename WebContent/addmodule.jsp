@@ -36,7 +36,7 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 
 	<div id="templatemo_content">
 
-		<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left.jsp"%>
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: 300px">
