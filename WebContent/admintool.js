@@ -1,6 +1,11 @@
 
 $(document).ready(function(){
-	 $( "#accordion" ).accordion();
+	 $("#accordion").show().accordion({
+	        active: false,
+	        autoHeight: false,
+	        navigation: true,
+	        collapsible: true
+	    });
 		$("#employee,#authorize,#modl,#team,#emp").hide();
 	  collapsible: true;
         $("#empCss").css({
