@@ -20,7 +20,7 @@
 <jsp:include page="/DropDownDetails" />
 <%@ include file="header_admin.jsp" %>  
 	<div id="templatemo_content">
-	<%@ include file="common_left_admintool.jsp"%>
+	<%@ include file="common_left.jsp"%>
 		<div id="content_right" >
 			<div class="right_col_section_w650" style="height: 300px">
 				<div class="header_01">Team Addition</div>
