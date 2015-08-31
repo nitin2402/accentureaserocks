@@ -1,13 +1,15 @@
 //accordion	
 $(document).ready(function() {
 		$("#div2,#div1").hide();
-		  $( "#accordion" ).accordion();
+		 $("#accordion").show().accordion({
+		        active: false,
+		        autoHeight: false,
+		        navigation: true,
+		        collapsible: true
+		    });
 	});
 
-$(document).ready(function() {
-	$("#div2,#div1").hide();
-	  $( "#accordion" ).accordion();
-});
+
 	 
 	//drop down
 	 
