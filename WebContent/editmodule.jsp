@@ -19,16 +19,7 @@
 		$(".header_09").hide();
 	});
 </script>
-<script>
-	$(document).ready(function() {
 
-		$("#ViewmodCss").css({
-
-			"font-weight" : "bold",
-			"text-decoration" : "underline"
-		});
-	});
-</script>
 
 <script type='text/javascript' src='search.js'></script>
 <script type="text/javascript">
@@ -59,7 +50,7 @@
 
 	<div id="templatemo_content">
 
-		<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left.jsp"%>
 
 
 
