@@ -20,16 +20,7 @@
 	});
 </script>
 <script type='text/javascript' src='search.js'></script>
-<script>
-	$(document).ready(function() {
 
-		$("#ViewteamCss").css({
-
-			"font-weight" : "bold",
-			"text-decoration" : "underline"
-		});
-	});
-</script>
 
 </head>
 <body>
@@ -47,7 +38,7 @@
 	%>
 
 	<div id="templatemo_content">
-		<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left.jsp"%>
 		<div id="content_right">
 
 			<div class="right_col_section_w650" style="height: auto">
