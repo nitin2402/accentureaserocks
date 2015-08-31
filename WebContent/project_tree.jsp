@@ -74,20 +74,22 @@ height:30px;
 
 		<div id="content_right">
 
-			<div class="right_col_section_w650">
-				<div id="search" style="min-height:350px">
+			<div class="right_col_section_w650"  style="min-height:350px">
+				
 
 					<div class="header_01">Project Structure of </div>
+					<div id="search">
 					<div style="width: 300px;float:left">
 						<ul id="tree"></ul>
 					</div>
 					<div style="float:left;margin-left: -82px;" id="barGraph"></div>
 					<div class="margin_bottom_20">&nbsp;</div>
 				</div>
-			</div>
+		
 			<div id="ajaxResponse"></div>
-
+<div class="margin_bottom_20">&nbsp;</div>
 		</div>
+			</div>
 
 	</div>
 	<%@ include file="footer.jsp"%>
