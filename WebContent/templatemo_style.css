@@ -150,7 +150,7 @@ img {
 #templatemo_header #site_title_section {
 	float: left;
 	padding-top: 80px;
-	padding-left: 32px;
+	padding-left: 40px;
 	margin-right: 50px;
 	width: 290px;
 }
@@ -169,8 +169,7 @@ img {
 
 #templatemo_header #header_section_code {
 	float: left;
-	width: 350px;
-	font-size: 11.4px;
+	width: 300px;
 	padding-top: 70px;
 	text-align: center;
 	color: #feffb3;
@@ -247,9 +246,6 @@ img {
 #templatemo_content #content_right {
 	float: right;
 	width: 650px;
-	overflow-y: auto;
-     height: 320px; 
-	
 }
 
 .header_01 {
@@ -301,7 +297,7 @@ img {
 	color: #FFF;
 	font-weight: bold;
 	width: 230px;
-	height: 50px;
+	height: 37px;
 	padding: 8px 0 0 30px;
 	background: url(images/templatemo_left_col_header_bg.jpg) no-repeat;
 }
@@ -561,7 +557,6 @@ table.table2 td {
 	font-size:16px;
 	
 }
-
 #scrollable {
     height: 200px; /* or any value */
     overflow-y: auto;
@@ -589,11 +584,100 @@ table.table2 td {
 }
 
 
+body {
+    background-color: #ccc;
+    font-size: 88%;
+    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4e4e4e;
+    padding: 0;
+}
+
+a#overlaylaunch-inAbox {
+    display: block;
+    padding: 40px;
+    margin: 40px;
+    background-color: #efefef;
+    font-size: 1.6em;
+    text-decoration: none;
+    text-align: center;
+}
+
+#overlay-inAbox .wrapper {
+    text-align: center;
+}
+
+
+
+/* More important stuff */
+
+.overlay,
+#overlay-shade {
+    display: none;
+}
+
+#overlay-shade {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #000;
+}
+
+.overlay {
+    position: absolute;
+    top: -300px;
+    left: 0;
+    width: 450px;
+    min-height: 200px;
+    z-index: 10000;
+    background-color: #7D7D7D;
+    border: 10px solid #CFCFCF;
+    color: #fff;
+    box-shadow: 0 0 16px #000;
+} .ie7 .overlay {
+    height: 200px;
+} .overlay .wrapper {
+    padding: 15px 30px 30px;
+}
+
+
+.overlay .toolbar {
+    padding: 8px;
+    line-height: 1;
+    text-align: right;
+    overflow: hidden;
+} .overlay .toolbar a.close {
+    display: inline-block;
+        *display: inline;
+         zoom: 1;
+    padding: 0 8px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 18px;
+    border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+    color: #999999;
+    background-color: #515151;
+} .overlay .toolbar a.close span {
+    color: #818181;
+} .overlay .toolbar a.close:hover,
+  .overlay .toolbar a.close:hover span {
+    background-color: #b90900;
+    color: #fff;
+}
+
 
 
 
 .ui-accordion .ui-accordion-content{
 	background-color: #DECFA4;
+	height:300px;
 }
 .ui-widget-content {
 	background: none;
@@ -607,4 +691,32 @@ table.table2 td {
 /* .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
     background: none;
 } */
+
+
+input.gobutton,.gobutton{
+cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+padding:5px 25px; /*add some padding to the inside of the button*/
+background:#8c5a11; /*the colour of the button*/
+border:1px solid #8c5a14; /*required or the default border for the browser will appear*/
+/*give the button curved corners, alter the size as required*/
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+/*give the button a drop shadow*/
+-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+box-shadow: 0 0 4px rgba(0,0,0, .75);
+/*style the text*/
+color:#f3f3f3;
+font-size:1.1em;
+margin:5px;
+}
+/***NOW STYLE THE BUTTON'S HOVER AND FOCUS STATES***/
+input.gobutton:hover,.gobutton:hover, input.gobutton:focus,.gobutton:focous{
+background-color :#f8d3c2; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
 /* end of footer */
