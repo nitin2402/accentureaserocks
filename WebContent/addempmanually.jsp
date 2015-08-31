@@ -87,7 +87,7 @@
 								<tr>
 									<td><span style="color: Red;">* </span>EMPLOYEE LEVEL:</td>
 									<td><select type="text" name="level" id="level">
-										  <option value="13">13</option>
+										 
 										  <option value="12">12</option>
 										  <option value="11">11</option>
 										  <option value="10">10</option>
@@ -102,7 +102,7 @@
 								<tr>
 									<td><span style="color: Red;">* </span>EMPLOYEE	DESIGNATION:</td>
 									<td><select type="text" name="desig" id="desig">
-										  <option value="Junior ASE" class="13">Junior ASE</option>
+										 
 										  <option value="ASE" class="12">ASE</option>
 										  <option value="SE" class="11">SE</option>
 										  <option value="SSE" class="10">SSE</option>
@@ -120,7 +120,7 @@
 									<td><input type="text" name="area"></input></td>
 								</tr>
 								<tr>
-									<td>&nbsp CLIENT ID:</td>
+									<td>&nbsp; CLIENT ID:</td>
 									<td><input type="text" name="client"></input></td>
 								</tr>
 								<tr>
@@ -128,7 +128,7 @@
 									<td><input type="text" name="email"></input></td>
 								</tr>
 								<tr>
-									<td>&nbsp PROJECT</td>
+									<td>&nbsp; PROJECT</td>
 									<td><select id="prj" class="chain" name="project"
 										style="width: 143px">
 											<jstlcore:forEach items="${project}" var="prj_item">
@@ -143,7 +143,7 @@
 								</tr>
 
 								<tr>
-									<td>&nbsp MODULE</td>
+									<td>&nbsp; MODULE</td>
 									<td><select id="mdl" class="chain" name="module"
 										style="width: 143px">
 											<jstlcore:forEach items="${module}" var="mod_item">
@@ -158,7 +158,7 @@
 									</select></td>
 								</tr>
 								<tr>
-									<td>&nbsp TEAM</td>
+									<td>&nbsp; TEAM</td>
 									<td><select name="Team" style="width: 143px" class="chain"
 										id="tem">
 											<jstlcore:forEach items="${team}" var="item">
@@ -176,7 +176,7 @@
 									<td><input type="text" name="camps"></input></td>
 								</tr>
 								<tr>
-									<td>&nbsp PROFICIENCY PROJECT:</td>
+									<td>&nbsp; PROFICIENCY PROJECT:</td>
 									<td><input type="text" name="Project"></input></td>
 								</tr>
 								<tr>
@@ -184,11 +184,11 @@
 									<td><input type="text" name="doj" id="calendar"></input></td>
 								</tr>
 								<tr>
-									<td>&nbsp LAST WORKING DATE:</td>
+									<td>&nbsp; LAST WORKING DATE:</td>
 									<td><input type="text" name="last" id="calendar1"></input></td>
 								</tr>
 								<tr>
-									<td>&nbsp BILLABLE:</td>
+									<td>&nbsp; BILLABLE:</td>
 									<td><select type="text" name="bill" style="width: 143px">
 											<option value="" disabled="disabled" selected="selected">Select</option>
 											<option value="YES">YES</option>
@@ -197,7 +197,7 @@
 									</select></td>
 								</tr>
 								<tr>
-									<td>&nbsp ACITVE USER:</td>
+									<td>&nbsp; ACITVE USER:</td>
 									<td><input type="text" name="active" value="YES"></input></td>
 								</tr>
 
