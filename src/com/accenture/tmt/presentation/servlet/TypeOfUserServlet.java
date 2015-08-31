@@ -149,7 +149,7 @@ public class TypeOfUserServlet extends HttpServlet {
 							
 							reportUpdate.updateEmpReport_Aurthorized(reportUpdateDTO);
 						}
-					 request.getRequestDispatcher("authorizeemployee.jsp").forward(request, response);
+					 request.getRequestDispatcher("admintool.jsp").forward(request, response);
 				 	}
 			 }
 		
