@@ -79,7 +79,7 @@
 	%>
 	<div id="templatemo_content">
 
-		<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left.jsp"%>
 
 
 		<div id="content_right">
