@@ -47,7 +47,7 @@
 	<div id="templatemo_menu">
 		<ul>
 			<li><a href="adminhome.jsp">Home</a></li>
-			<li><a href="addmodulevia.jsp">Admin Tools</a></li>
+			<li><a href="admintool.jsp">Admin Tools</a></li>
 			<li><a href="searchrequest.jsp">Workplan</a></li>
 			<li><a href="ProjectAdmin.jsp">Projects</a></li>
 			<li><a href="mainreports.jsp">Reports</a></li>
