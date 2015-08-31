@@ -57,12 +57,14 @@ function validateform2() {
 	{
 	 alert ( "Please choose one option" );
 	 return false;
-	}
+	}}
+function validateform1() {
 	if ( ( !document.getElementById('excel1').checked  ) && ( !document.getElementById('manually1').checked  ) ) 
 	{
 	 alert ( "Please choose one option" );
 	 return false;
-	}
+	}}
+function validateform() {
 	if ( ( !document.getElementById('excel2').checked  ) && ( !document.getElementById('manually2').checked  ) ) 
 	{
 	 alert ( "Please choose one option" );
