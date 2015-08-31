@@ -78,7 +78,7 @@ $(function () {
 											</div>
 											<h3>ADD TEAM</h3>
 											<div>
-												<form action="AddTeamSelect" onsubmit="return validateform2()">
+												<form action="AddTeamSelect" onsubmit="return validateform1()">
 													<input type="radio" name="select"
 													value="addfromexcel" id="excel1"
 													/>Add From Excel
@@ -108,7 +108,7 @@ $(function () {
 												<div id="employee">
 													<h3 style="color: black;">Add Employees</h3>
 													<form action="AddEmpChoice"
-													name="radio1" onsubmit="return validateform2()">
+													name="radio1" onsubmit="return validateform()">
 														<input type="radio" name="select"
 														value="addfromexcel" id="excel2"/>AddFrom Excel
 														<br />
