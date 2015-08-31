@@ -115,10 +115,10 @@ public class AddEmployeeManual extends HttpServlet {
 				reportupdatedto.setDate(sqlDate);
 				update.updateEmpreport(reportupdatedto);
 				}
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
+			request.getRequestDispatcher("addempmanually.jsp").forward(request, response);}
 		if(c ==0){
 			request.setAttribute("message","Record insertion failed");
-			request.getRequestDispatcher("admintool.jsp").forward(request, response);}
+			request.getRequestDispatcher("addempmanually.jsp").forward(request, response);}
 		
 	}
 
