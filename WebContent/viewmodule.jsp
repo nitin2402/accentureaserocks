@@ -17,16 +17,7 @@
 <%@ taglib prefix="jstlfmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script type='text/javascript' src='search.js'></script>
-<script>$(document).ready(function(){
 
-        $("#ViewmodCss").css({
-           
-            	"font-weight": "bold",
-            	"text-decoration": "underline"
-        });
-    });
-
-	</script>
 </head>
 <body>
 
@@ -45,7 +36,7 @@
 
 
 	<div id="templatemo_content">
-		<%@ include file="common_left_admintool.jsp"%>
+		<%@ include file="common_left.jsp"%>
 
 		<div id="content_right">
 
