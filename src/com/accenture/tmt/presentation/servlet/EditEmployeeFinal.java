@@ -52,11 +52,11 @@ public class EditEmployeeFinal extends HttpServlet {
 		String editEmployee=request.getParameter("editEmployee");
 		String deleteEmployee=request.getParameter("deleteEmployee");
 		EmployeeController controller = new EmployeeController();
-		if(employeeDetails==null){
+		/*if(employeeDetails==null){
 			request.setAttribute("message","Please Select An Employee");
 			request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
 		}
-		
+		*/
 		if(editEmployee!=null){
 			List<EmployeeDetailsFlatDTO> li = new ArrayList<EmployeeDetailsFlatDTO>();
 			li=controller.FetchEmployeeList(employeeDetails);
@@ -64,26 +64,27 @@ public class EditEmployeeFinal extends HttpServlet {
 			request.getRequestDispatcher("editemployee.jsp").forward(request, response);
 		}
 		
-		HttpSession session1 = request.getSession();
-		java.sql.Date sqlDate=null;
-		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-		Date date = new Date();
-		 String timestamp= df.format(date);
-		 sqlDate= new java.sql.Date(date.getTime());
+	
 
 		
 		
 		
 		
 		if(deleteEmployee!=null){
-			
+			HttpSession session1 = request.getSession();
+			java.sql.Date sqlDate=null;
+			SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+			Date date = new Date();
+			 String timestamp= df.format(date);
+			 sqlDate= new java.sql.Date(date.getTime());
 			
 			try {
-			 controller.deleteEmployee(employeeDetails);
-				 
+			int status= controller.deleteEmployee(employeeDetails);
+			
+				 if(status==1){
 					 
 						request.setAttribute("message","Employee Deleted");
-						
+						request.getRequestDispatcher("admintool.jsp").forward(request, response);
 						EmployeeReportUpdateDTO reportupdatedto = new EmployeeReportUpdateDTO();
 						ReportController update=new ReportController();
 						if(session1!= null){
@@ -116,21 +117,24 @@ public class EditEmployeeFinal extends HttpServlet {
 								}
 							
 						}
-
+						}else{
+							request.setAttribute("message","Employee Deletion Failed");
+							request.getRequestDispatcher("admintool.jsp").forward(request, response);
+					 }
 				 
 			} catch (ClassNotFoundException |IllegalStateException il) {
 				// TODO Auto-generated catch block
 				il.printStackTrace();
+				
+				request.setAttribute("message","Employee Deletion Failed..please try later");
+				request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
-			request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
-	}else{
-		request.setAttribute("message","Employee Deletion Failed");
-		request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
- }
+			
+	}
 
 }
 }
