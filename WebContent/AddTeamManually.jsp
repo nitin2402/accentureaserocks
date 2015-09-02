@@ -58,10 +58,14 @@
 									<td><input type="text" name="status" value="YES"></input></td>
 								</tr>
 								</table>
-							<input class="submit" type="submit" value="Submit"></input> <input
-								type="reset" value="Reset" id="clear" name="clear"></input><br />
-							<br /> <span style="color: green"> <%-- <%=request.getParameter("msg") != null ? request
-					.getParameter("msg") : ""%> --%></span><br />
+							<br></br><br></br>
+						<div>
+								<input class="gobutton" type="submit" value="Submit" />	
+								 <input class="gobutton" type="reset" value="Reset" id="clear" name="clear"></input>
+								<div style="padding-left: 229px; margin-top: -23px;">
+									<a class="gobutton" href="admintool.jsp">Back</a>
+								</div>
+							</div>
 						</form>
 					</div>
 					<div class="cleaner">&nbsp;</div>
