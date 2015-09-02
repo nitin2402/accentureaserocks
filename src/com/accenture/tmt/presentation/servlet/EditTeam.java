@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.accenture.tmt.dao.dto.TeamDetailsDTO;
+
 import com.accenture.tmt.dao.dto.TeamDetailsFlatDTO;
 import com.accenture.tmt.manager.TeamController;
 import com.accenture.tmt.manager.TeamReportController;
@@ -59,10 +59,7 @@ public class EditTeam extends HttpServlet {
 		Date date = new Date();
 		 String timestamp= df.format(date);
 		 sqlDate= new java.sql.Date(date.getTime());
-		if(team==null){
-			request.setAttribute("message","Please select the radio button");
-			request.getRequestDispatcher("viewteam.jsp").forward(request, response);	
-		}
+
 		if(submit1!=null){
 		List<TeamDetailsFlatDTO> li = new ArrayList<TeamDetailsFlatDTO>();
 		
@@ -104,7 +101,7 @@ public class EditTeam extends HttpServlet {
 			e.printStackTrace();
 		}
 	;
-		request.getRequestDispatcher("viewteam.jsp").forward(request, response);
+		request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		
 		
 	}
