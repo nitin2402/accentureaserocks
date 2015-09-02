@@ -81,7 +81,14 @@ $(document).ready(function(){
 								size="50"
 								style="border: solid 1px #D7C89D; background-color: #D7C89D; width: 50%; color: #8D5B13;" />
 							<!-- <br /> <br /> <br /> <input type="hidden" id="sheetno"
-								name="sheetno" /> --> <br /> <input type="submit" value="Submit" />
+								name="sheetno" /> --> <br /><br></br><br></br>
+						<div>
+								<input class="gobutton" type="submit" value="Submit" />	
+								 <input class="gobutton" type="reset" value="Reset" id="clear" name="clear"></input>
+								<div style="padding-left: 229px; margin-top: -23px;">
+									<a class="gobutton" href="admintool.jsp">Back</a>
+								</div>
+							</div>
 						</form>
 						<br />
 					</div>
