@@ -31,15 +31,10 @@ pageEncoding="ISO-8859-1" %>
 			<script type='text/javascript' src='admintool.js'></script>
 			<script type='text/javascript'
 			src='search.js'></script>
-			<script type='text/javascript'
-			src='action.js'></script>
+			<!-- <script type='text/javascript'
+			src='action.js'></script> -->
 			<script src="jquery.chained.js"></script>
-			<script>
-$(function () {
-	$("#accordion")
-		.accordion();
-});
-			</script>
+			
 	</head>
 
 	<body>
@@ -55,11 +50,11 @@ $(function () {
 						<%@ include file="common_left.jsp" %>
 							<div id="content_right">
 								<div class="right_col_section_w650"
-								id="scrollable" style="height: 440px">
+								 style="height:  480px">
 									<div id="search">
 										<!-- //accordian begins -->
 										<div id="accordion" class="accordion_bg">
-											<h3>ADD MODULE</h3>
+											<h4>ADD MODULE</h4>
 											<div>
 												<form name="radio1" action="AddModuleSelect"
 												onsubmit="return validateform2()">
@@ -230,7 +225,7 @@ $(function () {
 													/>
 													<h3 style="color: black;">View Employee(s)</h3>
 													<form name="form" action="EditEmployeeFinal"
-													method="post" onclick="return validateForm()">
+													method="post" onclick="return validateEmp()">
 														<div id="scrollable" style="font-size: 14px;">
 															<table class="table2">
 																<thead style="font-weight: bold; position:">
@@ -310,11 +305,11 @@ $(function () {
 														<div>
 															<input type="submit" class="gobutton"
 															id="editEmployee" name="editEmployee"
-															onclick="return validateForm()"
+															onclick="return validateEmp()"
 															value="Edit"></input>
 															<input type="submit"
 															class="gobutton" id="deleteEmployee"
-															name="deleteEmployee" onclick="return validateForm()"
+															name="deleteEmployee" onclick="return validateEmp()"
 															value="Delete"></input>
 														</div>
 													</form>
@@ -322,8 +317,10 @@ $(function () {
 											</div>
 										</div>
 									</div>
+									<div>
 									<div id="ajaxResponse"></div>
-									<p class="error" style="font-size: 14px; color: red;">${message1}</p>
+									<p class="error" style="font-size: 20px; color: red;">${message}</p>
+									</div>
 									<div class="margin_bottom_20">&nbsp;</div>
 								</div>
 								<div class="cleaner">&nbsp;</div>
