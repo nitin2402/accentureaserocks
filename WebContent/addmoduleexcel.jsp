@@ -58,8 +58,13 @@
 
 						<!-- 	<input type="hidden" id="sheetno" name="sheetno" /> -->
 							
-							<div>
-								<input type="submit" value="Submit" />
+								<br></br><br></br>
+						<div>
+								<input class="gobutton" type="submit" value="Submit" />	
+								 <input class="gobutton" type="reset" value="Reset" id="clear" name="clear"></input>
+								<div style="padding-left: 229px; margin-top: -23px;">
+									<a class="gobutton" href="admintool.jsp">Back</a>
+								</div>
 							</div>
 						</form>
 
