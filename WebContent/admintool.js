@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	 $("#accordion").show().accordion({
+	  $("#accordion").show().accordion({
 	        active: false,
 	        autoHeight: false,
 	        navigation: true,
@@ -51,11 +51,6 @@ function changeTextBox() {
 }
 
 
-
-
-
- 
-
 function validateform2() {
 
 	if ( ( !document.getElementById('excel').checked  ) && ( !document.getElementById('manually').checked  ) ) 
@@ -102,7 +97,7 @@ function validateform() {
 			return true;
 		}
 		 }else{
-			   alert("nothing is checked");
+			   alert("Nothing is checked");
 			   return false;
 			 }
 	}
@@ -162,3 +157,29 @@ function validateform() {
 			 
 		
 	}
+
+	function validateEmp() {
+
+		  var chx = document.getElementsByTagName('input');
+		  for (var i=0; i<chx.length; i++) {
+		   
+		    if (chx[i].type == 'radio' && chx[i].checked) {
+		      return true;
+		    } 
+		  }
+		  alert("Please select a radio button");
+		  return false;
+					
+	}
+	function validation() {
+		  var chx = document.getElementsByTagName('input');
+		  for (var i=0; i<chx.length; i++) {
+		   
+		    if (chx[i].type == 'radio' && chx[i].checked) {
+		      return true;
+		    } 
+		  }
+		  alert("Please select a radio button");
+		  return false;	
+		}
+	
