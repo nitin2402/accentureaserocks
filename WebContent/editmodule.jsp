@@ -99,7 +99,16 @@
 							</jstlcore:forEach>
 
 
-							<input type="submit" value="Change" style="margin-left: 123px" />
+							
+
+							<br></br> <br />
+							<div>
+								<input class="gobutton" type="submit" value="Change" />
+								<div style="padding-left: 186px; margin-top: -22px;">
+									<a class="gobutton" href="admintool.jsp">Back</a>
+								</div>
+
+							</div>
 
 							<br />
 						</form>
