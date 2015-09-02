@@ -76,16 +76,19 @@ if (session1 == null || (String)session1.getAttribute("user") == null || (String
 									<td>&nbsp; STATUS:</td>
 									<td><input type="text" name="status" value="YES"></input></td>
 								</tr>
-								<tr>
-									<td><input type="submit" value="SUBMIT"></input></td>
-
-									<td><input type="reset" value="RESET" name="clear"></input></td>
-								</tr>
+				
 
 
 
 							</table>
-
+	<br></br><br></br>
+						<div>
+								<input class="gobutton" type="submit" value="Submit" />	
+								 <input class="gobutton" type="reset" value="Reset" id="clear" name="clear"></input>
+								<div style="padding-left: 229px; margin-top: -23px;">
+									<a class="gobutton" href="admintool.jsp">Back</a>
+								</div>
+							</div>
 
 						</form>
 
