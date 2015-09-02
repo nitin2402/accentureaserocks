@@ -78,12 +78,12 @@ public class EditTeamFinal extends HttpServlet {
 			
 			
 			request.setAttribute("message","Team Updated");
-		request.getRequestDispatcher("viewteam.jsp").forward(request, response);
+		request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			}
 		if (a==0)
 		{
 			request.setAttribute("message","Team not Updated");
-			request.getRequestDispatcher("viewteam.jsp").forward(request, response);
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			}
 		}
 	}
