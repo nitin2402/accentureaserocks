@@ -74,13 +74,13 @@ public class EditModuleFinal extends HttpServlet {
 				reportupdatedto.setTimeStamp(timestamp);
 				reportupdatedto.setDates(sqlDate);
 				modulereportcontroller.updateModuleReport(reportupdatedto);
-				request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
+				request.getRequestDispatcher("admintool.jsp").forward(request, response);
 			}
 		}
 		if (a==0)
 		{
 			request.setAttribute("message","Module not Updated");
-			request.getRequestDispatcher("viewmodule.jsp").forward(request, response);
+			request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		}
 	
 	}
