@@ -610,7 +610,18 @@ table.table2 td {
 } */
 
 
-input.gobutton,.gobutton{
+a.gobutton:link, a.gobutton:VISITED{
+	color: #FFFFFF;
+	text-decoration: underline;
+	font-weight: normal;
+	}
+	
+a.gobutton:active, a.gobutton:HOVER {
+	color: #ffffff;
+	text-decoration: underline;
+	} 
+	
+input.gobutton{
 cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
 padding:5px 25px; /*add some padding to the inside of the button*/
 background:#8c5a11; /*the colour of the button*/
@@ -629,11 +640,42 @@ font-size:1.1em;
 margin:5px;
 }
 /***NOW STYLE THE BUTTON'S HOVER AND FOCUS STATES***/
-input.gobutton:hover,.gobutton:hover, input.gobutton:focus,.gobutton:focous{
-background-color :#f8d3c2; /*make the background a little darker*/
+input.gobutton:hover, input.gobutton:focus{
+background-color :#b5731a; /*make the background a little darker*/
 /*reduce the drop shadow size to give a pushed button effect*/
 -webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
 -moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
 box-shadow: 0 0 1px rgba(0,0,0, .75);
 }
+
+/*  button class for button not input type */
+.gobutton{
+cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+  padding: 7px 37px; /*add some padding to the inside of the button*/
+background:#8c5a11; /*the colour of the button*/
+border:1px solid #8c5a14; /*required or the default border for the browser will appear*/
+/*give the button curved corners, alter the size as required*/
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+/*give the button a drop shadow*/
+-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+box-shadow: 0 0 4px rgba(0,0,0, .75);
+/*style the text*/
+color:#f3f3f3;
+font-size:1.1em;
+ margin: 6px;
+  
+}
+/***NOW STYLE THE BUTTON'S HOVER AND FOCUS STATES***/
+.gobutton:hover,.gobutton:focus{
+background-color :#b5731a; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+
+
 /* end of footer */
