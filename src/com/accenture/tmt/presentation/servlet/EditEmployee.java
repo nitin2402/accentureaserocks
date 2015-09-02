@@ -118,13 +118,13 @@ public class EditEmployee extends HttpServlet {
 				}
 		request.setAttribute("message", "Record updated");
 		
-		request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
+		request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		}
 		else
 		{
 		request.setAttribute("message", "Update Failed");
 		
-		request.getRequestDispatcher("viewemployee.jsp").forward(request, response);
+		request.getRequestDispatcher("admintool.jsp").forward(request, response);
 		}
 	}
 
