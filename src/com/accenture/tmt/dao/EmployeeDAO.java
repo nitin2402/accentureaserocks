@@ -286,7 +286,7 @@ public class EmployeeDAO {
 			PreparedStatement stemp = con.prepareStatement(sqlemp);
 			stemp.setString(1, empId);
 
-			stemp.executeUpdate();
+			status=stemp.executeUpdate();
 
 		} finally {
 			con.commit();
