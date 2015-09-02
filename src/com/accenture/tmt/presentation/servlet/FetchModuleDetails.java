@@ -48,14 +48,14 @@ public class FetchModuleDetails extends HttpServlet {
 	String	exp = " <form action=\"EditModule\"><div id=\"scrollable\"><table class= \"table1\" border=\"1\" ><tr style=\"font-weight:bold\"><td></td><td>Module Name</td><td>Project Name</td><td>Module Description</td></tr>";
 
 		for (int i = 0; i < li.size(); i++) {
-			exp += "<tr><td><input type=\"radio\" name=\"moduleedit\" value=\""+li.get(i).getModuleId()+"\"></td><td>" + li.get(i).getModuleName()
+			exp += "<tr><td><input type=\"radio\"  name=\"moduleedit\" value=\""+li.get(i).getModuleId()+"\"></td><td>" + li.get(i).getModuleName()
 					+ "</td>";
 			exp += "<td>" + li.get(i).getProjectId() + "</td>" + "<td>"
 					+ li.get(i).getModuleDescription() + "</td>";
 			
 			exp += "</tr>";
 		}
-		exp += "</table></div><input type=\"submit\" class=\"gobutton\"  name=\"submit1\" value=\"Edit\">  <input type=\"submit\" class=\"gobutton\" name=\"submit2\" value=\"Delete\">";
+		exp += "</table></div><input type=\"submit\" class=\"gobutton\"  name=\"submit1\" value=\"Edit\" onclick=\"return validation()\">  <input type=\"submit\" class=\"gobutton\" name=\"submit2\" value=\"Delete\" onclick=\"return validation()\"></form>";
 		request.setAttribute("module", exp);
 	}
 
