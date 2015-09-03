@@ -8,7 +8,28 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery-1.3.2.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#active_page a').each(function(index) {
+        if(this.href.trim() == window.location)
+            $(this).addClass("selected");
+    });
+});
+</script>
+
+<style>
+.selected {      
+  	text-decoration: underline !important;
+    font-weight: bold !important; 
+}
+</style>
+
+
+
+	
+	
 </head>
 <body>
 
@@ -40,8 +61,8 @@
 			
 			<div class="content_left_section" style="font-size: 14px">
 				<div class="content_left_section_title">Projects</div>
-				<div class="content_left_section_content">
-				<ul>
+				<div class="content_left_section_content" >
+				<ul id="active_page">
 					<li><a href="project_tree.jsp?projectId=PR01" id="EstrategyCss">E-Strategy</a></li>
 						<li><a href="project_tree.jsp?projectId=PR02" id="R3Css">R3</a></li>
 						<li><a href="project_tree.jsp?projectId=PR03" id="PrimierCss">Premier</a></li>
